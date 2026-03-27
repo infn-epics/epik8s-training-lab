@@ -1,0 +1,325 @@
+# created automatically epik8s-gen (0.4.3) at 2024-11-11
+beamline: test
+namespace: test
+
+iocDefaults:
+  motor:
+    pva: true
+    charturl: 'https://github.com/infn-epics/ioc-chart.git'
+    autosync: false
+    devgroup: mot
+    opi: "motor-asyn/Motor_Main.bob"
+  adcamera:
+    charturl: 'https://github.com/infn-epics/ioc-chart.git'
+    devgroup: cam
+    devtype: camera
+    pva: true
+    enable_ingress: true
+    autosync: false
+    resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+    service:
+      http:
+        enable: true
+        port: 8082
+    stream_enable: true
+    iocprefix: "EUAPS:CAM"
+    env:
+        - name: "EPICS_CAS_INTF_ADDR_LIST"
+          value: "0.0.0.0"   ## bind CA server on all interfaces (required when multus is present)
+        - name: "EPICS_PVAS_INTF_ADDR_LIST"
+          value: "0.0.0.0"   ## bind PVA server on all interfaces (required when multus is present)
+    iocparam:
+        - name: "overlay_enable"
+          value: true
+        - name: "stats_enable"
+          value: true
+        - name: "proc_enable"
+          value: true
+        - name: "tiff_enable"
+          value: true
+        - name: "roi_enable"
+          value: true
+        - name: "stdarray_enable"
+          value: false
+    
+
+epicsConfiguration:
+  name: "epics-configuration" # name of existing configMap that set CA parameters
+  address_list: "" ## modulator
+  max_array_bytes: "10000000"
+  # conn_tmo: 120
+  services:
+    pvagateway:
+      asset: "Gateway for PVA external connections"
+      charturl: 'https://baltig.infn.it/epics-containers/ca-gateway-chart.git'
+      template: "pvagateway"
+      desc: "EPICS PVA Gateway "
+      
+    gateway:
+      asset: "Gateway for CA external connections"
+      charturl: 'https://baltig.infn.it/epics-containers/ca-gateway-chart.git'
+      template: "gateway"
+      # image:
+      #   tag: "v26.3.8b1"
+      desc: "EPICS CA Gateway EPICS_CA_ADDR_LIST to access EUAPS IOCs"
+      ingress:
+        enabled: false
+      loadbalancer: 192.168.108.231
+      nodeSelector:
+        lb-network-access: vlan-108
+      replicaCount: 1
+      auto_security: true
+      params:
+        # - name: "ignore_addr_list"
+        #   value: "10.42.17.0"
+        - name: "connect_timeout"
+          value: 5
+        - name: "inactive_timeout"
+          value: 300
+        - name: "dead_timeout"
+          value: 60
+        - name: "disconnect_timeout"
+          value: 10
+        - name: "reconnect_inhibit"
+          value: 60
+      autosync: true ## restart automatically on changes
+      
+    archiver:
+      asset: "Epics PV Archiver"
+      charturl: 'https://baltig.infn.it/epics-containers/epics-archiver-chart.git'
+      desc: "EPICS Archiver Appliance for EUAPS"
+      path: "/mgmt/ui/index.html"
+      replicaCount: 1
+      serviceAccount:
+        create: false
+        name: default
+      storage:
+        lts:
+          path: /storage/lts
+          size: 10Gi
+          claim: ""
+          accessMode: ReadWriteOnce
+        mts:
+          path: /storage/mts
+          size: 10Gi
+          claim: ""
+          accessMode: ReadWriteOnce
+        sts:
+          path: /storage/sts
+          size: 5Gi
+          claim: ""
+          accessMode: ReadWriteOnce
+        logs:
+          path: /storage/logs
+          size: 5Gi
+          claim: ""
+          accessMode: ReadWriteOnce
+      mysql:
+            host: mysql
+            dbname: arcappl
+            user: arcappl
+            pass: arcappl
+      enable_ingress: true
+      securityContext:
+            privileged: true
+            runAsUser: 0
+            runAsGroup: 1000
+      resources:
+            limits:
+              cpu: 999m
+              memory: 6Gi
+            requests:
+              cpu: 100m
+              memory: 4Gi
+      autosync: true ## restart automatically on changes
+      usegateway: true
+    
+    notebook:
+      asset: "Jupyther notebook enabled to access EPIK8s resources"
+      charturl: 'https://baltig.infn.it/epics-containers/jupyter-control-notebook-chart.git'
+      replicaCount: 1
+      gitRepoConfig:
+        url: https://baltig.infn.it/lnf-da-control/ecs-jupyter-control.git
+        path: .
+        branch: main
+        init: true
+      dataVolume:
+          claim:  ## an existing claim or empty will create a new one
+          size: 1Gi ## size of the claim
+          accessMode: ReadWriteOnce
+      enable_ingress: true
+      usegateway: true
+      autosync: false ## restart automatically on changes
+      pip:
+        - bluesky
+        - infn-ophyd-hal
+    pvws:
+      asset: "Phoebus WEB (experimental)"
+      loglevel: DEBUG
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
+      phoebusservice: "pvws"
+      auto_security: true
+      enable_ingress: true
+      autosync: false ## restart automatically on changes
+      env:
+        - name: "PV_WRITE_SUPPORT"
+          value: "true"
+      service:
+        loglevel: "INFO"
+      usegateway: true
+
+    mysql: 
+      asset: "Mysql(bitnami) Service primarly used for Epics Archiver"
+      name: mysql
+      charturl: registry-1.docker.io/bitnamicharts
+      targetRevision: '9.21.1'
+      chart: mysql
+      image:
+        repository: bitnamilegacy/mysql
+      auth:
+          rootPassword: "arcappl"
+          createDatabase: true
+          database: "arcappl"
+          username: "arcappl"
+          password: "arcappl"
+      primary:
+        persistence:
+          storageClass: nfs20t
+          size: 10Gi
+      serviceAccount:
+        create: false
+        name: "default"
+
+    
+  iocs:
+
+    - name: "thorlabs"
+      asset: "" # TODO add when available
+      template: "motor"
+      devtype: thorlabs
+      motor:
+        motorType: kim
+      iocprefix: "LAB:MOTOR" 
+      
+      zones: 
+        - LAB
+      iocparam:
+        - name: "server"
+          value: 192.176.66.100 #pldanteco120 
+        - name: "port"
+          value: "4001"  # TODO check
+      devices:
+          - name: "HMIR"
+            axid: 0
+            dllm: -1000000.0
+            dhlm: 1000000.0
+            home: 1
+            velo: 500
+            mres: 1
+          - name: "VMIR"
+            axid: 1
+            dllm: -1000000.0
+            dhlm: 1000000.0
+            home: 1
+            velo: 500
+            mres: 1
+          
+    
+    
+    - name: "camerasim"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
+      template: "adcamera"
+      devtype: camerasim
+
+      iocinit:
+        - name: "AcquirePeriod"
+          value: "1"
+        - name: "FrameRate"
+          value: "1"
+        - name: "FrameRateEnable"
+          value: "Yes"
+      
+      devices:
+        - name: "SIM01"
+          width: 1900
+          height: 1200
+          iocinit:
+          - name: "AcquirePeriod"
+            value: "1"
+          - name: "Gain"
+            value: "255"
+          - name: "SimMode"
+            value: "Peaks"
+          - name: "PeakStartX"
+            value: "250"
+          - name: "PeakStartY"
+            value: "200"
+          - name: "PeakWidthX"
+            value: "70"
+          - name: "PeakWidthY"
+            value: "50"
+          - name: "PeakVariation"
+            value: "10"
+          - name: "Stream1:EnableCallbacks"
+            value: "1"
+
+        
+
+    - name: "lasercam"
+      template: "adcamera"
+      networks:
+        - name: "vlan-115"
+          annotation: "euaps-cams"
+      devices:
+        - name: "FI5CAM02"
+          id: 192.176.66.101 # serial 40295676
+          buffers: 500
+          zones: 
+            - LAB            
+          iocinit:
+          - name: "AcquirePeriod"
+            value: "1"
+          - name: "Stream1:EnableCallbacks"
+            value: "1"
+
+    
+  
+  
+
+dashboard:
+  backend:
+    enabled: true
+
+nfsMounts:
+    - name: data
+      path: /tmp/data
+    - name: autosave
+      path: /tmp/autosave
+    - name: config
+      path: /tmp/config
+
+email:
+  from: "phoebus@localhost"
+  to: "phoebus@localhost"
+  smtp:
+    host: smtp.lnf.infn.it
+    port: 25
+    user: ""
+    password: ""
+    tls: false
+    starttls: false
+    auth: false
+
+syncPolicy:
+    automated:
+      prune: true  # Optional: Automatically remove resources not specified in Helm chart
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true 
+      - Prune=true
