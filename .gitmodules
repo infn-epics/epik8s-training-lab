@@ -1,0 +1,3 @@
+[submodule "ansible-epics-console-role"]
+	path = ansible-epics-console-role
+	url = https://baltig.infn.it/lnf-da-control/ansible-epics-console-role.git
