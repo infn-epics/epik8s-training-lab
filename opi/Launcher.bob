@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Launcher</name>
+  <width>1400</width>
+  <height>1040</height>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Magnet Synoptic</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display</name>
+            <file>sensors/synoptic.bob</file>
+            <x>8</x>
+            <y>42</y>
+            <width>1370</width>
+            <height>910</height>
+          </widget>
+          <widget type="databrowser" version="2.0.0">
+            <name>Data Browser</name>
+            <file>ini/plt/PosFromGamma_v2.plt</file>
+            <x>38</x>
+            <y>562</y>
+            <width>650</width>
+          </widget>
+          <widget type="databrowser" version="2.0.0">
+            <name>Uptime_Efficency</name>
+            <file>ini/plt/UptimeAndEfficiency_v2.plt</file>
+            <x>698</x>
+            <y>561</y>
+            <width>650</width>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Camera</name>
+        <children>
+          <widget type="action_button" version="3.0.0">
+            <name>CAM01</name>
+            <actions>
+              <action type="open_display">
+                <description>Camera Application</description>
+                <file>epik8s-opi/screen-camera-opi/CameraFull.bob</file>
+                <macros>
+                  <DEVICE>BTF:CAM</DEVICE>
+                  <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>Camera App</text>
+            <x>38</x>
+            <y>72</y>
+            <width>290</width>
+            <height>180</height>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>CAM01_1</name>
+            <actions>
+              <action type="open_display">
+                <description>Camera Application</description>
+                <file>epik8s-opi/unicam-opi/Camera.bob</file>
+                <macros>
+                  <DEVICE>BTF:CAM</DEVICE>
+                  <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+                  <GROUP>cam</GROUP>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>Camera Full App</text>
+            <x>368</x>
+            <y>72</y>
+            <width>290</width>
+            <height>180</height>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Motors</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>UniMotor</name>
+            <macros>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <GROUP>mot</GROUP>
+              <BOBITEM>mot_channel_asyn.bob</BOBITEM>
+              <BOBITEM2>mot_channel.bob</BOBITEM2>
+            </macros>
+            <x>8</x>
+            <y>2</y>
+            <width>1180</width>
+            <height>920</height>
+            <widget type="navtabs" version="2.0.0">
+              <name>Motor Navigation _1</name>
+              <tabs>
+                <tab>
+                  <name>BTF ALL</name>
+                  <file>epik8s-opi/unimot-opi/mot_array.bob</file>
+                  <macros>
+                    <ZONE>ALL</ZONE>
+                    <TYPE>ALL</TYPE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+              </tabs>
+              <x>2</x>
+              <y>2</y>
+              <width>910</width>
+              <height>880</height>
+              <direction>0</direction>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>Action Button_18</name>
+              <actions>
+                <action type="open_display">
+                  <description>Motors</description>
+                  <file>epik8s-opi/unimot-opi/motor-asyn/MotorAsyn.bob</file>
+                  <macros>
+                    <CONFFILE>../../../../deploy/values.yaml</CONFFILE>
+                    <ZONE>ALL</ZONE>
+                  </macros>
+                  <target>window</target>
+                </action>
+              </actions>
+              <x>922</x>
+              <y>162</y>
+              <width>200</width>
+              <height>160</height>
+              <tooltip>$(actions)</tooltip>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>Action Button_24</name>
+              <actions>
+                <action type="open_display">
+                  <description>Motors Asyn</description>
+                  <file>epik8s-opi/unimot-opi/mot_dynamic.bob</file>
+                  <macros>
+                    <OPI>motor-asyn/Motor_Main.bob</OPI>
+                    <BOBITEM>mot_channel_asyn.bob</BOBITEM>
+                  </macros>
+                  <target>window</target>
+                </action>
+              </actions>
+              <x>942</x>
+              <y>342</y>
+              <width>170</width>
+              <height>160</height>
+              <tooltip>$(actions)</tooltip>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Magnets</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>Unimag</name>
+            <macros>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <GROUP>mag</GROUP>
+            </macros>
+            <y>2</y>
+            <width>1168</width>
+            <height>970</height>
+            <widget type="navtabs" version="2.0.0">
+              <name>MagTabs</name>
+              <tabs>
+                <tab>
+                  <name>ALL</name>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
+                  <macros>
+                    <ZONE>ALL</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>BTFEH1</name>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
+                  <macros>
+                    <ZONE>BTFEH1</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>BTFEH2</name>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
+                  <macros>
+                    <ZONE>BTFEH2</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>TT</name>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
+                  <macros>
+                    <ZONE>TT</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>TM</name>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
+                  <macros>
+                    <ZONE>TM</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>TB</name>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
+                  <macros>
+                    <ZONE>TB</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+                <tab>
+                  <name>LINAC</name>
+                  <file>epik8s-opi/unimag-opi/mag.bob</file>
+                  <macros>
+                    <ZONE>LINAC</ZONE>
+                  </macros>
+                  <group_name></group_name>
+                </tab>
+              </tabs>
+              <y>2</y>
+              <width>1000</width>
+              <height>700</height>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>Action Button_19</name>
+              <actions>
+                <action type="open_display">
+                  <description>Magnets.</description>
+                  <file>epik8s-opi/unimag-opi/mag_dynamic.bob</file>
+                  <target>window</target>
+                </action>
+              </actions>
+              <x>770</x>
+              <y>2</y>
+              <width>150</width>
+              <height>70</height>
+              <tooltip>$(actions)</tooltip>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Test</name>
+        <children>
+          <widget type="navtabs" version="2.0.0">
+            <name>TEST Navigation</name>
+            <tabs>
+              <tab>
+                <name>TEST TML</name>
+                <file>common/motor-tml/motor-array-Main.bob</file>
+                <macros>
+                  <P>TEST:TML</P>
+                  <CONFFILE>../../ini/btf_mot.csv</CONFFILE>
+                  <ZONE>LAB</ZONE>
+                  <TYPE>ALL</TYPE>
+                </macros>
+                <group_name></group_name>
+              </tab>
+            </tabs>
+            <x>68</x>
+            <y>22</y>
+            <width>900</width>
+            <height>500</height>
+            <direction>0</direction>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button</name>
+            <actions>
+              <action type="open_display">
+                <description>CHHTB201</description>
+                <file>MAG/caenels-opi/easydriver/EasyDriver.bob</file>
+                <macros>
+                  <P>BTF:</P>
+                  <R>CHHTB201:</R>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>CaenelsTest</text>
+            <x>68</x>
+            <y>542</y>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>PTU</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>PTU File</name>
+            <file>sensors/PTU.bob</file>
+            <x>28</x>
+            <y>22</y>
+            <width>1360</width>
+            <height>930</height>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>BTF Vacuum</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_2</name>
+            <file>sensors/Vacuum.bob</file>
+            <x>18</x>
+            <y>22</y>
+            <width>1360</width>
+            <height>920</height>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>LINAC CAM</name>
+        <children>
+          <widget type="navtabs" version="2.0.0">
+            <name>Navigation Tabs</name>
+            <tabs>
+              <tab>
+                <name>FLAG</name>
+                <file>common/camera/Camera_Main.bob</file>
+                <macros>
+                  <DEVICE>LINAC:FLAG</DEVICE>
+                  <CAM>CAM01</CAM>
+                </macros>
+                <group_name></group_name>
+              </tab>
+            </tabs>
+            <y>2</y>
+            <width>1348</width>
+            <height>930</height>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Gauss Probe</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_1</name>
+            <file>sensors/magnetProbes.bob</file>
+            <x>8</x>
+            <y>2</y>
+            <width>1380</width>
+            <height>870</height>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <y>120</y>
+    <width>1400</width>
+    <height>1010</height>
+    <background_color>
+      <color red="214" green="223" blue="225">
+      </color>
+    </background_color>
+    <active_tab>2</active_tab>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>Label</class>
+    <text>BTF CONTROL SYSTEM</text>
+    <y>30</y>
+    <width>340</width>
+    <height>40</height>
+    <font>
+      <font family="Algerian" style="BOLD" size="26.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Picture</name>
+    <file>img/BTflogo.png</file>
+    <x>1220</x>
+    <y>10</y>
+  </widget>
+</display>
