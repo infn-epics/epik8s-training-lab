@@ -13,10 +13,10 @@ iocDefaults:
     charturl: 'https://github.com/infn-epics/ioc-chart.git'
     devgroup: cam
     devtype: camera
+    template: "adcamera"
     pva: true
     enable_ingress: true
     autosync: false
-    hostNetwork: true
     resources:
             limits:
               cpu: 500m
@@ -28,8 +28,6 @@ iocDefaults:
       http:
         enable: true
         port: 8082
-    stream_enable: true
-    iocprefix: "EUAPS:CAM"
     env:
         - name: "EPICS_CAS_INTF_ADDR_LIST"
           value: "0.0.0.0"   ## bind CA server on all interfaces (required when multus is present)
@@ -48,12 +46,17 @@ iocDefaults:
           value: true
         - name: "stdarray_enable"
           value: false
+        - name: "stream2_enable"
+          value: true
     
 
 epicsConfiguration:
   name: "epics-configuration" # name of existing configMap that set CA parameters
   address_list: "" ## modulator
   max_array_bytes: "10000000"
+  privateNetwork:
+    enabled: true
+    name: epics-private
   # conn_tmo: 120
   services:
     pvagateway:
@@ -61,38 +64,71 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ca-gateway-chart.git'
       template: "pvagateway"
       desc: "EPICS PVA Gateway "
-      
-    gateway:
-      asset: "Gateway for CA external connections"
-      charturl: 'https://baltig.infn.it/epics-containers/ca-gateway-chart.git'
-      template: "gateway"
-      # image:
-      #   tag: "v26.3.8b1"
-      desc: "EPICS CA Gateway EPICS_CA_ADDR_LIST to access EUAPS IOCs"
-      ingress:
-        enabled: false
-      loadbalancer: 192.168.108.231
-      nodeSelector:
-        lb-network-access: vlan-108
+      loadbalancer: 192.168.108.230
+
+    notebook:
+      charturl: https://baltig.infn.it/epics-containers/jupyter-chart.git
       replicaCount: 1
-      auto_security: true
-      params:
-        # - name: "ignore_addr_list"
-        #   value: "10.42.17.0"
-        - name: "connect_timeout"
-          value: 5
-        - name: "inactive_timeout"
-          value: 300
-        - name: "dead_timeout"
-          value: 60
-        - name: "disconnect_timeout"
-          value: 10
-        - name: "reconnect_inhibit"
-          value: 60
-      autosync: true ## restart automatically on changes
+      gitRepoConfig:
+        url: https://baltig.infn.it/lnf-da-control/ecs-jupyter-control.git
+        path: .
+        branch: main
+        init: true
+      enable_ingress: true
+      usegateway: true
+      autosync: false
+      pip:
+        - bluesky
+        - infn-ophyd-hal
+        - p4p
+    # gateway:
+    #   asset: "Gateway for CA external connections"
+    #   charturl: 'https://baltig.infn.it/epics-containers/ca-gateway-chart.git'
+    #   template: "gateway"
+    #   # image:
+    #   #   tag: "v26.3.8b1"
+    #   desc: "EPICS CA Gateway EPICS_CA_ADDR_LIST to access EUAPS IOCs"
+    #   ingress:
+    #     enabled: false
+    #   loadbalancer: 192.168.108.231
+      
+    #   replicaCount: 1
+    #   auto_security: true
+    #   params:
+    #     # - name: "ignore_addr_list"
+    #     #   value: "10.42.17.0"
+    #     - name: "connect_timeout"
+    #       value: 5
+    #     - name: "inactive_timeout"
+    #       value: 300
+    #     - name: "dead_timeout"
+    #       value: 60
+    #     - name: "disconnect_timeout"
+    #       value: 10
+    #     - name: "reconnect_inhibit"
+    #       value: 60
+    #   autosync: true ## restart automatically on changes
       
     
   iocs:
+    - name: "lasercam"
+      template: "adcamera"
+      iocprefix: "LAB:REAL"
+      #hostNetwork: true
+      zones: 
+        - LAB
+      networks:
+        - name: "vlan-115"
+          annotation: "euaps-cams"
+      devices:
+        - name: "CAM01"
+          id: 192.176.66.101 # serial 40295676
+          buffers: 500           
+          iocinit:
+          - name: "AcquirePeriod"
+            value: "1"
+          - name: "Stream1:EnableCallbacks"
+            value: "1"
 
     - name: "thorlabs"
       asset: "" # TODO add when available
@@ -100,7 +136,7 @@ epicsConfiguration:
       devtype: thorlabs
       motor:
         motorType: kim
-      iocprefix: "LAB:MOTOR" 
+      iocprefix: "LAB:REAL:MOTOR" 
       
       zones: 
         - LAB
@@ -129,19 +165,23 @@ epicsConfiguration:
     - name: "motorsim"
       template: "motor"
       devtype: motorsim
-      iocprefix: "LAB:MOTORSIM"
+      iocprefix: "LAB:SIM"
+      zones: 
+        - SIMLAB
       devices:
-        - name: "AX01"
+        - name: "HMIR"
           axid: 0
           dllm: -100.0
           dhlm: 100.0
           velo: 10.0
+          mres: 0.01
           egu: mm
-        - name: "AX02"
+        - name: "VMIR"
           axid: 1
           dllm: -100.0
           dhlm: 100.0
           velo: 10.0
+          mres: 0.01
           egu: mm
 
     
@@ -149,7 +189,9 @@ epicsConfiguration:
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
       template: "adcamera"
       devtype: camerasim
-
+      iocprefix: "LAB:SIM"
+      zones: 
+        - SIMLAB
       iocinit:
         - name: "AcquirePeriod"
           value: "1"
@@ -159,7 +201,7 @@ epicsConfiguration:
           value: "Yes"
       
       devices:
-        - name: "SIM01"
+        - name: "CAM01"
           width: 1900
           height: 1200
           iocinit:
@@ -183,27 +225,63 @@ epicsConfiguration:
             value: "1"
 
         
+    - name: "simtwin"
+      devtype: softioc
+      pvaDiscovery: false
+      iocprefix: "LAB:SIM:TWIN"
+      zones: 
+        - SIMLAB
+      iocdir: "simtwin"
+      iocparam:
+        - name: "HMIR"
+          value: "LAB:SIM:HMIR"
+        - name: "VMIR"
+          value: "LAB:SIM:VMIR"
+        - name: "CAM"
+          value: "LAB:SIM:CAM01"
 
-    - name: "lasercam"
-      template: "adcamera"
-      networks:
-        - name: "vlan-115"
-          annotation: "euaps-cams"
-      devices:
-        - name: "FI5CAM02"
-          id: 192.176.66.101 # serial 40295676
-          buffers: 500
-          zones: 
-            - LAB            
-          iocinit:
-          - name: "AcquirePeriod"
-            value: "1"
-          - name: "Stream1:EnableCallbacks"
-            value: "1"
+    - name: "overlay-sim-rnd"
+      devtype: softioc
+      pvaDiscovery: false
+      iocprefix: "LAB:SIM:OVERLAY_RND"
+      zones: 
+        - SIMLAB
+      iocdir: "overlay_rnd"
+      iocparam:
+        - name: "CAM"
+          value: "LAB:SIM:CAM01"
+        - name: "PREFIX"
+          value: "LAB:SIM:OVERLAY_RND"
 
-    
-  
-  
+    - name: "overlay-real-rnd"
+      devtype: softioc
+      pvaDiscovery: false
+      iocprefix: "LAB:REAL:OVERLAY_RND"
+      zones: 
+        - REALLAB
+      iocdir: "overlay_rnd"
+      iocparam:
+        - name: "CAM"
+          value: "LAB:REAL:CAM01"
+        - name: "PREFIX"
+          value: "LAB:REAL:OVERLAY_RND"
+
+    - name: "beam-center-sim"
+      devtype: softioc
+      pvaDiscovery: false
+      iocprefix: "LAB:SIM:BEAM_CENTER"
+      zones:
+        - SIMLAB
+      iocdir: "beam_center"
+      iocparam:
+        - name: "CAM"
+          value: "LAB:SIM:CAM01"
+        - name: "MOTX"
+          value: "LAB:SIM:HMIR"
+        - name: "MOTY"
+          value: "LAB:SIM:VMIR"
+        - name: "PREFIX"
+          value: "LAB:SIM:BEAM_CENTER"
 
 dashboard:
   backend:

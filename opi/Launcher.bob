@@ -1,385 +1,1206 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<display version="2.0.0">
-  <name>Launcher</name>
-  <width>1400</width>
-  <height>1040</height>
-  <widget type="tabs" version="2.0.0">
-    <name>Tabs</name>
-    <tabs>
-      <tab>
-        <name>Magnet Synoptic</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Embedded Display</name>
-            <file>sensors/synoptic.bob</file>
-            <x>8</x>
-            <y>42</y>
-            <width>1370</width>
-            <height>910</height>
-          </widget>
-          <widget type="databrowser" version="2.0.0">
-            <name>Data Browser</name>
-            <file>ini/plt/PosFromGamma_v2.plt</file>
-            <x>38</x>
-            <y>562</y>
-            <width>650</width>
-          </widget>
-          <widget type="databrowser" version="2.0.0">
-            <name>Uptime_Efficency</name>
-            <file>ini/plt/UptimeAndEfficiency_v2.plt</file>
-            <x>698</x>
-            <y>561</y>
-            <width>650</width>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Camera</name>
-        <children>
-          <widget type="action_button" version="3.0.0">
-            <name>CAM01</name>
-            <actions>
-              <action type="open_display">
-                <description>Camera Application</description>
-                <file>epik8s-opi/screen-camera-opi/CameraFull.bob</file>
-                <macros>
-                  <DEVICE>BTF:CAM</DEVICE>
-                  <CONFFILE>../../../deploy/values.yaml</CONFFILE>
-                </macros>
-                <target>window</target>
-              </action>
-            </actions>
-            <text>Camera App</text>
-            <x>38</x>
-            <y>72</y>
-            <width>290</width>
-            <height>180</height>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>CAM01_1</name>
-            <actions>
-              <action type="open_display">
-                <description>Camera Application</description>
-                <file>epik8s-opi/unicam-opi/Camera.bob</file>
-                <macros>
-                  <DEVICE>BTF:CAM</DEVICE>
-                  <CONFFILE>../../../deploy/values.yaml</CONFFILE>
-                  <GROUP>cam</GROUP>
-                </macros>
-                <target>window</target>
-              </action>
-            </actions>
-            <text>Camera Full App</text>
-            <x>368</x>
-            <y>72</y>
-            <width>290</width>
-            <height>180</height>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Motors</name>
-        <children>
-          <widget type="group" version="3.0.0">
-            <name>UniMotor</name>
-            <macros>
-              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
-              <GROUP>mot</GROUP>
-              <BOBITEM>mot_channel_asyn.bob</BOBITEM>
-              <BOBITEM2>mot_channel.bob</BOBITEM2>
-            </macros>
-            <x>8</x>
-            <y>2</y>
-            <width>1180</width>
-            <height>920</height>
-            <widget type="navtabs" version="2.0.0">
-              <name>Motor Navigation _1</name>
-              <tabs>
-                <tab>
-                  <name>BTF ALL</name>
-                  <file>epik8s-opi/unimot-opi/mot_array.bob</file>
-                  <macros>
-                    <ZONE>ALL</ZONE>
-                    <TYPE>ALL</TYPE>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-              </tabs>
-              <x>2</x>
-              <y>2</y>
-              <width>910</width>
-              <height>880</height>
-              <direction>0</direction>
-            </widget>
-            <widget type="action_button" version="3.0.0">
-              <name>Action Button_18</name>
-              <actions>
-                <action type="open_display">
-                  <description>Motors</description>
-                  <file>epik8s-opi/unimot-opi/motor-asyn/MotorAsyn.bob</file>
-                  <macros>
-                    <CONFFILE>../../../../deploy/values.yaml</CONFFILE>
-                    <ZONE>ALL</ZONE>
-                  </macros>
-                  <target>window</target>
-                </action>
-              </actions>
-              <x>922</x>
-              <y>162</y>
-              <width>200</width>
-              <height>160</height>
-              <tooltip>$(actions)</tooltip>
-            </widget>
-            <widget type="action_button" version="3.0.0">
-              <name>Action Button_24</name>
-              <actions>
-                <action type="open_display">
-                  <description>Motors Asyn</description>
-                  <file>epik8s-opi/unimot-opi/mot_dynamic.bob</file>
-                  <macros>
-                    <OPI>motor-asyn/Motor_Main.bob</OPI>
-                    <BOBITEM>mot_channel_asyn.bob</BOBITEM>
-                  </macros>
-                  <target>window</target>
-                </action>
-              </actions>
-              <x>942</x>
-              <y>342</y>
-              <width>170</width>
-              <height>160</height>
-              <tooltip>$(actions)</tooltip>
-            </widget>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Magnets</name>
-        <children>
-          <widget type="group" version="3.0.0">
-            <name>Unimag</name>
-            <macros>
-              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
-              <GROUP>mag</GROUP>
-            </macros>
-            <y>2</y>
-            <width>1168</width>
-            <height>970</height>
-            <widget type="navtabs" version="2.0.0">
-              <name>MagTabs</name>
-              <tabs>
-                <tab>
-                  <name>ALL</name>
-                  <file>epik8s-opi/unimag-opi/mag.bob</file>
-                  <macros>
-                    <ZONE>ALL</ZONE>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>BTFEH1</name>
-                  <file>epik8s-opi/unimag-opi/mag.bob</file>
-                  <macros>
-                    <ZONE>BTFEH1</ZONE>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>BTFEH2</name>
-                  <file>epik8s-opi/unimag-opi/mag.bob</file>
-                  <macros>
-                    <ZONE>BTFEH2</ZONE>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>TT</name>
-                  <file>epik8s-opi/unimag-opi/mag.bob</file>
-                  <macros>
-                    <ZONE>TT</ZONE>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>TM</name>
-                  <file>epik8s-opi/unimag-opi/mag.bob</file>
-                  <macros>
-                    <ZONE>TM</ZONE>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>TB</name>
-                  <file>epik8s-opi/unimag-opi/mag.bob</file>
-                  <macros>
-                    <ZONE>TB</ZONE>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-                <tab>
-                  <name>LINAC</name>
-                  <file>epik8s-opi/unimag-opi/mag.bob</file>
-                  <macros>
-                    <ZONE>LINAC</ZONE>
-                  </macros>
-                  <group_name></group_name>
-                </tab>
-              </tabs>
-              <y>2</y>
-              <width>1000</width>
-              <height>700</height>
-            </widget>
-            <widget type="action_button" version="3.0.0">
-              <name>Action Button_19</name>
-              <actions>
-                <action type="open_display">
-                  <description>Magnets.</description>
-                  <file>epik8s-opi/unimag-opi/mag_dynamic.bob</file>
-                  <target>window</target>
-                </action>
-              </actions>
-              <x>770</x>
-              <y>2</y>
-              <width>150</width>
-              <height>70</height>
-              <tooltip>$(actions)</tooltip>
-            </widget>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Test</name>
-        <children>
-          <widget type="navtabs" version="2.0.0">
-            <name>TEST Navigation</name>
-            <tabs>
-              <tab>
-                <name>TEST TML</name>
-                <file>common/motor-tml/motor-array-Main.bob</file>
-                <macros>
-                  <P>TEST:TML</P>
-                  <CONFFILE>../../ini/btf_mot.csv</CONFFILE>
-                  <ZONE>LAB</ZONE>
-                  <TYPE>ALL</TYPE>
-                </macros>
-                <group_name></group_name>
-              </tab>
-            </tabs>
-            <x>68</x>
-            <y>22</y>
-            <width>900</width>
-            <height>500</height>
-            <direction>0</direction>
-          </widget>
-          <widget type="action_button" version="3.0.0">
-            <name>Action Button</name>
-            <actions>
-              <action type="open_display">
-                <description>CHHTB201</description>
-                <file>MAG/caenels-opi/easydriver/EasyDriver.bob</file>
-                <macros>
-                  <P>BTF:</P>
-                  <R>CHHTB201:</R>
-                </macros>
-                <target>window</target>
-              </action>
-            </actions>
-            <text>CaenelsTest</text>
-            <x>68</x>
-            <y>542</y>
-            <tooltip>$(actions)</tooltip>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>PTU</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>PTU File</name>
-            <file>sensors/PTU.bob</file>
-            <x>28</x>
-            <y>22</y>
-            <width>1360</width>
-            <height>930</height>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>BTF Vacuum</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Embedded Display_2</name>
-            <file>sensors/Vacuum.bob</file>
-            <x>18</x>
-            <y>22</y>
-            <width>1360</width>
-            <height>920</height>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>LINAC CAM</name>
-        <children>
-          <widget type="navtabs" version="2.0.0">
-            <name>Navigation Tabs</name>
-            <tabs>
-              <tab>
-                <name>FLAG</name>
-                <file>common/camera/Camera_Main.bob</file>
-                <macros>
-                  <DEVICE>LINAC:FLAG</DEVICE>
-                  <CAM>CAM01</CAM>
-                </macros>
-                <group_name></group_name>
-              </tab>
-            </tabs>
-            <y>2</y>
-            <width>1348</width>
-            <height>930</height>
-          </widget>
-        </children>
-      </tab>
-      <tab>
-        <name>Gauss Probe</name>
-        <children>
-          <widget type="embedded" version="2.0.0">
-            <name>Embedded Display_1</name>
-            <file>sensors/magnetProbes.bob</file>
-            <x>8</x>
-            <y>2</y>
-            <width>1380</width>
-            <height>870</height>
-          </widget>
-        </children>
-      </tab>
-    </tabs>
-    <y>120</y>
-    <width>1400</width>
-    <height>1010</height>
-    <background_color>
-      <color red="214" green="223" blue="225">
-      </color>
-    </background_color>
-    <active_tab>2</active_tab>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label</name>
-    <class>Label</class>
-    <text>BTF CONTROL SYSTEM</text>
-    <y>30</y>
-    <width>340</width>
-    <height>40</height>
-    <font>
-      <font family="Algerian" style="BOLD" size="26.0">
-      </font>
-    </font>
-    <horizontal_alignment>1</horizontal_alignment>
-  </widget>
-  <widget type="picture" version="2.0.0">
-    <name>Picture</name>
-    <file>img/BTflogo.png</file>
-    <x>1220</x>
-    <y>10</y>
-  </widget>
-</display>
+  <display version="2.0.0">
+    <name>TEST Launcher</name>
+    <width>1900</width>
+    <height>1400</height>
+    <widget type="group" version="3.0.0">
+      <name>header</name>
+      <x>0</x>
+      <y>0</y>
+      <width>1900</width>
+      <height>60</height>
+      <style>3</style>
+      <widget type="rectangle" version="2.0.0">
+        <name>header-bg</name>
+        <x>0</x>
+        <y>0</y>
+        <width>1900</width>
+        <height>60</height>
+        <background_color>
+          <color red="30" blue="110" green="60" alpha="255"/>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>header-title</name>
+        <x>10</x>
+        <y>8</y>
+        <width>1600</width>
+        <height>28</height>
+        <text>TEST — 5 IOCs</text>
+        <font>
+          <font family="Liberation Sans" size="20" style="BOLD"/>
+        </font>
+        <foreground_color>
+          <color red="255" blue="255" green="255" alpha="255"/>
+        </foreground_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>header-sub</name>
+        <x>10</x>
+        <y>34</y>
+        <width>1600</width>
+        <height>20</height>
+        <text>namespace: test  |  devices: 6</text>
+        <font>
+          <font family="Liberation Sans" size="12" style="REGULAR"/>
+        </font>
+        <foreground_color>
+          <color red="200" blue="230" green="210" alpha="255"/>
+        </foreground_color>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>dashboard-body</name>
+      <x>0</x>
+      <y>60</y>
+      <width>1900</width>
+      <height>1340</height>
+      <style>3</style>
+      <widget type="group" version="3.0.0">
+        <name>sh-mot</name>
+        <x>10</x>
+        <y>10</y>
+        <width>1880</width>
+        <height>32</height>
+        <style>3</style>
+        <widget type="rectangle" version="2.0.0">
+          <name>shbg-mot</name>
+          <x>0</x>
+          <y>0</y>
+          <width>1880</width>
+          <height>32</height>
+          <background_color>
+            <color red="220" blue="235" green="225" alpha="255"/>
+          </background_color>
+        </widget>
+        <widget type="label" version="2.0.0">
+          <name>shl-mot</name>
+          <x>0</x>
+          <y>4</y>
+          <width>500</width>
+          <height>24</height>
+          <text>  Motors  (4 devices)</text>
+          <font>
+            <font family="Liberation Sans" size="15" style="BOLD"/>
+          </font>
+          <foreground_color>
+            <color red="30" blue="110" green="60" alpha="255"/>
+          </foreground_color>
+        </widget>
+      </widget>
+      <widget type="tabs" version="2.0.0">
+        <name>zone-tabs-mot</name>
+        <x>10</x>
+        <y>50</y>
+        <width>1880</width>
+        <height>310</height>
+        <tabs>
+          <tab>
+            <name>ALL</name>
+            <children>
+              <widget type="group" version="3.0.0">
+                <name>mot-all</name>
+                <x>0</x>
+                <y>0</y>
+                <width>1880</width>
+                <height>260</height>
+                <style>3</style>
+                <widget type="group" version="3.0.0">
+                  <name>row-mot-mot-all-0</name>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>1880</width>
+                  <height>59</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-mot-mot-all-0</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>59</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>emb-mot-mot-all-0</name>
+                    <x>8</x>
+                    <y>4</y>
+                    <width>800</width>
+                    <height>51</height>
+                    <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+                    <resize>0</resize>
+                    <macros>
+                      <P>LAB:REAL:MOTOR</P>
+                      <R>HMIR</R>
+                      <NAME>HMIR</NAME>
+                      <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                      <CAM>HMIR</CAM>
+                      <TYPE>thorlabs</TYPE>
+                      <ZONE>LAB</ZONE>
+                      <OPI>motor-asyn/Motor_Main.bob</OPI>
+                    </macros>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-mot-mot-all-0</name>
+                    <x>820</x>
+                    <y>14</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open HMIR</description>
+                        <macros>
+                          <P>LAB:REAL:MOTOR</P>
+                          <R>HMIR</R>
+                          <NAME>HMIR</NAME>
+                          <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                          <CAM>HMIR</CAM>
+                          <TYPE>thorlabs</TYPE>
+                          <ZONE>LAB</ZONE>
+                          <OPI>motor-asyn/Motor_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+                <widget type="group" version="3.0.0">
+                  <name>row-mot-mot-all-1</name>
+                  <x>0</x>
+                  <y>67</y>
+                  <width>1880</width>
+                  <height>59</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-mot-mot-all-1</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>59</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>emb-mot-mot-all-1</name>
+                    <x>8</x>
+                    <y>4</y>
+                    <width>800</width>
+                    <height>51</height>
+                    <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+                    <resize>0</resize>
+                    <macros>
+                      <P>LAB:REAL:MOTOR</P>
+                      <R>VMIR</R>
+                      <NAME>VMIR</NAME>
+                      <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                      <CAM>VMIR</CAM>
+                      <TYPE>thorlabs</TYPE>
+                      <ZONE>LAB</ZONE>
+                      <OPI>motor-asyn/Motor_Main.bob</OPI>
+                    </macros>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-mot-mot-all-1</name>
+                    <x>820</x>
+                    <y>14</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open VMIR</description>
+                        <macros>
+                          <P>LAB:REAL:MOTOR</P>
+                          <R>VMIR</R>
+                          <NAME>VMIR</NAME>
+                          <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                          <CAM>VMIR</CAM>
+                          <TYPE>thorlabs</TYPE>
+                          <ZONE>LAB</ZONE>
+                          <OPI>motor-asyn/Motor_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+                <widget type="group" version="3.0.0">
+                  <name>row-mot-mot-all-2</name>
+                  <x>0</x>
+                  <y>134</y>
+                  <width>1880</width>
+                  <height>59</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-mot-mot-all-2</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>59</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>emb-mot-mot-all-2</name>
+                    <x>8</x>
+                    <y>4</y>
+                    <width>800</width>
+                    <height>51</height>
+                    <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+                    <resize>0</resize>
+                    <macros>
+                      <P>LAB:SIM</P>
+                      <R>HMIR</R>
+                      <NAME>HMIR</NAME>
+                      <DEVICE>LAB:SIM</DEVICE>
+                      <CAM>HMIR</CAM>
+                      <TYPE>motorsim</TYPE>
+                      <ZONE>SIMLAB</ZONE>
+                      <OPI>motor-asyn/Motor_Main.bob</OPI>
+                    </macros>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-mot-mot-all-2</name>
+                    <x>820</x>
+                    <y>14</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open HMIR</description>
+                        <macros>
+                          <P>LAB:SIM</P>
+                          <R>HMIR</R>
+                          <NAME>HMIR</NAME>
+                          <DEVICE>LAB:SIM</DEVICE>
+                          <CAM>HMIR</CAM>
+                          <TYPE>motorsim</TYPE>
+                          <ZONE>SIMLAB</ZONE>
+                          <OPI>motor-asyn/Motor_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+                <widget type="group" version="3.0.0">
+                  <name>row-mot-mot-all-3</name>
+                  <x>0</x>
+                  <y>201</y>
+                  <width>1880</width>
+                  <height>59</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-mot-mot-all-3</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>59</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>emb-mot-mot-all-3</name>
+                    <x>8</x>
+                    <y>4</y>
+                    <width>800</width>
+                    <height>51</height>
+                    <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+                    <resize>0</resize>
+                    <macros>
+                      <P>LAB:SIM</P>
+                      <R>VMIR</R>
+                      <NAME>VMIR</NAME>
+                      <DEVICE>LAB:SIM</DEVICE>
+                      <CAM>VMIR</CAM>
+                      <TYPE>motorsim</TYPE>
+                      <ZONE>SIMLAB</ZONE>
+                      <OPI>motor-asyn/Motor_Main.bob</OPI>
+                    </macros>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-mot-mot-all-3</name>
+                    <x>820</x>
+                    <y>14</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open VMIR</description>
+                        <macros>
+                          <P>LAB:SIM</P>
+                          <R>VMIR</R>
+                          <NAME>VMIR</NAME>
+                          <DEVICE>LAB:SIM</DEVICE>
+                          <CAM>VMIR</CAM>
+                          <TYPE>motorsim</TYPE>
+                          <ZONE>SIMLAB</ZONE>
+                          <OPI>motor-asyn/Motor_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+              </widget>
+            </children>
+          </tab>
+          <tab>
+            <name>LAB</name>
+            <children>
+              <widget type="group" version="3.0.0">
+                <name>mot-lab</name>
+                <x>0</x>
+                <y>0</y>
+                <width>1880</width>
+                <height>126</height>
+                <style>3</style>
+                <widget type="group" version="3.0.0">
+                  <name>row-mot-mot-lab-0</name>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>1880</width>
+                  <height>59</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-mot-mot-lab-0</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>59</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>emb-mot-mot-lab-0</name>
+                    <x>8</x>
+                    <y>4</y>
+                    <width>800</width>
+                    <height>51</height>
+                    <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+                    <resize>0</resize>
+                    <macros>
+                      <P>LAB:REAL:MOTOR</P>
+                      <R>HMIR</R>
+                      <NAME>HMIR</NAME>
+                      <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                      <CAM>HMIR</CAM>
+                      <TYPE>thorlabs</TYPE>
+                      <ZONE>LAB</ZONE>
+                      <OPI>motor-asyn/Motor_Main.bob</OPI>
+                    </macros>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-mot-mot-lab-0</name>
+                    <x>820</x>
+                    <y>14</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open HMIR</description>
+                        <macros>
+                          <P>LAB:REAL:MOTOR</P>
+                          <R>HMIR</R>
+                          <NAME>HMIR</NAME>
+                          <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                          <CAM>HMIR</CAM>
+                          <TYPE>thorlabs</TYPE>
+                          <ZONE>LAB</ZONE>
+                          <OPI>motor-asyn/Motor_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+                <widget type="group" version="3.0.0">
+                  <name>row-mot-mot-lab-1</name>
+                  <x>0</x>
+                  <y>67</y>
+                  <width>1880</width>
+                  <height>59</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-mot-mot-lab-1</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>59</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>emb-mot-mot-lab-1</name>
+                    <x>8</x>
+                    <y>4</y>
+                    <width>800</width>
+                    <height>51</height>
+                    <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+                    <resize>0</resize>
+                    <macros>
+                      <P>LAB:REAL:MOTOR</P>
+                      <R>VMIR</R>
+                      <NAME>VMIR</NAME>
+                      <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                      <CAM>VMIR</CAM>
+                      <TYPE>thorlabs</TYPE>
+                      <ZONE>LAB</ZONE>
+                      <OPI>motor-asyn/Motor_Main.bob</OPI>
+                    </macros>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-mot-mot-lab-1</name>
+                    <x>820</x>
+                    <y>14</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open VMIR</description>
+                        <macros>
+                          <P>LAB:REAL:MOTOR</P>
+                          <R>VMIR</R>
+                          <NAME>VMIR</NAME>
+                          <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                          <CAM>VMIR</CAM>
+                          <TYPE>thorlabs</TYPE>
+                          <ZONE>LAB</ZONE>
+                          <OPI>motor-asyn/Motor_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+              </widget>
+            </children>
+          </tab>
+          <tab>
+            <name>SIMLAB</name>
+            <children>
+              <widget type="group" version="3.0.0">
+                <name>mot-simlab</name>
+                <x>0</x>
+                <y>0</y>
+                <width>1880</width>
+                <height>126</height>
+                <style>3</style>
+                <widget type="group" version="3.0.0">
+                  <name>row-mot-mot-simlab-0</name>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>1880</width>
+                  <height>59</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-mot-mot-simlab-0</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>59</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>emb-mot-mot-simlab-0</name>
+                    <x>8</x>
+                    <y>4</y>
+                    <width>800</width>
+                    <height>51</height>
+                    <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+                    <resize>0</resize>
+                    <macros>
+                      <P>LAB:SIM</P>
+                      <R>HMIR</R>
+                      <NAME>HMIR</NAME>
+                      <DEVICE>LAB:SIM</DEVICE>
+                      <CAM>HMIR</CAM>
+                      <TYPE>motorsim</TYPE>
+                      <ZONE>SIMLAB</ZONE>
+                      <OPI>motor-asyn/Motor_Main.bob</OPI>
+                    </macros>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-mot-mot-simlab-0</name>
+                    <x>820</x>
+                    <y>14</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open HMIR</description>
+                        <macros>
+                          <P>LAB:SIM</P>
+                          <R>HMIR</R>
+                          <NAME>HMIR</NAME>
+                          <DEVICE>LAB:SIM</DEVICE>
+                          <CAM>HMIR</CAM>
+                          <TYPE>motorsim</TYPE>
+                          <ZONE>SIMLAB</ZONE>
+                          <OPI>motor-asyn/Motor_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+                <widget type="group" version="3.0.0">
+                  <name>row-mot-mot-simlab-1</name>
+                  <x>0</x>
+                  <y>67</y>
+                  <width>1880</width>
+                  <height>59</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-mot-mot-simlab-1</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>59</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="embedded" version="2.0.0">
+                    <name>emb-mot-mot-simlab-1</name>
+                    <x>8</x>
+                    <y>4</y>
+                    <width>800</width>
+                    <height>51</height>
+                    <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+                    <resize>0</resize>
+                    <macros>
+                      <P>LAB:SIM</P>
+                      <R>VMIR</R>
+                      <NAME>VMIR</NAME>
+                      <DEVICE>LAB:SIM</DEVICE>
+                      <CAM>VMIR</CAM>
+                      <TYPE>motorsim</TYPE>
+                      <ZONE>SIMLAB</ZONE>
+                      <OPI>motor-asyn/Motor_Main.bob</OPI>
+                    </macros>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-mot-mot-simlab-1</name>
+                    <x>820</x>
+                    <y>14</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open VMIR</description>
+                        <macros>
+                          <P>LAB:SIM</P>
+                          <R>VMIR</R>
+                          <NAME>VMIR</NAME>
+                          <DEVICE>LAB:SIM</DEVICE>
+                          <CAM>VMIR</CAM>
+                          <TYPE>motorsim</TYPE>
+                          <ZONE>SIMLAB</ZONE>
+                          <OPI>motor-asyn/Motor_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+              </widget>
+            </children>
+          </tab>
+        </tabs>
+      </widget>
+      <widget type="group" version="3.0.0">
+        <name>sh-cam</name>
+        <x>10</x>
+        <y>380</y>
+        <width>1880</width>
+        <height>32</height>
+        <style>3</style>
+        <widget type="rectangle" version="2.0.0">
+          <name>shbg-cam</name>
+          <x>0</x>
+          <y>0</y>
+          <width>1880</width>
+          <height>32</height>
+          <background_color>
+            <color red="220" blue="235" green="225" alpha="255"/>
+          </background_color>
+        </widget>
+        <widget type="label" version="2.0.0">
+          <name>shl-cam</name>
+          <x>0</x>
+          <y>4</y>
+          <width>500</width>
+          <height>24</height>
+          <text>  Cameras  (2 devices)</text>
+          <font>
+            <font family="Liberation Sans" size="15" style="BOLD"/>
+          </font>
+          <foreground_color>
+            <color red="30" blue="110" green="60" alpha="255"/>
+          </foreground_color>
+        </widget>
+      </widget>
+      <widget type="tabs" version="2.0.0">
+        <name>zone-tabs-cam</name>
+        <x>10</x>
+        <y>420</y>
+        <width>1880</width>
+        <height>146</height>
+        <tabs>
+          <tab>
+            <name>ALL</name>
+            <children>
+              <widget type="group" version="3.0.0">
+                <name>cam-all</name>
+                <x>0</x>
+                <y>0</y>
+                <width>1880</width>
+                <height>96</height>
+                <style>3</style>
+                <widget type="group" version="3.0.0">
+                  <name>row-cam-cam-all-0</name>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>1880</width>
+                  <height>44</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-cam-cam-all-0</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>44</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>lbl-cam-cam-all-0</name>
+                    <x>12</x>
+                    <y>8</y>
+                    <width>180</width>
+                    <height>28</height>
+                    <text>CAM01</text>
+                    <font>
+                      <font family="Liberation Sans" size="14" style="BOLD"/>
+                    </font>
+                    <foreground_color>
+                      <color red="30" blue="110" green="60" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>inf-cam-cam-all-0</name>
+                    <x>200</x>
+                    <y>8</y>
+                    <width>520</width>
+                    <height>28</height>
+                    <text>LAB:REAL:CAM01</text>
+                    <font>
+                      <font family="Liberation Sans" size="12" style="REGULAR"/>
+                    </font>
+                    <foreground_color>
+                      <color red="100" blue="100" green="100" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-cam-cam-all-0</name>
+                    <x>732</x>
+                    <y>7</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open CAM01</description>
+                        <macros>
+                          <P>LAB:REAL</P>
+                          <R>CAM01</R>
+                          <NAME>CAM01</NAME>
+                          <DEVICE>LAB:REAL</DEVICE>
+                          <CAM>CAM01</CAM>
+                          <TYPE>camera</TYPE>
+                          <ZONE>LAB</ZONE>
+                          <HW>camera</HW>
+                          <HCAM>LAB:REAL:CAM01:cam1:</HCAM>
+                          <HDEVICE>LAB:REAL:CAM01:</HDEVICE>
+                          <HIMAGE>LAB:REAL:CAM01:image1:</HIMAGE>
+                          <HPROC>LAB:REAL:CAM01:Proc1:</HPROC>
+                          <HROI>LAB:REAL:CAM01:ROI1:</HROI>
+                          <HSTATS>LAB:REAL:CAM01:Stats1:</HSTATS>
+                          <HTRANS>LAB:REAL:CAM01:Trans1:</HTRANS>
+                          <OPI>Camera_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unicam-opi/Camera_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+                <widget type="group" version="3.0.0">
+                  <name>row-cam-cam-all-1</name>
+                  <x>0</x>
+                  <y>52</y>
+                  <width>1880</width>
+                  <height>44</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-cam-cam-all-1</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>44</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>lbl-cam-cam-all-1</name>
+                    <x>12</x>
+                    <y>8</y>
+                    <width>180</width>
+                    <height>28</height>
+                    <text>CAM01</text>
+                    <font>
+                      <font family="Liberation Sans" size="14" style="BOLD"/>
+                    </font>
+                    <foreground_color>
+                      <color red="30" blue="110" green="60" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>inf-cam-cam-all-1</name>
+                    <x>200</x>
+                    <y>8</y>
+                    <width>520</width>
+                    <height>28</height>
+                    <text>LAB:SIM:CAM01</text>
+                    <font>
+                      <font family="Liberation Sans" size="12" style="REGULAR"/>
+                    </font>
+                    <foreground_color>
+                      <color red="100" blue="100" green="100" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-cam-cam-all-1</name>
+                    <x>732</x>
+                    <y>7</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open CAM01</description>
+                        <macros>
+                          <P>LAB:SIM</P>
+                          <R>CAM01</R>
+                          <NAME>CAM01</NAME>
+                          <DEVICE>LAB:SIM</DEVICE>
+                          <CAM>CAM01</CAM>
+                          <TYPE>camerasim</TYPE>
+                          <ZONE>SIMLAB</ZONE>
+                          <HW>camerasim</HW>
+                          <HCAM>LAB:SIM:CAM01:cam1:</HCAM>
+                          <HDEVICE>LAB:SIM:CAM01:</HDEVICE>
+                          <HIMAGE>LAB:SIM:CAM01:image1:</HIMAGE>
+                          <HPROC>LAB:SIM:CAM01:Proc1:</HPROC>
+                          <HROI>LAB:SIM:CAM01:ROI1:</HROI>
+                          <HSTATS>LAB:SIM:CAM01:Stats1:</HSTATS>
+                          <HTRANS>LAB:SIM:CAM01:Trans1:</HTRANS>
+                          <OPI>Camera_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unicam-opi/Camera_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+              </widget>
+            </children>
+          </tab>
+          <tab>
+            <name>LAB</name>
+            <children>
+              <widget type="group" version="3.0.0">
+                <name>cam-lab</name>
+                <x>0</x>
+                <y>0</y>
+                <width>1880</width>
+                <height>44</height>
+                <style>3</style>
+                <widget type="group" version="3.0.0">
+                  <name>row-cam-cam-lab-0</name>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>1880</width>
+                  <height>44</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-cam-cam-lab-0</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>44</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>lbl-cam-cam-lab-0</name>
+                    <x>12</x>
+                    <y>8</y>
+                    <width>180</width>
+                    <height>28</height>
+                    <text>CAM01</text>
+                    <font>
+                      <font family="Liberation Sans" size="14" style="BOLD"/>
+                    </font>
+                    <foreground_color>
+                      <color red="30" blue="110" green="60" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>inf-cam-cam-lab-0</name>
+                    <x>200</x>
+                    <y>8</y>
+                    <width>520</width>
+                    <height>28</height>
+                    <text>LAB:REAL:CAM01</text>
+                    <font>
+                      <font family="Liberation Sans" size="12" style="REGULAR"/>
+                    </font>
+                    <foreground_color>
+                      <color red="100" blue="100" green="100" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-cam-cam-lab-0</name>
+                    <x>732</x>
+                    <y>7</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open CAM01</description>
+                        <macros>
+                          <P>LAB:REAL</P>
+                          <R>CAM01</R>
+                          <NAME>CAM01</NAME>
+                          <DEVICE>LAB:REAL</DEVICE>
+                          <CAM>CAM01</CAM>
+                          <TYPE>camera</TYPE>
+                          <ZONE>LAB</ZONE>
+                          <HW>camera</HW>
+                          <HCAM>LAB:REAL:CAM01:cam1:</HCAM>
+                          <HDEVICE>LAB:REAL:CAM01:</HDEVICE>
+                          <HIMAGE>LAB:REAL:CAM01:image1:</HIMAGE>
+                          <HPROC>LAB:REAL:CAM01:Proc1:</HPROC>
+                          <HROI>LAB:REAL:CAM01:ROI1:</HROI>
+                          <HSTATS>LAB:REAL:CAM01:Stats1:</HSTATS>
+                          <HTRANS>LAB:REAL:CAM01:Trans1:</HTRANS>
+                          <OPI>Camera_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unicam-opi/Camera_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+              </widget>
+            </children>
+          </tab>
+          <tab>
+            <name>SIMLAB</name>
+            <children>
+              <widget type="group" version="3.0.0">
+                <name>cam-simlab</name>
+                <x>0</x>
+                <y>0</y>
+                <width>1880</width>
+                <height>44</height>
+                <style>3</style>
+                <widget type="group" version="3.0.0">
+                  <name>row-cam-cam-simlab-0</name>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>1880</width>
+                  <height>44</height>
+                  <style>3</style>
+                  <widget type="rectangle" version="2.0.0">
+                    <name>rowbg-cam-cam-simlab-0</name>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1880</width>
+                    <height>44</height>
+                    <background_color>
+                      <color red="246" blue="252" green="248" alpha="255"/>
+                    </background_color>
+                    <line_color>
+                      <color red="220" blue="235" green="225" alpha="255"/>
+                    </line_color>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>lbl-cam-cam-simlab-0</name>
+                    <x>12</x>
+                    <y>8</y>
+                    <width>180</width>
+                    <height>28</height>
+                    <text>CAM01</text>
+                    <font>
+                      <font family="Liberation Sans" size="14" style="BOLD"/>
+                    </font>
+                    <foreground_color>
+                      <color red="30" blue="110" green="60" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                  <widget type="label" version="2.0.0">
+                    <name>inf-cam-cam-simlab-0</name>
+                    <x>200</x>
+                    <y>8</y>
+                    <width>520</width>
+                    <height>28</height>
+                    <text>LAB:SIM:CAM01</text>
+                    <font>
+                      <font family="Liberation Sans" size="12" style="REGULAR"/>
+                    </font>
+                    <foreground_color>
+                      <color red="100" blue="100" green="100" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                  <widget type="action_button" version="3.0.0">
+                    <name>btn-cam-cam-simlab-0</name>
+                    <x>732</x>
+                    <y>7</y>
+                    <width>100</width>
+                    <height>30</height>
+                    <pv_name/>
+                    <text>Open ⬈</text>
+                    <actions>
+                      <action type="open_display">
+                        <description>Open CAM01</description>
+                        <macros>
+                          <P>LAB:SIM</P>
+                          <R>CAM01</R>
+                          <NAME>CAM01</NAME>
+                          <DEVICE>LAB:SIM</DEVICE>
+                          <CAM>CAM01</CAM>
+                          <TYPE>camerasim</TYPE>
+                          <ZONE>SIMLAB</ZONE>
+                          <HW>camerasim</HW>
+                          <HCAM>LAB:SIM:CAM01:cam1:</HCAM>
+                          <HDEVICE>LAB:SIM:CAM01:</HDEVICE>
+                          <HIMAGE>LAB:SIM:CAM01:image1:</HIMAGE>
+                          <HPROC>LAB:SIM:CAM01:Proc1:</HPROC>
+                          <HROI>LAB:SIM:CAM01:ROI1:</HROI>
+                          <HSTATS>LAB:SIM:CAM01:Stats1:</HSTATS>
+                          <HTRANS>LAB:SIM:CAM01:Trans1:</HTRANS>
+                          <OPI>Camera_Main.bob</OPI>
+                        </macros>
+                        <file>epik8s-opi/unicam-opi/Camera_Main.bob</file>
+                        <target>window</target>
+                      </action>
+                    </actions>
+                    <background_color>
+                      <color red="60" blue="200" green="120" alpha="255"/>
+                    </background_color>
+                    <foreground_color>
+                      <color red="255" blue="255" green="255" alpha="255"/>
+                    </foreground_color>
+                  </widget>
+                </widget>
+              </widget>
+            </children>
+          </tab>
+        </tabs>
+      </widget>
+      <widget type="group" version="3.0.0">
+        <name>sh-svc</name>
+        <x>10</x>
+        <y>586</y>
+        <width>1880</width>
+        <height>32</height>
+        <style>3</style>
+        <widget type="rectangle" version="2.0.0">
+          <name>shbg-svc</name>
+          <x>0</x>
+          <y>0</y>
+          <width>1880</width>
+          <height>32</height>
+          <background_color>
+            <color red="220" blue="235" green="225" alpha="255"/>
+          </background_color>
+        </widget>
+        <widget type="label" version="2.0.0">
+          <name>shl-svc</name>
+          <x>0</x>
+          <y>4</y>
+          <width>500</width>
+          <height>24</height>
+          <text>  Services  (2 devices)</text>
+          <font>
+            <font family="Liberation Sans" size="15" style="BOLD"/>
+          </font>
+          <foreground_color>
+            <color red="30" blue="110" green="60" alpha="255"/>
+          </foreground_color>
+        </widget>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>svc-pvagateway</name>
+        <x>10</x>
+        <y>626</y>
+        <width>1880</width>
+        <height>24</height>
+        <text>pvagateway — EPICS PVA Gateway   [192.168.108.230]</text>
+        <font>
+          <font family="Liberation Sans" size="12" style="REGULAR"/>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>svc-gateway</name>
+        <x>10</x>
+        <y>654</y>
+        <width>1880</width>
+        <height>24</height>
+        <text>gateway — EPICS CA Gateway EPICS_CA_ADDR_LIST to access EUAPS IOCs  [192.168.108.231]</text>
+        <font>
+          <font family="Liberation Sans" size="12" style="REGULAR"/>
+        </font>
+      </widget>
+    </widget>
+  </display>

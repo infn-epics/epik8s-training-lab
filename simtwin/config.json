@@ -1,0 +1,29 @@
+{
+  "protocol": "pva",
+  "update_period_s": 0.05,
+  "motor_x_pv": "LAB:SIM:HMIR.RBV",
+  "motor_y_pv": "LAB:SIM:VMIR.RBV",
+  "camera_base_pv": "LAB:SIM:CAM01",
+  "mirror_geometry": {
+    "detector_distance_m": 1.2,
+    "pixel_size_um": 5.86,
+    "detector_width_px": 1900,
+    "detector_height_px": 1200,
+    "center_x_px": 950,
+    "center_y_px": 600,
+    "offset_x_px": 0,
+    "offset_y_px": 0,
+    "mirror_matrix_rad_per_unit": [
+      [0.0008, 0.0],
+      [0.0, 0.0008]
+    ]
+  },
+  "beam_shape": {
+    "peak_num_x": 1,
+    "peak_num_y": 1,
+    "peak_step_x": 80,
+    "peak_step_y": 80,
+    "peak_width_x": 36,
+    "peak_width_y": 36
+  }
+}

@@ -1,0 +1,33 @@
+- name: Perform git update on directories
+  hosts: chaoslab_consoles
+  remote_user: root
+  vars:
+    ansible_ssh_pass: "{{ lookup('env', 'UPDATE') }}"
+  #  git_repo_token: "{{ lookup('env', 'GIT_REPO_TOKEN') }}"  # Ensure this token is defined
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ControlMaster=no'
+
+  tasks:
+    - name: Disable host key checking
+      set_fact:
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ControlMaster=no'
+    - name: Apply ansible-epics-console-role
+      ansible.builtin.import_role:
+        name: ansible-epics-console-role
+      vars:
+        control_user: "dafne"
+        phoebus_version: 5.0.3-SNAPSHOT
+        phoebus_url: "https://github.com/infn-epics/phoebus/releases/download/v26.2.16b2/phoebus-5.0.3-SNAPSHOT-linux.tar.gz"
+        python_version: "" ## use default if any
+        opi_main: "/Launcher.bob"
+        java_version: "17"
+        opi_repos:
+          - url: "https://github.com/infn-epics/epik8s-training-lab.git"
+            dest: "training"
+            opi_main: opi/Launcher.bob
+            opi_settings: opi/settings_template.ini
+            default: true
+            opi_user: dante
+        
+        
+      
