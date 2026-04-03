@@ -1,6 +1,6 @@
 # created automatically epik8s-gen (0.4.3) at 2024-11-11
-beamline: reallab
-namespace: reallab
+beamline: simlab
+namespace: simlab
 
 iocDefaults:
   motor:
@@ -82,89 +82,118 @@ epicsConfiguration:
         - infn-ophyd-hal
         - p4p
     
+      
+    
   iocs:
-    - name: "lasercam"
-      template: "adcamera"
-      iocprefix: "LAB:REAL"
-      #hostNetwork: true
+    
+    
+    - name: "motorsim"
+      template: "motor"
+      devtype: motorsim
+      iocprefix: "LAB:SIM"
       zones: 
-        - LAB
-      networks:
-        - name: "vlan-115"
-          annotation: "euaps-cams"
+        - SIMLAB
+      devices:
+        - name: "HMIR"
+          axid: 0
+          dllm: -100.0
+          dhlm: 100.0
+          velo: 10.0
+          mres: 0.01
+          egu: mm
+        - name: "VMIR"
+          axid: 1
+          dllm: -100.0
+          dhlm: 100.0
+          velo: 10.0
+          mres: 0.01
+          egu: mm
+
+    
+    - name: "camerasim"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
+      template: "adcamera"
+      devtype: camerasim
+      iocprefix: "LAB:SIM"
+      zones: 
+        - SIMLAB
+      iocinit:
+        - name: "AcquirePeriod"
+          value: "1"
+        - name: "FrameRate"
+          value: "1"
+        - name: "FrameRateEnable"
+          value: "Yes"
+      
       devices:
         - name: "CAM01"
-          id: 192.176.66.101 # serial 40295676
-          buffers: 500           
+          width: 1900
+          height: 1200
           iocinit:
           - name: "AcquirePeriod"
             value: "1"
+          - name: "Gain"
+            value: "255"
+          - name: "SimMode"
+            value: "Peaks"
+          - name: "PeakStartX"
+            value: "250"
+          - name: "PeakStartY"
+            value: "200"
+          - name: "PeakWidthX"
+            value: "70"
+          - name: "PeakWidthY"
+            value: "50"
+          - name: "PeakVariation"
+            value: "10"
           - name: "Stream1:EnableCallbacks"
             value: "1"
 
-    - name: "thorlabs"
-      asset: "" # TODO add when available
-      template: "motor"
-      devtype: thorlabs
-      motor:
-        motorType: kim
-      iocprefix: "LAB:REAL:MOTOR" 
-      
-      zones: 
-        - LAB
-      iocparam:
-        - name: "server"
-          value: 192.176.66.100 #pldanteco120 
-        - name: "port"
-          value: "4001"  # TODO check
-      devices:
-          - name: "HMIR"
-            axid: 0
-            dllm: -1000000.0
-            dhlm: 1000000.0
-            home: 1
-            velo: 500
-            mres: 1
-          - name: "VMIR"
-            axid: 1
-            dllm: -1000000.0
-            dhlm: 1000000.0
-            home: 1
-            velo: 500
-            mres: 1
-          
-    
-  
-
-    - name: "overlay-real-rnd"
+        
+    - name: "simtwin"
       devtype: softioc
       pvaDiscovery: false
-      iocprefix: "LAB:REAL:OVERLAY_RND"
+      iocprefix: "LAB:SIM:TWIN"
       zones: 
-        - REALLAB
+        - SIMLAB
+      iocdir: "simtwin"
+      iocparam:
+        - name: "HMIR"
+          value: "LAB:SIM:HMIR"
+        - name: "VMIR"
+          value: "LAB:SIM:VMIR"
+        - name: "CAM"
+          value: "LAB:SIM:CAM01"
+
+    - name: "overlay-sim-rnd"
+      devtype: softioc
+      pvaDiscovery: false
+      iocprefix: "LAB:SIM:OVERLAY_RND"
+      zones: 
+        - SIMLAB
       iocdir: "overlay_rnd"
       iocparam:
         - name: "CAM"
-          value: "LAB:REAL:CAM01"
+          value: "LAB:SIM:CAM01"
         - name: "PREFIX"
-          value: "LAB:REAL:OVERLAY_RND"
+          value: "LAB:SIM:OVERLAY_RND"
 
-    - name: "beam-center-real"
+    - name: "beam-center-sim"
       devtype: softioc
       pvaDiscovery: false
-      iocprefix: "LAB:REAL:BEAM_CENTER"
+      iocprefix: "LAB:SIM:BEAM_CENTER"
       zones:
-        - REALLAB
+        - SIMLAB
       iocdir: "beam_center"
       iocparam:
         - name: "CAM"
-          value: "LAB:REAL:CAM01"
+          value: "LAB:SIM:CAM01"
         - name: "MOTX"
-          value: "LAB:REAL:HMIR"
+          value: "LAB:SIM:HMIR"
         - name: "MOTY"
-          value: "LAB:REAL:VMIR"
+          value: "LAB:SIM:VMIR"
         - name: "PREFIX"
-          value: "LAB:REAL:BEAM_CENTER"
+          value: "LAB:SIM:BEAM_CENTER"
 
 dashboard:
   backend:
