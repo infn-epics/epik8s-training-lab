@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-09-12 17:28:35 by Alex-->
+<display version="2.0.0">
+  <name>Display-7267</name>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle</name>
+    <x>11</x>
+    <y>164</y>
+    <width>479</width>
+    <height>396</height>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Write_Background" red="128" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>ICP7267 $(P):$(R)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <file>icpversion.bob</file>
+    <y>31</y>
+    <width>180</width>
+    <height>120</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_RLY0</name>
+    <pv_name>$(P):$(R):RLY0_RB</pv_name>
+    <x>340</x>
+    <y>174</y>
+    <width>120</width>
+    <height>30</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>RELAY 1</text>
+    <x>51</x>
+    <y>225</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_1</name>
+    <pv_name>$(P):$(R):RLY1_SP</pv_name>
+    <x>181</x>
+    <y>224</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>RELAY 2</text>
+    <x>51</x>
+    <y>275</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_2</name>
+    <pv_name>$(P):$(R):RLY2_SP</pv_name>
+    <x>181</x>
+    <y>274</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>RELAY 3</text>
+    <x>51</x>
+    <y>325</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_3</name>
+    <pv_name>$(P):$(R):RLY3_SP</pv_name>
+    <x>181</x>
+    <y>324</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>RELAY 4</text>
+    <x>51</x>
+    <y>375</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_4</name>
+    <pv_name>$(P):$(R):RLY4_SP</pv_name>
+    <x>181</x>
+    <y>374</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>RELAY 0</text>
+    <x>51</x>
+    <y>175</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_5</name>
+    <pv_name>$(P):$(R):RLY0_SP</pv_name>
+    <x>181</x>
+    <y>174</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>RELAY 5</text>
+    <x>51</x>
+    <y>425</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_6</name>
+    <pv_name>$(P):$(R):RLY5_SP</pv_name>
+    <x>181</x>
+    <y>424</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>RELAY 6</text>
+    <x>51</x>
+    <y>475</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_7</name>
+    <pv_name>$(P):$(R):RLY6_SP</pv_name>
+    <x>181</x>
+    <y>474</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>RELAY 7</text>
+    <x>51</x>
+    <y>521</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_8</name>
+    <pv_name>$(P):$(R):RLY7_SP</pv_name>
+    <x>181</x>
+    <y>520</y>
+    <width>140</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(R):RLY1_RB</pv_name>
+    <x>340</x>
+    <y>224</y>
+    <width>120</width>
+    <height>30</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):$(R):RLY2_RB</pv_name>
+    <x>340</x>
+    <y>274</y>
+    <width>120</width>
+    <height>30</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P):$(R):RLY3_RB</pv_name>
+    <x>340</x>
+    <y>324</y>
+    <width>120</width>
+    <height>30</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(P):$(R):RLY4_RB</pv_name>
+    <x>340</x>
+    <y>374</y>
+    <width>120</width>
+    <height>30</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_5</name>
+    <pv_name>$(P):$(R):RLY5_RB</pv_name>
+    <x>340</x>
+    <y>424</y>
+    <width>120</width>
+    <height>30</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>$(P):$(R):RLY6_RB</pv_name>
+    <x>340</x>
+    <y>474</y>
+    <width>120</width>
+    <height>30</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(P):$(R):RLY7_RB</pv_name>
+    <x>340</x>
+    <y>521</y>
+    <width>120</width>
+    <height>30</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+</display>

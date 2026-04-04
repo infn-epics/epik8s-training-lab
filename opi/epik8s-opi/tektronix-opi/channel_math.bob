@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-14 09:53:57 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>330</width>
+  <height>170</height>
+  <widget type="group" version="3.0.0">
+    <name>Math $(CHAN)</name>
+    <width>310</width>
+    <height>170</height>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>Math Interval:</text>
+      <x>2</x>
+      <y>3</y>
+      <visible>false</visible>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_5</name>
+      <pv_name>$(P):START_MATH_CH$(CHAN)</pv_name>
+      <x>102</x>
+      <y>2</y>
+      <width>49</width>
+      <visible>false</visible>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_6</name>
+      <pv_name>$(P):END_MATH_CH$(CHAN)</pv_name>
+      <x>159</x>
+      <y>2</y>
+      <width>53</width>
+      <visible>false</visible>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>Normal Factor:</text>
+      <x>2</x>
+      <y>43</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Y_Scale_CH7_7</name>
+      <pv_name>$(P):NORM_CH$(CHAN)</pv_name>
+      <x>102</x>
+      <y>42</y>
+      <width>49</width>
+      <format>1</format>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>Integral:</text>
+      <x>2</x>
+      <y>65</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_8</name>
+      <pv_name>$(P):INTEGRAL_CH$(CHAN)</pv_name>
+      <x>102</x>
+      <y>64</y>
+      <width>110</width>
+      <format>2</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>Avg,Min,Max:</text>
+      <x>2</x>
+      <y>114</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_9</name>
+      <pv_name>$(P):MEAN_CH$(CHAN)</pv_name>
+      <x>102</x>
+      <y>113</y>
+      <width>49</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_10</name>
+      <pv_name>$(P):MIN_CH$(CHAN)</pv_name>
+      <x>162</x>
+      <y>113</y>
+      <width>49</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_11</name>
+      <pv_name>$(P):MAX_CH$(CHAN)</pv_name>
+      <x>232</x>
+      <y>113</y>
+      <width>49</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_14</name>
+      <pv_name>$(P):SAMPLES_MATH_CH$(CHAN)</pv_name>
+      <x>232</x>
+      <y>2</y>
+      <width>49</width>
+      <visible>false</visible>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>AcquireMath</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):AcquireMath_$(CHAN)</pv_name>
+      <text>Set</text>
+      <x>2</x>
+      <y>24</y>
+      <width>80</width>
+      <height>20</height>
+      <visible>false</visible>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Y_Scale_CH7_15</name>
+      <pv_name>$(P):MARKER_START_SAMPLE_CH$(CHAN)</pv_name>
+      <x>102</x>
+      <y>24</y>
+      <width>50</width>
+      <visible>false</visible>
+      <format>1</format>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Y_Scale_CH7_16</name>
+      <pv_name>$(P):MARKER_END_SAMPLE_CH$(CHAN)</pv_name>
+      <x>162</x>
+      <y>24</y>
+      <width>50</width>
+      <visible>false</visible>
+      <format>1</format>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>RMS:</text>
+      <x>2</x>
+      <y>86</y>
+      <width>50</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_17</name>
+      <pv_name>$(P):RMS_CH$(CHAN)</pv_name>
+      <x>102</x>
+      <y>85</y>
+      <width>110</width>
+      <format>2</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <x>520</x>
+    <y>360</y>
+    <width>0</width>
+    <height>0</height>
+  </widget>
+</display>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-03-28 16:54:32 by andreamichelotti-->
+<display version="2.0.0">
+  <name>MagnetChannelSet</name>
+  <y>2</y>
+  <width>610</width>
+  <height>30</height>
+  <widget type="group" version="3.0.0">
+    <name>Settings</name>
+    <x>125</x>
+    <width>430</width>
+    <height>30</height>
+    <style>2</style>
+    <widget type="textentry" version="3.0.0">
+      <name>entryCurrent</name>
+      <pv_name>loc://apply:$(P):CURRENT_SP</pv_name>
+      <x>119</x>
+      <y>2</y>
+      <width>97</width>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>SetState</name>
+      <pv_name>loc://apply:$(P):STATE_SP&lt;VString&gt;("===")</pv_name>
+      <x>319</x>
+      <y>2</y>
+      <width>50</width>
+      <height>25</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED</name>
+      <pv_name>loc://apply:$(P):STATE_SP:ok&lt;VLong&gt;(1)</pv_name>
+      <x>389</x>
+      <y>2</y>
+      <off_color>
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>entryCurrent_1</name>
+      <pv_name>$(P):CURRENT_RB</pv_name>
+      <x>9</x>
+      <y>2</y>
+      <width>97</width>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_1</name>
+      <pv_name>loc://apply:$(P):CURRENT_SP:ok&lt;VLong&gt;(1)</pv_name>
+      <x>229</x>
+      <y>2</y>
+      <off_color>
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>SetState_1</name>
+      <pv_name>$(P):STATE_RB</pv_name>
+      <x>259</x>
+      <y>2</y>
+      <width>50</width>
+      <height>25</height>
+      <background_color>
+        <color name="Read_Background" red="240" green="240" blue="240">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>$(R)</text>
+    <x>10</x>
+    <y>5</y>
+    <width>115</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_2</name>
+    <pv_name> =abs(`$(P):CURRENT_SP` -`loc://apply:$(P):CURRENT_SP`)&lt;0.5</pv_name>
+    <x>580</x>
+    <y>2</y>
+    <off_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </off_color>
+  </widget>
+</display>

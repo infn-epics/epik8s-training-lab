@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-07-26 14:53:05 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>210</width>
+  <height>20</height>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>$(ID)</text>
+    <x>10</x>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>$(P):$(R):$(ID)_RB</pv_name>
+    <bit>0</bit>
+    <x>59</x>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(R):$(ID)_CNT_RB</pv_name>
+    <x>100</x>
+  </widget>
+</display>

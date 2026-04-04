@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-01-27 18:28:48 by michelottilabs-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>510</width>
+  <height>33</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>$(NAME)</text>
+    <width>120</width>
+    <height>31</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(R):PLS:VOLT_RB</pv_name>
+    <x>70</x>
+    <y>5</y>
+    <height>26</height>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):$(R):PLS:CURR_RB</pv_name>
+    <x>190</x>
+    <y>5</y>
+    <height>26</height>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):$(R):STATE_RB</pv_name>
+    <x>330</x>
+    <y>5</y>
+    <height>26</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <description>Ctrl</description>
+        <file>$(OPI)</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <x>432</x>
+    <y>3</y>
+    <width>78</width>
+    <tooltip>$(actions)</tooltip>
+    <show_confirm_dialog>true</show_confirm_dialog>
+    <confirm_message>Reserved to operators</confirm_message>
+    <password>eli2025</password>
+  </widget>
+</display>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-03-30 18:41:35 by valentinadompe-->
+<display version="2.0.0">
+  <name>Maxigauges</name>
+  <width>1110</width>
+  <height>1045</height>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabbed Container</name>
+    <macros>
+      <BL>LPQ</BL>
+      <CONTROLLER>tpg366</CONTROLLER>
+    </macros>
+    <tabs>
+      <tab>
+        <name>tpg1</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container_5</name>
+            <macros>
+              <DEV>tpg1</DEV>
+              <BOB>single_sensor_readonly.bob</BOB>
+            </macros>
+            <file>template_files/all_sensors.bob</file>
+            <x>22</x>
+            <y>11</y>
+            <width>988</width>
+            <height>906</height>
+            <resize>1</resize>
+            <actions>
+            </actions>
+            <border_width>1</border_width>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>-</name>
+        <children>
+        </children>
+      </tab>
+    </tabs>
+    <width>1032</width>
+    <height>954</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <tab_height>10</tab_height>
+    <actions>
+    </actions>
+  </widget>
+</display>

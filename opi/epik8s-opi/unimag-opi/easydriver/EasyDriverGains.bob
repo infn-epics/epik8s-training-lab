@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-01-19 23:51:10 by andreamichelotti-->
+<display version="2.0.0">
+  <name>EasyDriverGains</name>
+  <x>846</x>
+  <y>171</y>
+  <width>280</width>
+  <height>220</height>
+  <background_color>
+    <color name="GLOBAL canvas" red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>$(P)$(R)
+Controller Gains</text>
+    <x>1</x>
+    <y>1</y>
+    <width>279</width>
+    <height>60</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="24.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="green-19" red="0" green="128" blue="0">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>EDM Group 0</name>
+    <x>33</x>
+    <y>115</y>
+    <width>226</width>
+    <height>92</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="group" version="3.0.0">
+      <name>EDM Group 1</name>
+      <width>226</width>
+      <height>32</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="label" version="2.0.0">
+        <name>EDM activeXTextClass</name>
+        <text>Kp</text>
+        <x>5</x>
+        <y>5</y>
+        <width>23</width>
+        <height>22</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color name="black-14" red="0" green="0" blue="0">
+          </color>
+        </foreground_color>
+        <background_color>
+          <color name="green-19" red="0" green="128" blue="0">
+          </color>
+        </background_color>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>EDM activeXTextDspClass</name>
+        <pv_name>$(P)$(R)ControllerKp</pv_name>
+        <x>41</x>
+        <y>5</y>
+        <width>180</width>
+        <height>22</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color name="black-14" red="0" green="0" blue="0">
+          </color>
+        </foreground_color>
+        <background_color>
+          <color name="grey-2" red="218" green="218" blue="218">
+          </color>
+        </background_color>
+        <format>2</format>
+        <show_units>false</show_units>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>EDM Group 2</name>
+      <y>30</y>
+      <width>226</width>
+      <height>32</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="label" version="2.0.0">
+        <name>EDM activeXTextClass</name>
+        <text>Ki</text>
+        <x>5</x>
+        <y>5</y>
+        <width>17</width>
+        <height>22</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color name="black-14" red="0" green="0" blue="0">
+          </color>
+        </foreground_color>
+        <background_color>
+          <color name="green-19" red="0" green="128" blue="0">
+          </color>
+        </background_color>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>EDM activeXTextDspClass</name>
+        <pv_name>$(P)$(R)ControllerKi</pv_name>
+        <x>41</x>
+        <y>5</y>
+        <width>180</width>
+        <height>22</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color name="black-14" red="0" green="0" blue="0">
+          </color>
+        </foreground_color>
+        <background_color>
+          <color name="grey-2" red="218" green="218" blue="218">
+          </color>
+        </background_color>
+        <format>2</format>
+        <show_units>false</show_units>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>EDM Group 3</name>
+      <y>60</y>
+      <width>226</width>
+      <height>32</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="label" version="2.0.0">
+        <name>EDM activeXTextClass</name>
+        <text>Kd</text>
+        <x>5</x>
+        <y>5</y>
+        <width>23</width>
+        <height>22</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color name="black-14" red="0" green="0" blue="0">
+          </color>
+        </foreground_color>
+        <background_color>
+          <color name="green-19" red="0" green="128" blue="0">
+          </color>
+        </background_color>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>EDM activeXTextDspClass</name>
+        <pv_name>$(P)$(R)ControllerKd</pv_name>
+        <x>41</x>
+        <y>5</y>
+        <width>180</width>
+        <height>22</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="18.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color name="black-14" red="0" green="0" blue="0">
+          </color>
+        </foreground_color>
+        <background_color>
+          <color name="grey-2" red="218" green="218" blue="218">
+          </color>
+        </background_color>
+        <format>2</format>
+        <show_units>false</show_units>
+      </widget>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Gains can be set only
+when supply is OFF.</text>
+    <x>1</x>
+    <y>62</y>
+    <width>279</width>
+    <height>44</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="green-19" red="0" green="128" blue="0">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+</display>

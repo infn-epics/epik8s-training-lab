@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Group Control</name>
+  <width>400</width>
+  <height>65</height>
+  <widget type="action_button" version="3.0.0">
+    <name>ON</name>
+    <actions>
+      <action type="execute">
+        <description>ON</description>
+        <script file="scripts/TurnOnSelected.py">
+        </script>
+      </action>
+    </actions>
+    <text>ON</text>
+    <width>80</width>
+    <height>60</height>
+    <background_color>
+      <color name="OK" red="0" green="255" blue="0">
+      </color>
+    </background_color>
+    <tooltip>ON ALL SELECTED</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>OFF</name>
+    <actions>
+      <action type="execute">
+        <description>OFF</description>
+        <script file="scripts/TurnOffSelected.py">
+        </script>
+      </action>
+    </actions>
+    <text>OFF</text>
+    <x>90</x>
+    <width>72</width>
+    <height>60</height>
+    <background_color>
+      <color name="STOP" red="255" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="New Rule" prop_id="enabled" out_exp="false">
+        <exp bool_exp="pvStr0==&quot;ON&quot;">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pvStr0==&quot;STANDBY&quot;">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):$(R):STATE_RB</pv_name>
+      </rule>
+    </rules>
+    <tooltip>OFF ALL SELECTED</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>entryCurrent</name>
+    <pv_name>loc://current_set&lt;VDouble&gt;(0)</pv_name>
+    <x>190</x>
+    <y>20</y>
+    <height>30</height>
+    <precision>3</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>SetCurrent</name>
+    <actions>
+      <action type="execute">
+        <description>Set Current</description>
+        <script file="scripts/SetCurrentSelected.py">
+        </script>
+      </action>
+    </actions>
+    <text>Set Current</text>
+    <x>300</x>
+    <width>80</width>
+    <height>60</height>
+    <background_color>
+      <color name="Write_Background" red="128" green="255" blue="255">
+      </color>
+    </background_color>
+    <tooltip>Set current for all selected magnets</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>CurrentLabel</name>
+    <text>Current (A):</text>
+    <x>190</x>
+  </widget>
+</display>

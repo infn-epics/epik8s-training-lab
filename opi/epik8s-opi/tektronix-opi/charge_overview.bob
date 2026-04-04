@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Charge Overview - All Channels</name>
+  <width>1400</width>
+  <height>800</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Charge Monitoring - All Channels Overview</text>
+    <x>10</x>
+    <y>10</y>
+    <width>1380</width>
+    <height>40</height>
+    <font>
+      <font family="Arial" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="128">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Header</name>
+    <x>10</x>
+    <y>60</y>
+    <width>1380</width>
+    <height>30</height>
+    <style>2</style>
+    <background_color>
+      <color red="180" green="180" blue="180">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Header_Ch</name>
+      <text>Channel</text>
+      <x>10</x>
+      <y>5</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Measure</name>
+      <text>Measurement</text>
+      <x>100</x>
+      <y>5</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Coeff</name>
+      <text>Coefficient</text>
+      <x>420</x>
+      <y>5</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Charge</name>
+      <text>Charge (C)</text>
+      <x>550</x>
+      <y>5</y>
+      <width>180</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Daily</name>
+      <text>Daily Total (C)</text>
+      <x>740</x>
+      <y>5</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Actions</name>
+      <text>Actions</text>
+      <x>950</x>
+      <y>5</y>
+      <width>420</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Measure_1</name>
+      <text>Name</text>
+      <x>259</x>
+      <y>5</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Channel_1</name>
+    <macros>
+      <CHANNEL>1</CHANNEL>
+      <BGCOLOR>255,255,255</BGCOLOR>
+    </macros>
+    <file>charge_row.bob</file>
+    <x>10</x>
+    <y>100</y>
+    <width>1380</width>
+    <height>80</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Channel_2</name>
+    <macros>
+      <CHANNEL>2</CHANNEL>
+      <BGCOLOR>245,245,255</BGCOLOR>
+    </macros>
+    <file>charge_row.bob</file>
+    <x>10</x>
+    <y>190</y>
+    <width>1380</width>
+    <height>80</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Channel_3</name>
+    <macros>
+      <CHANNEL>3</CHANNEL>
+      <BGCOLOR>255,255,255</BGCOLOR>
+    </macros>
+    <file>charge_row.bob</file>
+    <x>10</x>
+    <y>280</y>
+    <width>1380</width>
+    <height>80</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Channel_4</name>
+    <macros>
+      <CHANNEL>4</CHANNEL>
+      <BGCOLOR>245,245,255</BGCOLOR>
+    </macros>
+    <file>charge_row.bob</file>
+    <x>10</x>
+    <y>370</y>
+    <width>1380</width>
+    <height>80</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Channel_5</name>
+    <macros>
+      <CHANNEL>5</CHANNEL>
+      <BGCOLOR>255,255,255</BGCOLOR>
+    </macros>
+    <file>charge_row.bob</file>
+    <x>10</x>
+    <y>460</y>
+    <width>1380</width>
+    <height>80</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Channel_6</name>
+    <macros>
+      <CHANNEL>6</CHANNEL>
+      <BGCOLOR>245,245,255</BGCOLOR>
+    </macros>
+    <file>charge_row.bob</file>
+    <x>10</x>
+    <y>550</y>
+    <width>1380</width>
+    <height>80</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Channel_7</name>
+    <macros>
+      <CHANNEL>7</CHANNEL>
+      <BGCOLOR>255,255,255</BGCOLOR>
+    </macros>
+    <file>charge_row.bob</file>
+    <x>10</x>
+    <y>640</y>
+    <width>1380</width>
+    <height>80</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Channel_8</name>
+    <macros>
+      <CHANNEL>8</CHANNEL>
+      <BGCOLOR>245,245,255</BGCOLOR>
+    </macros>
+    <file>charge_row.bob</file>
+    <x>10</x>
+    <y>730</y>
+    <width>1380</width>
+    <height>80</height>
+  </widget>
+</display>

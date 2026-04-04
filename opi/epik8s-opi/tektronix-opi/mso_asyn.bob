@@ -1,0 +1,3708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Tektronix MSO58LP ASYN</name>
+  <width>1568</width>
+  <height>962</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Tektronix MSO58LP - ASYN Driver</text>
+    <x>6</x>
+    <y>6</y>
+    <width>500</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="128">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>PV_Prefix</name>
+    <text>$(P)</text>
+    <x>510</x>
+    <y>6</y>
+    <width>300</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_Connected</name>
+    <pv_name>$(P):Connected</pv_name>
+    <x>820</x>
+    <y>10</y>
+    <width>24</width>
+    <height>24</height>
+    <off_color>
+      <color red="255" green="0" blue="0">
+      </color>
+    </off_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Txt_Connected</name>
+    <pv_name>$(P):Connected</pv_name>
+    <x>850</x>
+    <y>12</y>
+    <width>80</width>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>Waveform_Plot</name>
+    <x>6</x>
+    <y>42</y>
+    <width>920</width>
+    <height>554</height>
+    <background_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <title>Oscilloscope Waveforms</title>
+    <title_font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </title_font>
+    <show_toolbar>true</show_toolbar>
+    <rules>
+      <rule name="ch1_vis" prop_id="traces[0].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):CH1:Enable_RBV</pv_name>
+      </rule>
+      <rule name="ch2_vis" prop_id="traces[1].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):CH2:Enable_RBV</pv_name>
+      </rule>
+      <rule name="ch3_vis" prop_id="traces[2].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):CH3:Enable_RBV</pv_name>
+      </rule>
+      <rule name="ch4_vis" prop_id="traces[3].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):CH4:Enable_RBV</pv_name>
+      </rule>
+      <rule name="ch5_vis" prop_id="traces[4].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):CH5:Enable_RBV</pv_name>
+      </rule>
+      <rule name="ch6_vis" prop_id="traces[5].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):CH6:Enable_RBV</pv_name>
+      </rule>
+      <rule name="ch7_vis" prop_id="traces[6].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):CH7:Enable_RBV</pv_name>
+      </rule>
+      <rule name="ch8_vis" prop_id="traces[7].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):CH8:Enable_RBV</pv_name>
+      </rule>
+    </rules>
+    <x_axis>
+      <title>Time (s)</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Amplitude (V)</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-1.0</minimum>
+        <maximum>1.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font family="Liberation Sans" style="BOLD" size="12.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>CH1</name>
+        <x_pv>$(P):CH1:TimeArray</x_pv>
+        <y_pv>$(P):CH1:Waveform</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="255" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>0</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>CH2</name>
+        <x_pv>$(P):CH2:TimeArray</x_pv>
+        <y_pv>$(P):CH2:Waveform</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="255" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>CH3</name>
+        <x_pv>$(P):CH3:TimeArray</x_pv>
+        <y_pv>$(P):CH3:Waveform</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>CH4</name>
+        <x_pv>$(P):CH4:TimeArray</x_pv>
+        <y_pv>$(P):CH4:Waveform</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="255" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>CH5</name>
+        <x_pv>$(P):CH5:TimeArray</x_pv>
+        <y_pv>$(P):CH5:Waveform</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="165" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>CH6</name>
+        <x_pv>$(P):CH6:TimeArray</x_pv>
+        <y_pv>$(P):CH6:Waveform</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="100" green="150" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>CH7</name>
+        <x_pv>$(P):CH7:TimeArray</x_pv>
+        <y_pv>$(P):CH7:Waveform</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="150" blue="200">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>CH8</name>
+        <x_pv>$(P):CH8:TimeArray</x_pv>
+        <y_pv>$(P):CH8:Waveform</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="255" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+    <marker>
+      <marker>
+        <color>
+          <color red="0" green="100" blue="255">
+          </color>
+        </color>
+        <pv_name>$(P):CH1:MarkerStart</pv_name>
+        <interactive>true</interactive>
+      </marker>
+      <marker>
+        <color>
+          <color red="255" green="50" blue="50">
+          </color>
+        </color>
+        <pv_name>$(P):CH1:MarkerEnd</pv_name>
+        <interactive>true</interactive>
+      </marker>
+    </marker>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channel_Control</name>
+    <x>932</x>
+    <y>42</y>
+    <width>370</width>
+    <height>292</height>
+    <style>1</style>
+    <background_color>
+      <color red="230" green="230" blue="240">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Ch_Title</name>
+      <text>Channel Control</text>
+      <x>6</x>
+      <y>6</y>
+      <width>150</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_En</name>
+      <text>En</text>
+      <x>6</x>
+      <y>30</y>
+      <width>30</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Ch</name>
+      <text>CH</text>
+      <x>40</x>
+      <y>30</y>
+      <width>30</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Label</name>
+      <text>Label</text>
+      <x>70</x>
+      <y>30</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Pts</name>
+      <text>Points</text>
+      <x>155</x>
+      <y>30</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Rdy</name>
+      <text>Rdy</text>
+      <x>210</x>
+      <y>30</y>
+      <width>30</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Rate</name>
+      <text>Rate</text>
+      <x>240</x>
+      <y>30</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>En_CH1</name>
+      <pv_name>$(P):CH1:Enable</pv_name>
+      <x>6</x>
+      <y>50</y>
+      <width>30</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH1</name>
+      <text>1</text>
+      <x>40</x>
+      <y>52</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="200" green="200" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LabelCH1</name>
+      <pv_name>$(P):CH1:Label_RBV</pv_name>
+      <x>70</x>
+      <y>52</y>
+      <width>80</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PtsCH1</name>
+      <pv_name>$(P):CH1:NrPt</pv_name>
+      <x>155</x>
+      <y>52</y>
+      <width>50</width>
+      <height>18</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Rdy_CH1</name>
+      <pv_name>$(P):CH1:DataReady</pv_name>
+      <x>215</x>
+      <y>52</y>
+      <width>18</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Rate_CH1</name>
+      <pv_name>$(P):CH1:RefreshRate</pv_name>
+      <x>240</x>
+      <y>52</y>
+      <width>50</width>
+      <height>18</height>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>En_CH2</name>
+      <pv_name>$(P):CH2:Enable</pv_name>
+      <x>6</x>
+      <y>75</y>
+      <width>30</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH2</name>
+      <text>2</text>
+      <x>40</x>
+      <y>77</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="200" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LabelCH2</name>
+      <pv_name>$(P):CH2:Label_RBV</pv_name>
+      <x>70</x>
+      <y>77</y>
+      <width>80</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PtsCH2</name>
+      <pv_name>$(P):CH2:NrPt</pv_name>
+      <x>155</x>
+      <y>77</y>
+      <width>50</width>
+      <height>18</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Rdy_CH2</name>
+      <pv_name>$(P):CH2:DataReady</pv_name>
+      <x>215</x>
+      <y>77</y>
+      <width>18</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Rate_CH2</name>
+      <pv_name>$(P):CH2:RefreshRate</pv_name>
+      <x>240</x>
+      <y>77</y>
+      <width>50</width>
+      <height>18</height>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>En_CH3</name>
+      <pv_name>$(P):CH3:Enable</pv_name>
+      <x>6</x>
+      <y>100</y>
+      <width>30</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH3</name>
+      <text>3</text>
+      <x>40</x>
+      <y>102</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="200" green="0" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LabelCH3</name>
+      <pv_name>$(P):CH3:Label_RBV</pv_name>
+      <x>70</x>
+      <y>102</y>
+      <width>80</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PtsCH3</name>
+      <pv_name>$(P):CH3:NrPt</pv_name>
+      <x>155</x>
+      <y>102</y>
+      <width>50</width>
+      <height>18</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Rdy_CH3</name>
+      <pv_name>$(P):CH3:DataReady</pv_name>
+      <x>215</x>
+      <y>102</y>
+      <width>18</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Rate_CH3</name>
+      <pv_name>$(P):CH3:RefreshRate</pv_name>
+      <x>240</x>
+      <y>102</y>
+      <width>50</width>
+      <height>18</height>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>En_CH4</name>
+      <pv_name>$(P):CH4:Enable</pv_name>
+      <x>6</x>
+      <y>125</y>
+      <width>30</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH4</name>
+      <text>4</text>
+      <x>40</x>
+      <y>127</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="200" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LabelCH4</name>
+      <pv_name>$(P):CH4:Label_RBV</pv_name>
+      <x>70</x>
+      <y>127</y>
+      <width>80</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PtsCH4</name>
+      <pv_name>$(P):CH4:NrPt</pv_name>
+      <x>155</x>
+      <y>127</y>
+      <width>50</width>
+      <height>18</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Rdy_CH4</name>
+      <pv_name>$(P):CH4:DataReady</pv_name>
+      <x>215</x>
+      <y>127</y>
+      <width>18</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Rate_CH4</name>
+      <pv_name>$(P):CH4:RefreshRate</pv_name>
+      <x>240</x>
+      <y>127</y>
+      <width>50</width>
+      <height>18</height>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>En_CH5</name>
+      <pv_name>$(P):CH5:Enable</pv_name>
+      <x>6</x>
+      <y>150</y>
+      <width>30</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH5</name>
+      <text>5</text>
+      <x>40</x>
+      <y>152</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="255" green="165" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LabelCH5</name>
+      <pv_name>$(P):CH5:Label_RBV</pv_name>
+      <x>70</x>
+      <y>152</y>
+      <width>80</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PtsCH5</name>
+      <pv_name>$(P):CH5:NrPt</pv_name>
+      <x>155</x>
+      <y>152</y>
+      <width>50</width>
+      <height>18</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Rdy_CH5</name>
+      <pv_name>$(P):CH5:DataReady</pv_name>
+      <x>215</x>
+      <y>152</y>
+      <width>18</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Rate_CH5</name>
+      <pv_name>$(P):CH5:RefreshRate</pv_name>
+      <x>240</x>
+      <y>152</y>
+      <width>50</width>
+      <height>18</height>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>En_CH6</name>
+      <pv_name>$(P):CH6:Enable</pv_name>
+      <x>6</x>
+      <y>175</y>
+      <width>30</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH6</name>
+      <text>6</text>
+      <x>40</x>
+      <y>177</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="150" blue="255">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LabelCH6</name>
+      <pv_name>$(P):CH6:Label_RBV</pv_name>
+      <x>70</x>
+      <y>177</y>
+      <width>80</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PtsCH6</name>
+      <pv_name>$(P):CH6:NrPt</pv_name>
+      <x>155</x>
+      <y>177</y>
+      <width>50</width>
+      <height>18</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Rdy_CH6</name>
+      <pv_name>$(P):CH6:DataReady</pv_name>
+      <x>215</x>
+      <y>177</y>
+      <width>18</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Rate_CH6</name>
+      <pv_name>$(P):CH6:RefreshRate</pv_name>
+      <x>240</x>
+      <y>177</y>
+      <width>50</width>
+      <height>18</height>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>En_CH7</name>
+      <pv_name>$(P):CH7:Enable</pv_name>
+      <x>6</x>
+      <y>200</y>
+      <width>30</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH7</name>
+      <text>7</text>
+      <x>40</x>
+      <y>202</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="255" green="150" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LabelCH7</name>
+      <pv_name>$(P):CH7:Label_RBV</pv_name>
+      <x>70</x>
+      <y>202</y>
+      <width>80</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PtsCH7</name>
+      <pv_name>$(P):CH7:NrPt</pv_name>
+      <x>155</x>
+      <y>202</y>
+      <width>50</width>
+      <height>18</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Rdy_CH7</name>
+      <pv_name>$(P):CH7:DataReady</pv_name>
+      <x>215</x>
+      <y>202</y>
+      <width>18</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Rate_CH7</name>
+      <pv_name>$(P):CH7:RefreshRate</pv_name>
+      <x>240</x>
+      <y>202</y>
+      <width>50</width>
+      <height>18</height>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>En_CH8</name>
+      <pv_name>$(P):CH8:Enable</pv_name>
+      <x>6</x>
+      <y>225</y>
+      <width>30</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH8</name>
+      <text>8</text>
+      <x>40</x>
+      <y>227</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LabelCH8</name>
+      <pv_name>$(P):CH8:Label_RBV</pv_name>
+      <x>70</x>
+      <y>227</y>
+      <width>80</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PtsCH8</name>
+      <pv_name>$(P):CH8:NrPt</pv_name>
+      <x>155</x>
+      <y>227</y>
+      <width>50</width>
+      <height>18</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Rdy_CH8</name>
+      <pv_name>$(P):CH8:DataReady</pv_name>
+      <x>215</x>
+      <y>227</y>
+      <width>18</width>
+      <height>18</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Rate_CH8</name>
+      <pv_name>$(P):CH8:RefreshRate</pv_name>
+      <x>240</x>
+      <y>227</y>
+      <width>50</width>
+      <height>18</height>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_View</name>
+      <text>View</text>
+      <x>295</x>
+      <y>30</y>
+      <width>40</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_View_CH1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open CH1 Waveform</description>
+          <file>channel_asyn_display.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CHAN>1</CHAN>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>🔍</text>
+      <x>295</x>
+      <y>50</y>
+      <width>35</width>
+      <height>22</height>
+      <tooltip>Open CH1 waveform display</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_View_CH2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open CH2 Waveform</description>
+          <file>channel_asyn_display.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CHAN>2</CHAN>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>🔍</text>
+      <x>295</x>
+      <y>75</y>
+      <width>35</width>
+      <height>22</height>
+      <tooltip>Open CH2 waveform display</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_View_CH3</name>
+      <actions>
+        <action type="open_display">
+          <description>Open CH3 Waveform</description>
+          <file>channel_asyn_display.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CHAN>3</CHAN>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>🔍</text>
+      <x>295</x>
+      <y>100</y>
+      <width>35</width>
+      <height>22</height>
+      <tooltip>Open CH3 waveform display</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_View_CH4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open CH4 Waveform</description>
+          <file>channel_asyn_display.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CHAN>4</CHAN>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>🔍</text>
+      <x>295</x>
+      <y>125</y>
+      <width>35</width>
+      <height>22</height>
+      <tooltip>Open CH4 waveform display</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_View_CH5</name>
+      <actions>
+        <action type="open_display">
+          <description>Open CH5 Waveform</description>
+          <file>channel_asyn_display.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CHAN>5</CHAN>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>🔍</text>
+      <x>295</x>
+      <y>150</y>
+      <width>35</width>
+      <height>22</height>
+      <tooltip>Open CH5 waveform display</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_View_CH6</name>
+      <actions>
+        <action type="open_display">
+          <description>Open CH6 Waveform</description>
+          <file>channel_asyn_display.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CHAN>6</CHAN>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>🔍</text>
+      <x>295</x>
+      <y>175</y>
+      <width>35</width>
+      <height>22</height>
+      <tooltip>Open CH6 waveform display</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_View_CH7</name>
+      <actions>
+        <action type="open_display">
+          <description>Open CH7 Waveform</description>
+          <file>channel_asyn_display.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CHAN>7</CHAN>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>🔍</text>
+      <x>295</x>
+      <y>200</y>
+      <width>35</width>
+      <height>22</height>
+      <tooltip>Open CH7 waveform display</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_View_CH8</name>
+      <actions>
+        <action type="open_display">
+          <description>Open CH8 Waveform</description>
+          <file>channel_asyn_display.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CHAN>8</CHAN>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>🔍</text>
+      <x>295</x>
+      <y>225</y>
+      <width>35</width>
+      <height>22</height>
+      <tooltip>Open CH8 waveform display</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_EnableAll</name>
+      <actions>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH1:Enable</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH2:Enable</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH3:Enable</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH4:Enable</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>En 1-4</text>
+      <x>6</x>
+      <y>252</y>
+      <width>55</width>
+      <height>22</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_DisableAll</name>
+      <actions>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH1:Enable</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH2:Enable</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH3:Enable</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH4:Enable</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH5:Enable</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH6:Enable</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH7:Enable</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):CH8:Enable</pv_name>
+          <value>0</value>
+        </action>
+      </actions>
+      <text>Dis All</text>
+      <x>65</x>
+      <y>252</y>
+      <width>55</width>
+      <height>22</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Acquisition_Control</name>
+    <x>1184</x>
+    <y>334</y>
+    <width>250</width>
+    <height>140</height>
+    <style>1</style>
+    <background_color>
+      <color red="240" green="230" blue="220">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Acq_Title</name>
+      <text>Acquisition Control</text>
+      <x>6</x>
+      <y>6</y>
+      <width>150</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Acquire</name>
+      <text>Polling:</text>
+      <x>6</x>
+      <y>32</y>
+      <width>60</width>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Ctrl_Acquire</name>
+      <pv_name>$(P):Acquire</pv_name>
+      <x>70</x>
+      <y>30</y>
+      <width>170</width>
+      <height>25</height>
+      <items>
+        <item>Item 1</item>
+        <item>Item 2</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_RunStop</name>
+      <text>Scope:</text>
+      <x>6</x>
+      <y>62</y>
+      <width>60</width>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Ctrl_RunStop</name>
+      <pv_name>$(P):RunStop</pv_name>
+      <x>70</x>
+      <y>60</y>
+      <width>170</width>
+      <height>25</height>
+      <items>
+        <item>Item 1</item>
+        <item>Item 2</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_PollTime</name>
+      <text>Poll Time:</text>
+      <x>6</x>
+      <y>95</y>
+      <width>60</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Ctrl_PollTime</name>
+      <pv_name>$(P):PollTime</pv_name>
+      <x>70</x>
+      <y>92</y>
+      <width>80</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_PollTime</name>
+      <text>s</text>
+      <x>155</x>
+      <y>95</y>
+      <width>20</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_PollRate</name>
+      <pv_name>$(P):PollRate</pv_name>
+      <x>180</x>
+      <y>95</y>
+      <width>40</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_Hz</name>
+      <text>Hz</text>
+      <x>222</x>
+      <y>95</y>
+      <width>25</width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Debug_Control</name>
+    <x>1305</x>
+    <y>260</y>
+    <width>129</width>
+    <height>68</height>
+    <style>1</style>
+    <background_color>
+      <color red="255" green="255" blue="220">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_DebugLevel</name>
+      <text>Debug Level:</text>
+      <x>6</x>
+      <y>14</y>
+      <width>80</width>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Ctrl_DebugLevel</name>
+      <pv_name>$(P):DebugLevel</pv_name>
+      <x>54</x>
+      <y>14</y>
+      <width>62</width>
+      <height>25</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Acquisition_Window</name>
+    <x>932</x>
+    <y>334</y>
+    <width>252</width>
+    <height>262</height>
+    <style>1</style>
+    <background_color>
+      <color red="220" green="235" blue="250">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>AcqWin_Title</name>
+      <text>Data Window (samples)</text>
+      <x>6</x>
+      <y>6</y>
+      <width>180</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Start</name>
+      <text>Start</text>
+      <x>45</x>
+      <y>28</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Stop</name>
+      <text>Stop</text>
+      <x>105</x>
+      <y>28</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Width</name>
+      <text>Bytes</text>
+      <x>171</x>
+      <y>26</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DW_CH1</name>
+      <text>CH1</text>
+      <x>6</x>
+      <y>46</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="200" green="200" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Start1</name>
+      <pv_name>$(P):CH1:DataStart</pv_name>
+      <x>45</x>
+      <y>44</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Stop1</name>
+      <pv_name>$(P):CH1:WindowSize</pv_name>
+      <x>105</x>
+      <y>44</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DW_CH2</name>
+      <text>CH2</text>
+      <x>6</x>
+      <y>70</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="200" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Start2</name>
+      <pv_name>$(P):CH2:DataStart</pv_name>
+      <x>45</x>
+      <y>68</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Stop2</name>
+      <pv_name>$(P):CH2:WindowSize</pv_name>
+      <x>105</x>
+      <y>68</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DW_CH3</name>
+      <text>CH3</text>
+      <x>6</x>
+      <y>94</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="200" green="0" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Start3</name>
+      <pv_name>$(P):CH3:DataStart</pv_name>
+      <x>45</x>
+      <y>92</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Stop3</name>
+      <pv_name>$(P):CH3:WindowSize</pv_name>
+      <x>105</x>
+      <y>92</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DW_CH4</name>
+      <text>CH4</text>
+      <x>6</x>
+      <y>118</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="200" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Start4</name>
+      <pv_name>$(P):CH4:DataStart</pv_name>
+      <x>45</x>
+      <y>116</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Stop4</name>
+      <pv_name>$(P):CH4:WindowSize</pv_name>
+      <x>105</x>
+      <y>116</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DW_CH5</name>
+      <text>CH5</text>
+      <x>6</x>
+      <y>142</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="255" green="165" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Start5</name>
+      <pv_name>$(P):CH5:DataStart</pv_name>
+      <x>45</x>
+      <y>140</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Stop5</name>
+      <pv_name>$(P):CH5:WindowSize</pv_name>
+      <x>105</x>
+      <y>140</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DW_CH6</name>
+      <text>CH6</text>
+      <x>6</x>
+      <y>166</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="150" blue="255">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Start6</name>
+      <pv_name>$(P):CH6:DataStart</pv_name>
+      <x>45</x>
+      <y>164</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Stop6</name>
+      <pv_name>$(P):CH6:WindowSize</pv_name>
+      <x>105</x>
+      <y>164</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DW_CH7</name>
+      <text>CH7</text>
+      <x>6</x>
+      <y>190</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="255" green="150" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Start7</name>
+      <pv_name>$(P):CH7:DataStart</pv_name>
+      <x>45</x>
+      <y>188</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Stop7</name>
+      <pv_name>$(P):CH7:WindowSize</pv_name>
+      <x>105</x>
+      <y>188</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DW_CH8</name>
+      <text>CH8</text>
+      <x>6</x>
+      <y>214</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Start8</name>
+      <pv_name>$(P):CH8:DataStart</pv_name>
+      <x>45</x>
+      <y>212</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DW_Stop8</name>
+      <pv_name>$(P):CH8:WindowSize</pv_name>
+      <x>105</x>
+      <y>212</y>
+      <width>55</width>
+      <height>22</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DW_Width1</name>
+      <pv_name>$(P):CH1:DataWidth</pv_name>
+      <x>171</x>
+      <y>42</y>
+      <width>75</width>
+      <height>22</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DW_Width2</name>
+      <pv_name>$(P):CH2:DataWidth</pv_name>
+      <x>171</x>
+      <y>66</y>
+      <width>75</width>
+      <height>22</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DW_Width3</name>
+      <pv_name>$(P):CH3:DataWidth</pv_name>
+      <x>171</x>
+      <y>90</y>
+      <width>75</width>
+      <height>22</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DW_Width4</name>
+      <pv_name>$(P):CH4:DataWidth</pv_name>
+      <x>171</x>
+      <y>114</y>
+      <width>75</width>
+      <height>22</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DW_Width5</name>
+      <pv_name>$(P):CH5:DataWidth</pv_name>
+      <x>171</x>
+      <y>138</y>
+      <width>75</width>
+      <height>22</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DW_Width6</name>
+      <pv_name>$(P):CH6:DataWidth</pv_name>
+      <x>171</x>
+      <y>162</y>
+      <width>75</width>
+      <height>22</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DW_Width7</name>
+      <pv_name>$(P):CH7:DataWidth</pv_name>
+      <x>171</x>
+      <y>186</y>
+      <width>75</width>
+      <height>22</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DW_Width8</name>
+      <pv_name>$(P):CH8:DataWidth</pv_name>
+      <x>171</x>
+      <y>210</y>
+      <width>75</width>
+      <height>22</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Marker_Control</name>
+    <x>926</x>
+    <y>596</y>
+    <width>509</width>
+    <height>360</height>
+    <style>1</style>
+    <background_color>
+      <color red="230" green="250" blue="230">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Marker_Title</name>
+      <text>Statistics Window (drag markers on plot)</text>
+      <x>6</x>
+      <y>6</y>
+      <width>350</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_StatsNote</name>
+      <text>Markers are interactive on the waveform plot (blue=start, red=end)</text>
+      <x>6</x>
+      <y>26</y>
+      <width>500</width>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Start_T</name>
+      <text>Start (s)</text>
+      <x>45</x>
+      <y>42</y>
+      <width>70</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_End_T</name>
+      <text>End (s)</text>
+      <x>125</x>
+      <y>42</y>
+      <width>70</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Samples</name>
+      <text>Samples</text>
+      <x>210</x>
+      <y>42</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH1_Mark</name>
+      <text>CH1</text>
+      <x>6</x>
+      <y>58</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="200" green="200" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_Start1</name>
+      <pv_name>$(P):CH1:MarkerStart</pv_name>
+      <x>45</x>
+      <y>56</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_End1</name>
+      <pv_name>$(P):CH1:MarkerEnd</pv_name>
+      <x>125</x>
+      <y>56</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples1_S</name>
+      <pv_name>$(P):CH1:MarkerStartSample</pv_name>
+      <x>210</x>
+      <y>58</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_dash1</name>
+      <text>-</text>
+      <x>257</x>
+      <y>58</y>
+      <width>8</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples1_E</name>
+      <pv_name>$(P):CH1:MarkerEndSample</pv_name>
+      <x>267</x>
+      <y>58</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH2_Mark</name>
+      <text>CH2</text>
+      <x>6</x>
+      <y>80</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="180" blue="180">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_Start2</name>
+      <pv_name>$(P):CH2:MarkerStart</pv_name>
+      <x>45</x>
+      <y>78</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_End2</name>
+      <pv_name>$(P):CH2:MarkerEnd</pv_name>
+      <x>125</x>
+      <y>78</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples2_S</name>
+      <pv_name>$(P):CH2:MarkerStartSample</pv_name>
+      <x>210</x>
+      <y>80</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_dash2</name>
+      <text>-</text>
+      <x>257</x>
+      <y>80</y>
+      <width>8</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples2_E</name>
+      <pv_name>$(P):CH2:MarkerEndSample</pv_name>
+      <x>267</x>
+      <y>80</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH3_Mark</name>
+      <text>CH3</text>
+      <x>6</x>
+      <y>102</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="180" green="0" blue="180">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_Start3</name>
+      <pv_name>$(P):CH3:MarkerStart</pv_name>
+      <x>45</x>
+      <y>100</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_End3</name>
+      <pv_name>$(P):CH3:MarkerEnd</pv_name>
+      <x>125</x>
+      <y>100</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples3_S</name>
+      <pv_name>$(P):CH3:MarkerStartSample</pv_name>
+      <x>210</x>
+      <y>102</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_dash3</name>
+      <text>-</text>
+      <x>257</x>
+      <y>102</y>
+      <width>8</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples3_E</name>
+      <pv_name>$(P):CH3:MarkerEndSample</pv_name>
+      <x>267</x>
+      <y>102</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH4_Mark</name>
+      <text>CH4</text>
+      <x>6</x>
+      <y>124</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="180" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_Start4</name>
+      <pv_name>$(P):CH4:MarkerStart</pv_name>
+      <x>45</x>
+      <y>122</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_End4</name>
+      <pv_name>$(P):CH4:MarkerEnd</pv_name>
+      <x>125</x>
+      <y>122</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples4_S</name>
+      <pv_name>$(P):CH4:MarkerStartSample</pv_name>
+      <x>210</x>
+      <y>124</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_dash4</name>
+      <text>-</text>
+      <x>257</x>
+      <y>124</y>
+      <width>8</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples4_E</name>
+      <pv_name>$(P):CH4:MarkerEndSample</pv_name>
+      <x>267</x>
+      <y>124</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH5_Mark</name>
+      <text>CH5</text>
+      <x>6</x>
+      <y>150</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="255" green="165" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_Start5</name>
+      <pv_name>$(P):CH5:MarkerStart</pv_name>
+      <x>45</x>
+      <y>148</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_End5</name>
+      <pv_name>$(P):CH5:MarkerEnd</pv_name>
+      <x>125</x>
+      <y>148</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples5_S</name>
+      <pv_name>$(P):CH5:MarkerStartSample</pv_name>
+      <x>210</x>
+      <y>150</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_dash5</name>
+      <text>-</text>
+      <x>257</x>
+      <y>150</y>
+      <width>8</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples5_E</name>
+      <pv_name>$(P):CH5:MarkerEndSample</pv_name>
+      <x>267</x>
+      <y>150</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH6_Mark</name>
+      <text>CH6</text>
+      <x>6</x>
+      <y>172</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="150" blue="255">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_Start6</name>
+      <pv_name>$(P):CH6:MarkerStart</pv_name>
+      <x>45</x>
+      <y>170</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_End6</name>
+      <pv_name>$(P):CH6:MarkerEnd</pv_name>
+      <x>125</x>
+      <y>170</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples6_S</name>
+      <pv_name>$(P):CH6:MarkerStartSample</pv_name>
+      <x>210</x>
+      <y>172</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_dash6</name>
+      <text>-</text>
+      <x>257</x>
+      <y>172</y>
+      <width>8</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples6_E</name>
+      <pv_name>$(P):CH6:MarkerEndSample</pv_name>
+      <x>267</x>
+      <y>172</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH7_Mark</name>
+      <text>CH7</text>
+      <x>6</x>
+      <y>194</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="255" green="150" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_Start7</name>
+      <pv_name>$(P):CH7:MarkerStart</pv_name>
+      <x>45</x>
+      <y>192</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_End7</name>
+      <pv_name>$(P):CH7:MarkerEnd</pv_name>
+      <x>125</x>
+      <y>192</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples7_S</name>
+      <pv_name>$(P):CH7:MarkerStartSample</pv_name>
+      <x>210</x>
+      <y>194</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_dash7</name>
+      <text>-</text>
+      <x>257</x>
+      <y>194</y>
+      <width>8</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples7_E</name>
+      <pv_name>$(P):CH7:MarkerEndSample</pv_name>
+      <x>267</x>
+      <y>194</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CH8_Mark</name>
+      <text>CH8</text>
+      <x>6</x>
+      <y>216</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_Start8</name>
+      <pv_name>$(P):CH8:MarkerStart</pv_name>
+      <x>45</x>
+      <y>214</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_End8</name>
+      <pv_name>$(P):CH8:MarkerEnd</pv_name>
+      <x>125</x>
+      <y>214</y>
+      <width>75</width>
+      <format>2</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples8_S</name>
+      <pv_name>$(P):CH8:MarkerStartSample</pv_name>
+      <x>210</x>
+      <y>216</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_dash8</name>
+      <text>-</text>
+      <x>257</x>
+      <y>216</y>
+      <width>8</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples8_E</name>
+      <pv_name>$(P):CH8:MarkerEndSample</pv_name>
+      <x>267</x>
+      <y>216</y>
+      <width>45</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CopyNote</name>
+      <text>CH1 markers shown on plot. Type time values or drag blue/red lines.</text>
+      <x>6</x>
+      <y>240</y>
+      <width>500</width>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="8.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="120" green="120" blue="120">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_CopyCH1toAll</name>
+      <actions>
+        <action type="write_pv">
+          <description>Copy to CH2 Start</description>
+          <pv_name>$(P):CH2:MarkerStart</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH3 Start</description>
+          <pv_name>$(P):CH3:MarkerStart</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH4 Start</description>
+          <pv_name>$(P):CH4:MarkerStart</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH5 Start</description>
+          <pv_name>$(P):CH5:MarkerStart</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH6 Start</description>
+          <pv_name>$(P):CH6:MarkerStart</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH7 Start</description>
+          <pv_name>$(P):CH7:MarkerStart</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH8 Start</description>
+          <pv_name>$(P):CH8:MarkerStart</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+      </actions>
+      <pv_name>$(P):CH1:MarkerStart</pv_name>
+      <text>Copy CH1 Start→All</text>
+      <x>6</x>
+      <y>258</y>
+      <width>150</width>
+      <height>22</height>
+      <tooltip>Copy CH1 start marker to all channels</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_CopyCH1EndToAll</name>
+      <actions>
+        <action type="write_pv">
+          <description>Copy to CH2 End</description>
+          <pv_name>$(P):CH2:MarkerEnd</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH3 End</description>
+          <pv_name>$(P):CH3:MarkerEnd</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH4 End</description>
+          <pv_name>$(P):CH4:MarkerEnd</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH5 End</description>
+          <pv_name>$(P):CH5:MarkerEnd</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH6 End</description>
+          <pv_name>$(P):CH6:MarkerEnd</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH7 End</description>
+          <pv_name>$(P):CH7:MarkerEnd</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+        <action type="write_pv">
+          <description>Copy to CH8 End</description>
+          <pv_name>$(P):CH8:MarkerEnd</pv_name>
+          <value>$(pv_value)</value>
+        </action>
+      </actions>
+      <pv_name>$(P):CH1:MarkerEnd</pv_name>
+      <text>Copy CH1 End→All</text>
+      <x>165</x>
+      <y>258</y>
+      <width>150</width>
+      <height>22</height>
+      <tooltip>Copy CH1 end marker to all channels</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_ResetMarkers</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset CH1 Start</description>
+          <pv_name>$(P):CH1:MarkerStart</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH1 End</description>
+          <pv_name>$(P):CH1:MarkerEnd</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH2 Start</description>
+          <pv_name>$(P):CH2:MarkerStart</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH2 End</description>
+          <pv_name>$(P):CH2:MarkerEnd</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH3 Start</description>
+          <pv_name>$(P):CH3:MarkerStart</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH3 End</description>
+          <pv_name>$(P):CH3:MarkerEnd</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH4 Start</description>
+          <pv_name>$(P):CH4:MarkerStart</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH4 End</description>
+          <pv_name>$(P):CH4:MarkerEnd</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH5 Start</description>
+          <pv_name>$(P):CH5:MarkerStart</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH5 End</description>
+          <pv_name>$(P):CH5:MarkerEnd</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH6 Start</description>
+          <pv_name>$(P):CH6:MarkerStart</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH6 End</description>
+          <pv_name>$(P):CH6:MarkerEnd</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH7 Start</description>
+          <pv_name>$(P):CH7:MarkerStart</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH7 End</description>
+          <pv_name>$(P):CH7:MarkerEnd</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH8 Start</description>
+          <pv_name>$(P):CH8:MarkerStart</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH8 End</description>
+          <pv_name>$(P):CH8:MarkerEnd</pv_name>
+          <value>0</value>
+        </action>
+      </actions>
+      <text>Reset All (full range)</text>
+      <x>6</x>
+      <y>284</y>
+      <width>150</width>
+      <height>22</height>
+      <tooltip>Reset all markers to 0 (full waveform)</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Diagnostics</name>
+    <x>1185</x>
+    <y>479</y>
+    <width>250</width>
+    <height>99</height>
+    <style>1</style>
+    <background_color>
+      <color red="240" green="240" blue="250">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Diag_Title</name>
+      <text>Diagnostics</text>
+      <x>6</x>
+      <y>6</y>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_PollCount</name>
+      <text>Poll Count:</text>
+      <x>6</x>
+      <y>30</y>
+      <width>70</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_PollCount</name>
+      <pv_name>$(P):PollCount</pv_name>
+      <x>80</x>
+      <y>30</y>
+      <width>70</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_ErrorCount</name>
+      <text>Errors:</text>
+      <x>155</x>
+      <y>30</y>
+      <width>45</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_ErrorCount</name>
+      <pv_name>$(P):ErrorCount</pv_name>
+      <x>200</x>
+      <y>30</y>
+      <width>40</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_CommTime</name>
+      <text>Comm Time:</text>
+      <x>6</x>
+      <y>55</y>
+      <width>70</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_CommTime</name>
+      <pv_name>$(P):CommTime</pv_name>
+      <x>80</x>
+      <y>55</y>
+      <width>60</width>
+      <precision>4</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_CommTime</name>
+      <text>s</text>
+      <x>145</x>
+      <y>55</y>
+      <width>15</width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Stats_Table</name>
+    <x>6</x>
+    <y>596</y>
+    <width>920</width>
+    <height>360</height>
+    <style>1</style>
+    <background_color>
+      <color red="245" green="245" blue="245">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Stats_Title</name>
+      <text>Channel Statistics (within marker window)</text>
+      <x>6</x>
+      <y>6</y>
+      <width>350</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_ResetAllStats</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset CH1</description>
+          <pv_name>$(P):CH1:ResetStats</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH2</description>
+          <pv_name>$(P):CH2:ResetStats</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH3</description>
+          <pv_name>$(P):CH3:ResetStats</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH4</description>
+          <pv_name>$(P):CH4:ResetStats</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH5</description>
+          <pv_name>$(P):CH5:ResetStats</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH6</description>
+          <pv_name>$(P):CH6:ResetStats</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH7</description>
+          <pv_name>$(P):CH7:ResetStats</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset CH8</description>
+          <pv_name>$(P):CH8:ResetStats</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Reset All Stats</text>
+      <x>760</x>
+      <y>4</y>
+      <width>120</width>
+      <height>24</height>
+      <tooltip>Reset statistics for all channels</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Ch2</name>
+      <text>Channel</text>
+      <x>6</x>
+      <y>32</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Mean</name>
+      <text>Mean</text>
+      <x>90</x>
+      <y>32</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Min</name>
+      <text>Min</text>
+      <x>175</x>
+      <y>32</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Max</name>
+      <text>Max</text>
+      <x>260</x>
+      <y>32</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_PkPk</name>
+      <text>Pk-Pk</text>
+      <x>345</x>
+      <y>32</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_RMS</name>
+      <text>RMS</text>
+      <x>430</x>
+      <y>32</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_StdDev</name>
+      <text>StdDev</text>
+      <x>515</x>
+      <y>32</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Integral</name>
+      <text>Integral</text>
+      <x>600</x>
+      <y>32</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Charge</name>
+      <text>Charge</text>
+      <x>700</x>
+      <y>32</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Hdr_Win</name>
+      <text>Win%</text>
+      <x>800</x>
+      <y>32</y>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>CH1_Row</name>
+      <y>55</y>
+      <width>890</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <rules>
+        <rule name="vis" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):CH1:Enable_RBV</pv_name>
+        </rule>
+      </rules>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_Label</name>
+        <pv_name>$(P):CH1:Label_RBV</pv_name>
+        <x>6</x>
+        <width>80</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="200" green="200" blue="0">
+          </color>
+        </foreground_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_Mean</name>
+        <pv_name>$(P):CH1:Mean</pv_name>
+        <x>90</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_Min</name>
+        <pv_name>$(P):CH1:Min</pv_name>
+        <x>175</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_Max</name>
+        <pv_name>$(P):CH1:Max</pv_name>
+        <x>260</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_PkPk</name>
+        <pv_name>$(P):CH1:PeakToPeak</pv_name>
+        <x>345</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_RMS</name>
+        <pv_name>$(P):CH1:RMS</pv_name>
+        <x>430</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_StdDev</name>
+        <pv_name>$(P):CH1:StdDev</pv_name>
+        <x>515</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_Integral</name>
+        <pv_name>$(P):CH1:Integral</pv_name>
+        <x>600</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>9</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_Charge</name>
+        <pv_name>$(P):CH1:Charge</pv_name>
+        <x>700</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_WinStart</name>
+        <pv_name>$(P):CH1:MarkerStart</pv_name>
+        <x>800</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>CH1_Dash</name>
+        <text>-</text>
+        <x>837</x>
+        <width>10</width>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH1_WinEnd</name>
+        <pv_name>$(P):CH1:MarkerEnd</pv_name>
+        <x>850</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>CH2_Row</name>
+      <y>78</y>
+      <width>890</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <rules>
+        <rule name="vis" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):CH2:Enable_RBV</pv_name>
+        </rule>
+      </rules>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_Label</name>
+        <pv_name>$(P):CH2:Label_RBV</pv_name>
+        <x>6</x>
+        <width>80</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="0" green="180" blue="180">
+          </color>
+        </foreground_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_Mean</name>
+        <pv_name>$(P):CH2:Mean</pv_name>
+        <x>90</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_Min</name>
+        <pv_name>$(P):CH2:Min</pv_name>
+        <x>175</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_Max</name>
+        <pv_name>$(P):CH2:Max</pv_name>
+        <x>260</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_PkPk</name>
+        <pv_name>$(P):CH2:PeakToPeak</pv_name>
+        <x>345</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_RMS</name>
+        <pv_name>$(P):CH2:RMS</pv_name>
+        <x>430</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_StdDev</name>
+        <pv_name>$(P):CH2:StdDev</pv_name>
+        <x>515</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_Integral</name>
+        <pv_name>$(P):CH2:Integral</pv_name>
+        <x>600</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>9</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_Charge</name>
+        <pv_name>$(P):CH2:Charge</pv_name>
+        <x>700</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_WinStart</name>
+        <pv_name>$(P):CH2:MarkerStart</pv_name>
+        <x>800</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>CH2_Dash</name>
+        <text>-</text>
+        <x>837</x>
+        <width>10</width>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH2_WinEnd</name>
+        <pv_name>$(P):CH2:MarkerEnd</pv_name>
+        <x>850</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>CH3_Row</name>
+      <y>101</y>
+      <width>890</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <rules>
+        <rule name="vis" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):CH3:Enable_RBV</pv_name>
+        </rule>
+      </rules>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_Label</name>
+        <pv_name>$(P):CH3:Label_RBV</pv_name>
+        <x>6</x>
+        <width>80</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="180" green="0" blue="180">
+          </color>
+        </foreground_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_Mean</name>
+        <pv_name>$(P):CH3:Mean</pv_name>
+        <x>90</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_Min</name>
+        <pv_name>$(P):CH3:Min</pv_name>
+        <x>175</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_Max</name>
+        <pv_name>$(P):CH3:Max</pv_name>
+        <x>260</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_PkPk</name>
+        <pv_name>$(P):CH3:PeakToPeak</pv_name>
+        <x>345</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_RMS</name>
+        <pv_name>$(P):CH3:RMS</pv_name>
+        <x>430</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_StdDev</name>
+        <pv_name>$(P):CH3:StdDev</pv_name>
+        <x>515</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_Integral</name>
+        <pv_name>$(P):CH3:Integral</pv_name>
+        <x>600</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>9</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_Charge</name>
+        <pv_name>$(P):CH3:Charge</pv_name>
+        <x>700</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_WinStart</name>
+        <pv_name>$(P):CH3:MarkerStart</pv_name>
+        <x>800</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>CH3_Dash</name>
+        <text>-</text>
+        <x>837</x>
+        <width>10</width>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH3_WinEnd</name>
+        <pv_name>$(P):CH3:MarkerEnd</pv_name>
+        <x>850</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>CH4_Row</name>
+      <y>124</y>
+      <width>890</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <rules>
+        <rule name="vis" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):CH4:Enable_RBV</pv_name>
+        </rule>
+      </rules>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_Label</name>
+        <pv_name>$(P):CH4:Label_RBV</pv_name>
+        <x>6</x>
+        <width>80</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="0" green="180" blue="0">
+          </color>
+        </foreground_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_Mean</name>
+        <pv_name>$(P):CH4:Mean</pv_name>
+        <x>90</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_Min</name>
+        <pv_name>$(P):CH4:Min</pv_name>
+        <x>175</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_Max</name>
+        <pv_name>$(P):CH4:Max</pv_name>
+        <x>260</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_PkPk</name>
+        <pv_name>$(P):CH4:PeakToPeak</pv_name>
+        <x>345</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_RMS</name>
+        <pv_name>$(P):CH4:RMS</pv_name>
+        <x>430</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_StdDev</name>
+        <pv_name>$(P):CH4:StdDev</pv_name>
+        <x>515</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_Integral</name>
+        <pv_name>$(P):CH4:Integral</pv_name>
+        <x>600</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>9</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_Charge</name>
+        <pv_name>$(P):CH4:Charge</pv_name>
+        <x>700</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_WinStart</name>
+        <pv_name>$(P):CH4:MarkerStart</pv_name>
+        <x>800</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>CH4_Dash</name>
+        <text>-</text>
+        <x>837</x>
+        <width>10</width>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH4_WinEnd</name>
+        <pv_name>$(P):CH4:MarkerEnd</pv_name>
+        <x>850</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Separator</name>
+      <x>6</x>
+      <y>150</y>
+      <width>890</width>
+      <height>2</height>
+      <line_color>
+        <color red="180" green="180" blue="180">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="180" green="180" blue="180">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CH5_8_Note</name>
+      <text>Channels 5-8 (if loaded by IOC):</text>
+      <x>6</x>
+      <y>155</y>
+      <width>250</width>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>CH5_Row</name>
+      <y>175</y>
+      <width>890</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <rules>
+        <rule name="vis" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):CH5:Enable_RBV</pv_name>
+        </rule>
+      </rules>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_Label</name>
+        <pv_name>$(P):CH5:Label_RBV</pv_name>
+        <x>6</x>
+        <width>80</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="255" green="165" blue="0">
+          </color>
+        </foreground_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_Mean</name>
+        <pv_name>$(P):CH5:Mean</pv_name>
+        <x>90</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_Min</name>
+        <pv_name>$(P):CH5:Min</pv_name>
+        <x>175</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_Max</name>
+        <pv_name>$(P):CH5:Max</pv_name>
+        <x>260</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_PkPk</name>
+        <pv_name>$(P):CH5:PeakToPeak</pv_name>
+        <x>345</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_RMS</name>
+        <pv_name>$(P):CH5:RMS</pv_name>
+        <x>430</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_StdDev</name>
+        <pv_name>$(P):CH5:StdDev</pv_name>
+        <x>515</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_Integral</name>
+        <pv_name>$(P):CH5:Integral</pv_name>
+        <x>600</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>9</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_Charge</name>
+        <pv_name>$(P):CH5:Charge</pv_name>
+        <x>700</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_WinStart</name>
+        <pv_name>$(P):CH5:MarkerStart</pv_name>
+        <x>800</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>CH5_Dash</name>
+        <text>-</text>
+        <x>837</x>
+        <width>10</width>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH5_WinEnd</name>
+        <pv_name>$(P):CH5:MarkerEnd</pv_name>
+        <x>850</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>CH6_Row</name>
+      <y>198</y>
+      <width>890</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <rules>
+        <rule name="vis" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):CH6:Enable_RBV</pv_name>
+        </rule>
+      </rules>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_Label</name>
+        <pv_name>$(P):CH6:Label_RBV</pv_name>
+        <x>6</x>
+        <width>80</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="100" green="150" blue="255">
+          </color>
+        </foreground_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_Mean</name>
+        <pv_name>$(P):CH6:Mean</pv_name>
+        <x>90</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_Min</name>
+        <pv_name>$(P):CH6:Min</pv_name>
+        <x>175</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_Max</name>
+        <pv_name>$(P):CH6:Max</pv_name>
+        <x>260</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_PkPk</name>
+        <pv_name>$(P):CH6:PeakToPeak</pv_name>
+        <x>345</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_RMS</name>
+        <pv_name>$(P):CH6:RMS</pv_name>
+        <x>430</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_StdDev</name>
+        <pv_name>$(P):CH6:StdDev</pv_name>
+        <x>515</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_Integral</name>
+        <pv_name>$(P):CH6:Integral</pv_name>
+        <x>600</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>9</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_Charge</name>
+        <pv_name>$(P):CH6:Charge</pv_name>
+        <x>700</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_WinStart</name>
+        <pv_name>$(P):CH6:MarkerStart</pv_name>
+        <x>800</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>CH6_Dash</name>
+        <text>-</text>
+        <x>837</x>
+        <width>10</width>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH6_WinEnd</name>
+        <pv_name>$(P):CH6:MarkerEnd</pv_name>
+        <x>850</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>CH7_Row</name>
+      <y>221</y>
+      <width>890</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <rules>
+        <rule name="vis" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):CH7:Enable_RBV</pv_name>
+        </rule>
+      </rules>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_Label</name>
+        <pv_name>$(P):CH7:Label_RBV</pv_name>
+        <x>6</x>
+        <width>80</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="255" green="150" blue="200">
+          </color>
+        </foreground_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_Mean</name>
+        <pv_name>$(P):CH7:Mean</pv_name>
+        <x>90</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_Min</name>
+        <pv_name>$(P):CH7:Min</pv_name>
+        <x>175</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_Max</name>
+        <pv_name>$(P):CH7:Max</pv_name>
+        <x>260</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_PkPk</name>
+        <pv_name>$(P):CH7:PeakToPeak</pv_name>
+        <x>345</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_RMS</name>
+        <pv_name>$(P):CH7:RMS</pv_name>
+        <x>430</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_StdDev</name>
+        <pv_name>$(P):CH7:StdDev</pv_name>
+        <x>515</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_Integral</name>
+        <pv_name>$(P):CH7:Integral</pv_name>
+        <x>600</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>9</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_Charge</name>
+        <pv_name>$(P):CH7:Charge</pv_name>
+        <x>700</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_WinStart</name>
+        <pv_name>$(P):CH7:MarkerStart</pv_name>
+        <x>800</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>CH7_Dash</name>
+        <text>-</text>
+        <x>837</x>
+        <width>10</width>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH7_WinEnd</name>
+        <pv_name>$(P):CH7:MarkerEnd</pv_name>
+        <x>850</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>CH8_Row</name>
+      <y>244</y>
+      <width>890</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <rules>
+        <rule name="vis" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):CH8:Enable_RBV</pv_name>
+        </rule>
+      </rules>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_Label</name>
+        <pv_name>$(P):CH8:Label_RBV</pv_name>
+        <x>6</x>
+        <width>80</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </foreground_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_Mean</name>
+        <pv_name>$(P):CH8:Mean</pv_name>
+        <x>90</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_Min</name>
+        <pv_name>$(P):CH8:Min</pv_name>
+        <x>175</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_Max</name>
+        <pv_name>$(P):CH8:Max</pv_name>
+        <x>260</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_PkPk</name>
+        <pv_name>$(P):CH8:PeakToPeak</pv_name>
+        <x>345</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_RMS</name>
+        <pv_name>$(P):CH8:RMS</pv_name>
+        <x>430</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_StdDev</name>
+        <pv_name>$(P):CH8:StdDev</pv_name>
+        <x>515</x>
+        <width>80</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_Integral</name>
+        <pv_name>$(P):CH8:Integral</pv_name>
+        <x>600</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>9</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_Charge</name>
+        <pv_name>$(P):CH8:Charge</pv_name>
+        <x>700</x>
+        <width>95</width>
+        <height>18</height>
+        <format>3</format>
+        <precision>3</precision>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_WinStart</name>
+        <pv_name>$(P):CH8:MarkerStart</pv_name>
+        <x>800</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>CH8_Dash</name>
+        <text>-</text>
+        <x>837</x>
+        <width>10</width>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>CH8_WinEnd</name>
+        <pv_name>$(P):CH8:MarkerEnd</pv_name>
+        <x>850</x>
+        <width>35</width>
+        <height>18</height>
+      </widget>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Note_Disconnected</name>
+      <text>Note: Disabled channels are hidden. Disconnected PVs show "---"</text>
+      <x>6</x>
+      <y>275</y>
+      <width>400</width>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="120" green="120" blue="120">
+        </color>
+      </foreground_color>
+    </widget>
+  </widget>
+</display>

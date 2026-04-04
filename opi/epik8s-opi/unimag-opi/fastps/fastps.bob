@@ -1,0 +1,1420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-03 by andreamichelotti - updated-->
+<display version="2.0.0">
+  <width>501</width>
+  <height>800</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <!-- ============================================================ -->
+  <!-- Header / identification -->
+  <!-- ============================================================ -->
+  <widget type="picture" version="2.0.0">
+    <name>image_caenels_logo</name>
+    <file>CAENels_logo.png</file>
+    <x>20</x>
+    <y>6</y>
+    <width>191</width>
+    <height>43</height>
+    <stretch_image>true</stretch_image>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_caenels_fastps</name>
+    <text>CAENels FAST-PS</text>
+    <x>256</x>
+    <y>18</y>
+    <width>171</width>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <!-- Model -->
+  <widget type="label" version="2.0.0">
+    <name>label_model</name>
+    <text>PS model:</text>
+    <x>36</x>
+    <y>66</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text_up_model</name>
+    <pv_name>$(P):$(R):Model</pv_name>
+    <x>118</x>
+    <y>66</y>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <!-- FW version -->
+  <widget type="label" version="2.0.0">
+    <name>label_fw_version</name>
+    <text>FW version:</text>
+    <x>30</x>
+    <y>90</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text_up_version</name>
+    <pv_name>$(P):$(R):Version</pv_name>
+    <x>117</x>
+    <y>90</y>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <!-- Module ID -->
+  <widget type="label" version="2.0.0">
+    <name>label_module_id</name>
+    <text>Module ID:</text>
+    <x>256</x>
+    <y>66</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text_up_module_id</name>
+    <pv_name>$(P):$(R):ModuleID</pv_name>
+    <x>338</x>
+    <y>66</y>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <!-- Limits I, V -->
+  <widget type="label" version="2.0.0">
+    <name>label_limits_iv</name>
+    <text>Limits I,V:</text>
+    <x>30</x>
+    <y>114</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text_up_limitI</name>
+    <pv_name>$(P):$(R):rangeI</pv_name>
+    <x>117</x>
+    <y>114</y>
+    <width>45</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text_up_limitV</name>
+    <pv_name>$(P):$(R):rangeV</pv_name>
+    <x>172</x>
+    <y>114</y>
+    <width>45</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <!-- ============================================================ -->
+  <!-- Enable / Regulation mode -->
+  <!-- ============================================================ -->
+  <widget type="label" version="2.0.0">
+    <name>label_enable</name>
+    <text>Enable</text>
+    <x>39</x>
+    <y>141</y>
+    <width>80</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="slide_button" version="2.0.0">
+    <name>switch_enable</name>
+    <pv_name>$(P):$(R):Enable</pv_name>
+    <bit>-1</bit>
+    <x>66</x>
+    <y>160</y>
+    <width>50</width>
+    <height>100</height>
+    <off_color>
+      <color red="0" green="100" blue="0">
+      </color>
+    </off_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_reg_mode</name>
+    <text>Regulation Mode</text>
+    <x>108</x>
+    <y>160</y>
+    <width>118</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="choice" version="2.0.0">
+    <name>choice_reg_mode</name>
+    <pv_name>$(P):$(R):RegulationMode</pv_name>
+    <x>117</x>
+    <y>179</y>
+    <height>41</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <selected_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </selected_color>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="ruleSetEnabled" prop_id="enabled" out_exp="false">
+        <exp bool_exp="pv0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):$(R):Enable</pv_name>
+      </rule>
+    </rules>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <!-- ============================================================ -->
+  <!-- Slew rate controls -->
+  <!-- ============================================================ -->
+  <widget type="label" version="2.0.0">
+    <name>label_slew_rate_i</name>
+    <text>Ramp I (A/s):</text>
+    <x>118</x>
+    <y>228</y>
+    <width>90</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text_in_slew_rate_i</name>
+    <pv_name>$(P):$(R):SlewRateI</pv_name>
+    <x>210</x>
+    <y>228</y>
+    <width>70</width>
+    <height>25</height>
+    <precision>3</precision>
+    <background_color>
+      <color red="173" green="243" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text_up_slew_rate_i_rb</name>
+    <pv_name>$(P):$(R):SlewRateIRB</pv_name>
+    <x>285</x>
+    <y>228</y>
+    <width>70</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_slew_rate_v</name>
+    <text>Ramp V (V/s):</text>
+    <x>118</x>
+    <y>252</y>
+    <width>90</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text_in_slew_rate_v</name>
+    <pv_name>$(P):$(R):SlewRateV</pv_name>
+    <x>210</x>
+    <y>252</y>
+    <width>70</width>
+    <height>25</height>
+    <precision>3</precision>
+    <background_color>
+      <color red="173" green="243" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text_up_slew_rate_v_rb</name>
+    <pv_name>$(P):$(R):SlewRateVRB</pv_name>
+    <x>285</x>
+    <y>252</y>
+    <width>70</width>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <!-- ============================================================ -->
+  <!-- Setpoint tabs (Voltage / Current) -->
+  <!-- ============================================================ -->
+  <widget type="tabs" version="2.0.0">
+    <name>containter_setpoint</name>
+    <tabs>
+      <tab>
+        <name>Voltage Setpoint</name>
+        <children>
+          <widget type="scaledslider" version="2.0.0">
+            <name>slider_voltage</name>
+            <pv_name>$(P):$(R):Voltage</pv_name>
+            <x>12</x>
+            <y>6</y>
+            <width>216</width>
+            <height>76</height>
+            <background_color>
+              <color red="240" green="240" blue="240">
+              </color>
+            </background_color>
+            <major_tick_step_hint>50</major_tick_step_hint>
+            <scale_format></scale_format>
+            <show_hihi>false</show_hihi>
+            <show_high>false</show_high>
+            <show_low>false</show_low>
+            <show_lolo>false</show_lolo>
+            <actions>
+            </actions>
+            <minimum>-100.0</minimum>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>text_in_voltage</name>
+            <pv_name>$(P):$(R):Voltage</pv_name>
+            <x>12</x>
+            <y>6</y>
+            <height>25</height>
+            <background_color>
+              <color red="173" green="243" blue="255">
+              </color>
+            </background_color>
+            <precision>4</precision>
+            <actions>
+            </actions>
+            <border_alarm_sensitive>false</border_alarm_sensitive>
+            <border_color>
+              <color red="0" green="128" blue="255">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Current Setpoint</name>
+        <children>
+          <widget type="scaledslider" version="2.0.0">
+            <name>slider_current</name>
+            <pv_name>$(P):$(R):Current</pv_name>
+            <x>12</x>
+            <y>6</y>
+            <width>216</width>
+            <height>76</height>
+            <background_color>
+              <color red="240" green="240" blue="240">
+              </color>
+            </background_color>
+            <major_tick_step_hint>50</major_tick_step_hint>
+            <scale_format></scale_format>
+            <show_hihi>false</show_hihi>
+            <show_high>false</show_high>
+            <show_low>false</show_low>
+            <show_lolo>false</show_lolo>
+            <actions>
+            </actions>
+            <minimum>-100.0</minimum>
+          </widget>
+          <widget type="textentry" version="3.0.0">
+            <name>text_in_current</name>
+            <pv_name>$(P):$(R):Current</pv_name>
+            <x>12</x>
+            <y>6</y>
+            <height>25</height>
+            <background_color>
+              <color red="173" green="243" blue="255">
+              </color>
+            </background_color>
+            <precision>4</precision>
+            <actions>
+            </actions>
+            <border_alarm_sensitive>false</border_alarm_sensitive>
+            <border_color>
+              <color red="0" green="128" blue="255">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <x>235</x>
+    <y>114</y>
+    <width>245</width>
+    <height>120</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <tab_height>10</tab_height>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="selectVoltage" prop_id="active_tab" out_exp="false">
+        <exp bool_exp="pv0 == 1">
+          <value>1</value>
+        </exp>
+        <pv_name>$(P):$(R):RegulationMode</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <!-- ============================================================ -->
+  <!-- Output meters -->
+  <!-- ============================================================ -->
+  <widget type="label" version="2.0.0">
+    <name>label_output_voltage</name>
+    <text>Output Voltage</text>
+    <x>39</x>
+    <y>280</y>
+    <width>134</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="meter" version="3.0.0">
+    <name>meter_output_voltage</name>
+    <pv_name>$(P):$(R):OutputVoltage</pv_name>
+    <x>36</x>
+    <y>300</y>
+    <width>200</width>
+    <height>80</height>
+    <show_limits>false</show_limits>
+    <actions>
+    </actions>
+    <minimum>-100.0</minimum>
+    <needle_color>
+      <color red="255" green="0" blue="0">
+      </color>
+    </needle_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_output_current</name>
+    <text>Output Current</text>
+    <x>258</x>
+    <y>280</y>
+    <width>134</width>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="meter" version="3.0.0">
+    <name>meter_output_current</name>
+    <pv_name>$(P):$(R):OutputCurrent</pv_name>
+    <x>258</x>
+    <y>300</y>
+    <width>200</width>
+    <height>80</height>
+    <show_limits>false</show_limits>
+    <actions>
+    </actions>
+    <minimum>-100.0</minimum>
+    <needle_color>
+      <color red="255" green="0" blue="0">
+      </color>
+    </needle_color>
+  </widget>
+  <!-- ============================================================ -->
+  <!-- Status register -->
+  <!-- ============================================================ -->
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg</name>
+    <text>Status register</text>
+    <x>48</x>
+    <y>400</y>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>btn_reset_status</name>
+    <actions>
+      <action type="write_pv">
+        <description>Reset Status Register</description>
+        <pv_name>$(P):$(R):StatusReset.PROC</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <x>312</x>
+    <y>388</y>
+    <width>168</width>
+    <height>25</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <!-- LSB byte monitor + labels -->
+  <widget type="byte_monitor" version="2.0.0">
+    <name>mon_status_lsb</name>
+    <pv_name>$(P):$(R):StatusLSB</pv_name>
+    <x>256</x>
+    <y>419</y>
+    <width>20</width>
+    <height>292</height>
+    <numBits>16</numBits>
+    <horizontal>false</horizontal>
+    <off_color>
+      <color red="0" green="100" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="0" green="255" blue="0">
+      </color>
+    </on_color>
+    <foreground_color>
+      <color red="192" green="192" blue="192">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit00</name>
+    <text>bit  0: ON/OFF</text>
+    <x>282</x>
+    <y>691</y>
+    <width>121</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit01</name>
+    <text>bit  1: fault indicator</text>
+    <x>282</x>
+    <y>673</y>
+    <width>145</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit02</name>
+    <text>bit  2: control mode [0]</text>
+    <x>282</x>
+    <y>655</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit03</name>
+    <text>bit  3: control mode [1]</text>
+    <x>282</x>
+    <y>637</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit04</name>
+    <text>bit  4</text>
+    <x>282</x>
+    <y>619</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit05</name>
+    <text>bit  5: regulation mode</text>
+    <x>282</x>
+    <y>601</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit06</name>
+    <text>bit  6: update mode [0]</text>
+    <x>282</x>
+    <y>583</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit07</name>
+    <text>bit  7: update mode [1]</text>
+    <x>282</x>
+    <y>565</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit08</name>
+    <text>bit  8</text>
+    <x>282</x>
+    <y>547</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit09</name>
+    <text>bit  9</text>
+    <x>282</x>
+    <y>529</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit10</name>
+    <text>bit 10</text>
+    <x>282</x>
+    <y>511</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit11</name>
+    <text>bit 11</text>
+    <x>282</x>
+    <y>493</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit12</name>
+    <text>bit 12: ramping</text>
+    <x>282</x>
+    <y>475</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit13</name>
+    <text>bit 13: waveform</text>
+    <x>282</x>
+    <y>457</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit14</name>
+    <text>bit 14</text>
+    <x>282</x>
+    <y>439</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit15</name>
+    <text>bit 15</text>
+    <x>282</x>
+    <y>421</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <!-- MSB byte monitor + labels -->
+  <widget type="byte_monitor" version="2.0.0">
+    <name>mon_status_msb</name>
+    <pv_name>$(P):$(R):StatusMSB</pv_name>
+    <x>45</x>
+    <y>419</y>
+    <width>20</width>
+    <height>292</height>
+    <numBits>16</numBits>
+    <horizontal>false</horizontal>
+    <off_color>
+      <color red="0" green="100" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="0" green="255" blue="0">
+      </color>
+    </on_color>
+    <foreground_color>
+      <color red="192" green="192" blue="192">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit16</name>
+    <text>bit 16</text>
+    <x>71</x>
+    <y>691</y>
+    <width>121</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit17</name>
+    <text>bit 17: overcurrent</text>
+    <x>71</x>
+    <y>673</y>
+    <width>145</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit18</name>
+    <text>bit 18: crowbar</text>
+    <x>71</x>
+    <y>655</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit19</name>
+    <text>bit 19</text>
+    <x>71</x>
+    <y>637</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit20</name>
+    <text>bit 20: over-temperature</text>
+    <x>71</x>
+    <y>619</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit21</name>
+    <text>bit 21: DC-Link fault</text>
+    <x>71</x>
+    <y>601</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit22</name>
+    <text>bit 22: earth leakage fault</text>
+    <x>71</x>
+    <y>583</y>
+    <width>174</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit23</name>
+    <text>bit 23: earth fuse fault</text>
+    <x>71</x>
+    <y>565</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit24</name>
+    <text>bit 24: regulation fault</text>
+    <x>71</x>
+    <y>547</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit25</name>
+    <text>bit 25: excessive ripple</text>
+    <x>71</x>
+    <y>529</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit26</name>
+    <text>bit 26: ext. interlock #1</text>
+    <x>71</x>
+    <y>511</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit27</name>
+    <text>bit 27: ext. interlock #2</text>
+    <x>71</x>
+    <y>493</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit28</name>
+    <text>bit 28</text>
+    <x>71</x>
+    <y>475</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit29</name>
+    <text>bit 29: over-power</text>
+    <x>71</x>
+    <y>457</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit30</name>
+    <text>bit 30</text>
+    <x>71</x>
+    <y>439</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>label_status_reg_bit31</name>
+    <text>bit 31</text>
+    <x>71</x>
+    <y>421</y>
+    <width>163</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <!-- ============================================================ -->
+  <!-- Bottom readback groups -->
+  <!-- ============================================================ -->
+  <widget type="group" version="3.0.0">
+    <name>grp_dc_link</name>
+    <x>26</x>
+    <y>722</y>
+    <width>88</width>
+    <height>44</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="textupdate" version="2.0.0">
+      <name>text_up_dc_link</name>
+      <pv_name>$(P):$(R):DCLinkVoltage</pv_name>
+      <x>2</x>
+      <y>19</y>
+      <width>84</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>label_dc_link_voltage</name>
+      <text>DC-Link (V)</text>
+      <width>88</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>grp_heatsink_temp</name>
+    <x>120</x>
+    <y>722</y>
+    <width>88</width>
+    <height>44</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="textupdate" version="2.0.0">
+      <name>text_up_heatsink_temp</name>
+      <pv_name>$(P):$(R):HeatsinkTemp</pv_name>
+      <x>2</x>
+      <y>19</y>
+      <width>84</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>label_heatsink_temp</name>
+      <text>Temp (C)</text>
+      <width>88</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>grp_ground_current</name>
+    <x>214</x>
+    <y>722</y>
+    <width>88</width>
+    <height>44</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="textupdate" version="2.0.0">
+      <name>text_up_ground_current</name>
+      <pv_name>$(P):$(R):GroundCurrent</pv_name>
+      <x>2</x>
+      <y>19</y>
+      <width>84</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>label_ground_current</name>
+      <text>Gnd I (A)</text>
+      <width>88</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>grp_output_power</name>
+    <x>308</x>
+    <y>722</y>
+    <width>88</width>
+    <height>44</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="textupdate" version="2.0.0">
+      <name>text_up_output_power</name>
+      <pv_name>$(P):$(R):OutputPower</pv_name>
+      <x>2</x>
+      <y>19</y>
+      <width>84</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>label_output_power</name>
+      <text>Power (W)</text>
+      <width>88</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>grp_scan_period</name>
+    <x>402</x>
+    <y>722</y>
+    <width>88</width>
+    <height>44</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="combo" version="2.0.0">
+      <name>combo_scan_period</name>
+      <pv_name>$(P):$(R):ReadbackPoll_.SCAN</pv_name>
+      <y>15</y>
+      <width>88</width>
+      <height>29</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>label_scan_period</name>
+      <text>Scan Period</text>
+      <width>88</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+</display>

@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>OCEM E642 Serial Interface</name>
+  <width>850</width>
+  <height>1000</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <widget type="rectangle" version="2.0.0">
+    <name>TitleBar</name>
+    <width>850</width>
+    <height>50</height>
+    <line_color>
+      <color red="0" green="51" blue="102">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="51" blue="102">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>OCEM E642 Power Supply - Serial Debug Interface</text>
+    <x>10</x>
+    <y>10</y>
+    <width>600</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>DeviceName</name>
+    <text>$(R)</text>
+    <x>590</x>
+    <y>20</y>
+    <width>260</width>
+    <height>25</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="200" green="220" blue="255">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>StatusGroup</name>
+    <x>10</x>
+    <y>60</y>
+    <width>400</width>
+    <style>1</style>
+    <foreground_color>
+      <color red="0" green="51" blue="102">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>StatusHeader</name>
+      <text>Status &amp; Readings</text>
+      <x>5</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="51" blue="102">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>StatusLbl</name>
+      <text>Status:</text>
+      <x>10</x>
+      <y>40</y>
+      <width>80</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>StatusRB</name>
+      <pv_name>$(P):$(R):Status</pv_name>
+      <x>100</x>
+      <y>40</y>
+      <width>140</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="220" green="220" blue="220">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PolarityLbl</name>
+      <text>Polarity:</text>
+      <x>260</x>
+      <y>40</y>
+      <width>70</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PolarityRB</name>
+      <pv_name>$(P):$(R):Polarity</pv_name>
+      <x>330</x>
+      <y>40</y>
+      <width>55</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="220" green="220" blue="220">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentLbl</name>
+      <text>Current:</text>
+      <x>10</x>
+      <y>80</y>
+      <width>80</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CurrentRB</name>
+      <pv_name>$(P):$(R):CURRENT_RB</pv_name>
+      <x>100</x>
+      <y>80</y>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="220" green="220" blue="220">
+        </color>
+      </background_color>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentUnit</name>
+      <text>A</text>
+      <x>205</x>
+      <y>80</y>
+      <width>30</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VoltageLbl</name>
+      <text>Voltage:</text>
+      <x>10</x>
+      <y>110</y>
+      <width>80</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VoltageRB</name>
+      <pv_name>$(P):$(R):VOLTAGE_RB</pv_name>
+      <x>100</x>
+      <y>110</y>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="220" green="220" blue="220">
+        </color>
+      </background_color>
+      <format>1</format>
+      <precision>2</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VoltageUnit</name>
+      <text>V</text>
+      <x>205</x>
+      <y>110</y>
+      <width>30</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AlarmsLbl</name>
+      <text>Alarms:</text>
+      <x>10</x>
+      <y>145</y>
+      <width>80</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AlarmsRB</name>
+      <pv_name>$(P):$(R):Alarms</pv_name>
+      <x>100</x>
+      <y>145</y>
+      <width>140</width>
+      <height>25</height>
+      <background_color>
+        <color red="0" green="200" blue="0">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <rules>
+        <rule name="AlarmColor" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0==&quot;NO &quot;">
+            <value>
+              <color red="0" green="200" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="true">
+            <value>
+              <color red="255" green="100" blue="100">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(P):$(R):Alarms</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>ResetAlarms</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset Alarms</description>
+          <pv_name>$(P):$(R):RESET_ALARMS</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>RESET</text>
+      <x>260</x>
+      <y>145</y>
+      <width>80</width>
+      <height>25</height>
+      <background_color>
+        <color red="255" green="200" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Reset active alarms</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>CmdStateGroup</name>
+    <x>10</x>
+    <y>270</y>
+    <width>400</width>
+    <height>134</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="128" green="0" blue="128">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>CmdStateHeader</name>
+      <text>Command State Machine</text>
+      <x>5</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="128" green="0" blue="128">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CmdStateLbl</name>
+      <text>State:</text>
+      <x>10</x>
+      <y>35</y>
+      <width>60</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CmdStateRB</name>
+      <pv_name>$(P):$(R):CMD_STATE</pv_name>
+      <x>80</x>
+      <y>32</y>
+      <width>120</width>
+      <height>28</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="0" green="128" blue="0">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="StateColor" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>
+              <color red="128" green="128" blue="128">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==1 || pv0==2 || pv0==3">
+            <value>
+              <color red="255" green="200" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==4">
+            <value>
+              <color red="0" green="200" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==5">
+            <value>
+              <color red="255" green="50" blue="50">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(P):$(R):CMD_STATE</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>LastCmdLbl</name>
+      <text>Last Cmd:</text>
+      <x>210</x>
+      <y>35</y>
+      <width>70</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LastCmdRB</name>
+      <pv_name>$(P):$(R):LAST_CMD</pv_name>
+      <x>290</x>
+      <y>32</y>
+      <height>28</height>
+      <font>
+        <font family="Liberation Mono" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="230" green="230" blue="230">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CmdStatusLbl</name>
+      <text>Status:</text>
+      <x>10</x>
+      <y>68</y>
+      <width>60</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CmdStatusRB</name>
+      <pv_name>$(P):$(R):CMD_STATUS</pv_name>
+      <x>80</x>
+      <y>65</y>
+      <width>310</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="245" green="245" blue="245">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>RawValuesGroup</name>
+    <x>420</x>
+    <y>60</y>
+    <width>420</width>
+    <height>180</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>RawHeader</name>
+      <text>Raw Protocol Values (Debug)</text>
+      <x>5</x>
+      <y>5</y>
+      <width>250</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentRawLbl</name>
+      <text>Current (raw):</text>
+      <x>10</x>
+      <y>40</y>
+      <width>110</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CurrentRaw</name>
+      <pv_name>$(P):$(R):CurrentStr</pv_name>
+      <x>130</x>
+      <y>40</y>
+      <width>280</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Mono" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="230" green="230" blue="230">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VoltageRawLbl</name>
+      <text>Voltage (raw):</text>
+      <x>10</x>
+      <y>75</y>
+      <width>110</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VoltageRaw</name>
+      <pv_name>$(P):$(R):VoltageStr</pv_name>
+      <x>130</x>
+      <y>75</y>
+      <width>280</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Mono" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="230" green="230" blue="230">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>SendRMT</name>
+      <actions execute_as_one="true">
+        <action type="write_pv">
+          <description>Send RMT (re-init)</description>
+          <pv_name>$(P):$(R):setRMT</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>RMT (Re-Init)</text>
+      <x>10</x>
+      <y>120</y>
+      <width>120</width>
+      <height>40</height>
+      <background_color>
+        <color red="200" green="200" blue="255">
+        </color>
+      </background_color>
+      <tooltip>Send RMT command to reinitialize device</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>ControlGroup</name>
+    <x>10</x>
+    <y>419</y>
+    <width>400</width>
+    <height>196</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="0" green="100" blue="0">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>ControlHeader</name>
+      <text>State Control</text>
+      <x>5</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="100" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>SetOperational</name>
+      <actions>
+        <action type="write_pv">
+          <description>Set Operational</description>
+          <pv_name>$(P):$(R):STATUS_SP</pv_name>
+          <value>ON</value>
+        </action>
+      </actions>
+      <text>POWER ON</text>
+      <x>10</x>
+      <y>40</y>
+      <width>120</width>
+      <height>40</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="0" green="200" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Set power supply to operational state</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>SetStandby</name>
+      <actions>
+        <action type="write_pv">
+          <description>Set StandBy</description>
+          <pv_name>$(P):$(R):STATUS_SP</pv_name>
+          <value>STB</value>
+        </action>
+      </actions>
+      <text>STANDBY</text>
+      <x>140</x>
+      <y>40</y>
+      <width>120</width>
+      <height>40</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Set power supply to standby state</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>StartRamp</name>
+      <actions execute_as_one="true">
+        <action type="write_pv">
+          <description>Start Ramp</description>
+          <pv_name>$(P):$(R):Start_ramp</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>START RAMP</text>
+      <x>270</x>
+      <y>40</y>
+      <width>120</width>
+      <height>40</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="0" green="180" blue="255">
+        </color>
+      </background_color>
+      <tooltip>Start ramping to setpoint</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PolarityCtrlLbl</name>
+      <text>Polarity Control:</text>
+      <x>10</x>
+      <y>100</y>
+      <width>120</width>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>PolarityChoice</name>
+      <pv_name>$(P):$(R):SetPolarity</pv_name>
+      <x>140</x>
+      <y>95</y>
+      <width>250</width>
+      <height>35</height>
+      <items>
+        <item>POS</item>
+        <item>NEG</item>
+        <item>OPN</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SetCurrentLbl</name>
+      <text>Set Current (A):</text>
+      <x>10</x>
+      <y>145</y>
+      <width>120</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>SetCurrent</name>
+      <pv_name>$(P):$(R):SETCURRENT</pv_name>
+      <x>140</x>
+      <y>140</y>
+      <width>120</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>QuickSetGroup</name>
+    <x>420</x>
+    <y>355</y>
+    <width>420</width>
+    <height>100</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="0" green="100" blue="0">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>QuickSetHeader</name>
+      <text>Quick Set &amp; Go</text>
+      <x>5</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="100" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SetCompleteCurrentLbl</name>
+      <text>Set + Ramp (A):</text>
+      <x>10</x>
+      <y>45</y>
+      <width>120</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>SetCompleteCurrent</name>
+      <pv_name>$(P):$(R):SET_COMPLETE_CURRENT</pv_name>
+      <x>140</x>
+      <y>40</y>
+      <width>150</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SetCompleteHint</name>
+      <text>(sets polarity, current, and starts ramp)</text>
+      <x>300</x>
+      <y>45</y>
+      <width>115</width>
+      <height>45</height>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>ChartGroup</name>
+    <x>10</x>
+    <y>620</y>
+    <width>830</width>
+    <height>400</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="0" green="51" blue="102">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>ChartHeader</name>
+      <text>Current Trend (20 min)</text>
+      <x>5</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="51" blue="102">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="stripchart" version="2.1.0">
+      <name>CurrentChart</name>
+      <x>5</x>
+      <y>35</y>
+      <width>810</width>
+      <height>362</height>
+      <start>20 minutes</start>
+      <y_axes>
+        <y_axis>
+          <title>Current (A)</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>true</show_grid>
+          <visible>true</visible>
+          <color>
+            <color red="0" green="0" blue="0">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>Current</name>
+          <y_pv>$(P):$(R):CURRENT_RB</y_pv>
+          <axis>0</axis>
+          <trace_type>2</trace_type>
+          <color>
+            <color red="0" green="0" blue="255">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <point_type>0</point_type>
+          <point_size>4</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Footer</name>
+    <text>OCEM E642 Serial Debug Interface v2.1 - Command State Machine</text>
+    <x>10</x>
+    <y>975</y>
+    <width>450</width>
+    <font>
+      <font family="Liberation Sans" style="ITALIC" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="128" green="128" blue="128">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

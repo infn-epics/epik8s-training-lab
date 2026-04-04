@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-06-03 22:19:36 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Beam Trajectory Monitor</name>
+  <macros>
+    <DIRPATH>$(DIRPATH=.\\orbit-trace.txt)</DIRPATH>
+    <P>$(P=accumulator:orbit)</P>
+    <SDIRPATH>$(SDIRPATH=./)</SDIRPATH>
+  </macros>
+  <width>1221</width>
+  <height>886</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <actions>
+    <action type="execute">
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Hello'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))]]></text>
+      </script>
+      <description>Execute Script</description>
+    </action>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>Save Trajectory</name>
+    <y>271</y>
+    <width>290</width>
+    <height>182</height>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+    <widget type="textentry" version="3.0.0">
+      <name>file_path_save</name>
+      <pv_name>loc://file_path_save("$(SDIRPATH)")</pv_name>
+      <x>8</x>
+      <y>9</y>
+      <width>199</width>
+      <height>26</height>
+      <font>
+        <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO InputPV Bg" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <tooltip>Path to file where X and Y traces will be stored
+when using "Save Trajectory" and loaded
+from when using "Load Trajectory".</tooltip>
+      <border_width>2</border_width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Filename Save</name>
+      <pv_name>loc://saveFile("orbit-trace.txt")</pv_name>
+      <x>8</x>
+      <y>54</y>
+      <width>215</width>
+      <height>30</height>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template</name>
+      <actions>
+        <action type="execute">
+          <script file="scripts/SaveToFile.py">
+          </script>
+          <description>Save Trajectory</description>
+        </action>
+      </actions>
+      <x>8</x>
+      <y>109</y>
+      <width>150</width>
+      <height>33</height>
+      <font>
+        <font family="Sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="fileselector" version="2.0.0">
+      <name>File Selector</name>
+      <pv_name>loc://file_path_save("$(SDIRPATH)")</pv_name>
+      <component>1</component>
+      <x>208</x>
+      <y>7</y>
+      <height>30</height>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title Banner</name>
+    <text>Beam Trajectory Monitor</text>
+    <width>1218</width>
+    <height>45</height>
+    <font>
+      <font name="ELI-NP Title Bar" family="sans" style="REGULAR" size="23.762376237623762">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Diagnostics Title" red="207" green="151" blue="207">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>aggregator_graph</name>
+    <x>295</x>
+    <y>61</y>
+    <width>926</width>
+    <height>391</height>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <title_font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </title_font>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="TraceVisibilityX" prop_id="traces[1].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://trace_visibility</pv_name>
+      </rule>
+      <rule name="TraceVisibilityDiffX" prop_id="traces[2].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://trace_visibility</pv_name>
+      </rule>
+    </rules>
+    <x_axis>
+      <title>X orbit</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>2.0</minimum>
+      <maximum>18.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Position [nm]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>1.0E-7</minimum>
+        <maximum>1.0E-5</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>Acquired</name>
+        <x_pv>$(P):coord</x_pv>
+        <y_pv>$(P):x</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="IO Trace 1" red="79" green="129" blue="189">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>3</point_type>
+        <point_size>16</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>Stored</name>
+        <x_pv>loc://$(P):coord</x_pv>
+        <y_pv>loc://$(P):x</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="242" green="26" blue="26">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>Difference</name>
+        <x_pv>$(P):coord</x_pv>
+        <y_pv>='loc://$(P):x' - '$(P):x'</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="255" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_1</name>
+    <text>File Path</text>
+    <x>6</x>
+    <y>165</y>
+    <width>43</width>
+    <height>14</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>Path to file where X and Y traces will be stored
+when using "Save Trajectory" and loaded
+from when using "Load Trajectory".</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_3</name>
+    <actions>
+      <action type="execute">
+        <script file="scripts/LoadFromFile.py">
+        </script>
+        <description>Load Trajectory</description>
+      </action>
+    </actions>
+    <x>8</x>
+    <y>228</y>
+    <width>150</width>
+    <height>33</height>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>file_path</name>
+    <pv_name>loc://file_path("$(DIRPATH)")</pv_name>
+    <x>8</x>
+    <y>190</y>
+    <width>231</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>6</format>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <tooltip>Path to file where X and Y traces will be stored
+when using "Save Trajectory" and loaded
+from when using "Load Trajectory".</tooltip>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Image Template</name>
+    <file>/CSS/opi/boy/elinp-css-common/images/csl_logo.png</file>
+    <x>1134</x>
+    <y>2</y>
+    <width>82</width>
+    <height>41</height>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="fileselector" version="2.0.0">
+    <pv_name>loc://file_path("$(DIRPATH)")</pv_name>
+    <x>241</x>
+    <y>188</y>
+    <height>30</height>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>aggregator_graph_1</name>
+    <x>293</x>
+    <y>495</y>
+    <width>926</width>
+    <height>391</height>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <title_font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </title_font>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="TraceVisibilityY" prop_id="traces[1].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://trace_visibility</pv_name>
+      </rule>
+      <rule name="TraceVisibilyDiff" prop_id="traces[2].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://trace_visibility</pv_name>
+      </rule>
+    </rules>
+    <x_axis>
+      <title>Y orbit</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>2.0</minimum>
+      <maximum>5.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Position [nm]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>1.0E-7</minimum>
+        <maximum>1.0E-5</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>Acquired</name>
+        <x_pv>$(P):coord</x_pv>
+        <y_pv>$(P):y</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="IO Trace 1" red="79" green="129" blue="189">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>3</point_type>
+        <point_size>16</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>Stored</name>
+        <x_pv>loc://$(P):coord</x_pv>
+        <y_pv>loc://$(P):y</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="242" green="26" blue="26">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>Difference</name>
+        <x_pv>$(P):coord</x_pv>
+        <y_pv>='loc://$(P):y' - '$(P):y'</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="255" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>VisualizeStored</name>
+    <pv_name>loc://trace_visibility&lt;VLong&gt;(0)</pv_name>
+    <x>10</x>
+    <y>525</y>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Display Stored Trajectory</text>
+    <x>10</x>
+    <y>495</y>
+    <width>194</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>AcquiredDate</name>
+    <pv_name>loc://acquired_date</pv_name>
+    <x>10</x>
+    <y>578</y>
+    <width>253</width>
+    <height>60</height>
+    <rules>
+      <rule name="Disable" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://trace_visibility</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box</name>
+    <pv_name>loc://ZoneSelection("All")</pv_name>
+    <x>40</x>
+    <y>87</y>
+    <width>204</width>
+    <actions>
+      <action type="execute">
+        <script file="scripts/SelectGraph.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <scripts>
+      <script file="scripts/SelectGraph.py" check_connections="false">
+        <pv_name>loc://ZoneSelection</pv_name>
+      </script>
+    </scripts>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <items>
+      <item>LINAC</item>
+      <item>DOODLEG</item>
+      <item>EXIN</item>
+      <item>All</item>
+    </items>
+    <items_from_pv>false</items_from_pv>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Zone Selection</text>
+    <x>77</x>
+    <y>67</y>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_124</name>
+    <text>Save/Load Trajectory</text>
+    <x>26</x>
+    <y>135</y>
+    <width>231</width>
+    <height>25</height>
+    <font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="237" green="236" blue="235">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>Polyline</name>
+    <x>10</x>
+    <y>670</y>
+    <width>260</width>
+    <height>1</height>
+    <points>
+      <point x="0.0" y="0.0">
+      </point>
+      <point x="260.0" y="0.0">
+      </point>
+    </points>
+    <line_color>
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </line_color>
+  </widget>
+  <widget type="choice" version="2.0.0">
+    <name>Choice Button</name>
+    <pv_name>$(P):CMD</pv_name>
+    <x>65</x>
+    <y>700</y>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Orbit Control</text>
+    <x>77</x>
+    <y>671</y>
+    <width>84</width>
+  </widget>
+</display>

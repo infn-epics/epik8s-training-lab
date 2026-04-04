@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>VacuumChannel</name>
+  <macros>
+    <PVNAME>PRES_RB</PVNAME>
+    <PVSTATE>STATE_RB</PVSTATE>
+  </macros>
+  <width>410</width>
+  <height>30</height>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_5</name>
+    <x>100</x>
+    <width>270</width>
+    <height>30</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="Grid" red="128" green="128" blue="128">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>PressureReadout</name>
+    <pv_name>$(P):$(R):$(PVNAME)</pv_name>
+    <x>110</x>
+    <y>5</y>
+    <width>80</width>
+    <format>2</format>
+    <precision>2</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_4</name>
+    <height>30</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="Grid" red="128" green="128" blue="128">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SensorName</name>
+    <text>$(NAME)</text>
+    <y>4</y>
+    <width>90</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="symbol" version="2.0.0">
+    <name>Mode_1</name>
+    <pv_name>loc://$(P):$(R)_TYPE&lt;VLong&gt;($(FUNC))</pv_name>
+    <symbols>
+      <symbol>img/ionpump.svg</symbol>
+      <symbol>img/ccg.svg</symbol>
+      <symbol>img/pig.svg</symbol>
+    </symbols>
+    <x>244</x>
+    <y>4</y>
+    <width>30</width>
+    <height>23</height>
+    <actions>
+      <action type="open_display">
+        <description>Open Histo</description>
+        <file>histoval.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
+    <tooltip>Open Graph</tooltip>
+    <fallback_symbol>img/gas.svg</fallback_symbol>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>$(ZONE)</text>
+    <x>270</x>
+    <y>6</y>
+    <width>90</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CustomControl</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>$(OPI)</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Ctrl</text>
+    <x>370</x>
+    <y>5</y>
+    <width>40</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>PressureReadout_1</name>
+    <x>200</x>
+    <y>5</y>
+    <width>40</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Read_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <scripts>
+      <script file="Scripts/ErrStpIndicator.py">
+        <pv_name>$(P):$(R):$(PVNAME)</pv_name>
+      </script>
+    </scripts>
+  </widget>
+</display>

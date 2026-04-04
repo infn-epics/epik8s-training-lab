@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-03-24 18:21:41 by andreamichelotti-->
+<display version="2.0.0">
+  <name>pretunedisplay</name>
+  <width>600</width>
+  <scripts>
+    <script file="scripts/LoadPretuneDataSet.py">
+      <pv_name>loc://confload-$(DID)&lt;VString&gt;</pv_name>
+    </script>
+  </scripts>
+  <widget type="embedded" version="2.0.0">
+    <name>element_template</name>
+    <file>pretune-ele.bob</file>
+    <width>650</width>
+    <height>35</height>
+    <visible>false</visible>
+    <transparent>true</transparent>
+  </widget>
+</display>

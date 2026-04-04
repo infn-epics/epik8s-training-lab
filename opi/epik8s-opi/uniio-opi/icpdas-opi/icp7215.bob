@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-09-07 15:46:25 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>ICP7215 $(P):$(R)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <file>icpversion.bob</file>
+    <y>31</y>
+    <width>180</width>
+    <height>120</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="template" version="2.0.0">
+    <name>Template/Instance</name>
+    <file>icprtd.bob</file>
+    <instances>
+      <instance>
+        <macros>
+          <ID>RTD0</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>RTD1</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>RTD2</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>RTD3</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>RTD4</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>RTD5</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>RTD6</ID>
+        </macros>
+      </instance>
+    </instances>
+    <x>20</x>
+    <y>220</y>
+    <width>488</width>
+    <height>242</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Max Hist</text>
+    <x>190</x>
+    <y>200</y>
+    <width>120</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Temperature</text>
+    <x>80</x>
+    <y>200</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Min Hist</text>
+    <x>320</x>
+    <y>200</y>
+    <width>92</width>
+  </widget>
+</display>

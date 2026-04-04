@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-07-26 14:55:59 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>550</width>
+  <height>691</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>ICP7026 $(P):$(R)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <file>icpversion.bob</file>
+    <y>31</y>
+    <width>180</width>
+    <height>120</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Analog Input</name>
+    <x>20</x>
+    <y>151</y>
+    <width>460</width>
+    <height>270</height>
+    <widget type="template" version="2.0.0">
+      <name>Template/Instance</name>
+      <file>icpaimaxmin.bob</file>
+      <instances>
+        <instance>
+          <macros>
+            <ID>AI0</ID>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <ID>AI1</ID>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <ID>AI2</ID>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <ID>AI3</ID>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <ID>AI4</ID>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <ID>AI5</ID>
+          </macros>
+        </instance>
+      </instances>
+      <x>22</x>
+      <y>32</y>
+      <width>392</width>
+      <height>206</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>Max Hist</text>
+      <x>192</x>
+      <y>2</y>
+      <width>120</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>Current</text>
+      <x>82</x>
+      <y>2</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>Min Hist</text>
+      <x>322</x>
+      <y>2</y>
+      <width>92</width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Digital Output</name>
+    <x>30</x>
+    <y>440</y>
+    <width>290</width>
+    <height>80</height>
+    <widget type="template" version="2.0.0">
+      <name>Template/Instance_1</name>
+      <file>icpdo.bob</file>
+      <instances>
+        <instance>
+          <macros>
+            <ID>DO0</ID>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <ID>DO1</ID>
+          </macros>
+        </instance>
+      </instances>
+      <x>22</x>
+      <y>2</y>
+      <width>210</width>
+      <height>50</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Digital Input</name>
+    <x>31</x>
+    <y>520</y>
+    <width>290</width>
+    <height>80</height>
+    <widget type="template" version="2.0.0">
+      <name>Template/Instance_2</name>
+      <file>icpdi.bob</file>
+      <instances>
+        <instance>
+          <macros>
+            <ID>DI0</ID>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <ID>DI1</ID>
+          </macros>
+        </instance>
+      </instances>
+      <x>22</x>
+      <y>2</y>
+      <width>210</width>
+      <height>50</height>
+    </widget>
+  </widget>
+</display>

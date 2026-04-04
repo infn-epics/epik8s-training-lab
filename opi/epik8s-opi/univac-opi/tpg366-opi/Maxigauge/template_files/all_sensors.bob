@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-03-30 18:47:41 by valentinadompe-->
+<display version="2.0.0">
+  <name>all_sensors</name>
+  <width>986</width>
+  <height>486</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>$(DEV)</name>
+    <width>986</width>
+    <height>906</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Relay Status</name>
+      <x>264</x>
+      <y>260</y>
+      <width>542</width>
+      <height>282</height>
+      <visible>false</visible>
+      <foreground_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <actions>
+      </actions>
+      <widget type="label" version="2.0.0">
+        <name>Label</name>
+        <text>Relay A</text>
+        <y>51</y>
+        <width>73</width>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_8</name>
+        <pv_name>$(BL):$(DEV):GetSPASensor</pv_name>
+        <x>84</x>
+        <y>48</y>
+        <width>79</width>
+        <height>26</height>
+        <precision>0</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="action_button" version="3.0.0">
+        <name>Action Button</name>
+        <actions>
+          <action type="write_pv">
+            <description>Write PV</description>
+            <pv_name>$(pv_name)</pv_name>
+            <value>1</value>
+          </action>
+        </actions>
+        <pv_name>$(BL):$(DEV):seqSPxStatus.PROC</pv_name>
+        <text>Update Status</text>
+        <x>360</x>
+        <y>6</y>
+        <width>133</width>
+        <height>26</height>
+        <background_color>
+          <color red="240" green="240" blue="240">
+          </color>
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+      </widget>
+      <widget type="action_button" version="3.0.0">
+        <name>Action Button_1</name>
+        <actions>
+          <action type="write_pv">
+            <description>Write PV</description>
+            <pv_name>$(pv_name)</pv_name>
+            <value>1</value>
+          </action>
+        </actions>
+        <pv_name>$(BL):$(DEV):seqGetSPxSensor.PROC</pv_name>
+        <text>Update Source</text>
+        <x>30</x>
+        <y>6</y>
+        <width>133</width>
+        <height>26</height>
+        <background_color>
+          <color red="240" green="240" blue="240">
+          </color>
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_5</name>
+        <pv_name>$(BL):$(DEV):GetSPALow</pv_name>
+        <x>174</x>
+        <y>48</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_6</name>
+        <pv_name>$(BL):$(DEV):GetSPAHigh</pv_name>
+        <x>264</x>
+        <y>48</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_7</name>
+        <pv_name>$(BL):$(DEV):SPAStatus</pv_name>
+        <x>407</x>
+        <y>46</y>
+        <width>40</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_2</name>
+        <text>SP Low</text>
+        <x>186</x>
+        <y>6</y>
+        <width>55</width>
+        <height>26</height>
+        <vertical_alignment>1</vertical_alignment>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_3</name>
+        <text>SP High</text>
+        <x>270</x>
+        <y>6</y>
+        <width>67</width>
+        <height>26</height>
+        <vertical_alignment>1</vertical_alignment>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_4</name>
+        <text>Relay B</text>
+        <y>84</y>
+        <width>73</width>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_8</name>
+        <pv_name>$(BL):$(DEV):GetSPBSensor</pv_name>
+        <x>84</x>
+        <y>81</y>
+        <width>79</width>
+        <height>26</height>
+        <precision>0</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_9</name>
+        <pv_name>$(BL):$(DEV):GetSPBLow</pv_name>
+        <x>174</x>
+        <y>81</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_10</name>
+        <pv_name>$(BL):$(DEV):GetSPBHigh</pv_name>
+        <x>264</x>
+        <y>81</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_11</name>
+        <pv_name>$(BL):$(DEV):SPBStatus</pv_name>
+        <x>407</x>
+        <y>79</y>
+        <width>40</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_5</name>
+        <text>Relay C</text>
+        <y>117</y>
+        <width>73</width>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_12</name>
+        <pv_name>$(BL):$(DEV):GetSPCSensor</pv_name>
+        <x>84</x>
+        <y>114</y>
+        <width>79</width>
+        <height>26</height>
+        <precision>0</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_13</name>
+        <pv_name>$(BL):$(DEV):GetSPCLow</pv_name>
+        <x>174</x>
+        <y>114</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_14</name>
+        <pv_name>$(BL):$(DEV):GetSPCHigh</pv_name>
+        <x>264</x>
+        <y>114</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_15</name>
+        <pv_name>$(BL):$(DEV):SPCStatus</pv_name>
+        <x>407</x>
+        <y>112</y>
+        <width>40</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_6</name>
+        <text>Relay D</text>
+        <y>150</y>
+        <width>73</width>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_16</name>
+        <pv_name>$(BL):$(DEV):GetSPDSensor</pv_name>
+        <x>84</x>
+        <y>147</y>
+        <width>79</width>
+        <height>26</height>
+        <precision>0</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_17</name>
+        <pv_name>$(BL):$(DEV):GetSPDLow</pv_name>
+        <x>174</x>
+        <y>147</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_18</name>
+        <pv_name>$(BL):$(DEV):GetSPDHigh</pv_name>
+        <x>264</x>
+        <y>147</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_19</name>
+        <pv_name>$(BL):$(DEV):SPDStatus</pv_name>
+        <x>407</x>
+        <y>145</y>
+        <width>40</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_7</name>
+        <text>Relay E</text>
+        <y>183</y>
+        <width>73</width>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_20</name>
+        <pv_name>$(BL):$(DEV):GetSPESensor</pv_name>
+        <x>84</x>
+        <y>180</y>
+        <width>79</width>
+        <height>26</height>
+        <precision>0</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_21</name>
+        <pv_name>$(BL):$(DEV):GetSPELow</pv_name>
+        <x>174</x>
+        <y>180</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_22</name>
+        <pv_name>$(BL):$(DEV):GetSPEHigh</pv_name>
+        <x>264</x>
+        <y>180</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_23</name>
+        <pv_name>$(BL):$(DEV):SPEStatus</pv_name>
+        <x>407</x>
+        <y>178</y>
+        <width>40</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_8</name>
+        <text>Relay F</text>
+        <y>216</y>
+        <width>73</width>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_24</name>
+        <pv_name>$(BL):$(DEV):GetSPFSensor</pv_name>
+        <x>84</x>
+        <y>213</y>
+        <width>79</width>
+        <height>26</height>
+        <precision>0</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_25</name>
+        <pv_name>$(BL):$(DEV):GetSPFLow</pv_name>
+        <x>174</x>
+        <y>213</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_26</name>
+        <pv_name>$(BL):$(DEV):GetSPFHigh</pv_name>
+        <x>264</x>
+        <y>213</y>
+        <width>79</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_27</name>
+        <pv_name>$(BL):$(DEV):SPFStatus</pv_name>
+        <x>407</x>
+        <y>211</y>
+        <width>40</width>
+        <height>26</height>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Set Point</name>
+      <y>260</y>
+      <width>259</width>
+      <visible>false</visible>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="Black" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="Black" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <widget type="label" version="2.0.0">
+        <name>Label_1</name>
+        <text>Relay</text>
+        <x>12</x>
+        <y>6</y>
+        <width>80</width>
+        <height>26</height>
+        <vertical_alignment>1</vertical_alignment>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_2</name>
+        <text>SP High</text>
+        <x>12</x>
+        <y>66</y>
+        <width>80</width>
+        <height>26</height>
+        <vertical_alignment>1</vertical_alignment>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_3</name>
+        <text>SP Low</text>
+        <x>12</x>
+        <y>96</y>
+        <width>80</width>
+        <height>26</height>
+        <vertical_alignment>1</vertical_alignment>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="combo" version="2.0.0">
+        <name>Menu Button</name>
+        <pv_name>$(BL):$(DEV):SPRelay</pv_name>
+        <x>102</x>
+        <y>6</y>
+        <width>109</width>
+        <height>26</height>
+        <background_color>
+          <color red="240" green="240" blue="240">
+          </color>
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Input</name>
+        <pv_name>$(BL):$(DEV):SPHigh</pv_name>
+        <x>102</x>
+        <y>66</y>
+        <width>109</width>
+        <height>26</height>
+        <background_color>
+          <color name="WritePV_Background" red="128" green="255" blue="255">
+          </color>
+        </background_color>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Input_1</name>
+        <pv_name>$(BL):$(DEV):SPLow</pv_name>
+        <x>102</x>
+        <y>96</y>
+        <width>109</width>
+        <height>26</height>
+        <background_color>
+          <color name="WritePV_Background" red="128" green="255" blue="255">
+          </color>
+        </background_color>
+        <format>2</format>
+        <precision>3</precision>
+        <show_units>false</show_units>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="action_button" version="3.0.0">
+        <name>Action Button</name>
+        <actions>
+          <action type="write_pv">
+            <description>Write PV</description>
+            <pv_name>$(pv_name)</pv_name>
+            <value>0</value>
+          </action>
+        </actions>
+        <pv_name>$(BL):$(DEV):SetSetpoint</pv_name>
+        <text>Set SP</text>
+        <y>126</y>
+        <width>80</width>
+        <height>26</height>
+        <background_color>
+          <color red="240" green="240" blue="240">
+          </color>
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update</name>
+        <pv_name>$(BL):$(DEV):SetSetpoint.SEVR</pv_name>
+        <x>102</x>
+        <y>126</y>
+        <width>109</width>
+        <height>26</height>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_4</name>
+        <text>Source</text>
+        <x>12</x>
+        <y>36</y>
+        <width>80</width>
+        <height>26</height>
+        <vertical_alignment>1</vertical_alignment>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+      <widget type="combo" version="2.0.0">
+        <name>Menu Button_1</name>
+        <pv_name>$(BL):$(DEV):SPRelaySrc</pv_name>
+        <x>102</x>
+        <y>36</y>
+        <width>109</width>
+        <height>26</height>
+        <background_color>
+          <color red="240" green="240" blue="240">
+          </color>
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+      </widget>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Linking Container_3</name>
+      <macros>
+        <CH>1</CH>
+        <GAU>FP31-FR-001</GAU>
+      </macros>
+      <file>$(BOB)</file>
+      <y>9</y>
+      <width>342</width>
+      <height>212</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Linking Container_4</name>
+      <macros>
+        <CH>2</CH>
+        <GAU>FP35-FR-001</GAU>
+      </macros>
+      <file>$(BOB)</file>
+      <x>308</x>
+      <y>9</y>
+      <width>344</width>
+      <height>214</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Linking Container_6</name>
+      <macros>
+        <CH>4</CH>
+      </macros>
+      <file>$(BOB)</file>
+      <y>227</y>
+      <width>346</width>
+      <height>216</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Linking Container_7</name>
+      <macros>
+        <CH>5</CH>
+      </macros>
+      <file>$(BOB)</file>
+      <x>308</x>
+      <y>227</y>
+      <width>346</width>
+      <height>216</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Linking Container_8</name>
+      <macros>
+        <CH>6</CH>
+      </macros>
+      <file>$(BOB)</file>
+      <x>618</x>
+      <y>227</y>
+      <width>346</width>
+      <height>216</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Linking Container_5</name>
+      <macros>
+        <CH>3</CH>
+        <GAU>FP37-FR-001</GAU>
+      </macros>
+      <file>$(BOB)</file>
+      <x>618</x>
+      <y>9</y>
+      <width>344</width>
+      <height>214</height>
+      <resize>2</resize>
+      <transparent>true</transparent>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="stripchart" version="2.1.0">
+      <name>Strip Chart_2</name>
+      <x>30</x>
+      <y>481</y>
+      <width>871</width>
+      <height>372</height>
+      <show_legend>true</show_legend>
+      <y_axes>
+        <y_axis>
+          <title>Y</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>false</show_grid>
+          <visible>true</visible>
+          <color>
+            <color name="Text" red="0" green="0" blue="0">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>$(traces[0].y_pv)</name>
+          <y_pv>tpg366:PRESSURE1</y_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="0" green="0" blue="255">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <point_type>2</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+        <trace>
+          <name>$(traces[1].y_pv)</name>
+          <y_pv>tpg366:PRESSURE2</y_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="255" green="0" blue="0">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <point_type>2</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+        <trace>
+          <name>$(traces[2].y_pv)</name>
+          <y_pv>tpg366:PRESSURE3</y_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="0" green="255" blue="0">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <point_type>2</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+        <trace>
+          <name>$(traces[3].y_pv)</name>
+          <y_pv>tpg366:PRESSURE4</y_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="170" green="0" blue="255">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <point_type>2</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+        <trace>
+          <name>$(traces[4].y_pv)</name>
+          <y_pv>tpg366:PRESSURE5</y_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="255" green="255" blue="0">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <point_type>2</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+        <trace>
+          <name>$(traces[5].y_pv)</name>
+          <y_pv>tpg366:PRESSURE6</y_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="0" green="234" blue="255">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <point_type>2</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_46</name>
+    <x>918</x>
+    <y>132</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+</display>

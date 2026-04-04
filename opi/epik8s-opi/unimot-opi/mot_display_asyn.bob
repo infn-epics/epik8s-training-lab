@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>motasynarray</name>
+  <width>820</width>
+  <scripts>
+    <script file="../Scripts/YAMLLoadDevicePopulateArray.py" check_connections="false">
+      <pv_name>loc://ZONE_$(DID)</pv_name>
+      <pv_name>loc://FUNC_$(DID)</pv_name>
+      <pv_name>loc://TYPE_$(DID)</pv_name>
+    </script>
+  </scripts>
+  <widget type="embedded" version="2.0.0">
+    <name>element_template</name>
+    <file>$(BOBITEM)</file>
+    <width>820</width>
+    <height>50</height>
+    <visible>false</visible>
+    <transparent>true</transparent>
+  </widget>
+</display>

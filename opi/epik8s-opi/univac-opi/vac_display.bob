@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-19 22:55:34 by andreamichelotti-->
+<display version="2.0.0">
+  <name>vacuum_display_$(LCID)</name>
+  <width>440</width>
+  <height>570</height>
+  <scripts>
+    <script file="../Scripts/YAMLLoadDevicePopulateArray.py" check_connections="false">
+    </script>
+  </scripts>
+  <widget type="embedded" version="2.0.0">
+    <name>element_template</name>
+    <file>vac_channel.bob</file>
+    <y>270</y>
+    <width>420</width>
+    <height>30</height>
+    <visible>false</visible>
+  </widget>
+</display>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-10-28 17:07:07 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <macros>
+    <CONTROL>$(CONTROL=Control)</CONTROL>
+  </macros>
+  <width>430</width>
+  <height>421</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>$(TITLE) </text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>430</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="image" version="2.0.0">
+    <name>PVA image</name>
+    <pv_name>pva://$(PVANAME)</pv_name>
+    <y>31</y>
+    <width>430</width>
+    <height>319</height>
+    <show_toolbar>true</show_toolbar>
+    <limits_from_pv>true</limits_from_pv>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <file>$(OPI)</file>
+        <macros>
+          <P>$(P):</P>
+          <R>$(R):</R>
+        </macros>
+        <target>tab</target>
+        <description>$(CONTROL)</description>
+      </action>
+    </actions>
+    <text>$(CONTROL)</text>
+    <y>391</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="open_display">
+        <file>NDPva.bob</file>
+        <macros>
+          <P>$(P):</P>
+          <R>$(R):Pva1:</R>
+        </macros>
+        <target>tab</target>
+        <description>Pva</description>
+      </action>
+    </actions>
+    <text>Pva</text>
+    <x>108</x>
+    <y>391</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="open_display">
+        <file>NDStats.bob</file>
+        <macros>
+          <P>$(P):</P>
+          <R>$(R):Stats1:</R>
+        </macros>
+        <target>tab</target>
+        <description>Stats</description>
+      </action>
+    </actions>
+    <text>Stats</text>
+    <x>218</x>
+    <y>391</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions>
+      <action type="open_display">
+        <file>NDFileTIFF.bob</file>
+        <macros>
+          <P>$(P):</P>
+          <R>$(R):TIFF1:</R>
+        </macros>
+        <target>tab</target>
+        <description>Acquire</description>
+      </action>
+    </actions>
+    <text>Acquire</text>
+    <x>320</x>
+    <y>390</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Rate:</text>
+    <x>10</x>
+    <y>360</y>
+    <width>40</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(R):Pva1:ArrayRate_RBV</pv_name>
+    <x>60</x>
+    <y>360</y>
+    <width>70</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):$(R):Pva1:UniqueId_RBV</pv_name>
+    <x>190</x>
+    <y>360</y>
+    <width>80</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>UID:</text>
+    <x>150</x>
+    <y>360</y>
+    <width>40</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>TS:</text>
+    <x>280</x>
+    <y>360</y>
+    <width>40</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):$(R):Pva1:TimeStamp_RBV</pv_name>
+    <x>320</x>
+    <y>360</y>
+  </widget>
+</display>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-05-16 11:57:35 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Vacuum</name>
+  <width>1600</width>
+  <height>900</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Vacuum $(ZONE)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Vacuum</name>
+    <file>$(PLTFILE)</file>
+    <y>31</y>
+    <width>1600</width>
+    <height>869</height>
+    <show_toolbar>true</show_toolbar>
+  </widget>
+</display>

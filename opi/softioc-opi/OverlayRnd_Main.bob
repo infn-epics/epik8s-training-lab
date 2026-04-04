@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Overlay Randomizer</name>
+  <macros>
+    <PREFIX>$(PREFIX=LAB:SIM:OVERLAY_RND)</PREFIX>
+    <CAMERA>$(CAMERA=LAB:SIM:CAM01)</CAMERA>
+    <DEVICE>$(DEVICE=LAB:SIM)</DEVICE>
+    <CAM>$(CAM=CAM01)</CAM>
+  </macros>
+  <width>1380</width>
+  <height>820</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="rectangle" version="2.0.0">
+    <name>header</name>
+    <width>1380</width>
+    <height>52</height>
+    <background_color>
+      <color red="60" green="120" blue="200">
+      </color>
+    </background_color>
+    <line_color>
+      <color red="60" green="120" blue="200">
+      </color>
+    </line_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>title</name>
+    <text>Overlay Randomizer - $(PREFIX)</text>
+    <x>16</x>
+    <y>10</y>
+    <width>840</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>controls-bg</name>
+    <x>18</x>
+    <y>72</y>
+    <width>360</width>
+    <height>360</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>controls-title</name>
+    <text>Controls</text>
+    <x>32</x>
+    <y>88</y>
+    <width>140</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0"><name>l1</name><text>maxx</text><x>34</x><y>130</y><width>80</width><height>22</height></widget>
+  <widget type="textentry" version="3.0.0"><name>maxx</name><pv_name>$(PREFIX):maxx</pv_name><x>126</x><y>126</y><width>110</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>l2</name><text>maxy</text><x>34</x><y>166</y><width>80</width><height>22</height></widget>
+  <widget type="textentry" version="3.0.0"><name>maxy</name><pv_name>$(PREFIX):maxy</pv_name><x>126</x><y>162</y><width>110</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>l3</name><text>size</text><x>34</x><y>202</y><width>80</width><height>22</height></widget>
+  <widget type="textentry" version="3.0.0"><name>size</name><pv_name>$(PREFIX):size</pv_name><x>126</x><y>198</y><width>110</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>l4</name><text>X</text><x>34</x><y>238</y><width>80</width><height>22</height></widget>
+  <widget type="textentry" version="3.0.0"><name>x</name><pv_name>$(PREFIX):X</pv_name><x>126</x><y>234</y><width>110</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>l5</name><text>Y</text><x>34</x><y>274</y><width>80</width><height>22</height></widget>
+  <widget type="textentry" version="3.0.0"><name>y</name><pv_name>$(PREFIX):Y</pv_name><x>126</x><y>270</y><width>110</width><height>26</height><precision>0</precision></widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>run</name>
+    <pv_name>$(PREFIX):run</pv_name>
+    <x>34</x>
+    <y>320</y>
+    <width>202</width>
+    <height>34</height>
+    <on_label>Generate</on_label>
+    <off_label>Ready</off_label>
+    <on_color><color red="30" green="210" blue="0"></color></on_color>
+    <off_color><color red="77" green="77" blue="77"></color></off_color>
+  </widget>
+  <widget type="label" version="2.0.0"><name>l6</name><text>outX</text><x>34</x><y>376</y><width>80</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>outx</name><pv_name>$(PREFIX):outX</pv_name><x>126</x><y>372</y><width>110</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>l7</name><text>outY</text><x>34</x><y>406</y><width>80</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>outy</name><pv_name>$(PREFIX):outY</pv_name><x>126</x><y>402</y><width>110</width><height>26</height><precision>0</precision></widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>state-bg</name>
+    <x>18</x>
+    <y>454</y>
+    <width>360</width>
+    <height>304</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0"><name>state-title</name><text>Overlay 1 State</text><x>32</x><y>470</y><width>200</width><height>24</height><font><font family="Liberation Sans" style="BOLD" size="18.0"></font></font></widget>
+  <widget type="label" version="2.0.0"><name>s1</name><text>EnableCallbacks</text><x>34</x><y>510</y><width>120</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>cb</name><pv_name>$(CAMERA):Overlay1:EnableCallbacks</pv_name><x>180</x><y>506</y><width>80</width><height>26</height></widget>
+  <widget type="label" version="2.0.0"><name>s2</name><text>Use</text><x>34</x><y>542</y><width>120</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>use</name><pv_name>$(CAMERA):Overlay1:1:Use</pv_name><x>180</x><y>538</y><width>80</width><height>26</height></widget>
+  <widget type="label" version="2.0.0"><name>s3</name><text>PositionX</text><x>34</x><y>574</y><width>120</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>px</name><pv_name>$(CAMERA):Overlay1:1:PositionX_RBV</pv_name><x>180</x><y>570</y><width>90</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>s4</name><text>PositionY</text><x>34</x><y>606</y><width>120</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>py</name><pv_name>$(CAMERA):Overlay1:1:PositionY_RBV</pv_name><x>180</x><y>602</y><width>90</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>s5</name><text>SizeX</text><x>34</x><y>638</y><width>120</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>sx</name><pv_name>$(CAMERA):Overlay1:1:SizeX_RBV</pv_name><x>180</x><y>634</y><width>90</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>s6</name><text>SizeY</text><x>34</x><y>670</y><width>120</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>sy</name><pv_name>$(CAMERA):Overlay1:1:SizeY_RBV</pv_name><x>180</x><y>666</y><width>90</width><height>26</height><precision>0</precision></widget>
+  <widget type="action_button" version="3.0.0">
+    <name>open-camera</name>
+    <text>Open Camera Screen</text>
+    <x>34</x>
+    <y>712</y>
+    <width>180</width>
+    <height>32</height>
+    <actions>
+      <action type="open_display">
+        <description>Open camera</description>
+        <macros>
+          <P>$(DEVICE)</P>
+          <R>$(CAM)</R>
+          <NAME>$(CAM)</NAME>
+          <DEVICE>$(DEVICE)</DEVICE>
+          <CAM>$(CAM)</CAM>
+          <TYPE>camera</TYPE>
+          <ZONE>SIMLAB</ZONE>
+          <HW>camera</HW>
+          <HCAM>$(CAMERA):cam1:</HCAM>
+          <HDEVICE>$(CAMERA):</HDEVICE>
+          <HIMAGE>$(CAMERA):image1:</HIMAGE>
+          <HPROC>$(CAMERA):Proc1:</HPROC>
+          <HROI>$(CAMERA):ROI1:</HROI>
+          <HSTATS>$(CAMERA):Stats1:</HSTATS>
+          <HTRANS>$(CAMERA):Trans1:</HTRANS>
+          <OPI>Camera_Main.bob</OPI>
+        </macros>
+        <file>../epik8s-opi/unicam-opi/Camera_Main.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <background_color><color red="60" green="120" blue="200"></color></background_color>
+    <foreground_color><color red="255" green="255" blue="255"></color></foreground_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>camera-view</name>
+    <file>../epik8s-opi/unicam-opi/Camera_ColorImagePanel.bob</file>
+    <x>402</x>
+    <y>72</y>
+    <width>960</width>
+    <height>620</height>
+    <resize>0</resize>
+    <macros>
+      <DEVICE>$(DEVICE)</DEVICE>
+      <CAM>$(CAM)</CAM>
+      <DID>SOFTIOC</DID>
+    </macros>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>help-bg</name>
+    <x>402</x>
+    <y>706</y>
+    <width>960</width>
+    <height>76</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>help-text</name>
+    <text>Workflow: set base center X/Y, set jitter maxx/maxy and size, press Generate, then inspect outX/outY and overlay 1 geometry on the camera image.</text>
+    <x>420</x>
+    <y>724</y>
+    <width>920</width>
+    <height>40</height>
+    <wrap_words>true</wrap_words>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+</display>

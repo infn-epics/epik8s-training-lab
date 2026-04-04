@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-02-01 18:47:03 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Agilent 4UHV Ion Pump Controller - $(device)</name>
+  <x>481</x>
+  <y>54</y>
+  <width>520</width>
+  <height>280</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_5</name>
+    <text>Autostart</text>
+    <x>12</x>
+    <y>90</y>
+    <width>55</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_4</name>
+    <text>Measurement Unit</text>
+    <x>12</x>
+    <y>60</y>
+    <width>110</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_13</name>
+    <text>Controller Model</text>
+    <x>285</x>
+    <y>90</y>
+    <width>101</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_14</name>
+    <text>Temperature FAN</text>
+    <x>283</x>
+    <y>60</y>
+    <width>106</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_15</name>
+    <text>Serial Number</text>
+    <x>285</x>
+    <y>120</y>
+    <width>86</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_16</name>
+    <text>Step Mode</text>
+    <x>12</x>
+    <y>150</y>
+    <width>68</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_19</name>
+    <text>Protect</text>
+    <x>12</x>
+    <y>120</y>
+    <width>44</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title Banner_3</name>
+    <text>$(device)</text>
+    <width>543</width>
+    <height>45</height>
+    <font>
+      <font name="ELI-NP Title Bar" family="sans" style="REGULAR" size="23.762376237623762">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="ELI-NP Vacuum Title" red="202" green="223" blue="159">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template</name>
+    <pv_name>$(device):MODE_RB</pv_name>
+    <bit>0</bit>
+    <x>131</x>
+    <y>89</y>
+    <width>23</width>
+    <height>23</height>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="30" green="210" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>Byte Monitor Template</name>
+    <pv_name>$(device):PROT</pv_name>
+    <x>129</x>
+    <y>117</y>
+    <width>110</width>
+    <height>23</height>
+    <numBits>4</numBits>
+    <bitReverse>true</bitReverse>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="30" green="210" blue="0">
+      </color>
+    </on_color>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <font>
+      <font name="IO Normal" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>Byte Monitor Template_1</name>
+    <pv_name>$(device):STEP</pv_name>
+    <x>129</x>
+    <y>147</y>
+    <width>110</width>
+    <height>23</height>
+    <numBits>4</numBits>
+    <bitReverse>true</bitReverse>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="30" green="210" blue="0">
+      </color>
+    </on_color>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <font>
+      <font name="IO Normal" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template</name>
+    <pv_name>$(device):TEMPFAN</pv_name>
+    <x>401</x>
+    <y>58</y>
+    <width>118</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_1</name>
+    <pv_name>$(device):MODEL</pv_name>
+    <x>401</x>
+    <y>88</y>
+    <width>118</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_2</name>
+    <pv_name>$(device):SERIAL</pv_name>
+    <x>401</x>
+    <y>118</y>
+    <width>118</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_3</name>
+    <pv_name>$(device):UNIT_RB</pv_name>
+    <x>130</x>
+    <y>58</y>
+    <width>58</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo_2</name>
+    <pv_name>$(device):UNIT_SP</pv_name>
+    <x>192</x>
+    <y>55</y>
+    <width>80</width>
+    <height>32</height>
+    <font>
+      <font family="Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo_3</name>
+    <pv_name>$(device):MODE_SP</pv_name>
+    <x>192</x>
+    <y>85</y>
+    <width>80</width>
+    <height>32</height>
+    <font>
+      <font family="Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+</display>

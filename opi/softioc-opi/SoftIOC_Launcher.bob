@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Soft IOC Tools</name>
+  <width>760</width>
+  <height>320</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="rectangle" version="2.0.0">
+    <name>header</name>
+    <width>760</width>
+    <height>52</height>
+    <background_color>
+      <color red="30" green="110" blue="60">
+      </color>
+    </background_color>
+    <line_color>
+      <color red="30" green="110" blue="60">
+      </color>
+    </line_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>title</name>
+    <text>Soft IOC Tools</text>
+    <x>16</x>
+    <y>10</y>
+    <width>420</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>subtitle</name>
+    <text>Quick access to overlay randomization and beam centering</text>
+    <x>18</x>
+    <y>72</y>
+    <width>640</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>card1</name>
+    <x>22</x>
+    <y>110</y>
+    <width>330</width>
+    <height>160</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>card2</name>
+    <x>402</x>
+    <y>110</y>
+    <width>330</width>
+    <height>160</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>overlay-title</name>
+    <text>Overlay Randomizer</text>
+    <x>42</x>
+    <y>128</y>
+    <width>220</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>overlay-desc</name>
+    <text>Set jitter limits and send a random target to overlay 1.</text>
+    <x>42</x>
+    <y>158</y>
+    <width>280</width>
+    <height>42</height>
+    <wrap_words>true</wrap_words>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>open-overlay</name>
+    <text>Open Overlay Tool</text>
+    <x>42</x>
+    <y>214</y>
+    <width>180</width>
+    <height>34</height>
+    <actions>
+      <action type="open_display">
+        <description>Open Overlay Tool</description>
+        <file>OverlayRnd_Main.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <background_color>
+      <color red="60" green="120" blue="200">
+      </color>
+    </background_color>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>beam-title</name>
+    <text>Beam Center Control</text>
+    <x>422</x>
+    <y>128</y>
+    <width>220</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>beam-desc</name>
+    <text>Start and observe the closed-loop centering algorithm.</text>
+    <x>422</x>
+    <y>158</y>
+    <width>280</width>
+    <height>42</height>
+    <wrap_words>true</wrap_words>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>open-beam-center</name>
+    <text>Open Beam Center Tool</text>
+    <x>422</x>
+    <y>214</y>
+    <width>200</width>
+    <height>34</height>
+    <actions>
+      <action type="open_display">
+        <description>Open Beam Center Tool</description>
+        <file>BeamCenter_Main.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <background_color>
+      <color red="30" green="110" blue="60">
+      </color>
+    </background_color>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

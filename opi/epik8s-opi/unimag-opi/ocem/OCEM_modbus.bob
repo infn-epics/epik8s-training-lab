@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-09-25 17:37:27 by Alex-->
+<display version="2.0.0">
+  <name>Display</name>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(R):Current</pv_name>
+    <x>138</x>
+    <y>76</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Current</text>
+    <x>20</x>
+    <y>76</y>
+    <width>70</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Voltage</text>
+    <x>20</x>
+    <y>106</y>
+    <width>70</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):$(R):Voltage</pv_name>
+    <x>138</x>
+    <y>106</y>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>$(P):$(R):StandBy</pv_name>
+    <x>378</x>
+    <y>66</y>
+    <width>30</width>
+    <height>30</height>
+    <labels_from_pv>true</labels_from_pv>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>Array-led-1</name>
+    <pv_name>$(P):$(R):Operational</pv_name>
+    <x>378</x>
+    <y>106</y>
+    <width>30</width>
+    <height>30</height>
+    <labels_from_pv>true</labels_from_pv>
+    <tooltip>
+null</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>StandBy</text>
+    <x>438</x>
+    <y>66</y>
+    <width>70</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Operational</text>
+    <x>438</x>
+    <y>116</y>
+    <width>82</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Ground Current</text>
+    <x>20</x>
+    <y>136</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(P):$(R):GroundCurrent</pv_name>
+    <x>138</x>
+    <y>136</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Max Ramp Speed</text>
+    <x>20</x>
+    <y>196</y>
+    <width>130</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>$(P):$(R):MaxRampSpeed</pv_name>
+    <x>248</x>
+    <y>196</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(P):$(R):RampSpeed_SP</pv_name>
+    <x>248</x>
+    <y>226</y>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):$(R):GlobalControl</pv_name>
+        <value>4</value>
+        <description>Set Operational</description>
+      </action>
+    </actions>
+    <x>540</x>
+    <y>96</y>
+    <width>120</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):$(R):GlobalControl</pv_name>
+        <value>2</value>
+        <description>Set StandBy</description>
+      </action>
+    </actions>
+    <x>540</x>
+    <y>136</y>
+    <width>120</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_9</name>
+    <pv_name>$(P):$(R):GlobalControl</pv_name>
+    <x>660</x>
+    <y>66</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>GlobalControl</text>
+    <x>540</x>
+    <y>66</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Ramp Speed sp readout</text>
+    <x>20</x>
+    <y>226</y>
+    <width>190</width>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED-FAULT</name>
+    <pv_name>$(P):$(R):Fault</pv_name>
+    <x>380</x>
+    <y>146</y>
+    <width>30</width>
+    <height>30</height>
+    <off_color>
+      <color name="OK" red="0" green="255" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+    <labels_from_pv>true</labels_from_pv>
+    <tooltip>
+null</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>LED-FAULT-label</name>
+    <text>Fault</text>
+    <x>438</x>
+    <y>156</y>
+    <width>82</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_10</name>
+    <pv_name>$(P):$(R):LocRem</pv_name>
+    <x>160</x>
+    <y>40</y>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_1</name>
+    <pv_name>$(P):$(R):Current_SP</pv_name>
+    <x>138</x>
+    <y>280</y>
+    <height>24</height>
+    <actions>
+      <action type="execute">
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Ciao Ale'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+
+pname="loc://ampereToSet"
+pvx = PVUtil.createPV(pname,1000)
+ampere_pv= PVUtil.getDouble(pvx)
+
+
+
+#maxload_pv = PVUtil.getDouble(pvs[1])        # SPARC:OCEM:TEST:MaxIset
+
+# Calcolo: (A / MaxLoad) * 65535
+raw_value = int(round((ampere_pv / 280) * 65535))
+print 'ampere'
+print ampere_pv
+print 'Writing'
+print raw_value 
+PVUtil.writePV("SPARC:OCEM:TEST:Current_SP_raw",raw_value,1000)
+print 'Wrote']]></text>
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_5</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <pv_name>$(P):$(R):GlobalControl</pv_name>
+        <value>16</value>
+        <description>Start Ramp</description>
+      </action>
+    </actions>
+    <x>540</x>
+    <y>176</y>
+    <width>120</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>$(P):$(R):Current_SP_raw</pv_name>
+    <x>138</x>
+    <y>246</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>Current SP_raw</text>
+    <x>20</x>
+    <y>246</y>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>Byte Monitor</name>
+    <pv_name>$(P):$(R):AlarmsFirst</pv_name>
+    <x>508</x>
+    <y>216</y>
+    <width>20</width>
+    <height>334</height>
+    <numBits>16</numBits>
+    <bitReverse>true</bitReverse>
+    <horizontal>false</horizontal>
+    <on_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>Byte Monitor_1</name>
+    <pv_name>$(P):$(R):AlarmsSecond</pv_name>
+    <x>720</x>
+    <y>216</y>
+    <width>21</width>
+    <height>170</height>
+    <bitReverse>true</bitReverse>
+    <horizontal>false</horizontal>
+    <on_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>Emergency</text>
+    <x>380</x>
+    <y>216</y>
+    <width>82</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>ACOverCurrent</text>
+    <x>380</x>
+    <y>236</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>phase Fault</text>
+    <x>380</x>
+    <y>256</y>
+    <width>82</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>chopTransFailure</text>
+    <x>380</x>
+    <y>280</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Door Open</text>
+    <x>380</x>
+    <y>300</y>
+    <width>82</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>Residual Current</text>
+    <x>380</x>
+    <y>324</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>DSP Fault Control</text>
+    <x>380</x>
+    <y>345</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_16</name>
+    <text>DSP DC Overcurrent</text>
+    <x>380</x>
+    <y>365</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_17</name>
+    <text>PLD Fault PWM</text>
+    <x>380</x>
+    <y>385</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_18</name>
+    <text>Fault COMM</text>
+    <x>380</x>
+    <y>405</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_19</name>
+    <text>Diode Over Temp</text>
+    <x>380</x>
+    <y>425</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_20</name>
+    <text>Transf Over Temp</text>
+    <x>378</x>
+    <y>447</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_21</name>
+    <text>Cabinet Over Temp</text>
+    <x>378</x>
+    <y>467</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_22</name>
+    <text>Max DC Ground Curr</text>
+    <x>378</x>
+    <y>487</y>
+    <width>123</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_23</name>
+    <text>Spare fault 1</text>
+    <x>378</x>
+    <y>511</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_24</name>
+    <text>Spare Fault 2</text>
+    <x>378</x>
+    <y>531</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_25</name>
+    <text>Spare Fault 3</text>
+    <x>580</x>
+    <y>216</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_26</name>
+    <text>Spare Fault 4</text>
+    <x>580</x>
+    <y>236</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_27</name>
+    <text>Spare Fault 5</text>
+    <x>580</x>
+    <y>259</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_28</name>
+    <text>LDC Over Temp</text>
+    <x>580</x>
+    <y>282</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_29</name>
+    <text>Lpwm Over Temp</text>
+    <x>580</x>
+    <y>301</y>
+    <width>121</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_30</name>
+    <text>DSP Fault Ripple</text>
+    <x>580</x>
+    <y>323</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_31</name>
+    <text>eccessive Current Error</text>
+    <x>580</x>
+    <y>344</y>
+    <width>140</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_32</name>
+    <text>DSP Boot Failure</text>
+    <x>580</x>
+    <y>366</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_33</name>
+    <text>Set Current</text>
+    <x>20</x>
+    <y>280</y>
+    <width>80</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_34</name>
+    <text>$(P):$(R)</text>
+    <x>310</x>
+    <y>10</y>
+    <width>391</width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):$(R):GlobalControl</pv_name>
+        <value>8</value>
+        <description>Reset Alarms</description>
+      </action>
+    </actions>
+    <x>701</x>
+    <y>126</y>
+    <width>79</width>
+    <height>70</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):$(R):SWVER</pv_name>
+    <x>138</x>
+    <y>425</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_36</name>
+    <text>SW Ver</text>
+    <x>30</x>
+    <y>425</y>
+    <width>80</width>
+  </widget>
+</display>

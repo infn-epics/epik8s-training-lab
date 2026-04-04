@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>mot_progress</name>
+  <width>190</width>
+  <height>30</height>
+  <widget type="progressbar" version="2.0.0">
+    <name>Progress Bar</name>
+    <pv_name>$(P):$(R).RBV</pv_name>
+    <width>190</width>
+    <rules>
+      <rule name="max" prop_id="maximum" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>maximum value</expression>
+        </exp>
+        <pv_name>$(P):$(R).HLM</pv_name>
+      </rule>
+      <rule name="min" prop_id="minimum" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>minimum value</expression>
+        </exp>
+        <pv_name>$(P):$(R).HLM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(R).LLM</pv_name>
+    <y>20</y>
+    <width>70</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="8.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):$(R).HLM</pv_name>
+    <x>119</x>
+    <y>20</y>
+    <width>70</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="8.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+</display>

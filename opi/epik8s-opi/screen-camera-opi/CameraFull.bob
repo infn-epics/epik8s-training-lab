@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-06-12 16:21:16 by riccardo-->
+<display version="2.0.0">
+  <name>CameraFull</name>
+  <width>900</width>
+  <scripts>
+    <script file="Scripts/listloadcam.py">
+      <pv_name trigger="false">loc://cam_menu_$(DID)</pv_name>
+    </script>
+  </scripts>
+  <widget type="embedded" version="2.0.0">
+    <name>CompactCamera</name>
+    <file>CompactCamera.bob</file>
+    <width>900</width>
+    <height>600</height>
+    <scripts>
+      <script file="Scripts/reloadpanel.py">
+        <pv_name>loc://cam_menu_$(DID)</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>CamMenu</name>
+    <pv_name>loc://cam_menu_$(DID)("NULL")</pv_name>
+    <x>10</x>
+    <y>10</y>
+    <width>260</width>
+    <font>
+      <font family="PakTypeNaqsh" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <items_from_pv>false</items_from_pv>
+  </widget>
+</display>

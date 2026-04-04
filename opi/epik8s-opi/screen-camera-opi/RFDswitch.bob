@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <width>140</width>
+  <height>140</height>
+  <widget type="led" version="2.0.0">
+    <name>LED_6</name>
+    <pv_name>SPARC:RFD:ICP:RDEFDIR_RB</pv_name>
+    <width>105</width>
+    <height>80</height>
+    <square>true</square>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_8</name>
+    <pv_name>SPARC:RFD:ICP:DEFPOW_RB</pv_name>
+    <x>110</x>
+    <width>28</width>
+    <height>80</height>
+    <square>true</square>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_6</name>
+    <actions>
+      <action type="execute">
+        <description>Execute Script</description>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import time
+
+DIRname = "SPARC:RFD:ICP:DEFDIR_SP"
+DIRpv = PVUtil.createPV(DIRname, 1000)
+POWname = "SPARC:RFD:ICP:DEFPOW_SP"
+POWpv = PVUtil.createPV(POWname, 1000)
+
+# Read current value
+curr_val = PVUtil.getLong(DIRpv) 
+if curr_val == 0:
+    DIRpv.write(1)
+    #print("Toggled ON")
+else:
+    DIRpv.write(0)
+    #print("Toggled OFF")
+
+#wait before turning off power
+POWpv.write(1)
+time.sleep(2.0)
+POWpv.write(0)]]></text>
+        </script>
+      </action>
+    </actions>
+    <text>RFD switch</text>
+    <y>85</y>
+    <width>138</width>
+    <height>50</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+</display>

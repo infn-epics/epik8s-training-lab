@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-03-24 18:22:56 by andreamichelotti-->
+<display version="2.0.0">
+  <name>ApplyMainDisplay</name>
+  <width>682</width>
+  <height>1077</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Pretune</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="fileselector" version="2.0.0">
+    <name>Load</name>
+    <pv_name>loc://confload-$(DID)&lt;VString&gt;("")</pv_name>
+    <x>10</x>
+    <y>50</y>
+    <width>100</width>
+    <height>20</height>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <class>COMMENT</class>
+    <text>Choose Configuration</text>
+    <x>10</x>
+    <y>31</y>
+    <width>140</width>
+    <font use_class="true">
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <wrap_words use_class="true">true</wrap_words>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>confload</name>
+    <pv_name>loc://confload-${DID}&lt;VString&gt;("")</pv_name>
+    <x>140</x>
+    <y>51</y>
+    <width>400</width>
+    <height>17</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>DataSet</name>
+    <x>27</x>
+    <y>127</y>
+    <width>655</width>
+    <height>950</height>
+    <style>2</style>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>Element</text>
+      <x>12</x>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>I0</text>
+      <x>100</x>
+      <width>55</width>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>STEP</text>
+      <x>172</x>
+      <width>55</width>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>I1</text>
+      <x>252</x>
+      <y>2</y>
+      <width>55</width>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>STEP CALC</text>
+      <x>372</x>
+      <y>2</y>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_9</name>
+      <text>NEXT SET</text>
+      <x>502</x>
+      <y>2</y>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Display-apply</name>
+      <file>pretune-display.bob</file>
+      <y>20</y>
+      <width>653</width>
+      <height>900</height>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>LoadSetting</name>
+    <actions>
+      <action type="execute">
+        <description>Step Down</description>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+pv = ScriptUtil.getPrimaryPV(widget)
+
+pvInt0 = PVUtil.getLong(pv) - 1
+pv.write(pvInt0)
+]]></text>
+        </script>
+      </action>
+    </actions>
+    <pv_name>loc://counter_$(DID)</pv_name>
+    <text>&lt;</text>
+    <x>10</x>
+    <y>80</y>
+    <rules>
+      <rule name="visibility" prop_id="enabled" out_exp="false">
+        <exp bool_exp="pvInt0&gt;0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pvInt0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://counter_$(DID)</pv_name>
+      </rule>
+    </rules>
+    <tooltip>$(actions)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <enabled>false</enabled>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>dump</name>
+    <actions>
+      <action type="execute">
+        <description>Stepup</description>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+pv = ScriptUtil.getPrimaryPV(widget)
+
+pvInt0 = PVUtil.getLong(pv) + 1
+pv.write(pvInt0)
+]]></text>
+        </script>
+      </action>
+    </actions>
+    <pv_name>loc://counter_$(DID)</pv_name>
+    <text>&gt;</text>
+    <x>270</x>
+    <y>80</y>
+    <rules>
+      <rule name="visibility" prop_id="enabled" out_exp="false">
+        <exp bool_exp="pvInt0&lt;pvInt1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pvInt0==pvInt1">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://counter_$(DID)</pv_name>
+        <pv_name>loc://nsteps_$(DID)</pv_name>
+      </rule>
+    </rules>
+    <tooltip>$(actions)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <enabled>false</enabled>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>loc://nsteps_$(DID)&lt;VLong&gt;(0)</pv_name>
+    <x>140</x>
+    <y>80</y>
+    <height>30</height>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>loc://counter_$(DID)&lt;VLong&gt;(0)</pv_name>
+    <x>530</x>
+    <y>90</y>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>STEP counter</text>
+    <x>410</x>
+    <y>90</y>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+</display>

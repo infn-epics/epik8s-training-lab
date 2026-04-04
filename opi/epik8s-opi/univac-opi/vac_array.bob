@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>vacuum Array</name>
+  <width>460</width>
+  <height>610</height>
+  <actions execute_as_one="true">
+  </actions>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>Name</text>
+    <width>70</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>Value</text>
+    <x>130</x>
+    <width>50</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Type</text>
+    <x>247</x>
+    <width>35</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>Zone</text>
+    <x>309</x>
+    <width>40</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>vacuumArray_$(LCID)</name>
+    <file>vac_display.bob</file>
+    <y>20</y>
+    <width>460</width>
+    <height>590</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>dumppv</name>
+    <actions>
+      <action type="execute">
+        <description>dumppv</description>
+        <script file="../Scripts/dumppv.py">
+        </script>
+      </action>
+    </actions>
+    <text>dumppv</text>
+    <x>350</x>
+    <width>60</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>Status</text>
+    <x>192</x>
+    <width>50</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+</display>

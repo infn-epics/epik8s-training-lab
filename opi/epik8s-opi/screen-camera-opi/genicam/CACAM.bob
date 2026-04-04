@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-11-27 11:37:21 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>1280</width>
+  <height>1055</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>$(P):$(R)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>440</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="image" version="2.0.0">
+    <name>Image_2</name>
+    <pv_name>$(P):$(R):image1:ArrayData</pv_name>
+    <y>31</y>
+    <width>1280</width>
+    <height>1024</height>
+    <show_toolbar>true</show_toolbar>
+    <color_map>
+      <name>GRAY</name>
+    </color_map>
+    <x_axis>
+      <visible>false</visible>
+      <title>X</title>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+    </x_axis>
+    <y_axis>
+      <visible>false</visible>
+      <title>Y</title>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+    </y_axis>
+    <rules>
+      <rule name="sizex" prop_id="data_width" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeX_RBV</pv_name>
+      </rule>
+      <rule name="sizey" prop_id="data_height" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeY_RBV</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <file>./ADAravis.bob</file>
+        <macros>
+          <C>$(MODEL=Basler-scA640-70gm)</C>
+          <P>$(P):</P>
+          <R>$(R):</R>
+        </macros>
+        <target>window</target>
+        <description>Control</description>
+      </action>
+    </actions>
+    <x>340</x>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

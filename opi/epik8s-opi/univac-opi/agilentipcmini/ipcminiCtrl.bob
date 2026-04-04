@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-04-29 17:05:17 by Alex-->
+<display version="2.0.0">
+  <name>IPC Mini Vacuum Controller - $(P):$(R) - Control</name>
+  <x>481</x>
+  <y>54</y>
+  <height>250</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Title Banner_3</name>
+    <text>$(P):$(R) - Control</text>
+    <width>800</width>
+    <height>45</height>
+    <font>
+      <font name="STAR Header" family="Noto Sans" style="BOLD" size="17.821782178217823">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="STAR Vacuum Title" red="202" green="223" blue="159">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_3</name>
+    <macros>
+      <LABEL>Baud Rate</LABEL>
+      <PV_RB>$(P):$(R):BAUDRATE_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback.bob</file>
+    <x>399</x>
+    <y>77</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_8</name>
+    <macros>
+      <LABEL>Model</LABEL>
+      <PV_RB>$(P):$(R):MODEL_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback_big.bob</file>
+    <y>209</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_9</name>
+    <macros>
+      <LABEL>Serial Number</LABEL>
+      <PV_RB>$(P):$(R):SERNUM_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback.bob</file>
+    <x>399</x>
+    <y>44</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_11</name>
+    <macros>
+      <LABEL>Unit</LABEL>
+      <PV_RB>$(P):$(R):UNIT_RB</PV_RB>
+      <PV_SP>$(P):$(R):UNIT_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_menu.bob</file>
+    <y>44</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_15</name>
+    <macros>
+      <LABEL>Autostart</LABEL>
+      <PV_RB>$(P):$(R):AUTOSTART_RB</PV_RB>
+      <PV_SP>$(P):$(R):AUTOSTART_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_menu.bob</file>
+    <y>77</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_16</name>
+    <macros>
+      <LABEL>Prot status</LABEL>
+      <PV_RB>$(P):$(R):PROTSTS_RB</PV_RB>
+      <PV_SP>$(P):$(R):PROTSTS_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_menu.bob</file>
+    <y>110</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_17</name>
+    <macros>
+      <LABEL>Fixed/Step</LABEL>
+      <PV_RB>$(P):$(R):FIXEDSTEP_RB</PV_RB>
+      <PV_SP>$(P):$(R):FIXEDSTEP_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_menu.bob</file>
+    <y>143</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_27</name>
+    <macros>
+      <LABEL>Label</LABEL>
+      <PV_RB>$(P):$(R):LABEL_RB</PV_RB>
+      <PV_SP>$(P):$(R):LABEL_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_setpoint.bob</file>
+    <y>176</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_28</name>
+    <macros>
+      <LABEL>ComError</LABEL>
+      <PV_RB>$(P):$(R):COMERR</PV_RB>
+    </macros>
+    <file>widget-library/readback_big.bob</file>
+    <x>399</x>
+    <y>110</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_29</name>
+    <macros>
+      <LABEL>Mode</LABEL>
+      <PV_RB>$(P):$(R):MODE_RB</PV_RB>
+      <PV_SP>$(P):$(R):MODE_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_menu.bob</file>
+    <x>399</x>
+    <y>143</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_31</name>
+    <macros>
+      <LABEL>ComError</LABEL>
+      <PV_RST>$(P):$(R):COMERR</PV_RST>
+    </macros>
+    <file>widget-library/comErrorRst.bob</file>
+    <x>399</x>
+    <y>176</y>
+    <width>399</width>
+    <height>33</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+</display>

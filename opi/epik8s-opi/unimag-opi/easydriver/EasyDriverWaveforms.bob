@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-01-19 23:51:10 by andreamichelotti-->
+<display version="2.0.0">
+  <name>EasyDriverWaveforms</name>
+  <x>863</x>
+  <y>125</y>
+  <width>280</width>
+  <height>150</height>
+  <background_color>
+    <color name="GLOBAL canvas" red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>$(P)$(R)</text>
+    <x>1</x>
+    <y>1</y>
+    <width>279</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="24.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="green-19" red="0" green="128" blue="0">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>EDM activeMessageButtonClass</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>0</value>
+        <description>Stop</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)WaveformStop</pv_name>
+    <text>Stop</text>
+    <x>20</x>
+    <y>62</y>
+    <width>80</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="cyan-31" red="0" green="224" blue="224">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>EDM activeMessageButtonClass</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>0</value>
+        <description>Start</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)WaveformStart.PROC</pv_name>
+    <text>Start</text>
+    <x>20</x>
+    <y>36</y>
+    <width>80</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="cyan-31" red="0" green="224" blue="224">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>EDM Group 0</name>
+    <x>112</x>
+    <y>34</y>
+    <width>145</width>
+    <height>27</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>EDM activeXTextClass</name>
+      <text>Waveform Active</text>
+      <x>31</x>
+      <y>5</y>
+      <width>109</width>
+      <height>17</height>
+      <foreground_color>
+        <color name="black-14" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="green-19" red="0" green="128" blue="0">
+        </color>
+      </background_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="ellipse" version="2.0.0">
+      <name>EDM activeCircleClass</name>
+      <x>5</x>
+      <y>5</y>
+      <width>16</width>
+      <height>16</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color name="black-14" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="green-19" red="0" green="128" blue="0">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="ellipse" version="2.0.0">
+      <name>EDM activeCircleClass</name>
+      <x>6</x>
+      <y>6</y>
+      <width>14</width>
+      <height>14</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color name="Controller" red="0" green="0" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Controller" red="0" green="0" blue="255">
+        </color>
+      </background_color>
+      <rules>
+        <rule name="EDM visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0&gt;=1.0 &amp;&amp; pv0&lt;2.0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="true">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(R)WaveformActive</pv_name>
+        </rule>
+      </rules>
+    </widget>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(P)$(R)WaveformCount</pv_name>
+    <x>134</x>
+    <y>102</y>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="grey-2" red="218" green="218" blue="218">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Cycle Count</text>
+    <x>5</x>
+    <y>102</y>
+    <width>120</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="green-19" red="0" green="128" blue="0">
+      </color>
+    </background_color>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+</display>

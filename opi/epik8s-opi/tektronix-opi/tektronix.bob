@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <width>912</width>
+  <height>850</height>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <file>meas_asyn_display.bob</file>
+    <width>912</width>
+    <height>850</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_15</name>
+    <actions>
+      <action type="open_webpage">
+        <description>Tektronix Scope WEB</description>
+        <url>http://$(SERVER)/Tektronix/#/client/c/Tek%20e*Scope</url>
+      </action>
+      <action type="open_display">
+        <description>Oscilloscope</description>
+        <file>mso_asyn.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Tektronix Scope</text>
+    <x>680</x>
+    <height>50</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_16</name>
+    <actions>
+      <action type="open_display">
+        <description>Day </description>
+        <file>../accumulator-opi/day_accumulator.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Day</text>
+    <x>799</x>
+    <width>90</width>
+    <height>50</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

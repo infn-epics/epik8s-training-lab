@@ -1,0 +1,1590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <width>374</width>
+  <height>622</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_13</name>
+    <text>Connection</text>
+    <x>12</x>
+    <y>50</y>
+    <width>58</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template_1</name>
+    <pv_name>$(DEVICE):STAT</pv_name>
+    <x>8</x>
+    <y>107</y>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="30" green="210" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_14</name>
+    <text>Connected</text>
+    <x>36</x>
+    <y>107</y>
+    <width>56</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template_2</name>
+    <pv_name>$(DEVICE):MSTA.BA</pv_name>
+    <bit>0</bit>
+    <x>8</x>
+    <y>130</y>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="30" green="210" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_15</name>
+    <text>Moving</text>
+    <x>36</x>
+    <y>130</y>
+    <width>38</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template_3</name>
+    <pv_name>$(DEVICE):MSTA.B1</pv_name>
+    <bit>0</bit>
+    <x>8</x>
+    <y>153</y>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="30" green="210" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_16</name>
+    <text>Waiting</text>
+    <x>36</x>
+    <y>153</y>
+    <width>39</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template_5</name>
+    <pv_name>$(DEVICE):MSTA.BD</pv_name>
+    <bit>0</bit>
+    <x>143</x>
+    <y>107</y>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="Minor" red="255" green="255" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_18</name>
+    <text>LSN</text>
+    <x>171</x>
+    <y>107</y>
+    <width>22</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template_6</name>
+    <pv_name>$(DEVICE):MSTA.B2</pv_name>
+    <bit>0</bit>
+    <x>143</x>
+    <y>130</y>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="Minor" red="255" green="255" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_19</name>
+    <text>LSP</text>
+    <x>171</x>
+    <y>130</y>
+    <width>21</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Combo_4</name>
+    <actions>
+      <action type="write_pv">
+        <description>HOME</description>
+        <pv_name>$(DEVICE):CMD:FHOME</pv_name>
+        <value>1</value>
+      </action>
+      <action type="write_pv">
+        <description>JOG F</description>
+        <pv_name>$(DEVICE).JOGF</pv_name>
+        <value>1</value>
+      </action>
+      <action type="write_pv">
+        <description>JOG R</description>
+        <pv_name>$(DEVICE).JOGR</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <x>72</x>
+    <y>299</y>
+    <width>171</width>
+    <height>38</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_22</name>
+    <text>Action</text>
+    <x>22</x>
+    <y>313</y>
+    <width>33</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2_1</name>
+    <x>10</x>
+    <y>10</y>
+    <width>354</width>
+    <height>25</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>12</y>
+      <width>350</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>Status</text>
+      <x>134</x>
+      <width>81</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="Noto Sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_23</name>
+    <text>Current Position</text>
+    <x>128</x>
+    <y>160</y>
+    <width>80</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2_1</name>
+    <x>12</x>
+    <y>270</y>
+    <width>350</width>
+    <height>25</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>12</y>
+      <width>370</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>Control</text>
+      <x>130</x>
+      <width>86</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="Noto Sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_16</name>
+    <pv_name>$(DEVICE):ACT_RB</pv_name>
+    <x>248</x>
+    <y>299</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_17</name>
+    <pv_name>$(DEVICE):RBV</pv_name>
+    <x>110</x>
+    <y>181</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template_7</name>
+    <pv_name>$(DEVICE):MSTA.B9</pv_name>
+    <bit>0</bit>
+    <x>8</x>
+    <y>176</y>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="Major" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_24</name>
+    <text>Error</text>
+    <x>36</x>
+    <y>176</y>
+    <width>24</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template_8</name>
+    <pv_name>$(DEVICE):STAT</pv_name>
+    <x>8</x>
+    <y>199</y>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="Minor" red="255" green="255" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_25</name>
+    <text>Reset</text>
+    <x>36</x>
+    <y>199</y>
+    <width>29</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2_2</name>
+    <x>7</x>
+    <y>81</y>
+    <width>123</width>
+    <height>25</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>12</y>
+      <width>350</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>General</text>
+      <x>25</x>
+      <y>3</y>
+      <width>76</width>
+      <font>
+        <font name="IO SubTitle" family="Noto Sans" style="BOLD" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2_3</name>
+    <x>141</x>
+    <y>81</y>
+    <width>123</width>
+    <height>25</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>12</y>
+      <width>350</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>Switches</text>
+      <x>20</x>
+      <y>3</y>
+      <width>86</width>
+      <font>
+        <font name="IO SubTitle" family="Noto Sans" style="BOLD" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_12</name>
+    <pv_name>$(DEVICE).VAL</pv_name>
+    <x>72</x>
+    <y>344</y>
+    <width>170</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_21</name>
+    <text>TML Sub</text>
+    <x>22</x>
+    <y>415</y>
+    <width>46</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>TML subroutine name</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_11</name>
+    <pv_name>$(DEVICE):TSUB_SP</pv_name>
+    <x>72</x>
+    <y>416</y>
+    <width>169</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_15</name>
+    <pv_name>$(DEVICE):TSUB</pv_name>
+    <x>247</x>
+    <y>415</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_26</name>
+    <text>Abs</text>
+    <x>25</x>
+    <y>351</y>
+    <width>20</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>TML subroutine name</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_18</name>
+    <pv_name>$(DEVICE):VAL_RB</pv_name>
+    <x>248</x>
+    <y>343</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_19</name>
+    <pv_name>$(DEVICE).RRBV</pv_name>
+    <x>110</x>
+    <y>239</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0&gt;0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0&lt;=0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(DEVICE):EGU2MM</pv_name>
+      </rule>
+    </rules>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_27</name>
+    <text>Current Position (Raw)</text>
+    <x>110</x>
+    <y>214</y>
+    <width>112</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0&gt;0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0&lt;=0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(DEVICE):EGU2MM</pv_name>
+      </rule>
+    </rules>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo_poi</name>
+    <pv_name>$(DEVICE):POI_SEL</pv_name>
+    <x>73</x>
+    <y>455</y>
+    <width>171</width>
+    <height>28</height>
+    <visible>false</visible>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pvInt0&gt;=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(pv_name)</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_29</name>
+    <text>POI</text>
+    <x>22</x>
+    <y>455</y>
+    <width>19</width>
+    <height>15</height>
+    <visible>false</visible>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pvInt0&gt;=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(DEVICE):POI_SEL</pv_name>
+      </rule>
+    </rules>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>PoiGO</name>
+    <actions>
+      <action type="write_pv">
+        <description>PoiGO</description>
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <pv_name>$(DEVICE):POI_GO</pv_name>
+    <text>POI GO</text>
+    <x>247</x>
+    <y>455</y>
+    <width>118</width>
+    <height>28</height>
+    <visible>false</visible>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pvInt0&gt;=0">
+          <value>true</value>
+        </exp>
+        <pv_name>$(DEVICE):POI_SEL</pv_name>
+      </rule>
+    </rules>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Poicurr</name>
+    <pv_name>$(DEVICE):POI_CURR</pv_name>
+    <x>73</x>
+    <y>482</y>
+    <width>171</width>
+    <height>28</height>
+    <visible>false</visible>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pvStr0!=&quot;&quot;">
+          <value>true</value>
+        </exp>
+        <pv_name>$(pv_name)</pv_name>
+      </rule>
+    </rules>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_21</name>
+    <pv_name>$(DEVICE):APOS</pv_name>
+    <x>243</x>
+    <y>180</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_30</name>
+    <text>Encoder Position</text>
+    <x>260</x>
+    <y>160</y>
+    <width>84</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_31</name>
+    <text>Potentiometer</text>
+    <x>260</x>
+    <y>216</y>
+    <width>71</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_22</name>
+    <pv_name>$(DEVICE):POTM_RB</pv_name>
+    <x>243</x>
+    <y>239</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>StopBtn</name>
+    <actions>
+      <action type="write_pv">
+        <description>Stop</description>
+        <pv_name>$(DEVICE).STOP</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>STOP</text>
+    <x>110</x>
+    <y>555</y>
+    <width>149</width>
+    <height>67</height>
+    <font>
+      <font family="Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Major" red="255" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="slide_button" version="2.0.0">
+    <name>CnenCombo</name>
+    <pv_name>$(DEVICE).CNEN</pv_name>
+    <label>Enable</label>
+    <x>130</x>
+    <y>50</y>
+    <width>90</width>
+    <height>28</height>
+    <font>
+      <font family="Sans" style="REGULAR" size="11.0">
+      </font>
+    </font>
+    <tooltip>Motor Enable/Disable</tooltip>
+    <show_confirm_dialog>false</show_confirm_dialog>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>SpmgCombo</name>
+    <pv_name>$(DEVICE).SPMG</pv_name>
+    <x>264</x>
+    <y>50</y>
+    <width>90</width>
+    <height>28</height>
+    <font>
+      <font family="Sans" style="REGULAR" size="11.0">
+      </font>
+    </font>
+    <tooltip>Stop/Pause/Move/Go</tooltip>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_24</name>
+    <macros>
+      <DESC>Relative move:</DESC>
+      <PV>$(P)$(M).RLV</PV>
+    </macros>
+    <file>widgets/setpoint.bob</file>
+    <x>200</x>
+    <y>635</y>
+    <width>390</width>
+    <height>20</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_25</name>
+    <macros>
+      <DESC>Tweak Step Size:</DESC>
+      <PV>$(P)$(M).TWV</PV>
+    </macros>
+    <file>widgets/setpoint.bob</file>
+    <x>200</x>
+    <y>665</y>
+    <width>390</width>
+    <height>20</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_28</name>
+    <text>Rel</text>
+    <x>25</x>
+    <y>380</y>
+    <width>16</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>TML subroutine name</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_13</name>
+    <pv_name>$(DEVICE).RLV</pv_name>
+    <x>72</x>
+    <y>380</y>
+    <width>99</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_14</name>
+    <pv_name>$(DEVICE).TWV</pv_name>
+    <x>248</x>
+    <y>380</y>
+    <width>71</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Start Button_8</name>
+    <class>FLAME_ActionButtonSmall</class>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <description>Tweak motor Reverse</description>
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <pv_name>$(DEVICE).TWR</pv_name>
+    <text>&lt;</text>
+    <x>197</x>
+    <y>382</y>
+    <width>40</width>
+    <height>22</height>
+    <font>
+      <font name="FLAME Label" family="Noto Sans" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="FLAME Text Main" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FLAME BackgroundButton" red="200" green="200" blue="200">
+      </color>
+    </background_color>
+    <tooltip></tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Start Button_9</name>
+    <class>FLAME_ActionButtonSmall</class>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <description>Tweak motor Forward</description>
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <pv_name>$(DEVICE).TWF</pv_name>
+    <text>&gt;</text>
+    <x>327</x>
+    <y>382</y>
+    <width>40</width>
+    <height>22</height>
+    <font>
+      <font name="FLAME Label" family="Noto Sans" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="FLAME Text Main" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FLAME BackgroundButton" red="200" green="200" blue="200">
+      </color>
+    </background_color>
+    <tooltip></tooltip>
+  </widget>
+</display>

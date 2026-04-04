@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-01-31 17:32:44 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Agilent XGS-600 Gauge - $(P):$(R)</name>
+  <x>481</x>
+  <y>54</y>
+  <width>380</width>
+  <height>400</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_5</name>
+    <text>User Label</text>
+    <x>12</x>
+    <y>90</y>
+    <width>48</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_4</name>
+    <text>Pressure</text>
+    <x>12</x>
+    <y>60</y>
+    <width>40</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_16</name>
+    <text>Gas Correction</text>
+    <x>12</x>
+    <y>210</y>
+    <width>67</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_19</name>
+    <text>Auto Fill Advance</text>
+    <x>12</x>
+    <y>120</y>
+    <width>78</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_20</name>
+    <text>Tube Type</text>
+    <x>12</x>
+    <y>150</y>
+    <width>48</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_26</name>
+    <text>Emmission</text>
+    <x>12</x>
+    <y>180</y>
+    <width>49</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_27</name>
+    <text>Sensitivity</text>
+    <x>12</x>
+    <y>240</y>
+    <width>45</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title Banner_3</name>
+    <text>$(P):$(R)</text>
+    <width>403</width>
+    <height>45</height>
+    <font>
+      <font name="STAR Title Bar" family="sans" style="REGULAR" size="23.762376237623762">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="STAR Vacuum Title" red="202" green="223" blue="159">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template</name>
+    <pv_name>$(P):$(R):EMIS_RB</pv_name>
+    <bit>0</bit>
+    <x>137</x>
+    <y>179</y>
+    <width>23</width>
+    <height>23</height>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="30" green="210" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="arial" style="REGULAR" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_1</name>
+    <pv_name>$(P):$(R):LABEL_RB</pv_name>
+    <x>136</x>
+    <y>88</y>
+    <width>118</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_2</name>
+    <pv_name>$(P):$(R):PRES</pv_name>
+    <x>136</x>
+    <y>58</y>
+    <width>118</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>1</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_3</name>
+    <pv_name>$(P):$(R):TUBE_RB</pv_name>
+    <x>136</x>
+    <y>148</y>
+    <width>118</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_4</name>
+    <pv_name>$(P):$(R):AUTO_RB</pv_name>
+    <x>136</x>
+    <y>118</y>
+    <width>118</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>1</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_5</name>
+    <pv_name>$(P):$(R):CORR_RB</pv_name>
+    <x>136</x>
+    <y>208</y>
+    <width>118</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_6</name>
+    <pv_name>$(P):$(R):SENS_RB</pv_name>
+    <x>136</x>
+    <y>238</y>
+    <width>118</width>
+    <height>25</height>
+    <font>
+      <font name="IO Output 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="spinner" version="2.0.0">
+    <name>Spinner Template_4</name>
+    <pv_name>$(P):$(R):AUTO_SP</pv_name>
+    <x>260</x>
+    <y>117</y>
+    <width>120</width>
+    <height>28</height>
+    <font>
+      <font name="IO Input 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <precision>6</precision>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+    <minimum>1.0E-4</minimum>
+    <maximum>1.0</maximum>
+    <limits_from_pv>false</limits_from_pv>
+    <increment>1.0E-4</increment>
+  </widget>
+  <widget type="spinner" version="2.0.0">
+    <name>Spinner Template_2</name>
+    <pv_name>$(P):$(R):CORR_SP</pv_name>
+    <x>260</x>
+    <y>207</y>
+    <width>120</width>
+    <height>28</height>
+    <font>
+      <font name="IO Input 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <format>0</format>
+    <precision>3</precision>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+    <minimum>-1.7976931348623157E308</minimum>
+    <maximum>1.7976931348623157E308</maximum>
+    <increment>0.01</increment>
+  </widget>
+  <widget type="spinner" version="2.0.0">
+    <name>Spinner Template_3</name>
+    <pv_name>$(P):$(R):SENS_SP</pv_name>
+    <x>260</x>
+    <y>237</y>
+    <width>120</width>
+    <height>28</height>
+    <font>
+      <font name="IO Input 1" family="arial" style="BOLD" size="9.900990099009901">
+      </font>
+    </font>
+    <format>0</format>
+    <precision>3</precision>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+    <minimum>-1.7976931348623157E308</minimum>
+    <maximum>1.7976931348623157E308</maximum>
+    <increment>0.1</increment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo_4</name>
+    <pv_name>$(P):$(R):TUBE_SP</pv_name>
+    <x>260</x>
+    <y>145</y>
+    <width>120</width>
+    <height>32</height>
+    <font>
+      <font family="Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo_5</name>
+    <pv_name>$(P):$(R):EMIS_SP</pv_name>
+    <x>260</x>
+    <y>175</y>
+    <width>120</width>
+    <height>32</height>
+    <font>
+      <font family="Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_1</name>
+    <pv_name>$(P):$(R):LABEL_SP</pv_name>
+    <x>262</x>
+    <y>89</y>
+    <width>116</width>
+    <height>24</height>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <file>agilentXgs600Ctlr.bob</file>
+        <target>window</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>Controller</text>
+    <y>282</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="open_display">
+        <file>agilentXgs600Spt.bob</file>
+        <macros>
+          <R>$(R):SP1</R>
+        </macros>
+        <target>window</target>
+        <description>Sepoint1</description>
+      </action>
+      <action type="open_display">
+        <file>agilentXgs600Spt.bob</file>
+        <macros>
+          <R>$(R):SP2</R>
+        </macros>
+        <target>replace</target>
+        <description>Setpoint2</description>
+      </action>
+    </actions>
+    <text>SetPoint</text>
+    <x>120</x>
+    <y>282</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

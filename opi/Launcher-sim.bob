@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <display version="2.0.0">
+    <name>SIMLAB Launcher</name>
+    <width>1900</width>
+    <height>1400</height>
+    <widget type="group" version="3.0.0">
+      <name>header</name>
+      <x>0</x>
+      <y>0</y>
+      <width>1900</width>
+      <height>60</height>
+      <style>3</style>
+      <widget type="rectangle" version="2.0.0">
+        <name>header-bg</name>
+        <x>0</x>
+        <y>0</y>
+        <width>1900</width>
+        <height>60</height>
+        <background_color>
+          <color red="30" blue="110" green="60" alpha="255"/>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>header-title</name>
+        <x>10</x>
+        <y>8</y>
+        <width>1600</width>
+        <height>28</height>
+        <text>SIMLAB — 5 IOCs</text>
+        <font>
+          <font family="Liberation Sans" size="20" style="BOLD"/>
+        </font>
+        <foreground_color>
+          <color red="255" blue="255" green="255" alpha="255"/>
+        </foreground_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>header-sub</name>
+        <x>10</x>
+        <y>34</y>
+        <width>1600</width>
+        <height>20</height>
+        <text>namespace: simlab  |  devices: 3</text>
+        <font>
+          <font family="Liberation Sans" size="12" style="REGULAR"/>
+        </font>
+        <foreground_color>
+          <color red="200" blue="230" green="210" alpha="255"/>
+        </foreground_color>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>dashboard-body</name>
+      <x>0</x>
+      <y>60</y>
+      <width>1900</width>
+      <height>1340</height>
+      <style>3</style>
+      <widget type="group" version="3.0.0">
+        <name>sh-mot</name>
+        <x>10</x>
+        <y>10</y>
+        <width>1880</width>
+        <height>32</height>
+        <style>3</style>
+        <widget type="rectangle" version="2.0.0">
+          <name>shbg-mot</name>
+          <x>0</x>
+          <y>0</y>
+          <width>1880</width>
+          <height>32</height>
+          <background_color>
+            <color red="220" blue="235" green="225" alpha="255"/>
+          </background_color>
+        </widget>
+        <widget type="label" version="2.0.0">
+          <name>shl-mot</name>
+          <x>0</x>
+          <y>4</y>
+          <width>500</width>
+          <height>24</height>
+          <text>  Motors  (2 devices)</text>
+          <font>
+            <font family="Liberation Sans" size="15" style="BOLD"/>
+          </font>
+          <foreground_color>
+            <color red="30" blue="110" green="60" alpha="255"/>
+          </foreground_color>
+        </widget>
+      </widget>
+      <widget type="group" version="3.0.0">
+        <name>row-mot-HMIR-0</name>
+        <x>10</x>
+        <y>50</y>
+        <width>1880</width>
+        <height>59</height>
+        <style>3</style>
+        <widget type="rectangle" version="2.0.0">
+          <name>rowbg-mot-HMIR-0</name>
+          <x>0</x>
+          <y>0</y>
+          <width>1880</width>
+          <height>59</height>
+          <background_color>
+            <color red="246" blue="252" green="248" alpha="255"/>
+          </background_color>
+          <line_color>
+            <color red="220" blue="235" green="225" alpha="255"/>
+          </line_color>
+        </widget>
+        <widget type="embedded" version="2.0.0">
+          <name>emb-mot-HMIR-0</name>
+          <x>8</x>
+          <y>4</y>
+          <width>800</width>
+          <height>51</height>
+          <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+          <resize>0</resize>
+          <macros>
+            <P>LAB:SIM</P>
+            <R>HMIR</R>
+            <NAME>HMIR</NAME>
+            <DEVICE>LAB:SIM</DEVICE>
+            <CAM>HMIR</CAM>
+            <TYPE>motorsim</TYPE>
+            <ZONE>SIMLAB</ZONE>
+            <OPI>motor-asyn/Motor_Main.bob</OPI>
+          </macros>
+        </widget>
+        <widget type="action_button" version="3.0.0">
+          <name>btn-mot-HMIR-0</name>
+          <x>820</x>
+          <y>14</y>
+          <width>100</width>
+          <height>30</height>
+          <pv_name/>
+          <text>Open ⬈</text>
+          <actions>
+            <action type="open_display">
+              <description>Open HMIR</description>
+              <macros>
+                <P>LAB:SIM</P>
+                <R>HMIR</R>
+                <NAME>HMIR</NAME>
+                <DEVICE>LAB:SIM</DEVICE>
+                <CAM>HMIR</CAM>
+                <TYPE>motorsim</TYPE>
+                <ZONE>SIMLAB</ZONE>
+                <OPI>motor-asyn/Motor_Main.bob</OPI>
+              </macros>
+              <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+              <target>window</target>
+            </action>
+          </actions>
+          <background_color>
+            <color red="60" blue="200" green="120" alpha="255"/>
+          </background_color>
+          <foreground_color>
+            <color red="255" blue="255" green="255" alpha="255"/>
+          </foreground_color>
+        </widget>
+      </widget>
+      <widget type="group" version="3.0.0">
+        <name>row-mot-VMIR-1</name>
+        <x>10</x>
+        <y>117</y>
+        <width>1880</width>
+        <height>59</height>
+        <style>3</style>
+        <widget type="rectangle" version="2.0.0">
+          <name>rowbg-mot-VMIR-1</name>
+          <x>0</x>
+          <y>0</y>
+          <width>1880</width>
+          <height>59</height>
+          <background_color>
+            <color red="246" blue="252" green="248" alpha="255"/>
+          </background_color>
+          <line_color>
+            <color red="220" blue="235" green="225" alpha="255"/>
+          </line_color>
+        </widget>
+        <widget type="embedded" version="2.0.0">
+          <name>emb-mot-VMIR-1</name>
+          <x>8</x>
+          <y>4</y>
+          <width>800</width>
+          <height>51</height>
+          <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
+          <resize>0</resize>
+          <macros>
+            <P>LAB:SIM</P>
+            <R>VMIR</R>
+            <NAME>VMIR</NAME>
+            <DEVICE>LAB:SIM</DEVICE>
+            <CAM>VMIR</CAM>
+            <TYPE>motorsim</TYPE>
+            <ZONE>SIMLAB</ZONE>
+            <OPI>motor-asyn/Motor_Main.bob</OPI>
+          </macros>
+        </widget>
+        <widget type="action_button" version="3.0.0">
+          <name>btn-mot-VMIR-1</name>
+          <x>820</x>
+          <y>14</y>
+          <width>100</width>
+          <height>30</height>
+          <pv_name/>
+          <text>Open ⬈</text>
+          <actions>
+            <action type="open_display">
+              <description>Open VMIR</description>
+              <macros>
+                <P>LAB:SIM</P>
+                <R>VMIR</R>
+                <NAME>VMIR</NAME>
+                <DEVICE>LAB:SIM</DEVICE>
+                <CAM>VMIR</CAM>
+                <TYPE>motorsim</TYPE>
+                <ZONE>SIMLAB</ZONE>
+                <OPI>motor-asyn/Motor_Main.bob</OPI>
+              </macros>
+              <file>epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+              <target>window</target>
+            </action>
+          </actions>
+          <background_color>
+            <color red="60" blue="200" green="120" alpha="255"/>
+          </background_color>
+          <foreground_color>
+            <color red="255" blue="255" green="255" alpha="255"/>
+          </foreground_color>
+        </widget>
+      </widget>
+      <widget type="group" version="3.0.0">
+        <name>sh-cam</name>
+        <x>10</x>
+        <y>204</y>
+        <width>1880</width>
+        <height>32</height>
+        <style>3</style>
+        <widget type="rectangle" version="2.0.0">
+          <name>shbg-cam</name>
+          <x>0</x>
+          <y>0</y>
+          <width>1880</width>
+          <height>32</height>
+          <background_color>
+            <color red="220" blue="235" green="225" alpha="255"/>
+          </background_color>
+        </widget>
+        <widget type="label" version="2.0.0">
+          <name>shl-cam</name>
+          <x>0</x>
+          <y>4</y>
+          <width>500</width>
+          <height>24</height>
+          <text>  Cameras  (1 devices)</text>
+          <font>
+            <font family="Liberation Sans" size="15" style="BOLD"/>
+          </font>
+          <foreground_color>
+            <color red="30" blue="110" green="60" alpha="255"/>
+          </foreground_color>
+        </widget>
+      </widget>
+      <widget type="group" version="3.0.0">
+        <name>row-cam-CAM01-0</name>
+        <x>10</x>
+        <y>244</y>
+        <width>1880</width>
+        <height>44</height>
+        <style>3</style>
+        <widget type="rectangle" version="2.0.0">
+          <name>rowbg-cam-CAM01-0</name>
+          <x>0</x>
+          <y>0</y>
+          <width>1880</width>
+          <height>44</height>
+          <background_color>
+            <color red="246" blue="252" green="248" alpha="255"/>
+          </background_color>
+          <line_color>
+            <color red="220" blue="235" green="225" alpha="255"/>
+          </line_color>
+        </widget>
+        <widget type="label" version="2.0.0">
+          <name>lbl-cam-CAM01-0</name>
+          <x>12</x>
+          <y>8</y>
+          <width>180</width>
+          <height>28</height>
+          <text>CAM01</text>
+          <font>
+            <font family="Liberation Sans" size="14" style="BOLD"/>
+          </font>
+          <foreground_color>
+            <color red="30" blue="110" green="60" alpha="255"/>
+          </foreground_color>
+        </widget>
+        <widget type="label" version="2.0.0">
+          <name>inf-cam-CAM01-0</name>
+          <x>200</x>
+          <y>8</y>
+          <width>520</width>
+          <height>28</height>
+          <text>LAB:SIM:CAM01</text>
+          <font>
+            <font family="Liberation Sans" size="12" style="REGULAR"/>
+          </font>
+          <foreground_color>
+            <color red="100" blue="100" green="100" alpha="255"/>
+          </foreground_color>
+        </widget>
+        <widget type="action_button" version="3.0.0">
+          <name>btn-cam-CAM01-0</name>
+          <x>732</x>
+          <y>7</y>
+          <width>100</width>
+          <height>30</height>
+          <pv_name/>
+          <text>Open ⬈</text>
+          <actions>
+            <action type="open_display">
+              <description>Open CAM01</description>
+              <macros>
+                <P>LAB:SIM</P>
+                <R>CAM01</R>
+                <NAME>CAM01</NAME>
+                <DEVICE>LAB:SIM</DEVICE>
+                <CAM>CAM01</CAM>
+                <TYPE>camerasim</TYPE>
+                <ZONE>SIMLAB</ZONE>
+                <HW>camerasim</HW>
+                <HCAM>LAB:SIM:CAM01:cam1:</HCAM>
+                <HDEVICE>LAB:SIM:CAM01:</HDEVICE>
+                <HIMAGE>LAB:SIM:CAM01:image1:</HIMAGE>
+                <HPROC>LAB:SIM:CAM01:Proc1:</HPROC>
+                <HROI>LAB:SIM:CAM01:ROI1:</HROI>
+                <HSTATS>LAB:SIM:CAM01:Stats1:</HSTATS>
+                <HTRANS>LAB:SIM:CAM01:Trans1:</HTRANS>
+                <OPI>Camera_Main.bob</OPI>
+              </macros>
+              <file>epik8s-opi/unicam-opi/Camera_Main.bob</file>
+              <target>window</target>
+            </action>
+          </actions>
+          <background_color>
+            <color red="60" blue="200" green="120" alpha="255"/>
+          </background_color>
+          <foreground_color>
+            <color red="255" blue="255" green="255" alpha="255"/>
+          </foreground_color>
+        </widget>
+      </widget>
+      <widget type="group" version="3.0.0">
+        <name>sh-svc</name>
+        <x>10</x>
+        <y>316</y>
+        <width>1880</width>
+        <height>32</height>
+        <style>3</style>
+        <widget type="rectangle" version="2.0.0">
+          <name>shbg-svc</name>
+          <x>0</x>
+          <y>0</y>
+          <width>1880</width>
+          <height>32</height>
+          <background_color>
+            <color red="220" blue="235" green="225" alpha="255"/>
+          </background_color>
+        </widget>
+        <widget type="label" version="2.0.0">
+          <name>shl-svc</name>
+          <x>0</x>
+          <y>4</y>
+          <width>500</width>
+          <height>24</height>
+          <text>  Services  (2 devices)</text>
+          <font>
+            <font family="Liberation Sans" size="15" style="BOLD"/>
+          </font>
+          <foreground_color>
+            <color red="30" blue="110" green="60" alpha="255"/>
+          </foreground_color>
+        </widget>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>svc-pvagateway</name>
+        <x>10</x>
+        <y>356</y>
+        <width>1880</width>
+        <height>24</height>
+        <text>pvagateway — EPICS PVA Gateway   [192.168.108.230]</text>
+        <font>
+          <font family="Liberation Sans" size="12" style="REGULAR"/>
+        </font>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>svc-notebook</name>
+        <x>10</x>
+        <y>384</y>
+        <width>1880</width>
+        <height>24</height>
+        <text>notebook</text>
+        <font>
+          <font family="Liberation Sans" size="12" style="REGULAR"/>
+        </font>
+      </widget>
+    </widget>
+  </display>

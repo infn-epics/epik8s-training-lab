@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-04-16 14:39:19 by Alex-->
+<display version="2.0.0">
+  <name>Chiller-smc-hecr</name>
+  <height>800</height>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>CHILLER-SMC-HECR -$(P):$(R)</name>
+    <x>60</x>
+    <y>24</y>
+    <width>678</width>
+    <height>690</height>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>written temp</text>
+      <x>300</x>
+      <y>54</y>
+      <width>126</width>
+      <height>18</height>
+      <visible>false</visible>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):TEMP_SETPT_SP_CALC</pv_name>
+      <x>426</x>
+      <y>54</y>
+      <width>150</width>
+      <height>18</height>
+      <visible>false</visible>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>ALARMS</name>
+      <x>12</x>
+      <y>170</y>
+      <width>612</width>
+      <height>482</height>
+      <widget type="byte_monitor" version="2.0.0">
+        <name>Byte Monitor_1</name>
+        <pv_name>$(P):$(R):ALARM2_RB</pv_name>
+        <x>301</x>
+        <y>20</y>
+        <width>36</width>
+        <height>408</height>
+        <numBits>16</numBits>
+        <bitReverse>true</bitReverse>
+        <horizontal>false</horizontal>
+        <off_color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </off_color>
+        <on_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </on_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_14</name>
+        <pv_name>$(P):$(R):ALARM:ABNORMAL_OUT.DESC</pv_name>
+        <x>51</x>
+        <y>408</y>
+        <width>230</width>
+        <height>19</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_15</name>
+        <pv_name>$(P):$(R):ALARM:TEMP_PROBE_FAIL.DESC</pv_name>
+        <x>342</x>
+        <y>50</y>
+        <width>225</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_16</name>
+        <pv_name>$(P):$(R):ALARM:ILK_FLOW_LLIM.DESC</pv_name>
+        <x>341</x>
+        <y>25</y>
+        <width>225</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_17</name>
+        <pv_name>$(P):$(R):ALARM:EXT_TEMP_PROBE_FAIL.DESC</pv_name>
+        <x>342</x>
+        <y>74</y>
+        <width>225</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_18</name>
+        <pv_name>$(P):$(R):ALARM:ABNORMAL_AUTO_TUNING.DESC</pv_name>
+        <x>342</x>
+        <y>98</y>
+        <width>225</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_19</name>
+        <pv_name>$(P):$(R):ALARM:ILK_FLUID_LVL_LLIM.DESC</pv_name>
+        <x>342</x>
+        <y>123</y>
+        <width>225</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_20</name>
+        <pv_name>$(P):$(R):ALARM:WARN_TEMP_LLIM.DESC</pv_name>
+        <x>342</x>
+        <y>357</y>
+        <width>225</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_21</name>
+        <pv_name>$(P):$(R):ALARM:WARN_TEMP_HLIM.DESC</pv_name>
+        <x>342</x>
+        <y>331</y>
+        <width>225</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="byte_monitor" version="2.0.0">
+        <name>Byte Monitor</name>
+        <pv_name>$(P):$(R):ALARM1_RB</pv_name>
+        <x>13</x>
+        <y>20</y>
+        <width>25</width>
+        <height>408</height>
+        <numBits>16</numBits>
+        <bitReverse>true</bitReverse>
+        <horizontal>false</horizontal>
+        <off_color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </off_color>
+        <on_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </on_color>
+        <labels>
+          <text>Label 0</text>
+          <text>Label 1</text>
+          <text>Label 2</text>
+          <text>Label 3</text>
+          <text>Label 4</text>
+          <text>Label 5</text>
+          <text>Label 6</text>
+          <text>Label 7</text>
+          <text>Label 8</text>
+          <text>Label 9</text>
+          <text>Label 10</text>
+          <text>Label 11</text>
+          <text>Label 12</text>
+          <text>Label 13</text>
+          <text>Label 14</text>
+          <text>Label 15</text>
+        </labels>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_7</name>
+        <pv_name>$(P):$(R):ALARM:SYS_ERR_1.DESC</pv_name>
+        <x>51</x>
+        <y>50</y>
+        <width>230</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_8</name>
+        <pv_name>$(P):$(R):ALARM:SYS_ERR_2.DESC</pv_name>
+        <x>51</x>
+        <y>74</y>
+        <width>230</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_9</name>
+        <pv_name>$(P):$(R):ALARM:BACKUP_DATA_ERR.DESC</pv_name>
+        <x>51</x>
+        <y>98</y>
+        <width>230</width>
+        <height>18</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_10</name>
+        <pv_name>$(P):$(R):ALARM:DC_PS_FAIL.DESC</pv_name>
+        <x>51</x>
+        <y>305</y>
+        <width>230</width>
+        <height>19</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_11</name>
+        <pv_name>$(P):$(R):ALARM:ILK_TEMP_HLIM.DESC</pv_name>
+        <x>51</x>
+        <y>331</y>
+        <width>230</width>
+        <height>19</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_12</name>
+        <pv_name>$(P):$(R):ALARM:ILK_TEMP_LLIM.DESC</pv_name>
+        <x>51</x>
+        <y>357</y>
+        <width>230</width>
+        <height>19</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_13</name>
+        <pv_name>$(P):$(R):ALARM:THERMOSTAT_FAIL.DESC</pv_name>
+        <x>51</x>
+        <y>383</y>
+        <width>230</width>
+        <height>19</height>
+        <transparent>true</transparent>
+        <tooltip></tooltip>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>STATUS</name>
+      <x>337</x>
+      <y>10</y>
+      <width>288</width>
+      <height>156</height>
+      <widget type="led" version="2.0.0">
+        <name>LED</name>
+        <class>GOOD_BAD</class>
+        <pv_name>$(P):$(R):STATUS:RUN</pv_name>
+        <x>23</x>
+        <y>22</y>
+        <width>54</width>
+        <height>54</height>
+        <off_label>OFF</off_label>
+        <off_color use_class="true">
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </off_color>
+        <on_label>ON</on_label>
+        <on_color use_class="true">
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </on_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_5</name>
+        <text>Run</text>
+        <x>37</x>
+        <y>81</y>
+        <width>30</width>
+        <height>18</height>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>LED_1</name>
+        <class>GOOD_BAD</class>
+        <pv_name>$(P):$(R):STATUS:ALARM</pv_name>
+        <x>173</x>
+        <y>22</y>
+        <width>54</width>
+        <height>54</height>
+        <off_label>OFF</off_label>
+        <off_color use_class="true">
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </off_color>
+        <on_label>ON</on_label>
+        <on_color use_class="true">
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </on_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_6</name>
+        <text>Alarm</text>
+        <x>181</x>
+        <y>83</y>
+        <width>42</width>
+        <height>18</height>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>LED_2</name>
+        <class>GOOD_BAD</class>
+        <pv_name>$(P):$(R):STATUS:WARN</pv_name>
+        <x>99</x>
+        <y>22</y>
+        <width>54</width>
+        <height>54</height>
+        <off_label>OFF</off_label>
+        <off_color use_class="true">
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </off_color>
+        <on_label>ON</on_label>
+        <on_color use_class="true">
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </on_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_7</name>
+        <text>Warning</text>
+        <x>101</x>
+        <y>83</y>
+        <width>60</width>
+        <height>18</height>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>SETTINGS</name>
+      <x>12</x>
+      <y>12</y>
+      <width>318</width>
+      <height>156</height>
+      <widget type="label" version="2.0.0">
+        <name>Label_4</name>
+        <text>Mode</text>
+        <x>36</x>
+        <y>25</y>
+        <width>66</width>
+        <height>24</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="combo" version="2.0.0">
+        <name>Combo Box_1</name>
+        <pv_name>$(P):$(R):CTR_SP</pv_name>
+        <x>180</x>
+        <y>10</y>
+        <width>77</width>
+        <height>48</height>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_1</name>
+        <pv_name>$(P):$(R):TEMP_SETPT_SP</pv_name>
+        <x>180</x>
+        <y>68</y>
+        <width>77</width>
+        <height>18</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_23</name>
+        <pv_name>$(P):$(R):INT_TEMP_RB</pv_name>
+        <x>180</x>
+        <y>96</y>
+        <width>77</width>
+        <height>18</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_11</name>
+        <text>Set temperature</text>
+        <x>8</x>
+        <y>66</y>
+        <width>126</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="16.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_12</name>
+        <text>Current temperature</text>
+        <x>8</x>
+        <y>94</y>
+        <width>180</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="16.0">
+          </font>
+        </font>
+      </widget>
+    </widget>
+  </widget>
+</display>

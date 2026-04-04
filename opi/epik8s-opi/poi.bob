@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>POI Control - $(R)</name>
+  <width>828</width>
+  <height>1320</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>POI Control: $(R)</text>
+    <x>10</x>
+    <y>10</y>
+    <width>780</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="255">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>CurrentPosition</name>
+    <x>10</x>
+    <y>50</y>
+    <width>780</width>
+    <height>60</height>
+    <widget type="label" version="2.0.0">
+      <name>CurrentPosLabel</name>
+      <text>Current Position:</text>
+      <x>10</x>
+      <y>5</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Current Value</name>
+      <pv_name>$(P):$(R):$(READBACK)</pv_name>
+      <x>170</x>
+      <y>5</y>
+      <width>150</width>
+      <height>25</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentPOILabel</name>
+      <text>At POI:</text>
+      <x>340</x>
+      <y>5</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CurrentPOI</name>
+      <pv_name>$(P):$(R):POI_CURR</pv_name>
+      <x>402</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="128" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ToleranceLabel</name>
+      <text>Tolerance:</text>
+      <x>10</x>
+      <y>35</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Tolerance</name>
+      <pv_name>$(P):$(R):POI_TOL</pv_name>
+      <x>170</x>
+      <y>35</y>
+      <width>150</width>
+      <height>25</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentPOILabel_1</name>
+      <text>IndexI:</text>
+      <x>582</x>
+      <y>-8</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CurrentPOI_1</name>
+      <pv_name>$(P):$(R):POI_IDX</pv_name>
+      <x>612</x>
+      <y>5</y>
+      <width>110</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="128" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>POIControl</name>
+    <x>10</x>
+    <y>128</y>
+    <width>780</width>
+    <height>60</height>
+    <widget type="label" version="2.0.0">
+      <name>SelectLabel</name>
+      <text>Select POI:</text>
+      <x>10</x>
+      <y>5</y>
+      <width>150</width>
+      <height>30</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>POISelector</name>
+      <pv_name>$(P):$(R):POI_SEL</pv_name>
+      <x>160</x>
+      <width>400</width>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>GoButton</name>
+      <actions>
+        <action type="write_pv">
+          <description>Go to selected POI</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):POI_GO</pv_name>
+      <text>GO to POI</text>
+      <x>560</x>
+      <width>180</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="0" green="128" blue="0">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>TableHeader</name>
+    <text>POI Configuration Table</text>
+    <x>10</x>
+    <y>190</y>
+    <width>780</width>
+    <height>25</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>IndexHeader</name>
+    <text>Index</text>
+    <x>50</x>
+    <y>215</y>
+    <width>60</width>
+    <height>25</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>NameHeader</name>
+    <text>POI Name</text>
+    <x>140</x>
+    <y>215</y>
+    <width>218</width>
+    <height>25</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>PositionHeader</name>
+    <text>Value</text>
+    <x>448</x>
+    <y>220</y>
+    <width>90</width>
+    <height>25</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>StatusHeader</name>
+    <text>At Value?</text>
+    <x>560</x>
+    <y>220</y>
+    <width>120</width>
+    <height>25</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ActionHeader</name>
+    <text>Action</text>
+    <x>660</x>
+    <y>220</y>
+    <width>130</width>
+    <height>25</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="template" version="2.0.0">
+    <name>Template/Instance</name>
+    <file>poiitem.bob</file>
+    <instances>
+      <instance>
+        <macros>
+          <ID>0</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>1</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>2</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>3</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>4</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>5</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>6</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>7</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>8</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>9</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>10</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>11</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>12</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>13</ID>
+        </macros>
+      </instance>
+      <instance>
+        <macros>
+          <ID>14</ID>
+        </macros>
+      </instance>
+    </instances>
+    <x>38</x>
+    <y>240</y>
+    <width>780</width>
+    <height>1040</height>
+  </widget>
+</display>

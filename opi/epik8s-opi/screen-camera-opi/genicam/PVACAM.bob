@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-10-14 11:50:52 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>870</width>
+  <height>800</height>
+  <widget type="embedded" version="2.0.0">
+    <name>ROI image</name>
+    <macros>
+      <TITLE>ROI</TITLE>
+      <OPI>NDRoi.bob</OPI>
+      <PVANAME>$(P):$(R):ROI1:OUTPUT</PVANAME>
+      <R>$(R):Roi1</R>
+    </macros>
+    <file>PVACAM-ele.bob</file>
+    <y>400</y>
+    <width>430</width>
+    <height>390</height>
+    <resize>1</resize>
+    <rules>
+      <rule name="sizex" prop_id="data_width" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeX_RBV</pv_name>
+      </rule>
+      <rule name="sizey" prop_id="data_height" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeY_RBV</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Overlay Image</name>
+    <macros>
+      <TITLE>Reference</TITLE>
+      <OPI>NDOverlay.bob</OPI>
+      <PVANAME>$(P):$(R):OVERLAY1:OUTPUT</PVANAME>
+      <R>$(R):Overlay1</R>
+    </macros>
+    <file>PVACAM-ele.bob</file>
+    <x>440</x>
+    <y>400</y>
+    <width>430</width>
+    <height>390</height>
+    <resize>1</resize>
+    <rules>
+      <rule name="sizex" prop_id="data_width" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeX_RBV</pv_name>
+      </rule>
+      <rule name="sizey" prop_id="data_height" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeY_RBV</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Process Image</name>
+    <macros>
+      <TITLE>Process</TITLE>
+      <OPI>NDProcess.bob</OPI>
+      <PVANAME>$(P):$(R):PROC:OUTPUT</PVANAME>
+      <R>$(R):Proc1</R>
+    </macros>
+    <file>PVACAM-ele.bob</file>
+    <x>440</x>
+    <y>10</y>
+    <width>430</width>
+    <height>390</height>
+    <resize>1</resize>
+    <rules>
+      <rule name="sizex" prop_id="data_width" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeX_RBV</pv_name>
+      </rule>
+      <rule name="sizey" prop_id="data_height" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeY_RBV</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>RAW Image</name>
+    <macros>
+      <TITLE>$(P):$(R)</TITLE>
+      <OPI>ADAravis.bob</OPI>
+      <PVANAME>$(P):$(R):PVA:OUTPUT</PVANAME>
+      <R>$(R)</R>
+    </macros>
+    <file>PVACAM-ele.bob</file>
+    <y>10</y>
+    <width>430</width>
+    <height>390</height>
+    <resize>1</resize>
+    <rules>
+      <rule name="sizex" prop_id="data_width" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeX_RBV</pv_name>
+      </rule>
+      <rule name="sizey" prop_id="data_height" out_exp="true">
+        <exp bool_exp="pvInt0">
+          <expression>pvInt0</expression>
+        </exp>
+        <pv_name>$(P):$(R):SizeY_RBV</pv_name>
+      </rule>
+    </rules>
+  </widget>
+</display>

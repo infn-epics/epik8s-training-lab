@@ -1,0 +1,253 @@
+# yaml-language-server: $schema=../schemas/ibek.support.schema.json
+ioc_name: {{name}}
+description: Camera Array model with plugins
+
+## create a j2jna string variable
+{% set camera_elements = 325546 %}
+
+entities:
+
+  {%- for camera in cameras %}
+  {%- if "Basler-a2A1920" in camera.CAMERA_CLASS %}
+    {% set camera_elements = 2354176 %}
+  {%- elif "Basler-scA1400" in camera.CAMERA_CLASS %}
+    {% set camera_elements = 1447680 %}
+  {%- endif %}
+  
+  {%- if camera.devtype == "camerasim" or devtype == "camerasim" %}
+  - type: ADSimDetector.simDetector
+  {%- else %}
+  - type: ADAravis.aravisCamera
+    ID: {{camera.CAMERA_ID}}
+    CLASS: {{camera.CAMERA_CLASS}}
+  {%- endif %}
+    PORT: {{camera.name}}
+    P: "{{iocprefix}}:"
+    R: "{{camera.name}}:"
+    BUFFERS: {{camera.buffers | default(100)}}
+    MEMORY: {{camera.memory | default(0)}}
+
+  {%- if roi_enable %}
+  - type: ADCore.NDROI
+    PORT: {{camera.name}}.ROI1
+    NDARRAY_PORT: {{camera.name}}
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Roi1:"
+    ENABLED: 1
+  - type: ADCore.NDPvaPlugin
+    PORT: {{camera.name}}.PVA3
+    PVNAME: "{{iocprefix}}:{{camera.name}}:ROI1:OUTPUT"
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Roi1:Pva1:"
+    NDARRAY_PORT: {{camera.name}}.ROI1
+    ENABLED: 1
+  {%- if stats_enable %}
+  - type: ADCore.NDStats
+    PORT: {{camera.name}}.STATS3
+    NDARRAY_PORT: {{camera.name}}.ROI1
+    HIST_SIZE: 50
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Roi1:Stats1:"
+    XSIZE: {{camera.CAMERA_STATS_XSIZE | default(1024)}}
+    YSIZE: {{camera.CAMERA_STATS_YSIZE | default(768)}}
+    ENABLED: 1
+  {%- endif %}
+
+  - type: ADCore.NDFileTIFF
+    PORT: {{camera.name}}.TIFFREAD
+    NDARRAY_PORT: {{camera.name}}.ROI1
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Proc1:TIFF:"
+    ENABLED: 1
+  
+  - type: ADCore.NDFileTIFF
+    PORT: {{camera.name}}.TIFF3
+    NDARRAY_PORT: {{camera.name}}.ROI1
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Roi1:TIFF1:"
+    ENABLED: 1
+  {%- endif %}
+  {%- if proc_enable %}
+  - type: ADCore.NDProcess
+    PORT: {{camera.name}}.PROC
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Proc1:"
+    NDARRAY_PORT: {{camera.name}}.ROI1
+    ENABLED: 1
+
+  - type: ADCore.NDPvaPlugin
+    PORT: {{camera.name}}.PVA2
+    PVNAME: "{{iocprefix}}:{{camera.name}}:PROC:OUTPUT"
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Proc1:Pva1:"
+    NDARRAY_PORT: {{camera.name}}.PROC
+    ENABLED: 1
+  
+
+  - type: ADCore.NDStdArrays
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":image2:"
+    PORT: {{camera.name}}.NTD2
+    NDARRAY_PORT: {{camera.name}}.PROC
+    TYPE: {{camera.CAMERA_TYPE | default("Int16")}}
+    FTVL: {{camera.CAMERA_FTVL | default("USHORT")}}
+    NELEMENTS: {{camera_elements}}
+
+    ENABLED: 1
+  
+  {%- if stats_enable %}
+
+  - type: ADCore.NDStats
+    PORT: {{camera.name}}.STATS2
+    NDARRAY_PORT: {{camera.name}}.PROC
+    HIST_SIZE: 50
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Proc1:Stats1:"
+    XSIZE: {{camera.CAMERA_STATS_XSIZE | default(1024)}}
+    YSIZE: {{camera.CAMERA_STATS_YSIZE | default(768)}}
+    ENABLED: 1
+  {%-endif %}
+
+  - type: ADCore.NDFileTIFF
+    PORT: {{camera.name}}.TIFF2
+    NDARRAY_PORT: {{camera.name}}.PROC
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Proc1:TIFF1:"
+    ENABLED: 1
+  {%- endif %}
+
+  {%- if overlay_enable %}
+  - type: ADCore.NDOverlay
+    PORT: {{camera.name}}.OVERLAY1
+    NDARRAY_PORT: {{camera.name}}
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Overlay1:"
+    NAME: "Reference"
+    NOverlays: 8
+    SHAPE: "3"
+    XPOS: ""
+    YPOS: ""
+    XCENT: ""
+    YCENT: ""
+    XSIZE: ""
+    YSIZE: ""
+    XWIDTH: ""
+    YWIDTH: ""
+    O: "1:"
+  
+  - type: ADCore.NDPvaPlugin
+    PORT: {{camera.name}}.PVA4
+    PVNAME: "{{iocprefix}}:{{camera.name}}:OVERLAY1:OUTPUT"
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Overlay1:Pva1:"
+    NDARRAY_PORT: {{camera.name}}.OVERLAY1
+    ENABLED: 1
+  
+  - type: ADCore.NDFileTIFF
+    PORT: {{camera.name}}.TIFF4
+    NDARRAY_PORT: {{camera.name}}.OVERLAY1
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Overlay1:TIFF1:"
+    ENABLED: 1
+  {%- endif %}
+  # Want to have also high throughput PVA protocol
+  - type: ADCore.NDPvaPlugin
+    PORT: {{camera.name}}.PVA
+    PVNAME: "{{iocprefix}}:{{camera.name}}:PVA:OUTPUT"
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Pva1:"
+    NDARRAY_PORT: {{camera.name}}
+    ENABLED: 1
+
+  - type: ADCore.NDStdArrays
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":image1:"
+    PORT: {{camera.name}}.NTD
+    NDARRAY_PORT: {{camera.name}}
+    TYPE: {{camera.CAMERA_TYPE | default("Int16")}}
+    FTVL: {{camera.CAMERA_FTVL | default("USHORT")}}
+    NELEMENTS: {{camera_elements}}
+    ENABLED: 1
+
+{%- if stats_enable %}
+
+  - type: ADCore.NDStats
+    PORT: {{camera.name}}.STATS
+    NDARRAY_PORT: {{camera.name}}
+    HIST_SIZE: 50
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":Stats1:"
+    XSIZE: {{camera.CAMERA_STATS_XSIZE | default(1024)}}
+    YSIZE: {{camera.CAMERA_STATS_YSIZE | default(768)}}
+    ENABLED: 1
+{%- endif %}
+
+  - type: ADCore.NDFileTIFF
+    PORT: {{camera.name}}.TIFF
+    NDARRAY_PORT: {{camera.name}}
+    P: "{{iocprefix}}:{{camera.name}}"
+    R: ":TIFF1:"
+    ENABLED: 1
+
+  {%- endfor %}
+
+
+  - type: epics.PostStartupCommand 
+    command: |
+    {%- for camera in cameras %}
+      ## camera {{camera.name}} initializations
+
+      dbpf("{{iocprefix}}:{{camera.name}}:TIFF1:FilePath", "{{data_dir}}")
+      dbpf("{{iocprefix}}:{{camera.name}}:TIFF1:FileWriteMode",2)
+      dbpf("{{iocprefix}}:{{camera.name}}:TIFF1:FileName","camera")
+      dbpf("{{iocprefix}}:{{camera.name}}:TIFF1:AutoIncrement",1)
+      dbpf("{{iocprefix}}:{{camera.name}}:TIFF1:FileTemplate","%s%s_%3.3d.tiff")
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF1:FilePath", "{{data_dir}}")
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF1:FileWriteMode",2)
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF1:FileName","{{camera.name}}")
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF1:AutoIncrement",1)
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF1:FileTemplate","%s%s_proc_%3.3d.tiff")
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF:FilePath", "{{data_dir}}")
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF:FileWriteMode",2)
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF:FileName","{{camera.name}}")
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF:AutoIncrement",1)
+      dbpf("{{iocprefix}}:{{camera.name}}:Proc1:TIFF:FileTemplate","%s%s_%3.3d.tiff")
+      {%- if roi_enable %}
+      dbpf("{{iocprefix}}:{{camera.name}}:Roi1:TIFF1:FilePath", "{{data_dir}}")
+      dbpf("{{iocprefix}}:{{camera.name}}:Roi1:TIFF1:FileWriteMode",2)
+      dbpf("{{iocprefix}}:{{camera.name}}:Roi1:TIFF1:FileName","{{camera.name}}")
+      dbpf("{{iocprefix}}:{{camera.name}}:Roi1:TIFF1:AutoIncrement",1)
+      dbpf("{{iocprefix}}:{{camera.name}}:Roi1:TIFF1:FileTemplate","%s%s_roi_%3.3d.tiff")
+      {%- endif %}
+      {%- if overlay_enable %}
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:TIFF1:FilePath", "{{data_dir}}")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:TIFF1:FileWriteMode",2)
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:TIFF1:FileTemplate","%s%s_overlay_%3.3d.tiff")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:TIFF1:FileName","{{camera.name}}")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:EnableCallbacks","1")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:Use","1")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:Shape","1")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:Red","255")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:Green","255")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:Blue","255")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:WidthX","2")
+      dbpf("{{iocprefix}}:{{camera.name}}:Overlay1:WidthY","2")
+      {% endif %}
+
+      {%- for param in iocinit %}
+      ## common initializations
+      dbpf("{{iocprefix}}:{{camera.name}}:{{param.name}}","{{param.value}}")
+      ### end common initializations
+      {%- endfor %}
+
+      {%- for param in camera.iocinit %}
+      ## specific initializations
+      dbpf("{{iocprefix}}:{{camera.name}}:{{param.name}}","{{param.value}}")
+      ### end specific initializations
+      {%- endfor %}
+
+  {%- endfor %}
+  
+      dbl("*") > {{config_dir}}/pvlist.txt
+  - type: epics.EpicsCaMaxArrayBytes 
+    max_bytes: 10000000

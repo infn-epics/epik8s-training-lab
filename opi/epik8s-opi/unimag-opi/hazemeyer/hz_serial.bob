@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-09-16 14:10:36 by riccardoesposito-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>1507</width>
+  <height>989</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Hazmeyer  Serial $(R)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_5</name>
+    <x>120</x>
+    <y>80</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Current readback</name>
+    <y>60</y>
+    <width>280</width>
+    <height>250</height>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_8</name>
+      <pv_name>$(P):$(R):CURRENT_RB</pv_name>
+      <x>120</x>
+      <y>12</y>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_16</name>
+      <text>Current</text>
+      <y>12</y>
+      <width>50</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_27</name>
+      <text>Raw current</text>
+      <y>52</y>
+      <width>80</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_28</name>
+      <text>Max current</text>
+      <y>92</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_9</name>
+      <pv_name>$(P):$(R):IMAX</pv_name>
+      <x>120</x>
+      <y>92</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_10</name>
+      <pv_name>$(P):$(R):RAW_CURRENT_RB</pv_name>
+      <x>120</x>
+      <y>52</y>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Current set</name>
+    <x>280</x>
+    <y>60</y>
+    <width>550</width>
+    <height>250</height>
+    <widget type="label" version="2.0.0">
+      <name>Label_29</name>
+      <text>Set current</text>
+      <x>2</x>
+      <y>22</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_5</name>
+      <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+      <x>112</x>
+      <y>22</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_6</name>
+      <pv_name>$(P):$(R):SLEWRATE_SP</pv_name>
+      <x>112</x>
+      <y>102</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_30</name>
+      <text>Set slewrate</text>
+      <x>2</x>
+      <y>102</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_7</name>
+      <pv_name>$(P):$(R):RAW_SLEWRATE_SP</pv_name>
+      <x>112</x>
+      <y>132</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_8</name>
+      <pv_name>$(P):$(R):RAW_CURRENT_SP</pv_name>
+      <x>112</x>
+      <y>52</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_43</name>
+      <text>Set current raw</text>
+      <x>2</x>
+      <y>52</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_44</name>
+      <text>Set slewrate raw</text>
+      <x>2</x>
+      <y>132</y>
+      <width>150</width>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Text Entry_2</name>
+      <actions>
+        <action type="write_pv">
+          <description>Start ramp</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>16</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):RAW_STATE_SP</pv_name>
+      <x>271</x>
+      <y>32</y>
+      <width>81</width>
+      <height>40</height>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Voltage readback</name>
+    <y>310</y>
+    <width>280</width>
+    <height>390</height>
+    <widget type="label" version="2.0.0">
+      <name>Label_31</name>
+      <text>Max voltage</text>
+      <x>2</x>
+      <y>102</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_32</name>
+      <text>raw voltage</text>
+      <x>2</x>
+      <y>62</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_33</name>
+      <text>voltage</text>
+      <x>2</x>
+      <y>22</y>
+      <width>50</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_11</name>
+      <pv_name>$(P):$(R):VOLTAGE_RB</pv_name>
+      <x>122</x>
+      <y>22</y>
+      <format>1</format>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_12</name>
+      <pv_name>$(P):$(R):RAW_VOLTAGE_RB</pv_name>
+      <x>122</x>
+      <y>62</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_13</name>
+      <pv_name>$(P):$(R):VMAX</pv_name>
+      <x>122</x>
+      <y>102</y>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>State</name>
+    <x>280</x>
+    <y>310</y>
+    <width>550</width>
+    <height>390</height>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>Byte Monitor_1</name>
+      <pv_name>$(P):$(R):RAW_STATE2_RB</pv_name>
+      <x>182</x>
+      <y>2</y>
+      <width>20</width>
+      <height>320</height>
+      <numBits>16</numBits>
+      <bitReverse>true</bitReverse>
+      <horizontal>false</horizontal>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>Byte Monitor_2</name>
+      <pv_name>$(P):$(R):RAW_STATE_RB</pv_name>
+      <x>2</x>
+      <y>2</y>
+      <width>20</width>
+      <height>320</height>
+      <numBits>16</numBits>
+      <bitReverse>true</bitReverse>
+      <horizontal>false</horizontal>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_35</name>
+      <text>Power On</text>
+      <x>32</x>
+      <y>2</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_36</name>
+      <text>Standby</text>
+      <x>32</x>
+      <y>22</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_37</name>
+      <text>Ready</text>
+      <x>32</x>
+      <y>42</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_38</name>
+      <text>All Fault </text>
+      <x>32</x>
+      <y>62</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_39</name>
+      <text>BNC Ramstar</text>
+      <x>32</x>
+      <y>82</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_40</name>
+      <text>Remote</text>
+      <x>32</x>
+      <y>102</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_41</name>
+      <text>Busy</text>
+      <x>32</x>
+      <y>272</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_42</name>
+      <text>Ramn Prnnress</text>
+      <x>32</x>
+      <y>302</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_48</name>
+      <text>User 1</text>
+      <x>222</x>
+      <y>2</y>
+      <width>70</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_52</name>
+      <text>User 2</text>
+      <x>222</x>
+      <y>22</y>
+      <width>74</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_53</name>
+      <text>User 3</text>
+      <x>222</x>
+      <y>42</y>
+      <width>70</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_54</name>
+      <text>User 4</text>
+      <x>222</x>
+      <y>62</y>
+      <width>70</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_55</name>
+      <text>User 5</text>
+      <x>222</x>
+      <y>82</y>
+      <width>70</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_56</name>
+      <text>Dc overcurrent</text>
+      <x>222</x>
+      <y>102</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_57</name>
+      <text>DCCT</text>
+      <x>222</x>
+      <y>122</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_58</name>
+      <text>Earth current</text>
+      <x>222</x>
+      <y>142</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_59</name>
+      <text>Ground fuse</text>
+      <x>222</x>
+      <y>162</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_60</name>
+      <text>Ac overcurrent</text>
+      <x>222</x>
+      <y>182</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_61</name>
+      <text>Phase</text>
+      <x>222</x>
+      <y>202</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_62</name>
+      <text>Main contractor</text>
+      <x>222</x>
+      <y>222</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_63</name>
+      <text>Door</text>
+      <x>222</x>
+      <y>242</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_34</name>
+      <text>STATE RAW</text>
+      <x>322</x>
+      <y>2</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_14</name>
+      <pv_name>$(P):$(R):RAW_STATE_RB</pv_name>
+      <x>412</x>
+      <y>2</y>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Text Entry_9</name>
+      <actions>
+        <action type="write_pv">
+          <description>Power on</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>2</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):RAW_STATE_SP</pv_name>
+      <text>Power on</text>
+      <x>432</x>
+      <y>52</y>
+      <width>81</width>
+      <height>40</height>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>0</horizontal_alignment>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Text Entry_10</name>
+      <actions>
+        <action type="write_pv">
+          <description>Power Off</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):RAW_STATE_SP</pv_name>
+      <text>Power off</text>
+      <x>432</x>
+      <y>102</y>
+      <width>81</width>
+      <height>40</height>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>0</horizontal_alignment>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Text Entry_11</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>8</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):RAW_STATE_SP</pv_name>
+      <text>Reset</text>
+      <x>432</x>
+      <y>152</y>
+      <width>81</width>
+      <height>40</height>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>0</horizontal_alignment>
+    </widget>
+  </widget>
+</display>

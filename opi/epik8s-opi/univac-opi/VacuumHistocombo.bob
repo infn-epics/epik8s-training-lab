@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-01-27 17:50:08 by michelottilabs-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>1750</width>
+  <height>751</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Zone $(ZONE)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>VacuumHistocombo.bob</file>
+        <target>tab</target>
+      </action>
+    </actions>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Vacuum</name>
+    <file>$(PLTFILE)</file>
+    <y>31</y>
+    <width>930</width>
+    <height>699</height>
+    <show_toolbar>true</show_toolbar>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_24</name>
+    <macros>
+      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+      <TYPE>ALL</TYPE>
+      <GROUP>vac</GROUP>
+    </macros>
+    <file>vac_array.bob</file>
+    <x>930</x>
+    <y>31</y>
+    <width>480</width>
+    <height>699</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>VacuumHistocombo.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <x>180</x>
+    <width>320</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Picture</name>
+    <pv_name>$(IMGFILE="")</pv_name>
+
+    <file>$(IMGFILE)</file>
+    <x>1350</x>
+    <y>31</y>
+    <width>340</width>
+    <height>664</height>
+    <rules>
+      <rule name="disable" prop_id="visible" out_exp="false">
+        <exp bool_exp="pvStr0!=&quot;&quot;">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pvStr0==&quot;&quot;">
+          <value>false</value>
+        </exp>
+        <pv_name>$(pv_name)</pv_name>
+      </rule>
+    </rules>
+  </widget>
+</display>

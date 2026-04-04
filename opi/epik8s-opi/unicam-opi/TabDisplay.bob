@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-10-28 19:19:15 by Alex-->
+<display version="2.0.0">
+  <name>TestTabs</name>
+  <width>390</width>
+  <height>671</height>
+  <widget type="tabs" version="2.0.0">
+    <name>Image Panel</name>
+    <tabs>
+      <tab>
+        <name>Acquire</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Vcam panel template</name>
+            <file>Camera_CamPanel.bob</file>
+            <y>5</y>
+            <width>319</width>
+            <height>630</height>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Save</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Vcam panel template</name>
+            <file>Camera_SavePanel.bob</file>
+            <width>316</width>
+            <height>636</height>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Camera Info</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Vcam panel template</name>
+            <file>Camera_InfoPanel.bob</file>
+            <x>5</x>
+            <width>300</width>
+            <height>511</height>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Links</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Vcam panel template</name>
+            <file>Camera_ADLinkPanel.bob</file>
+            <x>5</x>
+            <width>300</width>
+            <height>511</height>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <width>350</width>
+    <height>671</height>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+    <tab_height>10</tab_height>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_1</name>
+    <x>380</x>
+    <y>480</y>
+    <width>10</width>
+    <height>1</height>
+  </widget>
+</display>

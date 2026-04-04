@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>mag_array</name>
+  <width>820</width>
+  <height>730</height>
+  <background_color>
+    <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+    </color>
+  </background_color>
+  <grid_color>
+    <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+    </color>
+  </grid_color>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <file>mag_display.bob</file>
+    <x>10</x>
+    <y>30</y>
+    <width>800</width>
+    <height>700</height>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Element</text>
+    <x>10</x>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Current</text>
+    <x>145</x>
+    <width>120</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>Settings</text>
+    <x>440</x>
+    <width>57</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>State</text>
+    <x>265</x>
+    <width>120</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="checkbox" version="2.0.0">
+    <name>Check Box</name>
+    <pv_name>loc://selectiall&lt;VLong&gt;(0)</pv_name>
+    <label></label>
+    <x>98</x>
+    <width>20</width>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="../Scripts/SelectionAll.py">
+        <pv_name>$(pv_name)</pv_name>
+        <pv_name trigger="false">loc://magnets_selected&lt;VLong&gt;</pv_name>
+      </script>
+    </scripts>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+</display>

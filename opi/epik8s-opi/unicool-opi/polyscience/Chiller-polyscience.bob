@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-01-29 11:20:51 by michelottilabs-->
+<display version="2.0.0">
+  <name>Polyscience Chiller Control</name>
+  <width>600</width>
+  <height>850</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Polyscience Chiller Control</text>
+    <x>10</x>
+    <y>10</y>
+    <width>580</width>
+    <height>30</height>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Header_Background" red="77" green="77" blue="77">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Device Info</name>
+    <x>10</x>
+    <y>50</y>
+    <width>580</width>
+    <height>90</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Label_Model</name>
+      <text>Model:</text>
+      <x>10</x>
+      <y>5</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Model_RB</name>
+      <pv_name>$(P):$(R):MODEL_RB</pv_name>
+      <x>120</x>
+      <y>5</y>
+      <width>150</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Firmware</name>
+      <text>Firmware:</text>
+      <x>300</x>
+      <y>5</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Firmware_RB</name>
+      <pv_name>$(P):$(R):FIRMWARE_RB</pv_name>
+      <x>400</x>
+      <y>5</y>
+      <width>150</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Units</name>
+      <text>Temp Units:</text>
+      <x>10</x>
+      <y>30</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Units_RB</name>
+      <pv_name>$(P):$(R):TEMP_UNITS_RB</pv_name>
+      <x>120</x>
+      <y>30</y>
+      <width>50</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Connection</name>
+      <text>Connection:</text>
+      <x>300</x>
+      <y>30</y>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Connection_LED</name>
+      <pv_name>$(P):$(R):CONN_STATUS_BI</pv_name>
+      <x>400</x>
+      <y>30</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Connection_Text</name>
+      <pv_name>$(P):$(R):CONN_STATUS_BI</pv_name>
+      <x>430</x>
+      <y>30</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Heartbeat</name>
+      <text>Heartbeat:</text>
+      <x>10</x>
+      <y>55</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Heartbeat_RB</name>
+      <pv_name>$(P):$(R):HEARTBEAT_RB</pv_name>
+      <x>120</x>
+      <y>55</y>
+      <width>50</width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Status</name>
+    <x>10</x>
+    <y>150</y>
+    <width>580</width>
+    <height>90</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Label_State</name>
+      <text>State:</text>
+      <x>10</x>
+      <y>5</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>State_RB</name>
+      <pv_name>$(P):$(R):STATE_RB</pv_name>
+      <x>100</x>
+      <y>5</y>
+      <width>120</width>
+      <height>25</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Operation</name>
+      <text>Operation:</text>
+      <x>240</x>
+      <y>5</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Operation_RB</name>
+      <pv_name>$(P):$(R):OPERATION_STATUS_RB</pv_name>
+      <x>330</x>
+      <y>5</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Run</name>
+      <text>Run:</text>
+      <x>10</x>
+      <y>35</y>
+      <width>50</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Run_LED</name>
+      <pv_name>$(P):$(R):STATUS:RUN</pv_name>
+      <x>70</x>
+      <y>35</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Alarm</name>
+      <text>Alarm:</text>
+      <x>120</x>
+      <y>35</y>
+      <width>50</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Alarm_LED</name>
+      <pv_name>$(P):$(R):STATUS:ALARM</pv_name>
+      <x>180</x>
+      <y>35</y>
+      <on_color>
+        <color name="Alarm" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Warning</name>
+      <text>Warning:</text>
+      <x>230</x>
+      <y>35</y>
+      <width>60</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Warning_LED</name>
+      <pv_name>$(P):$(R):STATUS:WARN</pv_name>
+      <x>300</x>
+      <y>35</y>
+      <on_color>
+        <color name="Warning" red="255" green="200" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Lockout</name>
+      <text>Lockout:</text>
+      <x>350</x>
+      <y>35</y>
+      <width>60</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Lockout_LED</name>
+      <pv_name>$(P):$(R):LOCKOUT_STATUS_RB</pv_name>
+      <x>420</x>
+      <y>35</y>
+      <on_color>
+        <color name="Lockout" red="255" green="128" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Power</name>
+      <text>Power:</text>
+      <x>470</x>
+      <y>35</y>
+      <width>50</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Power_LED</name>
+      <pv_name>$(P):$(R):POWER_STATUS_RB</pv_name>
+      <x>530</x>
+      <y>35</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Output</name>
+      <text>Output:</text>
+      <x>10</x>
+      <y>60</y>
+      <width>80</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Output_RB</name>
+      <pv_name>$(P):$(R):OUTPUT_RATIO_RB</pv_name>
+      <x>100</x>
+      <y>60</y>
+      <width>80</width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Temperature</name>
+    <x>10</x>
+    <y>250</y>
+    <width>580</width>
+    <height>130</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Label_IntTemp</name>
+      <text>Internal Temp:</text>
+      <x>10</x>
+      <y>5</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>IntTemp_RB</name>
+      <pv_name>$(P):$(R):INT_TEMP_RB</pv_name>
+      <x>140</x>
+      <y>5</y>
+      <width>120</width>
+      <height>25</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <precision>2</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_ExtTemp</name>
+      <text>External Temp:</text>
+      <x>300</x>
+      <y>5</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>ExtTemp_RB</name>
+      <pv_name>$(P):$(R):EXT_TEMP_RB</pv_name>
+      <x>430</x>
+      <y>5</y>
+      <width>120</width>
+      <height>25</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <precision>2</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Setpoint</name>
+      <text>Setpoint:</text>
+      <x>10</x>
+      <y>40</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Setpoint_RB</name>
+      <pv_name>$(P):$(R):TEMP_SETPT_RB</pv_name>
+      <x>140</x>
+      <y>40</y>
+      <width>120</width>
+      <height>25</height>
+      <precision>2</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Setpoint_SP</name>
+      <pv_name>$(P):$(R):TEMP_SETPT_SP</pv_name>
+      <x>300</x>
+      <y>40</y>
+      <width>120</width>
+      <height>25</height>
+      <precision>2</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_RemoteProbe</name>
+      <text>Active Probe:</text>
+      <x>10</x>
+      <y>75</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RemoteProbe_RB</name>
+      <pv_name>$(P):$(R):REMOTE_PROBE_RB</pv_name>
+      <x>140</x>
+      <y>75</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>RemoteProbe_SP</name>
+      <pv_name>$(P):$(R):REMOTE_PROBE_SP</pv_name>
+      <x>300</x>
+      <y>75</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Control</name>
+    <x>10</x>
+    <y>390</y>
+    <width>580</width>
+    <height>90</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Label_OnOff</name>
+      <text>On/Off Control:</text>
+      <x>10</x>
+      <y>5</y>
+      <width>120</width>
+      <height>30</height>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>OnOff_SP</name>
+      <pv_name>$(P):$(R):CTR_SP</pv_name>
+      <x>140</x>
+      <y>5</y>
+      <width>120</width>
+      <off_label>OFF</off_label>
+      <on_label>ON</on_label>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Lockout_Ctrl</name>
+      <text>Local Lockout:</text>
+      <x>300</x>
+      <y>5</y>
+      <width>120</width>
+      <height>30</height>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Lockout_SP</name>
+      <pv_name>$(P):$(R):LOCKOUT_SP</pv_name>
+      <x>430</x>
+      <y>5</y>
+      <width>120</width>
+      <off_label>Unlock</off_label>
+      <on_label>Lock</on_label>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Echo</name>
+      <text>Echo:</text>
+      <x>10</x>
+      <y>45</y>
+      <width>120</width>
+      <height>30</height>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Echo_SP</name>
+      <pv_name>$(P):$(R):ECHO_SP</pv_name>
+      <x>140</x>
+      <y>45</y>
+      <width>120</width>
+      <off_label>OFF</off_label>
+      <on_label>ON</on_label>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Power_Ctrl</name>
+      <text>Power Reset:</text>
+      <x>300</x>
+      <y>45</y>
+      <width>120</width>
+      <height>30</height>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Power_SP</name>
+      <pv_name>$(P):$(R):POWER_STATUS_SP</pv_name>
+      <x>430</x>
+      <y>45</y>
+      <width>120</width>
+      <off_label>Reset</off_label>
+      <on_label>Set</on_label>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Pump</name>
+    <x>10</x>
+    <y>490</y>
+    <width>580</width>
+    <height>60</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Label_Pump</name>
+      <text>Pump Speed:</text>
+      <x>10</x>
+      <y>5</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Pump_RB</name>
+      <pv_name>$(P):$(R):PUMP_SPEED_RB</pv_name>
+      <x>140</x>
+      <y>5</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="scrollbar" version="2.0.0">
+      <name>Pump_SP</name>
+      <pv_name>$(P):$(R):PUMP_SPEED_SP</pv_name>
+      <x>240</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Pump_Entry</name>
+      <pv_name>$(P):$(R):PUMP_SPEED_SP</pv_name>
+      <x>460</x>
+      <y>5</y>
+      <width>80</width>
+      <height>25</height>
+      <precision>0</precision>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Alarms</name>
+    <x>10</x>
+    <y>560</y>
+    <width>580</width>
+    <height>100</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Label_AlarmStatus</name>
+      <text>Alarm Status:</text>
+      <x>10</x>
+      <y>5</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AlarmStatus_RB</name>
+      <pv_name>$(P):$(R):ALARM_STATUS_RB</pv_name>
+      <x>140</x>
+      <y>5</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_HighAlarm</name>
+      <text>High Alarm:</text>
+      <x>10</x>
+      <y>35</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>HighAlarm_RB</name>
+      <pv_name>$(P):$(R):HIGH_ALARM_RB</pv_name>
+      <x>140</x>
+      <y>35</y>
+      <width>80</width>
+      <height>25</height>
+      <precision>2</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>HighAlarm_SP</name>
+      <pv_name>$(P):$(R):HIGH_ALARM_SP</pv_name>
+      <x>240</x>
+      <y>35</y>
+      <width>80</width>
+      <height>25</height>
+      <precision>2</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_LowAlarm</name>
+      <text>Low Alarm:</text>
+      <x>10</x>
+      <y>65</y>
+      <width>120</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>LowAlarm_RB</name>
+      <pv_name>$(P):$(R):LOW_ALARM_RB</pv_name>
+      <x>140</x>
+      <y>65</y>
+      <width>80</width>
+      <height>25</height>
+      <precision>2</precision>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>LowAlarm_SP</name>
+      <pv_name>$(P):$(R):LOW_ALARM_SP</pv_name>
+      <x>240</x>
+      <y>65</y>
+      <width>80</width>
+      <height>25</height>
+      <precision>2</precision>
+    </widget>
+  </widget>
+  <widget type="stripchart" version="2.1.0">
+    <name>Temperature Trend_1</name>
+    <x>10</x>
+    <y>669</y>
+    <width>580</width>
+    <height>181</height>
+    <title>Temperature Trend</title>
+    <show_toolbar>false</show_toolbar>
+    <show_legend>true</show_legend>
+    <traces>
+      <trace>
+        <name>Internal Temp</name>
+        <y_pv>$(P):$(R):INT_TEMP_RB</y_pv>
+        <axis>0</axis>
+        <trace_type>2</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>External Temp</name>
+        <y_pv>$(P):$(R):EXT_TEMP_RB</y_pv>
+        <axis>0</axis>
+        <trace_type>2</trace_type>
+        <color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>Setpoint</name>
+        <y_pv>$(P):$(R):TEMP_SETPT_RB</y_pv>
+        <axis>0</axis>
+        <trace_type>2</trace_type>
+        <color>
+          <color red="0" green="255" blue="0">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+</display>

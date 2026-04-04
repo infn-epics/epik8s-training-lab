@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <width>900</width>
+  <height>42</height>
+  <background_color>
+    <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+    </color>
+  </background_color>
+  <widget type="group" version="3.0.0">
+    <name>MotorElem</name>
+    <width>800</width>
+    <height>42</height>
+    <style>2</style>
+    <foreground_color>
+      <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>$(R)</text>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+        </color>
+      </background_color>
+      <tooltip>$(P):$(R)  Zone $(ZONE) Type $(TYPE)</tooltip>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P):$(R):RBV</pv_name>
+      <x>79</x>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Label_2</name>
+      <class>COMMENT</class>
+      <actions>
+        <action type="open_display">
+          <description>Control</description>
+          <file>$(OPI)</file>
+          <macros>
+            <DEVICE>$(P):$(R)</DEVICE>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Control</text>
+      <y>20</y>
+      <width>49</width>
+      <height>20</height>
+      <font>
+        <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>0</horizontal_alignment>
+      <vertical_alignment>0</vertical_alignment>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_1</name>
+      <pv_name>$(P):$(R):MSTA.B2</pv_name>
+      <x>330</x>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):MM_RBV</pv_name>
+      <x>79</x>
+      <y>19</y>
+      <rules>
+        <rule name="EnableIf Ustepxmm" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0 &gt; 0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pv0&lt;=0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):$(R):EGU2MM</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Relative</name>
+      <pv_name>$(P):$(R):RVAL</pv_name>
+      <x>539</x>
+      <vertical_alignment>0</vertical_alignment>
+      <wrap_words>true</wrap_words>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Absolute_2</name>
+      <pv_name>$(P):$(R):RVAL_MM</pv_name>
+      <x>539</x>
+      <y>20</y>
+      <vertical_alignment>0</vertical_alignment>
+      <wrap_words>true</wrap_words>
+      <rules>
+        <rule name="Enable" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0&gt;0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pv0&lt;=0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):$(R):EGU2MM</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Absolute</name>
+      <pv_name>$(P):$(R):VAL</pv_name>
+      <x>429</x>
+      <vertical_alignment>0</vertical_alignment>
+      <wrap_words>true</wrap_words>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Absolute_1</name>
+      <pv_name>$(P):$(R):VAL_MM</pv_name>
+      <x>429</x>
+      <y>20</y>
+      <vertical_alignment>0</vertical_alignment>
+      <wrap_words>true</wrap_words>
+      <rules>
+        <rule name="Enable" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0&gt;0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pv0&lt;=0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):$(R):EGU2MM</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_3</name>
+      <pv_name>$(P):$(R):MSTA.BA</pv_name>
+      <x>398</x>
+      <on_color>
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_2</name>
+      <pv_name>$(P):$(R):MSTA.B9</pv_name>
+      <x>359</x>
+      <on_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED</name>
+      <pv_name>$(P):$(R):MSTA.BD</pv_name>
+      <x>301</x>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_1</name>
+      <actions>
+        <action type="write_pv">
+          <description>Connect</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>START</value>
+        </action>
+        <action type="write_pv">
+          <description>Disconnect</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>STOP</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):MSGS</pv_name>
+      <text>En/Dis</text>
+      <x>280</x>
+      <y>20</y>
+      <width>50</width>
+      <height>20</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <rules>
+        <rule name="Color" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0==4">
+            <value>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0!=4">
+            <value>
+              <color name="STOP" red="255" green="0" blue="0">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(P):$(R):STAT</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Commands</name>
+      <actions>
+        <action type="write_pv">
+          <description>HOME</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>3</value>
+        </action>
+        <action type="write_pv">
+          <description>JOG FORWARD</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>4</value>
+        </action>
+        <action type="write_pv">
+          <description>JOG REVERSE</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>5</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):CMD</pv_name>
+      <text>Cmd</text>
+      <x>379</x>
+      <y>20</y>
+      <width>50</width>
+      <height>20</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_4</name>
+      <pv_name>$(P):$(R):VAL_MM_SP</pv_name>
+      <x>179</x>
+      <y>20</y>
+      <rules>
+        <rule name="EnableIf Ustepxmm" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0 &gt; 0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pv0&lt;=0">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):$(R):EGU2MM</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Stop</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>2</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):ACTX_SP</pv_name>
+      <text>Stop</text>
+      <x>330</x>
+      <y>20</y>
+      <width>50</width>
+      <height>20</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Poisel</name>
+      <pv_name>$(P):$(R):POI_SEL</pv_name>
+      <x>644</x>
+      <width>95</width>
+      <height>20</height>
+      <visible>false</visible>
+      <background_color>
+        <color red="250" green="250" blue="250">
+        </color>
+      </background_color>
+      <rules>
+        <rule name="visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pvInt0&gt;=0">
+            <value>true</value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>poigo</name>
+      <actions>
+        <action type="write_pv">
+          <description>PoiGO</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+        <action type="open_display">
+          <description>Poi Menu</description>
+          <file>../poi.bob</file>
+          <macros>
+            <READBACK>RBV</READBACK>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):POI_GO</pv_name>
+      <text>Poi..</text>
+      <x>746</x>
+      <width>50</width>
+      <height>40</height>
+      <visible>false</visible>
+      <rules>
+        <rule name="visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pvInt0&gt;=0">
+            <value>true</value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Poicurr</name>
+      <pv_name>$(P):$(R):POI_CURR</pv_name>
+      <x>644</x>
+      <y>20</y>
+      <visible>false</visible>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+        </color>
+      </background_color>
+      <rules>
+        <rule name="visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pvStr0!=&quot;&quot;">
+            <value>true</value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+      <border_width>1</border_width>
+    </widget>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):$(R):VAL_SP</pv_name>
+    <x>180</x>
+  </widget>
+</display>

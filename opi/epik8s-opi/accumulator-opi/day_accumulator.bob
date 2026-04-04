@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Day Accumulators Overview</name>
+  <width>1400</width>
+  <height>800</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Day Accumulators Overview</text>
+    <x>10</x>
+    <y>10</y>
+    <width>1380</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="128">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Header</name>
+    <x>10</x>
+    <y>55</y>
+    <width>1380</width>
+    <height>30</height>
+    <style>2</style>
+    <background_color>
+      <color red="180" green="180" blue="180">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Header_Name</name>
+      <text>Name</text>
+      <x>5</x>
+      <y>5</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_IOC</name>
+      <text>IOC</text>
+      <x>130</x>
+      <y>5</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Source</name>
+      <text>Source PV</text>
+      <x>255</x>
+      <y>5</y>
+      <width>150</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Daily</name>
+      <text>Daily Total</text>
+      <x>415</x>
+      <y>5</y>
+      <width>180</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Enable</name>
+      <text>Enable</text>
+      <x>605</x>
+      <y>5</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Reset</name>
+      <text>Reset</text>
+      <x>695</x>
+      <y>5</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Factor</name>
+      <text>Factor</text>
+      <x>785</x>
+      <y>5</y>
+      <width>90</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_Chart</name>
+      <text>Trend</text>
+      <x>880</x>
+      <y>5</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Header_EGU</name>
+      <text>EGU</text>
+      <x>1090</x>
+      <y>5</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>AccumulatorContainer</name>
+    <x>10</x>
+    <y>90</y>
+    <width>1380</width>
+    <height>700</height>
+    <style>2</style>
+    <scripts>
+      <script file="Scripts/LoadAccumulators.py" check_connections="false">
+      </script>
+    </scripts>
+    <widget type="embedded" version="2.0.0">
+      <name>element_template</name>
+      <file>accumulator_row.bob</file>
+      <width>1380</width>
+      <height>45</height>
+      <visible>false</visible>
+    </widget>
+  </widget>
+</display>

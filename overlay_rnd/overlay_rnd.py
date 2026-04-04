@@ -19,30 +19,53 @@ import argparse
 import logging
 import os
 import random
+import threading
 import time
 
-import epics  # pyepics – CA put/get
+from p4p.client.thread import Context  # type: ignore
 
 
 log = logging.getLogger("overlay_rnd")
 
 
-def apply_overlay(camera_prefix: str, cx: int, cy: int, w: int, h: int) -> None:
+def dump_pvs(softioc_module, output_path: str) -> None:
+    """Dump IOC PV names to a file using softioc.dbl()."""
+    with open(output_path, "w", encoding="utf-8") as handle:
+        old_stdout = os.dup(1)
+        os.dup2(handle.fileno(), 1)
+        try:
+            softioc_module.dbl()
+        finally:
+            os.dup2(old_stdout, 1)
+            os.close(old_stdout)
+
+
+def _coerce_scalar(value):
+    if value is None:
+        raise RuntimeError("disconnected PVA value")
+    if hasattr(value, "value"):
+        value = getattr(value, "value")
+    if isinstance(value, dict) and "value" in value:
+        value = value["value"]
+    return value
+
+
+def apply_overlay(context: Context, camera_prefix: str, cx: int, cy: int, w: int, h: int) -> None:
     """Write rectangle geometry to overlay slot 1 of the target camera."""
     base = f"{camera_prefix}:Overlay1"
 
-    epics.caput(f"{base}:EnableCallbacks", 1, wait=True, timeout=2.0)
-    epics.caput(f"{base}:1:Use", 1, wait=True, timeout=2.0)
-    epics.caput(f"{base}:1:Shape", 1, wait=True, timeout=2.0)
+    context.put(f"{base}:EnableCallbacks", 1, wait=True, timeout=2.0)
+    context.put(f"{base}:1:Use", 1, wait=True, timeout=2.0)
+    context.put(f"{base}:1:Shape", 1, wait=True, timeout=2.0)
 
     # PositionX/Y are the top-left corner; convert from center
     pos_x = max(0, cx - w // 2)
     pos_y = max(0, cy - h // 2)
 
-    epics.caput(f"{base}:1:PositionX", pos_x, wait=True, timeout=2.0)
-    epics.caput(f"{base}:1:PositionY", pos_y, wait=True, timeout=2.0)
-    epics.caput(f"{base}:1:SizeX", w, wait=True, timeout=2.0)
-    epics.caput(f"{base}:1:SizeY", h, wait=True, timeout=2.0)
+    context.put(f"{base}:1:PositionX", pos_x, wait=True, timeout=2.0)
+    context.put(f"{base}:1:PositionY", pos_y, wait=True, timeout=2.0)
+    context.put(f"{base}:1:SizeX", w, wait=True, timeout=2.0)
+    context.put(f"{base}:1:SizeY", h, wait=True, timeout=2.0)
 
     log.info("overlay set  center=(%d,%d)  pos=(%d,%d)  size=(%dx%d)",
              cx, cy, pos_x, pos_y, w, h)
@@ -61,10 +84,13 @@ def main() -> int:
                         help="Camera PV prefix, e.g. LAB:SIM:CAM01")
     parser.add_argument("--prefix", required=True,
                         help="Prefix for the soft IOC PVs, e.g. LAB:SIM:OVERLAY_RND")
+    parser.add_argument("--pvout", default="pvlist.txt",
+                        help="Path of the file where soft IOC PVs are dumped")
     args = parser.parse_args()
 
     camera_prefix = args.camera.rstrip(":")
     ioc_prefix = args.prefix.rstrip(":")
+    pva_context = Context("pva")
 
     # ── soft IOC setup ──────────────────────────────────────────────
     from softioc import softioc, builder, asyncio_dispatcher  # type: ignore
@@ -87,9 +113,7 @@ def main() -> int:
     out_cx   = builder.aIn("outX", initial_value=0, EGU="px")
     out_cy   = builder.aIn("outY", initial_value=0, EGU="px")
 
-    def on_run(value):
-        if not value:
-            return
+    def trigger_once():
         try:
             mx = int(maxx_rec.get())
             my = int(maxy_rec.get())
@@ -105,18 +129,28 @@ def main() -> int:
             out_cx.set(cx)
             out_cy.set(cy)
 
-            apply_overlay(camera_prefix, cx, cy, sz, sz)
+            apply_overlay(pva_context, camera_prefix, cx, cy, sz, sz)
         except Exception:
             log.exception("overlay generation failed")
         finally:
             run_rec.set(False)
 
-    run_rec.add_callback(on_run)
+    def command_loop():
+        was_running = False
+        while True:
+            is_running = bool(run_rec.get())
+            if is_running and not was_running:
+                trigger_once()
+            was_running = is_running
+            time.sleep(0.1)
+
+    threading.Thread(target=command_loop, daemon=True).start()
 
     # ── start IOC ───────────────────────────────────────────────────
     dispatcher = asyncio_dispatcher.AsyncioDispatcher()
     builder.LoadDatabase()
     softioc.iocInit(dispatcher)
+    dump_pvs(softioc, args.pvout)
 
     log.info("overlay_rnd IOC running  prefix=%s  camera=%s", ioc_prefix, camera_prefix)
     softioc.interactive_ioc(globals())

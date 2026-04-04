@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Motor</name>
+  <macros>
+    <TITLE>$(R) ($(TYPE)) Zone: $(ZONE)</TITLE>
+    <P>$(P)</P>
+    <M>:$(R)</M>
+  </macros>
+  <width>1210</width>
+  <height>900</height>
+  <background_color>
+    <color name="FLAME BackgroundDisplay" red="225" green="225" blue="225">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <widget type="rectangle" version="2.0.0">
+    <name>Title</name>
+    <class>FLAME_Area5TitleBar</class>
+    <width>1210</width>
+    <height>50</height>
+    <line_width>0</line_width>
+    <line_color>
+      <color name="FLAME Area11 Color" red="250" green="250" blue="210">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="FLAME Area5 Color" red="195" green="200" blue="160">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title label</name>
+    <class>FLAME_Header</class>
+    <text>$(TITLE)</text>
+    <x>10</x>
+    <width>1200</width>
+    <height>50</height>
+    <font>
+      <font name="FLAME Title Bar" family="Noto Sans" style="REGULAR" size="28.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="FLAME Text Main" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Main and Expert</name>
+    <class>FLAME_Tabs</class>
+    <tabs>
+      <tab>
+        <name>Main</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>resources/Motor_TabMain.bob</file>
+            <width>1200</width>
+            <height>840</height>
+            <resize>2</resize>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_POI</name>
+            <text>POI</text>
+            <x>418</x>
+            <y>194</y>
+            <width>50</width>
+            <height>30</height>
+            <visible>false</visible>
+            <font>
+              <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+              </font>
+            </font>
+            <foreground_color>
+              <color name="FLAME Text Main" red="0" green="0" blue="0">
+              </color>
+            </foreground_color>
+            <vertical_alignment>1</vertical_alignment>
+            <rules>
+              <rule name="visibility" prop_id="visible" out_exp="false">
+                <exp bool_exp="pvInt0&gt;=0">
+                  <value>true</value>
+                </exp>
+                <pv_name>$(P):$(R):POI_SEL</pv_name>
+              </rule>
+            </rules>
+          </widget>
+          <widget type="combo" version="2.0.0">
+            <name>Poisel</name>
+            <pv_name>$(P):$(R):POI_SEL</pv_name>
+            <x>468</x>
+            <y>192</y>
+            <width>160</width>
+            <height>34</height>
+            <visible>false</visible>
+            <font>
+              <font family="Noto Sans" style="BOLD" size="12.0">
+              </font>
+            </font>
+            <background_color>
+              <color red="250" green="250" blue="250">
+              </color>
+            </background_color>
+            <rules>
+              <rule name="visibility" prop_id="visible" out_exp="false">
+                <exp bool_exp="pvInt0&gt;=0">
+                  <value>true</value>
+                </exp>
+                <pv_name>$(pv_name)</pv_name>
+              </rule>
+            </rules>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>poigo</name>
+            <actions>
+              <action type="write_pv">
+                <description>Go to POI</description>
+                <pv_name>$(pv_name)</pv_name>
+                <value>1</value>
+              </action>
+              <action type="open_display">
+                <description>POI Menu</description>
+                <file>../../poi.bob</file>
+                <macros>
+                  <READBACK>RBV</READBACK>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <pv_name>$(P):$(R):POI_GO</pv_name>
+            <text>Go..</text>
+            <x>638</x>
+            <y>192</y>
+            <width>55</width>
+            <height>34</height>
+            <visible>false</visible>
+            <font>
+              <font family="Noto Sans" style="BOLD" size="12.0">
+              </font>
+            </font>
+            <rules>
+              <rule name="visibility" prop_id="visible" out_exp="false">
+                <exp bool_exp="pvInt0&gt;=0">
+                  <value>true</value>
+                </exp>
+                <pv_name>$(pv_name)</pv_name>
+              </rule>
+            </rules>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Poicurr</name>
+            <pv_name>$(P):$(R):POI_CURR</pv_name>
+            <x>703</x>
+            <y>192</y>
+            <width>150</width>
+            <height>34</height>
+            <visible>false</visible>
+            <font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <foreground_color>
+              <color red="0" green="128" blue="0">
+              </color>
+            </foreground_color>
+            <background_color>
+              <color name="FLAME BackgroundDisplay" red="225" green="225" blue="225">
+              </color>
+            </background_color>
+            <vertical_alignment>1</vertical_alignment>
+            <rules>
+              <rule name="visibility" prop_id="visible" out_exp="false">
+                <exp bool_exp="pvStr0!=&quot;&quot;">
+                  <value>true</value>
+                </exp>
+                <pv_name>$(pv_name)</pv_name>
+              </rule>
+            </rules>
+            <border_width>1</border_width>
+            <border_color>
+              <color name="FLAME Border Dark" red="128" green="128" blue="128">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Expert</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>resources/Motor_TabExpert.bob</file>
+            <width>1200</width>
+            <height>840</height>
+            <resize>2</resize>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <x>10</x>
+    <y>60</y>
+    <width>1200</width>
+    <height>840</height>
+    <font>
+      <font name="FLAME Header 3" family="Noto Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="FLAME BackgroundContainer" red="230" green="230" blue="230">
+      </color>
+    </background_color>
+    <tab_height>20</tab_height>
+    <actions>
+    </actions>
+  </widget>
+</display>

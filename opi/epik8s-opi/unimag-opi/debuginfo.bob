@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-01-17 10:08:49 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>382</width>
+  <height>90</height>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):DEBUG:SERVICE:INFO_VERSION</pv_name>
+    <x>115</x>
+    <y>23</y>
+    <width>128</width>
+    <height>21</height>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>$(P):DEBUG:SERVICE:START_TIME</pv_name>
+    <x>84</x>
+    <width>159</width>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_9</name>
+    <pv_name>$(P):DEBUG:SERVICE:COMMAND</pv_name>
+    <y>70</y>
+    <width>243</width>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_10</name>
+    <pv_name>$(P):DEBUG:SERVICE:COUNTER</pv_name>
+    <x>157</x>
+    <y>47</y>
+    <width>86</width>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>Start time</text>
+    <x>248</x>
+    <y>1</y>
+    <width>67</width>
+    <height>24</height>
+    <font>
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Version</text>
+    <x>249</x>
+    <y>22</y>
+    <width>61</width>
+    <font>
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>Counter</text>
+    <x>249</x>
+    <y>47</y>
+    <width>61</width>
+    <font>
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>Command Debug</text>
+    <x>250</x>
+    <y>70</y>
+    <width>132</width>
+    <font>
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+  </widget>
+</display>

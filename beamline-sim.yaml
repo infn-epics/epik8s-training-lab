@@ -96,15 +96,15 @@ epicsConfiguration:
       devices:
         - name: "HMIR"
           axid: 0
-          dllm: -100.0
-          dhlm: 100.0
+          dllm: -400.0
+          dhlm: 400.0
           velo: 10.0
           mres: 0.01
           egu: mm
         - name: "VMIR"
           axid: 1
-          dllm: -100.0
-          dhlm: 100.0
+          dllm: -400.0
+          dhlm: 400.0
           velo: 10.0
           mres: 0.01
           egu: mm
@@ -148,11 +148,12 @@ epicsConfiguration:
             value: "10"
           - name: "Stream1:EnableCallbacks"
             value: "1"
+          
+            
 
         
     - name: "simtwin"
       devtype: softioc
-      pvaDiscovery: false
       iocprefix: "LAB:SIM:TWIN"
       zones: 
         - SIMLAB
@@ -167,7 +168,6 @@ epicsConfiguration:
 
     - name: "overlay-sim-rnd"
       devtype: softioc
-      pvaDiscovery: false
       iocprefix: "LAB:SIM:OVERLAY_RND"
       zones: 
         - SIMLAB
@@ -180,7 +180,6 @@ epicsConfiguration:
 
     - name: "beam-center-sim"
       devtype: softioc
-      pvaDiscovery: false
       iocprefix: "LAB:SIM:BEAM_CENTER"
       zones:
         - SIMLAB

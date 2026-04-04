@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Channel $(CHAN) Display</name>
+  <width>1205</width>
+  <height>763</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <widget type="xyplot" version="3.0.0">
+    <name>Channel $(CHAN) Plot</name>
+    <x>10</x>
+    <y>10</y>
+    <width>700</width>
+    <height>400</height>
+    <background_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <title>Channel $(CHAN) - $(P):LABEL_CH$(CHAN)</title>
+    <title_font>
+      <font family="Arial" style="BOLD" size="14.0">
+      </font>
+    </title_font>
+    <show_toolbar>true</show_toolbar>
+    <actions>
+    </actions>
+    <x_axis>
+      <title></title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font family="Liberation Sans" style="REGULAR" size="11.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title></title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font family="Liberation Sans" style="REGULAR" size="11.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>Channel $(CHAN)</name>
+        <x_pv>$(P):XDATA_CH$(CHAN)</x_pv>
+        <y_pv>$(P):SCALEDYDATA_CH$(CHAN).AVAL</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="255" blue="0">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+    <marker>
+      <marker>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <pv_name>$(P):CH$(CHAN):MARKER_START</pv_name>
+        <interactive>true</interactive>
+      </marker>
+      <marker>
+        <color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </color>
+        <pv_name>$(P):CH$(CHAN):MARKER_END</pv_name>
+        <interactive>true</interactive>
+      </marker>
+    </marker>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Marker Controls</name>
+    <x>10</x>
+    <y>420</y>
+    <width>700</width>
+    <height>80</height>
+    <style>2</style>
+    <background_color>
+      <color red="220" green="220" blue="220">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Start_Label</name>
+      <text>Start:</text>
+      <x>10</x>
+      <y>29</y>
+      <width>40</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Marker_Start_Entry</name>
+      <pv_name>$(P):CH$(CHAN):MARKER_START</pv_name>
+      <x>50</x>
+      <y>29</y>
+      <width>80</width>
+      <format>3</format>
+      <precision>6</precision>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="0" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Marker_Start_Value</name>
+      <pv_name>$(P):MARKER_START_SAMPLE_CH$(CHAN)</pv_name>
+      <x>145</x>
+      <y>29</y>
+      <width>80</width>
+      <background_color>
+        <color red="240" green="240" blue="255">
+        </color>
+      </background_color>
+      <precision>4</precision>
+      <show_units>false</show_units>
+      <border_color>
+        <color red="0" green="0" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>End_Label</name>
+      <text>End:</text>
+      <x>239</x>
+      <y>29</y>
+      <width>40</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Marker_End_Entry</name>
+      <pv_name>$(P):CH$(CHAN):MARKER_END</pv_name>
+      <x>289</x>
+      <y>29</y>
+      <width>80</width>
+      <format>3</format>
+      <precision>6</precision>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Marker_End_Value</name>
+      <pv_name>$(P):MARKER_END_SAMPLE_CH$(CHAN)</pv_name>
+      <x>385</x>
+      <y>29</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="240" blue="240">
+        </color>
+      </background_color>
+      <precision>4</precision>
+      <show_units>false</show_units>
+      <border_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Acquire_Window_Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Acquire Window</description>
+          <pv_name>$(P):AcquireWindow_$(CHAN)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Acquire Window</text>
+      <x>580</x>
+      <y>5</y>
+      <height>20</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="200" green="255" blue="200">
+        </color>
+      </background_color>
+      <tooltip>Acquire data between markers</tooltip>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Channel_Label_1</name>
+      <pv_name>$(P):LABEL_CH$(CHAN)</pv_name>
+      <x>10</x>
+      <y>9</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Marker_Start_Value_1</name>
+      <pv_name>$(P):START_SAMPLE_CH$(CHAN)</pv_name>
+      <x>145</x>
+      <y>54</y>
+      <width>80</width>
+      <background_color>
+        <color red="240" green="240" blue="255">
+        </color>
+      </background_color>
+      <precision>4</precision>
+      <show_units>false</show_units>
+      <border_color>
+        <color red="0" green="0" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Marker_End_Value_2</name>
+      <pv_name>$(P):END_SAMPLE_CH$(CHAN)</pv_name>
+      <x>385</x>
+      <y>54</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="240" blue="240">
+        </color>
+      </background_color>
+      <precision>4</precision>
+      <show_units>false</show_units>
+      <border_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_1</name>
+      <actions>
+        <action type="write_pv">
+          <description>ResetAcquire</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):ResetAcquire_$(CHAN)</pv_name>
+      <x>580</x>
+      <y>27</y>
+      <height>20</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="8.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="ActiveText" red="255" green="255" blue="0">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Reset_Markers_Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset Start Marker</description>
+          <pv_name>$(P):CH$(CHAN):reset_start_marker_.PROC</pv_name>
+          <value>1</value>
+        </action>
+        <action type="write_pv">
+          <description>Reset End Marker</description>
+          <pv_name>$(P):CH$(CHAN):reset_end_marker_.PROC</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Reset Markers</text>
+      <x>580</x>
+      <y>54</y>
+      <height>20</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="200" blue="200">
+        </color>
+      </background_color>
+      <tooltip>Reset both channel markers to 0</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Auto_Threshold_Label</name>
+      <text>Auto Threshold:</text>
+      <x>209</x>
+      <y>2</y>
+      <width>110</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Auto_Threshold_Entry</name>
+      <pv_name>$(P):CH$(CHAN):AUTO_THRESHOLD</pv_name>
+      <x>300</x>
+      <y>2</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="255" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Auto_Detect_Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Auto Detect Signal</description>
+          <pv_name>$(P):CH$(CHAN):AUTO_MARKER</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Auto Detect</text>
+      <x>390</x>
+      <y>2</y>
+      <height>20</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="100" green="255" blue="100">
+        </color>
+      </background_color>
+      <tooltip>Automatically find signal and set markers</tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Auto_Found_LED</name>
+      <pv_name>$(P):CH$(CHAN):AUTO_FOUND</pv_name>
+      <x>514</x>
+      <y>2</y>
+      <off_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </off_color>
+      <square>true</square>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Auto_Found_Label</name>
+      <text>Found</text>
+      <x>539</x>
+      <y>2</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Start_Label_2</name>
+      <text>Start: Sample:</text>
+      <x>10</x>
+      <y>54</y>
+      <width>120</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Start_Label_3</name>
+      <text>End Sample:</text>
+      <x>239</x>
+      <y>54</y>
+      <width>120</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>Rate:</text>
+      <x>500</x>
+      <y>30</y>
+      <width>44</width>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Y_Scale_CH8_3</name>
+      <pv_name>$(P):ReadbackPoll_$(CHAN).SCAN</pv_name>
+      <x>479</x>
+      <y>54</y>
+      <width>89</width>
+      <height>19</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channel Statistics</name>
+    <x>10</x>
+    <y>505</y>
+    <width>700</width>
+    <height>80</height>
+    <style>2</style>
+    <background_color>
+      <color red="220" green="220" blue="220">
+      </color>
+    </background_color>
+    <widget type="textupdate" version="2.0.0">
+      <name>Channel_Label_2</name>
+      <pv_name>$(P):LABEL_CH$(CHAN)</pv_name>
+      <x>10</x>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Marker_End_Entry_1</name>
+      <pv_name>$(P):COEFF_CH$(CHAN)</pv_name>
+      <x>225</x>
+      <width>114</width>
+      <height>25</height>
+      <format>3</format>
+      <precision>6</precision>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RMS_Label_2</name>
+      <text>COEFF:</text>
+      <x>175</x>
+      <y>4</y>
+      <width>98</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RMS_Label_3</name>
+      <text>Charge:</text>
+      <x>354</x>
+      <width>64</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Integral_Value_2</name>
+      <pv_name>$(P):CHARGE_CH$(CHAN)</pv_name>
+      <x>414</x>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RMS_Label_7</name>
+      <text>Day:</text>
+      <x>520</x>
+      <width>64</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Integral_Value_5</name>
+      <pv_name>$(P):CHARGE_DAY_CH$(CHAN)</pv_name>
+      <x>559</x>
+      <width>121</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channel Info</name>
+    <x>720</x>
+    <y>10</y>
+    <width>70</width>
+    <style>2</style>
+    <background_color>
+      <color red="220" green="220" blue="220">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Channel_Info_Label</name>
+      <text>CH$(CHAN)</text>
+      <x>5</x>
+      <y>5</y>
+      <width>60</width>
+      <font>
+        <font family="Arial" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Channel_Label</name>
+      <pv_name>$(P):LABEL_CH$(CHAN)</pv_name>
+      <x>5</x>
+      <y>25</y>
+      <width>60</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Comm_Label</name>
+      <text>Comm:</text>
+      <x>5</x>
+      <y>50</y>
+      <width>40</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Comm_Status</name>
+      <pv_name>$(P):CH$(CHAN):COMM_OK</pv_name>
+      <x>45</x>
+      <y>50</y>
+      <off_color>
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color>
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_Label</name>
+      <text>X Unit:</text>
+      <x>5</x>
+      <y>75</y>
+      <width>60</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Y_Units_Label</name>
+      <text>Y Unit:</text>
+      <x>5</x>
+      <y>115</y>
+      <width>60</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Samples_Label</name>
+      <text>Samples:</text>
+      <x>5</x>
+      <y>155</y>
+      <width>60</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>X_Unit</name>
+      <pv_name>$(P):XUNIT_CH$(CHAN)</pv_name>
+      <x>5</x>
+      <y>95</y>
+      <width>30</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Unit</name>
+      <pv_name>$(P):YUNIT_CH$(CHAN)</pv_name>
+      <x>5</x>
+      <y>135</y>
+      <width>30</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Samples_Count</name>
+      <pv_name>$(P):SAMPLES_CH$(CHAN)</pv_name>
+      <x>5</x>
+      <y>175</y>
+      <width>60</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channel Statistics_1</name>
+    <x>10</x>
+    <y>584</y>
+    <width>700</width>
+    <height>80</height>
+    <style>2</style>
+    <background_color>
+      <color red="220" green="220" blue="220">
+      </color>
+    </background_color>
+    <widget type="textupdate" version="2.0.0">
+      <name>WFID_Value</name>
+      <pv_name>$(P):WFID_CH$(CHAN)</pv_name>
+      <x>10</x>
+      <y>9</y>
+      <width>479</width>
+      <height>60</height>
+      <background_color>
+        <color red="245" green="245" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>NR_PT_Label</name>
+      <text>Osc Points:</text>
+      <x>505</x>
+      <y>29</y>
+      <width>80</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>NR_PT_Value</name>
+      <pv_name>$(P):NR_PT_CH$(CHAN)</pv_name>
+      <x>599</x>
+      <y>29</y>
+      <width>70</width>
+      <background_color>
+        <color red="245" green="245" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="stripchart" version="2.1.0">
+    <name>Strip Chart</name>
+    <x>710</x>
+    <y>250</y>
+    <width>480</width>
+    <height>410</height>
+    <y_axes>
+      <y_axis>
+        <title>Y</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <y_pv>$(P):CHARGE_CH$(CHAN)</y_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channel Statistics_2</name>
+    <x>10</x>
+    <y>680</y>
+    <width>700</width>
+    <height>73</height>
+    <visible>false</visible>
+    <style>2</style>
+    <background_color>
+      <color red="220" green="220" blue="220">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Mean_Label_2</name>
+      <text>Mean:</text>
+      <x>10</x>
+      <y>39</y>
+      <width>40</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Mean_Value_2</name>
+      <pv_name>$(P):MATH_MEAN_CH$(CHAN)</pv_name>
+      <x>55</x>
+      <y>39</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Min_Label_2</name>
+      <text>Min:</text>
+      <x>145</x>
+      <y>39</y>
+      <width>30</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Min_Value_2</name>
+      <pv_name>$(P):MATH_MIN_CH$(CHAN)</pv_name>
+      <x>180</x>
+      <y>39</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Max_Label_2</name>
+      <text>Max:</text>
+      <x>270</x>
+      <y>39</y>
+      <width>30</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Max_Value_2</name>
+      <pv_name>$(P):MATH_MAX_CH$(CHAN)</pv_name>
+      <x>305</x>
+      <y>39</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RMS_Label_4</name>
+      <text>RMS:</text>
+      <x>395</x>
+      <y>39</y>
+      <width>35</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RMS_Value_2</name>
+      <pv_name>$(P):MATH_RMS_CH$(CHAN)</pv_name>
+      <x>435</x>
+      <y>39</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Integral_Label_2</name>
+      <text>Integral:</text>
+      <x>525</x>
+      <y>39</y>
+      <width>50</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Integral_Value_3</name>
+      <pv_name>$(P):MATH_INTEGRAL_CH$(CHAN)</pv_name>
+      <x>580</x>
+      <y>39</y>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Channel_Label_4</name>
+      <pv_name>$(P):LABEL_CH$(CHAN)</pv_name>
+      <x>10</x>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Marker_End_Entry_2</name>
+      <pv_name>$(P):COEFF_CH$(CHAN)</pv_name>
+      <x>435</x>
+      <width>80</width>
+      <height>25</height>
+      <format>3</format>
+      <precision>6</precision>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RMS_Label_5</name>
+      <text>COEFF:</text>
+      <x>385</x>
+      <y>4</y>
+      <width>64</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RMS_Label_6</name>
+      <text>Charge:</text>
+      <x>525</x>
+      <y>4</y>
+      <width>64</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Integral_Value_4</name>
+      <pv_name>$(P):MATH_CHARGE_CH$(CHAN)</pv_name>
+      <x>580</x>
+      <y>4</y>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Start_Label_4</name>
+      <text>Between markers</text>
+      <x>209</x>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Math</name>
+    <x>23</x>
+    <y>540</y>
+    <width>664</width>
+    <height>33</height>
+    <style>3</style>
+    <background_color>
+      <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Mean_Label</name>
+      <text>Mean:</text>
+      <y>11</y>
+      <width>40</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Mean_Value</name>
+      <pv_name>$(P):MEAN_CH$(CHAN)</pv_name>
+      <x>38</x>
+      <y>11</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Min_Label</name>
+      <text>Min:</text>
+      <x>128</x>
+      <y>11</y>
+      <width>30</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Min_Value</name>
+      <pv_name>$(P):MIN_CH$(CHAN)</pv_name>
+      <x>163</x>
+      <y>11</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Max_Label</name>
+      <text>Max:</text>
+      <x>253</x>
+      <y>11</y>
+      <width>30</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Max_Value</name>
+      <pv_name>$(P):MAX_CH$(CHAN)</pv_name>
+      <x>288</x>
+      <y>11</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RMS_Label</name>
+      <text>RMS:</text>
+      <x>378</x>
+      <y>11</y>
+      <width>35</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RMS_Value</name>
+      <pv_name>$(P):RMS_CH$(CHAN)</pv_name>
+      <x>418</x>
+      <y>11</y>
+      <width>80</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Integral_Label</name>
+      <text>Integral:</text>
+      <x>508</x>
+      <y>11</y>
+      <width>50</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Integral_Value</name>
+      <pv_name>$(P):INTEGRAL_CH$(CHAN)</pv_name>
+      <x>563</x>
+      <y>11</y>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>3</format>
+      <precision>3</precision>
+      <show_units>false</show_units>
+    </widget>
+  </widget>
+</display>

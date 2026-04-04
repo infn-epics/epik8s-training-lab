@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Charge Monitoring - CH$(CHANNEL)</name>
+  <width>1200</width>
+  <height>900</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Channel $(CHANNEL) - Charge Monitoring</text>
+    <x>10</x>
+    <y>10</y>
+    <width>1180</width>
+    <height>40</height>
+    <font>
+      <font family="Arial" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="128">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Current_Values</name>
+    <x>10</x>
+    <y>60</y>
+    <width>1180</width>
+    <height>180</height>
+    <style>2</style>
+    <background_color>
+      <color red="220" green="230" blue="250">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Values_Title</name>
+      <text>Current Values</text>
+      <x>10</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Measure_Label</name>
+      <text>Measurement:</text>
+      <x>20</x>
+      <y>40</y>
+      <width>150</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Measure_Value</name>
+      <pv_name>$(P):MEAS$(CHANNEL):VALUE</pv_name>
+      <x>180</x>
+      <y>35</y>
+      <width>200</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="200" green="255" blue="200">
+        </color>
+      </background_color>
+      <format>2</format>
+      <precision>6</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Coeff_Label</name>
+      <text>Coefficient:</text>
+      <x>520</x>
+      <y>40</y>
+      <width>120</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Coeff_Entry</name>
+      <pv_name>$(P):COEFF_CH$(CHANNEL)</pv_name>
+      <x>650</x>
+      <y>35</y>
+      <width>150</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Charge_Label</name>
+      <text>Charge:</text>
+      <x>20</x>
+      <y>90</y>
+      <width>150</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Charge_Value</name>
+      <pv_name>$(P):CHARGE_CH$(CHANNEL)</pv_name>
+      <x>180</x>
+      <y>85</y>
+      <width>200</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="240" blue="200">
+        </color>
+      </background_color>
+      <format>2</format>
+      <precision>9</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Charge_Day_Label</name>
+      <text>Daily Charge:</text>
+      <x>20</x>
+      <y>140</y>
+      <width>150</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="128" green="0" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Charge_Day_Value</name>
+      <pv_name>$(P):CHARGE_DAY_CH$(CHANNEL)</pv_name>
+      <x>180</x>
+      <y>135</y>
+      <width>200</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>2</format>
+      <precision>9</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Reset_Day_Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset Daily Charge</description>
+          <pv_name>$(P):RESET_CHARGE_DAY_CH$(CHANNEL)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Reset Daily Charge</text>
+      <x>520</x>
+      <y>135</y>
+      <width>180</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="150" blue="150">
+        </color>
+      </background_color>
+      <tooltip>Manually reset daily charge accumulator to zero</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Date_Label</name>
+      <text>Date:</text>
+      <x>750</x>
+      <y>140</y>
+      <width>60</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="11.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Date_Value</name>
+      <pv_name>$(P):current_date_$(CHANNEL)_</pv_name>
+      <x>820</x>
+      <y>140</y>
+      <width>120</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="11.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Charge_Chart_Group</name>
+    <x>10</x>
+    <y>250</y>
+    <width>1180</width>
+    <height>300</height>
+    <style>2</style>
+    <widget type="label" version="2.0.0">
+      <name>Chart1_Title</name>
+      <text>Charge History (Real-time)</text>
+      <x>10</x>
+      <y>5</y>
+      <width>400</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="stripchart" version="2.1.0">
+      <name>Charge_Stripchart</name>
+      <x>10</x>
+      <y>35</y>
+      <width>1160</width>
+      <height>255</height>
+      <title>Charge (C)</title>
+      <show_legend>true</show_legend>
+      <start>300.0</start>
+      <y_axes>
+        <y_axis>
+          <title>Charge (C)</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>true</show_grid>
+          <visible>true</visible>
+          <color>
+            <color name="Text" red="0" green="0" blue="0">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>Charge</name>
+          <y_pv>$(P):CHARGE_CH$(CHANNEL)</y_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="0" green="0" blue="255">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Daily_Charge_Chart_Group</name>
+    <x>10</x>
+    <y>560</y>
+    <width>1180</width>
+    <height>300</height>
+    <style>2</style>
+    <widget type="label" version="2.0.0">
+      <name>Chart2_Title</name>
+      <text>Daily Charge Accumulation</text>
+      <x>10</x>
+      <y>5</y>
+      <width>400</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="stripchart" version="2.1.0">
+      <name>Daily_Charge_Stripchart</name>
+      <x>10</x>
+      <y>35</y>
+      <width>1160</width>
+      <height>255</height>
+      <title>Cumulative Daily Charge (C)</title>
+      <show_legend>true</show_legend>
+      <start>3600.0</start>
+      <y_axes>
+        <y_axis>
+          <title>Cumulative Charge (C)</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>true</show_grid>
+          <visible>true</visible>
+          <color>
+            <color name="Text" red="0" green="0" blue="0">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>Daily Total</name>
+          <y_pv>$(P):CHARGE_DAY_CH$(CHANNEL)</y_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="255" green="0" blue="0">
+            </color>
+          </color>
+          <line_width>3</line_width>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+  </widget>
+</display>

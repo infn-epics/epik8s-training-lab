@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-18 15:42:16 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Cooling Display</name>
+  <width>520</width>
+  <height>570</height>
+  <scripts>
+    <script file="../Scripts/YAMLLoadDevicePopulateArray.py" check_connections="false">
+      <!-- <pv_name>loc://ZONE_$(LCID)&lt;VString&gt;($(ZONE))</pv_name>
+      <pv_name>loc://TYPE_$(LCID)&lt;VLong&gt;($(TYPE))</pv_name> -->
+    </script>
+  </scripts>
+  <widget type="embedded" version="2.0.0">
+    <name>element_template</name>
+    <y>270</y>
+    <width>520</width>
+    <height>30</height>
+    <visible>false</visible>
+    <file>cool_channel.bob</file>
+    <resize>2</resize>
+  </widget>
+</display>

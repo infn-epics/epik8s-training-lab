@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-10-24 19:15:16 by Alex-->
+<display version="2.0.0">
+  <width>1280</width>
+  <height>1024</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2</name>
+    <x>10</x>
+    <y>10</y>
+    <width>297</width>
+    <height>626</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+camera_widget = ScriptUtil.findWidgetByName(widget, 'Panel 2')
+
+macro_device = camera_widget.getEffectiveMacros().getValue('DEVICE')
+if macro_device is None:
+        raise Exception("La macro 'DEVICE' non è definita")
+macro_cam=camera_widget.getEffectiveMacros().getValue("CAM")
+if macro_cam is None:
+        raise Exception("La macro 'CAM' non è definita")
+prefis=macro_device+':'+macro_cam+":"
+tmpPv=prefis+"ArrayCounter_RBV" #serve per aggiornare il display in caso di variabili con valore uguale
+chosenImg="loc://"+prefis+"ChosenImg"
+pvChosen=PVUtil.createPV(chosenImg,1000)
+valore_pv =PVUtil.getInt(pvChosen)
+chosenOverlay="loc://"+prefis+"ChosenOverlay"
+pvOverlay=PVUtil.createPV(chosenOverlay,1000)
+overlayValue=PVUtil.getInt(pvOverlay) + 1
+
+added=""
+if valore_pv  == 1:
+	added="Roi1:"
+elif valore_pv  == 2:
+	added="Proc1:"
+elif valore_pv == 3:
+  added="Overlay%d:" % overlayValue
+
+prefis=macro_device+':'+macro_cam+":"+added
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Input Template_FileName")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FileName")
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_FileName")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FileName_RBV")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Input Template_Path")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FilePath")
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_Path")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FilePath_RBV")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Input Template_FileNumber")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FileNumber")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Input Template_NumCapture")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:NumCapture")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_NumCaptured")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:NumCaptured_RBV")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_NumCapture")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:NumCapture_RBV")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_FullFileName")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:FullFileName_RBV")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_Capture")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:Capture_RBV")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_WriteStatus")  # Ottiene il widget con ID
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:WriteStatus")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Text Update_WriteMessage")  
+tmpwidget.setPropertyValue('pv_name', tmpPv)
+tmpwidget.setPropertyValue('pv_name', prefis+"TIFF1:WriteMessage")
+
+tmpwidget = ScriptUtil.findWidgetByName(widget,"Label_Capture") 
+tmpwidget.setPropertyValue('text', "Capture "+(added[:-1] if added.endswith(":") else added or "Raw"))]]></text>
+  <pv_name>loc://$(DEVICE):$(CAM):ChosenImg</pv_name>
+  <pv_name>loc://$(DEVICE):$(CAM):ChosenOverlay</pv_name>
+      </script>
+    </scripts>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <x>7</x>
+      <y>15</y>
+      <width>269</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>TIFF</text>
+      <x>94</x>
+      <y>3</y>
+      <width>95</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_1</name>
+      <text>Capt. Status</text>
+      <x>2</x>
+      <y>477</y>
+      <width>63</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <tooltip>Capture status</tooltip>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_1</name>
+      <text>Save Message</text>
+      <x>1</x>
+      <y>547</y>
+      <width>74</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_Capture</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:Capture_RBV</pv_name>
+      <x>107</x>
+      <y>473</y>
+      <width>180</width>
+      <height>28</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <format>6</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+      <border_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_WriteMessage</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:WriteMessage</pv_name>
+      <x>2</x>
+      <y>571</y>
+      <width>285</width>
+      <height>49</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <format>6</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+      <border_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template_3</name>
+      <actions>
+        <action type="execute">
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+camera_widget = ScriptUtil.findWidgetByName(widget, 'Panel 2')
+
+macro_device = camera_widget.getEffectiveMacros().getValue('DEVICE')
+if macro_device is None:
+        raise Exception("La macro 'DEVICE' non è definita")
+macro_cam=camera_widget.getEffectiveMacros().getValue("CAM")
+if macro_cam is None:
+        raise Exception("La macro 'CAM' non è definita")
+prefis=macro_device+':'+macro_cam+":"
+chosenImg="loc://"+prefis+"ChosenImg"
+pvChosen=PVUtil.createPV(chosenImg,1000)
+valore_pv =PVUtil.getInt(pvChosen)
+chosenOverlay="loc://"+prefis+"ChosenOverlay"
+pvOverlay=PVUtil.createPV(chosenOverlay,1000)
+overlayValue=PVUtil.getInt(pvOverlay) + 1
+
+added=""
+if valore_pv  == 1:
+	added="Roi1:"
+elif valore_pv  == 2:
+	added="Proc1:"
+elif valore_pv == 3:
+  added="Overlay%d:" % overlayValue
+prefis=macro_device+':'+macro_cam+":"+added
+
+pname=prefis+"TIFF1:Capture"
+pv = PVUtil.createPV(pname,1000)
+pv.setValue(1)]]></text>
+          </script>
+          <description>Execute Script</description>
+        </action>
+      </actions>
+      <text>Start</text>
+      <x>8</x>
+      <y>325</y>
+      <width>138</width>
+      <height>40</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template_3</name>
+      <actions execute_as_one="true">
+        <action type="execute">
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+camera_widget = ScriptUtil.findWidgetByName(widget, 'Panel 2')
+
+macro_device = camera_widget.getEffectiveMacros().getValue('DEVICE')
+if macro_device is None:
+        raise Exception("La macro 'DEVICE' non è definita")
+macro_cam=camera_widget.getEffectiveMacros().getValue("CAM")
+if macro_cam is None:
+        raise Exception("La macro 'CAM' non è definita")
+prefis=macro_device+':'+macro_cam+":"
+chosenImg="loc://"+prefis+"ChosenImg"
+pvChosen=PVUtil.createPV(chosenImg,1000)
+valore_pv =PVUtil.getInt(pvChosen)
+chosenOverlay="loc://"+prefis+"ChosenOverlay"
+pvOverlay=PVUtil.createPV(chosenOverlay,1000)
+overlayValue=PVUtil.getInt(pvOverlay) + 1
+
+added=""
+if valore_pv  == 1:
+	added="Roi1:"
+elif valore_pv  == 2:
+	added="Proc1:"
+elif valore_pv == 3:
+  added="Overlay%d:" % overlayValue
+prefis=macro_device+':'+macro_cam+":"+added
+
+pname=prefis+"TIFF1:Capture"
+pv = PVUtil.createPV(pname,1000)
+pv.setValue(0)]]></text>
+          </script>
+          <description>Execute Script</description>
+        </action>
+      </actions>
+      <text>Stop</text>
+      <x>150</x>
+      <y>325</y>
+      <width>138</width>
+      <height>40</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_1</name>
+      <text>Save Status</text>
+      <x>5</x>
+      <y>516</y>
+      <width>60</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_WriteStatus</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:WriteStatus</pv_name>
+      <x>107</x>
+      <y>512</y>
+      <width>180</width>
+      <height>28</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <format>6</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+      <border_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <x>7</x>
+      <y>257</y>
+      <width>269</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Capture</name>
+      <text>Capture</text>
+      <x>94</x>
+      <y>245</y>
+      <width>95</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input Template_FileName</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:FileName</pv_name>
+      <x>88</x>
+      <y>117</y>
+      <width>198</width>
+      <height>26</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO OutputPV Fg" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions execute_as_one="true">
+      </actions>
+      <border_width>2</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_1</name>
+      <text>File Name</text>
+      <x>1</x>
+      <y>120</y>
+      <width>53</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input Template_FileNumber</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:FileNumber</pv_name>
+      <x>88</x>
+      <y>192</y>
+      <width>198</width>
+      <height>26</height>
+      <font>
+        <font family="Sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO OutputPV Fg" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <border_width>2</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_3</name>
+      <text>#File</text>
+      <x>42</x>
+      <y>195</y>
+      <width>25</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <tooltip>Next file number</tooltip>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input Template_NumCapture</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:NumCapture</pv_name>
+      <x>88</x>
+      <y>287</y>
+      <width>198</width>
+      <height>26</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO OutputPV Fg" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions execute_as_one="true">
+      </actions>
+      <border_width>2</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_1</name>
+      <text>#Images</text>
+      <x>7</x>
+      <y>290</y>
+      <width>45</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <tooltip>Number of images to capture</tooltip>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input Template_Path</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
+      <x>88</x>
+      <y>42</y>
+      <width>198</width>
+      <height>26</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO OutputPV Fg" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions execute_as_one="true">
+      </actions>
+      <border_width>2</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template</name>
+      <text>Save Path</text>
+      <x>1</x>
+      <y>45</y>
+      <width>51</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_1</name>
+      <text>Last File Saved</text>
+      <x>1</x>
+      <y>412</y>
+      <width>77</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_FullFileName</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:FullFileName_RBV</pv_name>
+      <x>2</x>
+      <y>433</y>
+      <width>285</width>
+      <height>28</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <format>6</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+      <border_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_8</name>
+      <text>#Image</text>
+      <x>9</x>
+      <y>380</y>
+      <width>40</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_NumCaptured</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:NumCaptured_RBV</pv_name>
+      <x>79</x>
+      <y>376</y>
+      <width>98</width>
+      <height>28</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+      <border_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_NumCapture</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:NumCapture_RBV</pv_name>
+      <x>189</x>
+      <y>376</y>
+      <width>98</width>
+      <height>28</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+      <border_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_8</name>
+      <text>/</text>
+      <x>180</x>
+      <y>381</y>
+      <width>5</width>
+      <height>16</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_Path</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
+      <x>87</x>
+      <y>76</y>
+      <width>200</width>
+      <height>28</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <format>6</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+      <border_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_FileName</name>
+      <pv_name>$(DEVICE):$(CAM):TIFF1:FileName_RBV</pv_name>
+      <x>87</x>
+      <y>151</y>
+      <width>200</width>
+      <height>28</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <format>6</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+      <border_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+</display>

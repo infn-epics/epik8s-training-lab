@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-21 17:04:39 by andreamichelotti-->
+<display version="2.0.0">
+  <name>ApplyMainDisplay</name>
+  <width>720</width>
+  <height>1090</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Load Dataset</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="fileselector" version="2.0.0">
+    <name>Load</name>
+    <pv_name>loc://confload-$(DID)&lt;VString&gt;("")</pv_name>
+    <x>10</x>
+    <y>50</y>
+    <width>100</width>
+    <height>20</height>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <class>COMMENT</class>
+    <text>Choose Configuration</text>
+    <x>10</x>
+    <y>31</y>
+    <width>140</width>
+    <font use_class="true">
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <wrap_words use_class="true">true</wrap_words>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>confload</name>
+    <pv_name>loc://confload-${DID}&lt;VString&gt;("")</pv_name>
+    <x>140</x>
+    <y>51</y>
+    <width>400</width>
+    <height>17</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>DataSet</name>
+    <x>10</x>
+    <y>110</y>
+    <width>710</width>
+    <height>980</height>
+    <widget type="embedded" version="2.0.0">
+      <name>Display-apply</name>
+      <file>loaddisplay.bob</file>
+      <x>2</x>
+      <y>12</y>
+      <width>660</width>
+      <height>840</height>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>LoadSetting</name>
+    <actions execute_as_one="true">
+      <action type="execute">
+        <description>Apply Dataset</description>
+        <script file="Scripts/ApplyDataset.py">
+        </script>
+      </action>
+    </actions>
+    <pv_name>loc://confload-${DID}&lt;VString&gt;()</pv_name>
+    <text>Apply</text>
+    <x>10</x>
+    <y>80</y>
+    <rules>
+      <rule name="visibility" prop_id="enabled" out_exp="false">
+        <exp bool_exp="len(pvStr0)&gt;0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="len(pvStr0)==0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(pv_name)</pv_name>
+      </rule>
+    </rules>
+    <tooltip>$(actions)</tooltip>
+    <enabled>false</enabled>
+  </widget>
+</display>

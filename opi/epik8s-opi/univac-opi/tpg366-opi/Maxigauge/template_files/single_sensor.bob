@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-10-25 18:32:29 by valentinadompe-->
+<display version="2.0.0">
+  <name>single_sensor</name>
+  <width>350</width>
+  <height>220</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>15</grid_step_x>
+  <grid_step_y>15</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>Device</name>
+    <width>349</width>
+    <height>91</height>
+    <visible>false</visible>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(BL):$(DEV):GetDevTemp</pv_name>
+      <x>192</x>
+      <y>6</y>
+      <width>55</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>$(DEV) Temperature</text>
+      <x>6</x>
+      <y>6</y>
+      <width>155</width>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(BL):$(DEV):GetPRE</pv_name>
+      <x>252</x>
+      <y>30</y>
+      <width>55</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>$(DEV) Pirani Extension</text>
+      <x>6</x>
+      <y>30</y>
+      <width>187</width>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Menu Button</name>
+      <pv_name>$(BL):$(DEV):SetPRE</pv_name>
+      <x>192</x>
+      <y>30</y>
+      <width>55</width>
+      <height>20</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channel $(CH)</name>
+    <width>313</width>
+    <height>220</height>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_14</name>
+      <pv_name>$(CONTROLLER):PRESSURE$(CH)</pv_name>
+      <x>112</x>
+      <y>124</y>
+      <width>147</width>
+      <height>26</height>
+      <format>3</format>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_30</name>
+      <pv_name>$(CONTROLLER):NAME$(CH)</pv_name>
+      <x>167</x>
+      <y>9</y>
+      <height>18</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_23</name>
+      <text>Pressure:</text>
+      <x>8</x>
+      <y>129</y>
+      <width>78</width>
+      <height>18</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Status</name>
+      <y>35</y>
+      <width>278</width>
+      <height>83</height>
+      <transparent>true</transparent>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_3</name>
+        <pv_name>$(CONTROLLER):ONOFF$(CH)</pv_name>
+        <x>4</x>
+        <y>4</y>
+        <width>45</width>
+        <height>45</height>
+        <off_label>OFF</off_label>
+        <off_color>
+          <color name="Grid" red="128" green="128" blue="128">
+          </color>
+        </off_color>
+        <on_label>ON</on_label>
+        <on_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </on_color>
+        <show_led>false</show_led>
+        <labels_from_pv>true</labels_from_pv>
+      </widget>
+      <widget type="multi_state_led" version="2.0.0">
+        <name>LED (Multi State)_2</name>
+        <pv_name>$(CONTROLLER):ONOFFG$(CH)</pv_name>
+        <x>59</x>
+        <y>4</y>
+        <width>45</width>
+        <height>45</height>
+        <states>
+          <state>
+            <value>0</value>
+            <label></label>
+            <color>
+              <color name="Off" red="60" green="100" blue="60">
+              </color>
+            </color>
+          </state>
+          <state>
+            <value>1</value>
+            <label></label>
+            <color>
+              <color name="On" red="0" green="255" blue="0">
+              </color>
+            </color>
+          </state>
+          <state>
+            <value>2</value>
+            <label></label>
+            <color>
+              <color name="Button_Background" red="210" green="210" blue="210">
+              </color>
+            </color>
+          </state>
+        </states>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_49</name>
+        <pv_name>$(CONTROLLER):STATUS$(CH)</pv_name>
+        <x>113</x>
+        <y>13</y>
+        <width>116</width>
+        <height>26</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <wrap_words>false</wrap_words>
+        <actions>
+        </actions>
+        <border_color>
+          <color red="0" green="128" blue="255">
+          </color>
+        </border_color>
+      </widget>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_20</name>
+      <text>Sensor type:</text>
+      <x>8</x>
+      <y>159</y>
+      <width>94</width>
+      <height>18</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_47</name>
+      <pv_name>$(CONTROLLER):TYPE$(CH)</pv_name>
+      <x>112</x>
+      <y>153</y>
+      <width>147</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_3</name>
+      <pv_name>$(CONTROLLER):SENSOR$(CH)-NAME</pv_name>
+      <x>22</x>
+      <y>9</y>
+      <width>125</width>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <transparent>true</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>-</text>
+      <x>150</x>
+      <y>9</y>
+      <width>10</width>
+    </widget>
+  </widget>
+</display>

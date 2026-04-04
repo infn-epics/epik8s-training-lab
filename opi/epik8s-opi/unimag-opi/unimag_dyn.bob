@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-11-20 18:14:14 by andreamichelotti-->
+<display version="2.0.0">
+  <name>UNIMAG</name>
+  <width>810</width>
+  <height>910</height>
+  <scripts>
+    <script file="scripts/LoadZoneTypes.py">
+      <pv_name trigger="false">loc://maginfo-${DID}&lt;VString&gt;("")</pv_name>
+      <pv_name trigger="false">loc://zone-${DID}&lt;VString&gt;("all")</pv_name>
+      <pv_name trigger="false">loc://magtype-${DID}&lt;VString&gt;("all")</pv_name>
+    </script>
+  </scripts>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>UniMag $(TITLE)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Zone</text>
+    <y>55</y>
+    <width>70</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Mag Type</text>
+    <x>180</x>
+    <y>55</y>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Zonecombo</name>
+    <pv_name>loc://zone-${DID}&lt;VString&gt;("all")</pv_name>
+    <x>40</x>
+    <y>55</y>
+    <height>20</height>
+    <items_from_pv>false</items_from_pv>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Typecombo</name>
+    <pv_name>loc://magtype-${DID}&lt;VString&gt;("all")</pv_name>
+    <x>260</x>
+    <y>55</y>
+    <height>20</height>
+    <items_from_pv>false</items_from_pv>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_16</name>
+    <text>Element</text>
+    <x>10</x>
+    <y>90</y>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_17</name>
+    <text>Current</text>
+    <x>145</x>
+    <y>90</y>
+    <width>120</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_18</name>
+    <text>Settings</text>
+    <x>500</x>
+    <y>90</y>
+    <width>57</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_19</name>
+    <text>conf: $(CONFFILE)</text>
+    <y>31</y>
+    <width>300</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>MagnetArray</name>
+    <file>magnet-array.bob</file>
+    <x>10</x>
+    <y>110</y>
+    <width>800</width>
+    <height>800</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Documentation_1</name>
+    <actions>
+      <action type="open_display">
+        <file>loadMagnets.bob</file>
+        <target>window</target>
+        <description>Load Dataset</description>
+      </action>
+    </actions>
+    <x>390</x>
+    <y>55</y>
+    <width>140</width>
+    <height>20</height>
+    <font>
+      <font family="Arial" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+    <confirm_message>Are you sure your system is configured to access external web pages?</confirm_message>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Documentation_2</name>
+    <actions>
+      <action type="open_webpage">
+        <url>https://confluence.infn.it/display/SCS/Magnet+SoftIOC+Devil+Wrapper</url>
+        <description>Confluence Documentation</description>
+      </action>
+    </actions>
+    <x>550</x>
+    <y>55</y>
+    <width>200</width>
+    <height>19</height>
+    <font>
+      <font family="Arial" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+    <show_confirm_dialog>true</show_confirm_dialog>
+    <confirm_message>Are you sure your system is configured to access external web pages?</confirm_message>
+  </widget>
+</display>

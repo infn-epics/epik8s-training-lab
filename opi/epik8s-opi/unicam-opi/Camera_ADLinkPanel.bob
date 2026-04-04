@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-10-21 11:48:55 by andreamichelotti-->
+<display version="2.0.0">
+  <width>1280</width>
+  <height>1024</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2</name>
+    <x>10</x>
+    <y>10</y>
+    <width>275</width>
+    <height>395</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Label Orientation_3</name>
+      <text></text>
+      <x>55</x>
+      <y>25</y>
+      <width>0</width>
+      <height>14</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <x>5</x>
+      <y>12</y>
+      <width>270</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template_4</name>
+      <actions execute_as_one="true">
+        <action type="open_display">
+          <file>genicam/NDFileTIFF.bob</file>
+          <macros>
+            <P>$(DEVICE):$(CAM):</P>
+            <R>TIFF1:</R>
+          </macros>
+          <target>tab</target>
+          <description>Open Display</description>
+        </action>
+      </actions>
+      <text>NDFileTIFF</text>
+      <x>80</x>
+      <y>180</y>
+      <width>120</width>
+      <height>40</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO 80K Helium Supply" red="255" green="153" blue="204">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template</name>
+      <actions>
+        <action type="open_display">
+          <file>genicam/ADBase.bob</file>
+          <macros>
+            <P>$(DEVICE):$(CAM):</P>
+            <R></R>
+          </macros>
+          <target>tab</target>
+          <description>Open Display</description>
+        </action>
+      </actions>
+      <text>ADBase</text>
+      <x>80</x>
+      <y>90</y>
+      <width>120</width>
+      <height>40</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO 80K Helium Supply" red="255" green="153" blue="204">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>AreaDetector</text>
+      <x>65</x>
+      <width>149</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template_6</name>
+      <actions>
+        <action type="open_display">
+          <file>genicam/NDStdArrays.bob</file>
+          <macros>
+            <P>$(DEVICE):$(CAM):</P>
+            <R>TIFF1:</R>
+          </macros>
+          <target>tab</target>
+          <description>Open Display</description>
+        </action>
+      </actions>
+      <text>NDStdArrays</text>
+      <x>80</x>
+      <y>135</y>
+      <width>120</width>
+      <height>40</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO 80K Helium Supply" red="255" green="153" blue="204">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template_1</name>
+      <actions>
+        <action type="open_display">
+          <file>genicam/ADAravis.bob</file>
+          <macros>
+            <P>$(DEVICE):$(CAM):</P>
+            <R></R>
+            <C>$(HW)</C>
+          </macros>
+          <target>window</target>
+          <description>Open Display</description>
+        </action>
+      </actions>
+      <text>Full Control</text>
+      <x>25</x>
+      <y>285</y>
+      <width>220</width>
+      <height>40</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO 80K Helium Supply" red="255" green="153" blue="204">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template_5</name>
+      <actions execute_as_one="true">
+        <action type="open_display">
+          <file>simDetector.bob</file>
+          <macros>
+            <P>$(DEVICE):$(CAM):</P>
+            <R></R>
+          </macros>
+          <target>tab</target>
+          <description>Open Display</description>
+        </action>
+      </actions>
+      <text>Simulated Cam</text>
+      <x>5</x>
+      <y>345</y>
+      <width>110</width>
+      <height>40</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO 80K Helium Supply" red="255" green="153" blue="204">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button Template_7</name>
+      <actions execute_as_one="true">
+        <action type="open_display">
+          <file>simDetectorSetup.bob</file>
+          <macros>
+            <P>$(DEVICE):$(CAM):</P>
+            <R></R>
+          </macros>
+          <target>tab</target>
+          <description>Open Display</description>
+        </action>
+      </actions>
+      <text>Simulated Image</text>
+      <x>135</x>
+      <y>345</y>
+      <width>110</width>
+      <height>40</height>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO 80K Helium Supply" red="255" green="153" blue="204">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+</display>

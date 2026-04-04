@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-11-18 14:21:15 by andreamichelotti-->
+<display version="2.0.0">
+  <name>MagnetChannel</name>
+  <width>729</width>
+  <height>30</height>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_5</name>
+    <x>129</x>
+    <width>321</width>
+    <height>30</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="Grid" red="128" green="128" blue="128">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(R):current_rb</pv_name>
+    <x>134</x>
+    <y>6</y>
+    <width>95</width>
+    <precision>3</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="symbol" version="2.0.0">
+    <name>Mode</name>
+    <pv_name>$(P):$(R):state_rb</pv_name>
+    <symbols>
+      <symbol>icons/icons-2407/off.png</symbol>
+      <symbol>icons/icons-2407/oper.png</symbol>
+      <symbol>icons/icons-2407/stby.png</symbol>
+      <symbol>icons/icons-2407/none.png</symbol>
+      <symbol>icons/icons-2407/bad.png</symbol>
+      <symbol>icons/icons-2407/fault.png</symbol>
+    </symbols>
+    <x>300</x>
+    <y>3</y>
+    <width>40</width>
+    <height>23</height>
+    <tooltip>$(pv_name)
+$(pv_value)
+$(actions)</tooltip>
+    <fallback_symbol>icons/fault.png</fallback_symbol>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_4</name>
+    <width>129</width>
+    <height>30</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="Grid" red="128" green="128" blue="128">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>$(R)</text>
+    <x>4</x>
+    <y>6</y>
+    <width>125</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(P):$(R):state_rb</pv_name>
+    <x>353</x>
+    <y>6</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_6</name>
+    <x>450</x>
+    <width>279</width>
+    <height>30</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="Grid" red="128" green="128" blue="128">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>entryCurrent</name>
+    <pv_name>$(P):$(R):current</pv_name>
+    <x>460</x>
+    <y>6</y>
+    <width>61</width>
+    <precision>3</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo Box</name>
+    <pv_name>$(P):$(R):state</pv_name>
+    <x>540</x>
+    <y>6</y>
+    <width>70</width>
+    <height>24</height>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Picture</name>
+    <x>250</x>
+    <y>4</y>
+    <width>40</width>
+    <height>23</height>
+    <rules>
+      <rule name="image" prop_id="file" out_exp="false">
+        <exp bool_exp="pv0&lt;0">
+          <value>icons/icons-2407/neg.png</value>
+        </exp>
+        <exp bool_exp="pv0&gt;0">
+          <value>icons/icons-2407/pos.png</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>icons/icons-2407/open.png</value>
+        </exp>
+        <pv_name>$(P):$(R):current_rb</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Picture_3</name>
+    <file>icons/icons-2407/open.png</file>
+    <x>650</x>
+    <y>4</y>
+    <width>40</width>
+    <height>23</height>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):$(R):current</pv_name>
+        <value>0</value>
+        <description>Current to zero</description>
+      </action>
+      <action type="write_pv">
+        <pv_name>$(P):$(R):state</pv_name>
+        <value>2</value>
+        <description>Stand by</description>
+      </action>
+    </actions>
+    <rules>
+      <rule name="image" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0&lt;0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0&gt;0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):$(R):current_rb</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="symbol" version="2.0.0">
+    <name>Picture_4</name>
+    <symbols>
+      <symbol>icons/icons-2407/pos.png</symbol>
+    </symbols>
+    <x>680</x>
+    <y>4</y>
+    <width>40</width>
+    <height>23</height>
+    <background_color>
+      <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <pv_name>$(P):$(R):current</pv_name>
+        <value>2</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
+    <rules>
+      <rule name="image" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0&lt;0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0&gt;0">
+          <value>false</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):$(R):current_rb</pv_name>
+      </rule>
+    </rules>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+pv0 = PVUtil.getDouble(pvs[0])
+
+if pv0 < 0:
+	 pvs[1].write(-pvs[0])
+	]]></text>
+        <pv_name>$(P):$(R):current_rb</pv_name>
+        <pv_name>loc://$(P):$(R):$(DID):current_inv</pv_name>
+      </script>
+    </scripts>
+    <tooltip>$(pv_name)
+$(pv_value)
+$(actions)</tooltip>
+  </widget>
+  <widget type="symbol" version="2.0.0">
+    <name>Picture_5</name>
+    <symbols>
+      <symbol>icons/icons-2407/neg.png</symbol>
+    </symbols>
+    <x>620</x>
+    <y>4</y>
+    <width>40</width>
+    <height>23</height>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):$(R):current</pv_name>
+        <value>loc://$(P):$(R):$(DID):current_neg_inv</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
+    <rules>
+      <rule name="image" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0&lt;0">
+          <value>false</value>
+        </exp>
+        <exp bool_exp="pv0&gt;0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P):$(R):current_rb</pv_name>
+      </rule>
+    </rules>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+pv0 = PVUtil.getDouble(pvs[0])
+
+if pv0 < 0:
+	 pvs[1].write(-pvs[0])
+	]]></text>
+        <pv_name>$(P):$(R):current_rb</pv_name>
+        <pv_name>loc://$(P):$(R):$(DID):current_neg_inv</pv_name>
+      </script>
+    </scripts>
+    <tooltip>$(pv_name)
+$(pv_value)
+$(actions)</tooltip>
+  </widget>
+</display>

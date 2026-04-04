@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <width>780</width>
+  <height>60</height>
+  <widget type="group" version="3.0.0">
+    <name>POI_$(ID)</name>
+    <width>780</width>
+    <height>60</height>
+    <widget type="label" version="2.0.0">
+      <name>Index0</name>
+      <text>0</text>
+      <width>60</width>
+      <height>25</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Name0</name>
+      <pv_name>$(P):$(R):POI$(ID)_NAME</pv_name>
+      <x>80</x>
+      <width>250</width>
+      <height>25</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Pos0</name>
+      <pv_name>$(P):$(R):POI$(ID)_POS</pv_name>
+      <x>340</x>
+      <width>180</width>
+      <height>25</height>
+      <format>1</format>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>At0</name>
+      <pv_name>$(P):$(R):POI$(ID)_AT</pv_name>
+      <x>542</x>
+      <width>30</width>
+      <height>25</height>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Go0</name>
+      <actions>
+        <action type="write_pv">
+          <description>Select POI $(ID)</description>
+          <pv_name>$(P):$(R):POI_SEL</pv_name>
+          <value>$(ID)</value>
+        </action>
+        <action type="write_pv">
+          <description>Go to POI $(ID)</description>
+          <pv_name>$(P):$(R):POI_GO</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Go</text>
+      <x>622</x>
+      <width>130</width>
+      <height>25</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+</display>

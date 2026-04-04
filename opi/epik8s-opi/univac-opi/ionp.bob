@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-01-13 19:01:57 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>115</width>
+  <height>128</height>
+  <widget type="textupdate" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <pv_name>$(P):$(R):press_RB</pv_name>
+    <y>27</y>
+    <width>115</width>
+    <height>31</height>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <format>3</format>
+  </widget>
+  <widget type="symbol" version="2.0.0">
+    <name>Symbol</name>
+    <symbols>
+      <symbol>img/ionpump.svg</symbol>
+    </symbols>
+    <y>39</y>
+    <width>90</width>
+    <background_color>
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <actions>
+      <action type="open_display">
+        <file>histoval.bob</file>
+        <target>window</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <run_actions_on_mouse_click>true</run_actions_on_mouse_click>
+    <tooltip>$(pv_name)
+$(pv_value)
+$(actions)</tooltip>
+    <fallback_symbol>ionpump.svg</fallback_symbol>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <class>TITLE</class>
+    <text>$(R)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>115</width>
+    <height>25</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+</display>

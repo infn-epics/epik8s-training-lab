@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-06-26 17:06:23 by riccardo-->
+<display version="2.0.0">
+  <name>MAGterminal</name>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>MAG Terminal</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>ZoneList</name>
+    <pv_name>loc://zoneName("All")</pv_name>
+    <x>90</x>
+    <y>60</y>
+    <width>140</width>
+    <height>40</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <items>
+      <item>All</item>
+      <item>Linac</item>
+      <item>FEL</item>
+      <item>SABINA</item>
+      <item>EXIN</item>
+    </items>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>ClassList</name>
+    <pv_name>loc://ClassName("All")</pv_name>
+    <x>250</x>
+    <y>60</y>
+    <width>140</width>
+    <height>40</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <items>
+      <item>All</item>
+      <item>Correctors</item>
+      <item>Quadrupoles</item>
+      <item>Solenoids</item>
+      <item>Dipoles</item>
+      <item>Sextupoles</item>
+    </items>
+  </widget>
+</display>

@@ -1,0 +1,1367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-12-04 15:52:53 by riccardoesposito-->
+<display version="2.0.0">
+  <name>CompactCamera</name>
+  <width>900</width>
+  <actions>
+  </actions>
+  <widget type="image" version="2.0.0">
+    <name>CameraImage</name>
+    <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
+    <x>270</x>
+    <y>50</y>
+    <width>630</width>
+    <height>505</height>
+    <show_toolbar>true</show_toolbar>
+    <rules>
+      <rule name="interactive" prop_id="rois[0].interactive" out_exp="false">
+        <exp bool_exp="pv0&lt;1">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://roi_interactive(1)</pv_name>
+      </rule>
+    </rules>
+    <scripts>
+      <script file="Scripts/ImageScale.py">
+        <pv_name>loc://max_cmap</pv_name>
+      </script>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+# Get the value from the PV (first in the PV bindings list)
+show_roi = PVUtil.getDouble(pvs[0])
+
+# Set visibility
+if show_roi==0: 
+	 widget.setPropertyValue('rois[0].visible', False)
+else:
+	 widget.setPropertyValue('rois[0].visible', True)]]></text>
+        <pv_name>loc://showROI</pv_name>
+      </script>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+autoscale_value = PVUtil.getDouble(pvs[0])
+# Set auto-scale based on PV
+if autoscale_value==0: 
+	widget.setPropertyValue("autoscale", False)
+else:
+	widget.setPropertyValue("autoscale", True)
+]]></text>
+        <pv_name>loc://autoScale</pv_name>
+      </script>
+    </scripts>
+    <limits_from_pv>true</limits_from_pv>
+    <unsigned>true</unsigned>
+    <autoscale>false</autoscale>
+    <maximum>4095.0</maximum>
+    <cursor_info_pv>loc://cursor_info</cursor_info_pv>
+    <x_pv>loc://cursor_x</x_pv>
+    <y_pv>loc://cursor_y</y_pv>
+    <rois>
+      <roi>
+        <name>imageROI</name>
+        <color>
+          <color red="255" green="168" blue="0">
+          </color>
+        </color>
+        <visible>true</visible>
+        <interactive>true</interactive>
+        <x_pv>loc://roi_x(20)</x_pv>
+        <y_pv>loc://roi_y(20)</y_pv>
+        <width_pv>loc://roi_w(100)</width_pv>
+        <height_pv>loc://roi_h(100)</height_pv>
+        <file></file>
+      </roi>
+    </rois>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Acquire</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>8</x>
+            <y>13</y>
+            <width>250</width>
+            <height>113</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>Label Template_1</name>
+              <text>Status</text>
+              <x>10</x>
+              <width>40</width>
+              <height>16</height>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO Background" red="255" green="255" blue="205">
+                </color>
+              </background_color>
+              <vertical_alignment>1</vertical_alignment>
+              <auto_size>true</auto_size>
+              <actions>
+              </actions>
+              <border_color>
+                <color name="IO Border" red="215" green="215" blue="215">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>Stop</name>
+              <actions execute_as_one="true">
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
+                  <value>0</value>
+                </action>
+              </actions>
+              <text>Stop</text>
+              <x>130</x>
+              <y>70</y>
+              <width>120</width>
+              <height>40</height>
+              <font>
+                <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+                </font>
+              </font>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO Grid" red="215" green="215" blue="215">
+                </color>
+              </background_color>
+              <rules>
+                <rule name="visibility" prop_id="enabled" out_exp="false">
+                  <exp bool_exp="pv0==1">
+                    <value>true</value>
+                  </exp>
+                  <exp bool_exp="pv0==0">
+                    <value>false</value>
+                  </exp>
+                  <pv_name>$(DEVICE):$(CAM):Acquire_RBV</pv_name>
+                </rule>
+              </rules>
+              <tooltip></tooltip>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update Template</name>
+              <pv_name>$(DEVICE):$(CAM):DetectorState_RBV</pv_name>
+              <x>80</x>
+              <width>163</width>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="Background" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+              <actions>
+              </actions>
+              <border_width>1</border_width>
+              <border_color>
+                <color name="IO PV OFF" red="77" green="77" blue="77">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>Start Button_1</name>
+              <actions execute_as_one="true">
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
+                  <value>1</value>
+                </action>
+                <action type="write_pv">
+                  <description>Write PV</description>
+                  <pv_name>$(DEVICE):$(CAM):ArrayCounter</pv_name>
+                  <value>0</value>
+                </action>
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
+                  <value>1</value>
+                </action>
+              </actions>
+              <text>Start</text>
+              <y>70</y>
+              <width>120</width>
+              <height>40</height>
+              <font>
+                <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+                </font>
+              </font>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO Grid" red="215" green="215" blue="215">
+                </color>
+              </background_color>
+              <rules>
+                <rule name="visibility" prop_id="enabled" out_exp="false">
+                  <exp bool_exp="pv0==1">
+                    <value>false</value>
+                  </exp>
+                  <exp bool_exp="pv0==0">
+                    <value>true</value>
+                  </exp>
+                  <pv_name>$(DEVICE):$(CAM):Acquire_RBV</pv_name>
+                </rule>
+              </rules>
+              <tooltip></tooltip>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label Template_2</name>
+              <text>Acquisition</text>
+              <y>40</y>
+              <width>68</width>
+              <height>16</height>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO Background" red="255" green="255" blue="205">
+                </color>
+              </background_color>
+              <vertical_alignment>1</vertical_alignment>
+              <auto_size>true</auto_size>
+              <actions>
+              </actions>
+              <border_color>
+                <color name="IO Border" red="215" green="215" blue="215">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="combo" version="2.0.0">
+              <name>Combo</name>
+              <pv_name>$(DEVICE):$(CAM):ImageMode</pv_name>
+              <x>80</x>
+              <y>30</y>
+              <width>135</width>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO OutputPV Fg" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <actions>
+              </actions>
+            </widget>
+            <widget type="led" version="2.0.0">
+              <name>LED_1</name>
+              <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
+              <x>220</x>
+              <y>30</y>
+              <width>30</width>
+              <height>30</height>
+              <off_color>
+                <color name="STOP" red="255" green="0" blue="0">
+                </color>
+              </off_color>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>8</x>
+            <y>133</y>
+            <width>250</width>
+            <height>63</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>Label Template_3</name>
+              <text>Counter</text>
+              <y>10</y>
+              <width>50</width>
+              <height>16</height>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO Background" red="255" green="255" blue="205">
+                </color>
+              </background_color>
+              <vertical_alignment>1</vertical_alignment>
+              <auto_size>true</auto_size>
+              <actions>
+              </actions>
+              <border_color>
+                <color name="IO Border" red="215" green="215" blue="215">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update Template_1</name>
+              <pv_name>$(DEVICE):$(CAM):ArrayCounter_RBV</pv_name>
+              <x>60</x>
+              <width>190</width>
+              <height>28</height>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="Background" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+              <actions>
+              </actions>
+              <border_width>1</border_width>
+              <border_color>
+                <color name="IO PV OFF" red="77" green="77" blue="77">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update Template_2</name>
+              <pv_name>$(DEVICE):$(CAM):ArrayRate_RBV</pv_name>
+              <x>60</x>
+              <y>35</y>
+              <width>80</width>
+              <height>28</height>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="Background" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <precision>0</precision>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+              <actions>
+              </actions>
+              <border_width>1</border_width>
+              <border_color>
+                <color name="IO PV OFF" red="77" green="77" blue="77">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label Template_4</name>
+              <text>Rate</text>
+              <y>40</y>
+              <width>30</width>
+              <height>16</height>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO Background" red="255" green="255" blue="205">
+                </color>
+              </background_color>
+              <vertical_alignment>1</vertical_alignment>
+              <auto_size>true</auto_size>
+              <actions>
+              </actions>
+              <border_color>
+                <color name="IO Border" red="215" green="215" blue="215">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="checkbox" version="2.0.0">
+              <name>Check Box_2</name>
+              <pv_name>loc://autoScale(0)</pv_name>
+              <label>AutoScale</label>
+              <x>160</x>
+              <y>40</y>
+              <width>90</width>
+              <actions>
+              </actions>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>8</x>
+            <y>203</y>
+            <width>220</width>
+            <height>114</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>Label Template_7</name>
+              <text>Exp Time (ms)</text>
+              <x>2</x>
+              <y>65</y>
+              <width>91</width>
+              <height>16</height>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO Background" red="255" green="255" blue="205">
+                </color>
+              </background_color>
+              <vertical_alignment>1</vertical_alignment>
+              <auto_size>true</auto_size>
+              <actions>
+              </actions>
+              <border_color>
+                <color name="IO Border" red="215" green="215" blue="215">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label Template_8</name>
+              <text>Gain</text>
+              <x>20</x>
+              <y>7</y>
+              <width>30</width>
+              <height>16</height>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO Background" red="255" green="255" blue="205">
+                </color>
+              </background_color>
+              <vertical_alignment>1</vertical_alignment>
+              <auto_size>true</auto_size>
+              <actions>
+              </actions>
+              <border_color>
+                <color name="IO Border" red="215" green="215" blue="215">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner Template_5</name>
+              <pv_name>$(DEVICE):$(CAM):Gain</pv_name>
+              <y>30</y>
+              <width>90</width>
+              <height>30</height>
+              <format>0</format>
+              <precision>0</precision>
+              <foreground_color>
+                <color name="IO PV OFF" red="77" green="77" blue="77">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO InputPV Bg" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+              <actions>
+              </actions>
+              <tooltip>$(pv_name)
+$(pv_value)
+Limits: [320,1000]</tooltip>
+              <maximum>600.0</maximum>
+              <limits_from_pv>false</limits_from_pv>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_1</name>
+              <pv_name>=1000*'$(DEVICE):$(CAM):AcquireTime_RBV'</pv_name>
+              <x>104</x>
+              <y>80</y>
+              <height>30</height>
+              <background_color>
+                <color red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <transparent>true</transparent>
+              <precision>1</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_2</name>
+              <pv_name>$(DEVICE):$(CAM):Gain_RBV</pv_name>
+              <x>104</x>
+              <y>30</y>
+              <height>30</height>
+              <background_color>
+                <color red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <transparent>true</transparent>
+              <precision>0</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>Spinner Template_6</name>
+              <pv_name>loc://expTime_ms(1)</pv_name>
+              <y>84</y>
+              <width>90</width>
+              <height>30</height>
+              <format>0</format>
+              <precision>1</precision>
+              <foreground_color>
+                <color name="IO PV OFF" red="77" green="77" blue="77">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO InputPV Bg" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+              <actions>
+              </actions>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+source_value=PVUtil.getDouble(pvs[0])/1000;
+pvs[1].write(source_value);]]></text>
+                  <pv_name>loc://expTime_ms(0)</pv_name>
+                  <pv_name trigger="false">$(DEVICE):$(CAM):AcquireTime</pv_name>
+                </script>
+              </scripts>
+              <tooltip>$(pv_name)
+$(pv_value)
+Limits: [0.014-0.039]</tooltip>
+              <maximum>1000.0</maximum>
+              <limits_from_pv>false</limits_from_pv>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>18</x>
+            <y>333</y>
+            <width>240</width>
+            <height>70</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_9</name>
+              <pv_name>$(DEVICE):$(CAM):MaxSizeX_RBV</pv_name>
+              <x>110</x>
+              <width>60</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_4</name>
+              <text>Sensor Size</text>
+              <x>20</x>
+              <width>90</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_11</name>
+              <pv_name>$(DEVICE):$(CAM):ArraySizeX_RBV</pv_name>
+              <x>110</x>
+              <y>40</y>
+              <width>60</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_5</name>
+              <text>Image Size</text>
+              <x>20</x>
+              <y>40</y>
+              <width>90</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_126</name>
+            <text>Energy Value</text>
+            <x>28</x>
+            <y>469</y>
+            <width>210</width>
+            <height>34</height>
+            <visible>false</visible>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="20.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+            <vertical_alignment>1</vertical_alignment>
+            <scripts>
+              <script file="Scripts/LiveEnergy.py">
+                <pv_name>SPARC:LINAC:PTLDPL01:current_rb</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>8</x>
+            <y>413</y>
+            <width>250</width>
+            <height>30</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_8</name>
+              <pv_name>$(DEVICE):$(CAM):Model_RBV</pv_name>
+              <x>90</x>
+              <width>160</width>
+              <height>30</height>
+              <format>6</format>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_13</name>
+              <pv_name>$(DEVICE):$(CAM):Manufacturer_RBV</pv_name>
+              <x>10</x>
+              <width>70</width>
+              <height>30</height>
+              <format>6</format>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_12</name>
+            <pv_name>$(DEVICE):$(CAM):ArraySizeY_RBV</pv_name>
+            <x>198</x>
+            <y>373</y>
+            <width>60</width>
+            <height>30</height>
+            <horizontal_alignment>1</horizontal_alignment>
+            <vertical_alignment>1</vertical_alignment>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_10</name>
+            <pv_name>$(DEVICE):$(CAM):MaxSizeY_RBV</pv_name>
+            <x>198</x>
+            <y>333</y>
+            <width>60</width>
+            <height>30</height>
+            <horizontal_alignment>1</horizontal_alignment>
+            <vertical_alignment>1</vertical_alignment>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Advanced</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>18</x>
+            <y>133</y>
+            <width>230</width>
+            <height>50</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>Label Template_10</name>
+              <text>Pixel Format:</text>
+              <x>10</x>
+              <width>83</width>
+              <height>16</height>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO Background" red="255" green="255" blue="205">
+                </color>
+              </background_color>
+              <vertical_alignment>1</vertical_alignment>
+              <auto_size>true</auto_size>
+              <actions>
+              </actions>
+              <border_color>
+                <color name="IO Border" red="215" green="215" blue="215">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_3</name>
+              <pv_name>$(DEVICE):$(CAM):PixelFormat_RBV</pv_name>
+              <x>120</x>
+              <y>20</y>
+              <width>110</width>
+              <height>30</height>
+              <background_color>
+                <color red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="combo" version="2.0.0">
+              <name>Combo_1</name>
+              <pv_name>$(DEVICE):$(CAM):PixelFormat</pv_name>
+              <y>20</y>
+              <width>110</width>
+              <foreground_color>
+                <color name="IO Foreground" red="0" green="0" blue="0">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="IO InputPV Bg" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <actions>
+              </actions>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>18</x>
+            <y>13</y>
+            <width>233</width>
+            <height>47</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>text #21</name>
+              <text>Trigger</text>
+              <width>60</width>
+              <font>
+                <font family="Liberation Sans" style="REGULAR" size="16.0">
+                </font>
+              </font>
+              <horizontal_alignment>2</horizontal_alignment>
+            </widget>
+            <widget type="combo" version="2.0.0">
+              <name>menu #24</name>
+              <pv_name>$(DEVICE):$(CAM):TriggerMode</pv_name>
+              <x>68</x>
+              <width>92</width>
+              <height>20</height>
+              <background_color>
+                <color name="Background" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <border_alarm_sensitive>false</border_alarm_sensitive>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>text update #27</name>
+              <pv_name>$(DEVICE):$(CAM):TriggerMode_RBV</pv_name>
+              <x>170</x>
+              <y>1</y>
+              <width>63</width>
+              <font>
+                <font family="Liberation Sans" style="REGULAR" size="16.0">
+                </font>
+              </font>
+              <foreground_color>
+                <color red="10" green="0" blue="184">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="Background" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>6</format>
+              <show_units>false</show_units>
+              <horizontal_alignment>2</horizontal_alignment>
+              <border_alarm_sensitive>false</border_alarm_sensitive>
+            </widget>
+            <widget type="combo" version="2.0.0">
+              <name>menu #34</name>
+              <pv_name>$(DEVICE):$(CAM):TriggerSource</pv_name>
+              <x>68</x>
+              <y>27</y>
+              <width>92</width>
+              <height>20</height>
+              <background_color>
+                <color name="Background" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <border_alarm_sensitive>false</border_alarm_sensitive>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>text update #37</name>
+              <pv_name>$(DEVICE):$(CAM):TriggerSource_RBV</pv_name>
+              <x>170</x>
+              <y>27</y>
+              <width>63</width>
+              <font>
+                <font family="Liberation Sans" style="REGULAR" size="16.0">
+                </font>
+              </font>
+              <foreground_color>
+                <color red="10" green="0" blue="184">
+                </color>
+              </foreground_color>
+              <background_color>
+                <color name="Background" red="255" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>6</format>
+              <show_units>false</show_units>
+              <horizontal_alignment>2</horizontal_alignment>
+              <border_alarm_sensitive>false</border_alarm_sensitive>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>text #21_1</name>
+              <text>Source</text>
+              <y>27</y>
+              <width>62</width>
+              <font>
+                <font family="Liberation Sans" style="REGULAR" size="16.0">
+                </font>
+              </font>
+              <horizontal_alignment>2</horizontal_alignment>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>8</x>
+            <y>73</y>
+            <width>250</width>
+            <height>52</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="checkbox" version="2.0.0">
+              <name>Check Box</name>
+              <pv_name>loc://roi_interactive(1)</pv_name>
+              <label>interactive</label>
+              <x>150</x>
+              <y>30</y>
+            </widget>
+            <widget type="checkbox" version="2.0.0">
+              <name>Check Box_1</name>
+              <pv_name>loc://showROI(0)</pv_name>
+              <label>Show ROI</label>
+              <x>150</x>
+              <actions>
+              </actions>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+# Get the value from the PV (first in the PV bindings list)
+show_roi = PVUtil.getDouble(pvs[0])
+
+# Set visibility
+if show_roi==0: 
+	 pvs[1].write(0);
+else:
+	  pvs[1].write(1);]]></text>
+                  <pv_name>loc://showROI</pv_name>
+                  <pv_name>loc://roi_interactive</pv_name>
+                </script>
+              </scripts>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_11</name>
+              <text>X:</text>
+              <width>25</width>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Text Entry</name>
+              <pv_name>loc://roi_x</pv_name>
+              <x>15</x>
+              <width>50</width>
+              <format>1</format>
+              <precision>2</precision>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_13</name>
+              <text>Y:</text>
+              <y>32</y>
+              <width>25</width>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Text Entry_1</name>
+              <pv_name>loc://roi_y</pv_name>
+              <x>15</x>
+              <y>32</y>
+              <width>50</width>
+              <format>1</format>
+              <precision>2</precision>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_14</name>
+              <text>W:</text>
+              <x>70</x>
+              <width>25</width>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Text Entry_2</name>
+              <pv_name>loc://roi_w</pv_name>
+              <x>89</x>
+              <width>50</width>
+              <format>1</format>
+              <precision>2</precision>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_15</name>
+              <text>H:</text>
+              <x>70</x>
+              <y>32</y>
+              <width>25</width>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Text Entry_3</name>
+              <pv_name>loc://roi_h</pv_name>
+              <x>89</x>
+              <y>32</y>
+              <width>50</width>
+              <format>1</format>
+              <precision>2</precision>
+            </widget>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button Template_2</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>genicam/ADAravis.bob</file>
+                <macros>
+                  <P>$(DEVICE):$(CAM):</P>
+                  <R></R>
+                  <C>$(HW)</C>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>Full Control (ADAravis)</text>
+            <x>18</x>
+            <y>273</y>
+            <width>220</width>
+            <height>40</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <foreground_color>
+              <color name="IO Foreground" red="0" green="0" blue="0">
+              </color>
+            </foreground_color>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button Template_8</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Matlab Measurement Panel</description>
+                <file>MeasPanel.bob</file>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>Measurement Panel</text>
+            <x>18</x>
+            <y>223</y>
+            <width>220</width>
+            <height>40</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <foreground_color>
+              <color name="IO Foreground" red="0" green="0" blue="0">
+              </color>
+            </foreground_color>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="checkbox" version="2.0.0">
+            <name>Check Box_3</name>
+            <pv_name>$(DEVICE):$(CAM):GC_ReverseX</pv_name>
+            <label>ReverseX</label>
+            <x>18</x>
+            <y>193</y>
+            <width>90</width>
+          </widget>
+          <widget type="checkbox" version="2.0.0">
+            <name>Check Box_4</name>
+            <pv_name>$(DEVICE):$(CAM):GC_ReverseY</pv_name>
+            <label>ReverseY</label>
+            <x>138</x>
+            <y>193</y>
+            <width>90</width>
+          </widget>
+          <widget type="bool_button" version="2.0.0">
+            <name>Boolean Button_5</name>
+            <pv_name>SPARC:RFD:ICP:CAMLIGHT_SP</pv_name>
+            <x>18</x>
+            <y>383</y>
+            <width>170</width>
+            <height>40</height>
+            <visible>false</visible>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_3</name>
+            <text>Camera features</text>
+            <x>18</x>
+            <y>353</y>
+            <width>220</width>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+            <vertical_alignment>1</vertical_alignment>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_2</name>
+            <pv_name>SPARC:RFD:ICP:CAMLIGHT_RB</pv_name>
+            <x>198</x>
+            <y>383</y>
+            <width>40</width>
+            <height>40</height>
+            <visible>false</visible>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button</name>
+            <actions>
+              <action type="write_pv">
+                <description>Write PV</description>
+                <pv_name>$(DEVICE):$(CAM):ARResetCamera</pv_name>
+                <value>1</value>
+              </action>
+            </actions>
+            <pv_name>$(DEVICE):$(CAM):ARResetCamera</pv_name>
+            <text>CAM RESET</text>
+            <x>18</x>
+            <y>382</y>
+            <width>220</width>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+            <show_confirm_dialog>true</show_confirm_dialog>
+            <confirm_message>Confirm cameras RESET</confirm_message>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Save</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>7</x>
+            <y>15</y>
+            <width>255</width>
+            <height>125</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="textentry" version="3.0.0">
+              <name>Text Entry_5</name>
+              <pv_name>loc://save_folder("/nfs/data/")</pv_name>
+              <y>20</y>
+              <width>251</width>
+              <height>48</height>
+              <format>6</format>
+              <vertical_alignment>0</vertical_alignment>
+              <wrap_words>true</wrap_words>
+              <multi_line>true</multi_line>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label</name>
+              <text>Save Folder (start with /nfs/data/)</text>
+              <width>255</width>
+              <font>
+                <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                </font>
+              </font>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
+              <x>1</x>
+              <y>78</y>
+              <width>220</width>
+              <height>40</height>
+              <format>6</format>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>CreateFolder</name>
+            <actions>
+              <action type="write_pv">
+                <description>Write PV</description>
+                <pv_name>loc://folder_created</pv_name>
+                <value>1</value>
+              </action>
+            </actions>
+            <pv_name>loc://folder_created(0)</pv_name>
+            <text>Create Folder</text>
+            <x>108</x>
+            <y>153</y>
+            <width>150</width>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <scripts>
+              <script file="Scripts/MakeFolder.py">
+                <pv_name trigger="false">loc://save_folder</pv_name>
+                <pv_name>loc://folder_created</pv_name>
+                <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>UpdateFolder</name>
+            <actions>
+              <action type="write_pv">
+                <description>Write PV</description>
+                <pv_name>loc://folder_update</pv_name>
+                <value>1</value>
+              </action>
+            </actions>
+            <pv_name>loc://folder_update(0)</pv_name>
+            <text>Update</text>
+            <x>8</x>
+            <y>153</y>
+            <width>90</width>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <scripts>
+              <script file="Scripts/FolderUpdate.py">
+                <pv_name trigger="false">loc://save_folder</pv_name>
+                <pv_name>loc://folder_update</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Group</name>
+            <x>8</x>
+            <y>203</y>
+            <width>250</width>
+            <height>100</height>
+            <style>3</style>
+            <transparent>true</transparent>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_6</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:Capture_RBV</pv_name>
+              <x>160</x>
+              <y>30</y>
+              <width>90</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_7</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:WriteStatus</pv_name>
+              <x>160</x>
+              <y>70</y>
+              <width>90</width>
+              <height>30</height>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="spinner" version="2.0.0">
+              <name>NumImages</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:NumCapture</pv_name>
+              <y>30</y>
+              <width>80</width>
+              <height>30</height>
+              <precision>0</precision>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>Text Update_5</name>
+              <pv_name>$(DEVICE):$(CAM):TIFF1:NumCaptured_RBV</pv_name>
+              <x>90</x>
+              <y>30</y>
+              <width>60</width>
+              <height>30</height>
+              <format>1</format>
+              <precision>0</precision>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Label_2</name>
+              <text>Images to save</text>
+              <width>120</width>
+              <font>
+                <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+                </font>
+              </font>
+              <horizontal_alignment>1</horizontal_alignment>
+              <vertical_alignment>1</vertical_alignment>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>SaveButton</name>
+              <actions>
+                <action type="write_pv">
+                  <description>Write PV</description>
+                  <pv_name>loc://SaveButton</pv_name>
+                  <value>1</value>
+                </action>
+              </actions>
+              <pv_name>loc://SaveButton(0)</pv_name>
+              <text>SAVE</text>
+              <y>70</y>
+              <width>150</width>
+              <font>
+                <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+                </font>
+              </font>
+              <rules>
+                <rule name="enable_button" prop_id="enabled" out_exp="false">
+                  <exp bool_exp="pv0 ==0">
+                    <value>false</value>
+                  </exp>
+                  <pv_name>$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
+                </rule>
+              </rules>
+              <scripts>
+                <script file="Scripts/SaveImages.py">
+                  <pv_name>loc://SaveButton</pv_name>
+                </script>
+              </scripts>
+            </widget>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>FolderExist</name>
+            <pv_name>$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
+            <x>238</x>
+            <y>103</y>
+            <width>25</width>
+            <height>25</height>
+            <off_color>
+              <color name="STOP" red="255" green="0" blue="0">
+              </color>
+            </off_color>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <y>50</y>
+    <width>270</width>
+    <height>550</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>Compact Camera - $(DEVICE):$(CAM)</text>
+    <x>270</x>
+    <width>628</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="30.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>SPARC:SHT:ICP:RCATLAS01_RB</pv_name>
+    <x>858</x>
+    <y>555</y>
+    <width>40</width>
+    <height>40</height>
+    <visible>false</visible>
+  </widget>
+  <widget type="text-symbol" version="2.0.0">
+    <name>Text Symbol</name>
+    <x>838</x>
+    <y>555</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_6</name>
+    <pv_name>SPARC:SHT:ICP:CATLAS01_SP</pv_name>
+    <x>690</x>
+    <y>555</y>
+    <width>160</width>
+    <height>40</height>
+    <visible>false</visible>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Laser Shutter</text>
+    <x>561</x>
+    <y>559</y>
+    <width>120</width>
+    <height>30</height>
+    <visible>false</visible>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="scaledslider" version="2.0.0">
+    <name>Scaled Slider</name>
+    <pv_name>loc://max_cmap(1000)</pv_name>
+    <x>280</x>
+    <y>555</y>
+    <width>260</width>
+    <height>45</height>
+    <major_tick_step_hint>100</major_tick_step_hint>
+    <level_hihi>4000.0</level_hihi>
+    <level_high>3000.0</level_high>
+    <show_hihi>false</show_hihi>
+    <show_high>false</show_high>
+    <show_low>false</show_low>
+    <show_lolo>false</show_lolo>
+    <increment>100.0</increment>
+    <maximum>4095.0</maximum>
+    <limits_from_pv>false</limits_from_pv>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Text Update_4</name>
+    <x>614</x>
+    <y>57</y>
+    <width>270</width>
+    <background_color>
+      <color name="Read_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <scripts>
+      <script file="Scripts/GetPixelInfo.py">
+        <pv_name>loc://cursor_info</pv_name>
+      </script>
+    </scripts>
+  </widget>
+</display>

@@ -1,0 +1,27 @@
+[submodule "unimot-opi"]
+	path = unimot-opi
+	url = ../unimot-opi
+[submodule "unicool-opi"]
+	path = unicool-opi
+	url = ../unicool-opi
+[submodule "unimag-opi"]
+	path = unimag-opi
+	url = ../unimag-opi
+[submodule "univac-opi"]
+	path = univac-opi
+	url = ../univac-opi
+[submodule "unicam-opi"]
+	path = unicam-opi
+	url = ../unicam-opi.git
+[submodule "uniio-opi"]
+	path = uniio-opi
+	url = ../uniio-opi.git
+[submodule "screen-camera-opi"]
+	path = screen-camera-opi
+	url = ../screen-camera-opi.git
+[submodule "unimod-opi/scandinova-opi"]
+	path = unimod-opi/scandinova-opi
+	url = https://github.com/infn-epics/scandinova-opi.git
+[submodule "unibpm-opi"]
+	path = unibpm-opi
+	url = https://github.com/infn-epics/unibpm-opi.git

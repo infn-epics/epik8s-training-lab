@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-03-24 23:51:54 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>440</width>
+  <height>140</height>
+  <background_color>
+    <color name="Header_ForeGround" red="255" green="255" blue="255">
+    </color>
+  </background_color>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Save Configuration</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>380</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="fileselector" version="2.0.0">
+    <name>DirSave</name>
+    <pv_name>loc://savedir&lt;VString&gt;(".")</pv_name>
+    <component>1</component>
+    <x>90</x>
+    <y>60</y>
+    <width>60</width>
+    <height>30</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>DirSave</name>
+    <text>Directory</text>
+    <x>20</x>
+    <y>60</y>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>FileSave</name>
+    <pv_name>loc://save_filename&lt;VString&gt;(unimag-$(ZONE=ALL).csv)</pv_name>
+    <x>180</x>
+    <y>60</y>
+    <width>260</width>
+    <height>30</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>SAVE</name>
+    <actions>
+      <action type="execute">
+        <description>Execute Script</description>
+        <script file="scripts/SaveSelected.py">
+        </script>
+      </action>
+    </actions>
+    <text>SAVE</text>
+    <x>150</x>
+    <y>100</y>
+    <height>40</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

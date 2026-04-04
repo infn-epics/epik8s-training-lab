@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-11-19 10:52:43 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>810</width>
+  <height>800</height>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <macros>
+      <TITLE>TEST</TITLE>
+      <CONFFILE>../tests/btfmagtest.csv</CONFFILE>
+    </macros>
+    <file>unimag.bob</file>
+    <width>810</width>
+    <height>800</height>
+  </widget>
+</display>

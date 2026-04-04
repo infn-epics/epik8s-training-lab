@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Measurement Row Compact</name>
+  <width>470</width>
+  <height>32</height>
+  <background_color>
+    <color red="245" green="245" blue="250">
+    </color>
+  </background_color>
+  
+  <!-- Enable LED -->
+  <widget type="led" version="2.0.0">
+    <name>Enable_LED</name>
+    <pv_name>$(P):MEAS$(MEAS):Enable_RBV</pv_name>
+    <x>5</x>
+    <y>4</y>
+    <width>22</width>
+    <height>22</height>
+    <off_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="50" green="200" blue="50">
+      </color>
+    </on_color>
+    <square>true</square>
+  </widget>
+  
+  <!-- Device Name -->
+  <widget type="textupdate" version="2.0.0">
+    <name>Name_Label</name>
+    <pv_name>$(P):MEAS$(MEAS):Name</pv_name>
+    <x>32</x>
+    <y>5</y>
+    <width>100</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="128">
+      </color>
+    </foreground_color>
+  </widget>
+  
+  <!-- Channel -->
+  <widget type="label" version="2.0.0">
+    <name>CH_Label</name>
+    <text>CH$(CH)</text>
+    <x>135</x>
+    <y>5</y>
+    <width>40</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="11.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="80" green="80" blue="80">
+      </color>
+    </foreground_color>
+  </widget>
+  
+  <!-- Type -->
+  <widget type="textupdate" version="2.0.0">
+    <name>Type_Display</name>
+    <pv_name>$(P):MEAS$(MEAS):Type_RBV</pv_name>
+    <x>180</x>
+    <y>4</y>
+    <width>70</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="60" green="60" blue="60">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="230" green="230" blue="230">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  
+  <!-- Current Value -->
+  <widget type="textupdate" version="2.0.0">
+    <name>Value_Display</name>
+    <pv_name>$(P):MEAS$(MEAS):VALUE</pv_name>
+    <x>260</x>
+    <y>2</y>
+    <width>120</width>
+    <height>26</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="220" green="255" blue="220">
+      </color>
+    </background_color>
+    <format>3</format>
+    <precision>6</precision>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  
+  <!-- Mean Value -->
+  <widget type="textupdate" version="2.0.0">
+    <name>Mean_Display</name>
+    <pv_name>$(P):MEAS$(MEAS):Mean</pv_name>
+    <x>390</x>
+    <y>4</y>
+    <width>75</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="240" green="240" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <precision>4</precision>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+</display>

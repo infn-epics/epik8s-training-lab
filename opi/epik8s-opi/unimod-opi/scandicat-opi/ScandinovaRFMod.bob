@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-11-05 15:24:31 by Andrea-->
+<display version="2.0.0">
+  <name>RF Modulator</name>
+  <width>874</width>
+  <height>775</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container Template</name>
+    <file>ScandinovaRFMod_Main.bob</file>
+    <width>901</width>
+    <height>765</height>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="ClearOPIRule" prop_id="opi_file" out_exp="false">
+        <exp bool_exp="true">
+          <value></value>
+        </exp>
+        <exp bool_exp="false">
+          <value></value>
+        </exp>
+        <pv_name>loc://DeviceName_$(DID)&lt;VString&gt;("")</pv_name>
+      </rule>
+      <rule name="SetOPIRule" prop_id="opi_file" out_exp="false">
+        <exp bool_exp="true">
+          <value>ScandinovaRFMod_Main.opi</value>
+        </exp>
+        <pv_name>loc://DeviceName_$(DID)(0)</pv_name>
+      </rule>
+    </rules>
+    <scripts>
+      <script file="Scripts/Device2Macro.py">
+        <pv_name>loc://DeviceName_$(DID)&lt;VString&gt;("")</pv_name>
+      </script>
+    </scripts>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Device prefix combo</name>
+    <pv_name>loc://DeviceName_$(DID)&lt;VString&gt;("")</pv_name>
+    <x>17</x>
+    <y>85</y>
+    <width>240</width>
+    <height>32</height>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO OutputPV Fg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="Scripts/DeviceSelectDefault.py">
+        <pv_name>=1</pv_name>
+      </script>
+    </scripts>
+    <items>
+      <item></item>
+      <item>MODHEL01</item>
+      <item>MODHEL02</item>
+    </items>
+    <items_from_pv>false</items_from_pv>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_85</name>
+    <text>RFMod Selection</text>
+    <x>22</x>
+    <y>65</y>
+    <width>176</width>
+    <height>25</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+</display>

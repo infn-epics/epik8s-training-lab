@@ -1,0 +1,1456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>OCEM PS UNIMAG Interface</name>
+  <width>650</width>
+  <height>1330</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <widget type="rectangle" version="2.0.0">
+    <name>TitleBar</name>
+    <width>650</width>
+    <height>60</height>
+    <line_color>
+      <color red="0" green="51" blue="102">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="51" blue="102">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>$(R)</text>
+    <x>20</x>
+    <y>10</y>
+    <width>400</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="28.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>StatusLED</name>
+    <pv_name>$(P):$(R):Status</pv_name>
+    <x>560</x>
+    <y>12</y>
+    <width>35</width>
+    <height>35</height>
+    <off_color>
+      <color red="200" green="0" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="0" green="200" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>PrefixLabel</name>
+    <text>$(P)</text>
+    <x>600</x>
+    <y>15</y>
+    <width>45</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="ITALIC" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="200" green="200" blue="220">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>ReadingsGroup</name>
+    <x>15</x>
+    <y>75</y>
+    <width>620</width>
+    <height>150</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="0" green="51" blue="102">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>CurrentLabel</name>
+      <text>Current</text>
+      <x>20</x>
+      <y>15</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CurrentDisplay</name>
+      <pv_name>$(P):$(R):CURRENT_RB</pv_name>
+      <x>20</x>
+      <y>40</y>
+      <width>180</width>
+      <height>50</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="32.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="80" blue="160">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="230" green="240" blue="250">
+        </color>
+      </background_color>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentUnit</name>
+      <text>A</text>
+      <x>205</x>
+      <y>55</y>
+      <width>40</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="24.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="80" blue="160">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VoltageLabel</name>
+      <text>Voltage</text>
+      <x>280</x>
+      <y>15</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VoltageDisplay</name>
+      <pv_name>$(P):$(R):VOLTAGE_RB</pv_name>
+      <x>280</x>
+      <y>40</y>
+      <width>120</width>
+      <height>50</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="24.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+      <format>1</format>
+      <precision>1</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VoltageUnit</name>
+      <text>V</text>
+      <x>405</x>
+      <y>55</y>
+      <width>30</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>StateLabel</name>
+      <text>State</text>
+      <x>470</x>
+      <y>15</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>StateDisplay</name>
+      <pv_name>$(P):$(R):Status</pv_name>
+      <x>460</x>
+      <y>40</y>
+      <width>140</width>
+      <height>50</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="220" green="220" blue="220">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="StateColor" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0==&quot;ON&quot;">
+            <value>
+              <color red="0" green="220" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==&quot;STANDBY&quot;">
+            <value>
+              <color red="255" green="255" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==&quot;OFF&quot;">
+            <value>
+              <color red="200" green="200" blue="200">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(P):$(R):Status</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AlarmsLabel</name>
+      <text>Alarms:</text>
+      <x>20</x>
+      <y>105</y>
+      <width>70</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AlarmsDisplay</name>
+      <pv_name>$(P):$(R):Alarms</pv_name>
+      <x>95</x>
+      <y>105</y>
+      <width>150</width>
+      <height>25</height>
+      <background_color>
+        <color red="0" green="200" blue="0">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <rules>
+        <rule name="AlarmColor" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0==&quot;NO &quot;">
+            <value>
+              <color red="0" green="200" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="true">
+            <value>
+              <color red="255" green="100" blue="100">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(P):$(R):Alarms</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PolarityLabel</name>
+      <text>Polarity:</text>
+      <x>280</x>
+      <y>105</y>
+      <width>70</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PolarityDisplay</name>
+      <pv_name>$(P):$(R):Polarity</pv_name>
+      <x>355</x>
+      <y>105</y>
+      <width>80</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="220" green="220" blue="220">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>StateControlGroup</name>
+    <x>15</x>
+    <y>227</y>
+    <width>620</width>
+    <height>103</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="0" green="100" blue="0">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>StateControlLabel</name>
+      <text>State Control</text>
+      <x>5</x>
+      <y>5</y>
+      <width>150</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="100" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>OffBtn</name>
+      <actions>
+        <action type="write_pv">
+          <description>Off</description>
+          <pv_name>$(P):$(R):STATE_SP</pv_name>
+          <value>0</value>
+        </action>
+      </actions>
+      <text>OFF</text>
+      <x>20</x>
+      <y>43</y>
+      <width>130</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="150" blue="150">
+        </color>
+      </background_color>
+      <tooltip>Turn power supply OFF</tooltip>
+      <show_confirm_dialog>true</show_confirm_dialog>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>StandbyBtn</name>
+      <actions>
+        <action type="write_pv">
+          <description>Standby</description>
+          <pv_name>$(P):$(R):STATE_SP</pv_name>
+          <value>2</value>
+        </action>
+      </actions>
+      <text>STANDBY</text>
+      <x>165</x>
+      <y>43</y>
+      <width>130</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Set power supply to STANDBY</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>OnBtn</name>
+      <actions>
+        <action type="write_pv">
+          <description>Power On</description>
+          <pv_name>$(P):$(R):STATE_SP</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>POWER ON</text>
+      <x>310</x>
+      <y>43</y>
+      <width>130</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="0" green="220" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Turn power supply ON</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>ResetBtn</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset</description>
+          <pv_name>$(P):$(R):STATE_SP</pv_name>
+          <value>4</value>
+        </action>
+      </actions>
+      <text>RESET</text>
+      <x>455</x>
+      <y>43</y>
+      <width>130</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="200" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Reset power supply faults</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PolarityCtrlLbl_1</name>
+      <text>Polarity Control:</text>
+      <x>182</x>
+      <y>4</y>
+      <width>120</width>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>PolarityChoice_1</name>
+      <pv_name>$(P):$(R):SetPolarity</pv_name>
+      <x>312</x>
+      <y>4</y>
+      <width>250</width>
+      <height>35</height>
+      <items>
+        <item>POS</item>
+        <item>NEG</item>
+        <item>OPN</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>CurrentControlGroup</name>
+    <x>15</x>
+    <y>330</y>
+    <width>620</width>
+    <height>135</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="0" green="51" blue="102">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>CurrentControlLabel</name>
+      <text>Current Control</text>
+      <x>5</x>
+      <y>5</y>
+      <width>150</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="51" blue="102">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SetpointLabel</name>
+      <text>Setpoint (A):</text>
+      <x>20</x>
+      <y>35</y>
+      <height>30</height>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>CurrentSetpoint</name>
+      <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+      <x>130</x>
+      <y>30</y>
+      <width>180</width>
+      <height>40</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="24.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="0" green="80" blue="160">
+        </color>
+      </foreground_color>
+      <format>1</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SetpointRange</name>
+      <text>Range: -$(IMAX) to +$(IMAX) A</text>
+      <x>320</x>
+      <y>35</y>
+      <width>180</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>QuickSetLabel</name>
+      <text>Quick Set:</text>
+      <x>20</x>
+      <y>90</y>
+      <width>90</width>
+      <height>25</height>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>ZeroBtn</name>
+      <actions>
+        <action type="write_pv">
+          <description>Zero</description>
+          <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+          <value>0</value>
+        </action>
+      </actions>
+      <text>0</text>
+      <x>130</x>
+      <y>85</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <tooltip>Set current to 0 A</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Plus10Btn</name>
+      <actions>
+        <action type="write_pv">
+          <description>+10A</description>
+          <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+          <value>10</value>
+        </action>
+      </actions>
+      <text>+10</text>
+      <x>200</x>
+      <y>85</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <tooltip>Set current to +10 A</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Minus10Btn</name>
+      <actions>
+        <action type="write_pv">
+          <description>-10A</description>
+          <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+          <value>-10</value>
+        </action>
+      </actions>
+      <text>-10</text>
+      <x>270</x>
+      <y>85</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <tooltip>Set current to -10 A</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Plus50Btn</name>
+      <actions>
+        <action type="write_pv">
+          <description>+50A</description>
+          <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+          <value>50</value>
+        </action>
+      </actions>
+      <text>+50</text>
+      <x>340</x>
+      <y>85</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <tooltip>Set current to +50 A</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Minus50Btn</name>
+      <actions>
+        <action type="write_pv">
+          <description>-50A</description>
+          <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+          <value>-50</value>
+        </action>
+      </actions>
+      <text>-50</text>
+      <x>410</x>
+      <y>85</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <tooltip>Set current to -50 A</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Plus100Btn</name>
+      <actions>
+        <action type="write_pv">
+          <description>+100A</description>
+          <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+          <value>100</value>
+        </action>
+      </actions>
+      <text>+100</text>
+      <x>480</x>
+      <y>85</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <tooltip>Set current to +100 A</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Minus100Btn</name>
+      <actions>
+        <action type="write_pv">
+          <description>-100A</description>
+          <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+          <value>-100</value>
+        </action>
+      </actions>
+      <text>-100</text>
+      <x>550</x>
+      <y>85</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <tooltip>Set current to -100 A</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>UnimagStateGroup</name>
+    <x>15</x>
+    <y>475</y>
+    <width>620</width>
+    <height>155</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="102" green="51" blue="0">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>UnimagStateLabel</name>
+      <text>UNIMAG State Machine</text>
+      <x>5</x>
+      <y>5</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="102" green="51" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>StateLbl</name>
+      <text>State:</text>
+      <x>20</x>
+      <y>35</y>
+      <width>60</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>UnimagStateRB</name>
+      <pv_name>$(P):$(R):SM_STATE_RB</pv_name>
+      <x>85</x>
+      <y>30</y>
+      <width>140</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="220" green="220" blue="220">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="UnimagStateColor" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>
+              <color red="0" green="220" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==1">
+            <value>
+              <color red="255" green="80" blue="80">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==2 || pv0==3 || pv0==4">
+            <value>
+              <color red="255" green="255" blue="0">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(P):$(R):UNIMAG:STATE_RAW</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ChannelStateLbl</name>
+      <text>Channel:</text>
+      <x>245</x>
+      <y>35</y>
+      <width>70</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>ChannelStateRB</name>
+      <pv_name>$(P):$(R):STATE_RB</pv_name>
+      <x>320</x>
+      <y>30</y>
+      <width>120</width>
+      <height>35</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="220" green="220" blue="220">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="StateColor" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>
+              <color red="150" green="150" blue="150">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==1">
+            <value>
+              <color red="0" green="200" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==2">
+            <value>
+              <color red="255" green="200" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==3">
+            <value>
+              <color red="100" green="180" blue="255">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==4">
+            <value>
+              <color red="255" green="0" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==5">
+            <value>
+              <color red="255" green="0" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==6">
+            <value>
+              <color red="255" green="165" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==7">
+            <value>
+              <color red="255" green="0" blue="0">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(P):$(R):STATE_RB</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>BusyLbl</name>
+      <text>Busy:</text>
+      <x>440</x>
+      <y>35</y>
+      <width>50</width>
+      <height>25</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>BusyLED</name>
+      <pv_name>$(P):$(R):BUSY_RAW</pv_name>
+      <x>495</x>
+      <y>33</y>
+      <width>30</width>
+      <height>30</height>
+      <off_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </off_color>
+      <on_color>
+        <color red="255" green="200" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RetriesLbl</name>
+      <text>Retries:</text>
+      <x>535</x>
+      <y>35</y>
+      <width>55</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RetryCount</name>
+      <pv_name>$(P):$(R):RETRY_COUNT</pv_name>
+      <x>590</x>
+      <y>35</y>
+      <width>25</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>StatusMsgLbl</name>
+      <text>Status:</text>
+      <x>20</x>
+      <y>75</y>
+      <width>60</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>UnimagStatus</name>
+      <pv_name>$(P):$(R):STATUS_MSG</pv_name>
+      <x>85</x>
+      <y>75</y>
+      <width>520</width>
+      <height>25</height>
+      <background_color>
+        <color red="250" green="250" blue="250">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentSPRBLbl</name>
+      <text>Current SP:</text>
+      <x>20</x>
+      <y>110</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CurrentSPRB</name>
+      <pv_name>$(P):$(R):CURRENT_SP_RB</pv_name>
+      <x>105</x>
+      <y>110</y>
+      <width>80</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentSPUnit</name>
+      <text>A</text>
+      <x>190</x>
+      <y>110</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentRBALbl</name>
+      <text>Current RB:</text>
+      <x>230</x>
+      <y>110</y>
+      <width>80</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CurrentRBA</name>
+      <pv_name>$(P):$(R):CURRENT_RB</pv_name>
+      <x>315</x>
+      <y>110</y>
+      <width>80</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentRBAUnit</name>
+      <text>A</text>
+      <x>400</x>
+      <y>110</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>ConfigGroup</name>
+    <x>15</x>
+    <y>640</y>
+    <width>620</width>
+    <style>1</style>
+    <foreground_color>
+      <color red="80" green="80" blue="120">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>ConfigLabel</name>
+      <text>Configuration Parameters</text>
+      <x>5</x>
+      <y>5</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="80" green="80" blue="120">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SetTolLabel</name>
+      <text>set_tolerance:</text>
+      <x>20</x>
+      <y>35</y>
+      <width>110</width>
+      <height>25</height>
+      <tooltip>Allowed tolerance on CURRENT_RB when checking if requested current reached</tooltip>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>SetTolEntry</name>
+      <pv_name>$(P):$(R):set_tolerance</pv_name>
+      <x>152</x>
+      <y>32</y>
+      <width>80</width>
+      <height>28</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>3</precision>
+      <tooltip>Allowed tolerance on CURRENT_RB when checking if requested current reached (Default: 1 A)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SetTolUnit</name>
+      <text>A</text>
+      <x>237</x>
+      <y>35</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ZeroTolLabel</name>
+      <text>zero_tolerance:</text>
+      <x>260</x>
+      <y>35</y>
+      <width>115</width>
+      <height>25</height>
+      <tooltip>Allowed tolerance when checking that current is zero</tooltip>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>ZeroTolEntry</name>
+      <pv_name>$(P):$(R):zero_tolerance</pv_name>
+      <x>415</x>
+      <y>35</y>
+      <width>85</width>
+      <height>28</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>3</precision>
+      <tooltip>Allowed tolerance when checking that current is zero (Default: 1 A)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ZeroTolUnit</name>
+      <text>A</text>
+      <x>506</x>
+      <y>38</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SetTimeoutLabel</name>
+      <text>set_timeout_s:</text>
+      <x>20</x>
+      <y>70</y>
+      <width>110</width>
+      <height>25</height>
+      <tooltip>Timeout (seconds) to verify that requested current reached</tooltip>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>SetTimeoutEntry</name>
+      <pv_name>$(P):$(R):set_timeout_s</pv_name>
+      <x>152</x>
+      <y>67</y>
+      <width>80</width>
+      <height>28</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>1</precision>
+      <tooltip>Timeout (seconds) to verify that requested current reached (Default: 10 s)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SetTimeoutUnit</name>
+      <text>s</text>
+      <x>237</x>
+      <y>70</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>InitTimeoutLabel</name>
+      <text>init_timeout_s:</text>
+      <x>260</x>
+      <y>70</y>
+      <width>115</width>
+      <height>25</height>
+      <tooltip>Timeout (seconds) before retrying PRG initialization</tooltip>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>InitTimeoutEntry</name>
+      <pv_name>$(P):$(R):init_timeout_s</pv_name>
+      <x>415</x>
+      <y>70</y>
+      <width>80</width>
+      <height>28</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>1</precision>
+      <tooltip>Timeout before retrying PRG initialization (Default: 60 s)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>InitTimeoutUnit</name>
+      <text>s</text>
+      <x>505</x>
+      <y>70</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentThLabel</name>
+      <text>current_threshold:</text>
+      <x>20</x>
+      <y>105</y>
+      <width>130</width>
+      <height>25</height>
+      <tooltip>Threshold for spontaneous current readback messages (TH I0 command)</tooltip>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>CurrentThEntry</name>
+      <pv_name>$(P):$(R):THRESHOLD:current</pv_name>
+      <x>151</x>
+      <y>102</y>
+      <width>80</width>
+      <height>28</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>2</precision>
+      <tooltip>Current threshold (Amperes). -1=auto (5% of IMAX)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentThUnit</name>
+      <text>A</text>
+      <x>236</x>
+      <y>105</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VoltageThLabel</name>
+      <text>voltage_threshold:</text>
+      <x>280</x>
+      <y>105</y>
+      <width>130</width>
+      <height>25</height>
+      <tooltip>Threshold for spontaneous voltage readback messages (TH I1 command)</tooltip>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>VoltageThEntry</name>
+      <pv_name>$(P):$(R):THRESHOLD:voltage</pv_name>
+      <x>415</x>
+      <y>102</y>
+      <width>80</width>
+      <height>28</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>2</precision>
+      <tooltip>Voltage threshold (Volts). -1=auto (5% of VMAX)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VoltageThUnit</name>
+      <text>V</text>
+      <x>508</x>
+      <y>105</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PrgDetailLabel</name>
+      <text>PRG Details:</text>
+      <x>20</x>
+      <y>140</y>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="80" green="80" blue="120">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>PrgInitLed</name>
+      <pv_name>$(P):$(R):PRG:initialized</pv_name>
+      <x>130</x>
+      <y>140</y>
+      <off_color>
+        <color red="180" green="0" blue="0">
+        </color>
+      </off_color>
+      <on_color>
+        <color red="0" green="180" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>IMaxLabel</name>
+      <text>IMAX:</text>
+      <x>160</x>
+      <y>140</y>
+      <width>45</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>IMaxValue</name>
+      <pv_name>$(P):$(R):PRG:imax</pv_name>
+      <x>205</x>
+      <y>140</y>
+      <width>50</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>IMaxUnit</name>
+      <text>A</text>
+      <x>257</x>
+      <y>140</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurRangeLabel</name>
+      <text>I range:</text>
+      <x>290</x>
+      <y>140</y>
+      <width>60</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CurMaxValue</name>
+      <pv_name>$(P):$(R):PRG:current_max</pv_name>
+      <x>350</x>
+      <y>140</y>
+      <width>70</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VMaxLabel</name>
+      <text>VMAX:</text>
+      <x>440</x>
+      <y>140</y>
+      <width>50</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VMaxValue</name>
+      <pv_name>$(P):$(R):PRG:vmax</pv_name>
+      <x>490</x>
+      <y>140</y>
+      <width>50</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VMaxUnit</name>
+      <text>V</text>
+      <x>542</x>
+      <y>140</y>
+      <width>20</width>
+      <height>25</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>AlarmsGroup</name>
+    <x>15</x>
+    <y>880</y>
+    <width>620</width>
+    <height>70</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="180" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>AlarmsGroupLabel</name>
+      <text>Alarms</text>
+      <x>5</x>
+      <y>5</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="180" green="0" blue="0">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>AlarmLED</name>
+      <pv_name>$(P):$(R):HAS_ALARM</pv_name>
+      <x>20</x>
+      <y>30</y>
+      <width>30</width>
+      <height>30</height>
+      <off_color>
+        <color red="0" green="200" blue="0">
+        </color>
+      </off_color>
+      <on_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AlarmStatusLabel</name>
+      <text>Status:</text>
+      <x>60</x>
+      <y>35</y>
+      <width>50</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AlarmStatusText</name>
+      <pv_name>$(P):$(R):Alarms</pv_name>
+      <x>115</x>
+      <y>30</y>
+      <width>150</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="0" green="200" blue="0">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="AlarmBgColor" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>
+              <color red="0" green="200" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0==1">
+            <value>
+              <color red="255" green="80" blue="80">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(P):$(R):HAS_ALARM</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AlarmMaskLabel</name>
+      <text>Mask:</text>
+      <x>280</x>
+      <y>35</y>
+      <width>45</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AlarmMaskValue</name>
+      <pv_name>$(P):$(R):ALARM_MASK</pv_name>
+      <x>330</x>
+      <y>30</y>
+      <height>30</height>
+      <font>
+        <font family="Liberation Mono" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>4</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>ResetAlarmsBtn</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset Alarms</description>
+          <pv_name>$(P):$(R):RESET_ALARMS</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>RESET ALARMS</text>
+      <x>460</x>
+      <y>25</y>
+      <width>130</width>
+      <height>40</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="200" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Reset power supply alarms</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>VersionGroup</name>
+    <x>15</x>
+    <y>960</y>
+    <width>620</width>
+    <height>70</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+    <widget type="label" version="2.0.0">
+      <name>VersionLabel</name>
+      <text>Firmware:</text>
+      <x>10</x>
+      <y>5</y>
+      <width>70</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VersionValue</name>
+      <pv_name>$(P):$(R):VERSION</pv_name>
+      <x>80</x>
+      <y>5</y>
+      <width>520</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Mono" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="230">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>TrendGroup</name>
+    <x>15</x>
+    <y>1040</y>
+    <width>620</width>
+    <height>270</height>
+    <style>1</style>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+    <widget type="stripchart" version="2.1.0">
+      <name>CurrentTrend</name>
+      <x>5</x>
+      <y>5</y>
+      <width>605</width>
+      <height>255</height>
+      <start>10 minutes</start>
+      <y_axes>
+        <y_axis>
+          <title></title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>false</show_grid>
+          <visible>true</visible>
+          <color>
+            <color red="0" green="0" blue="0">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>Current</name>
+          <y_pv>$(P):$(R):UNIMAG:CURRENT_RB</y_pv>
+          <axis>0</axis>
+          <trace_type>2</trace_type>
+          <color>
+            <color red="0" green="0" blue="255">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <point_type>0</point_type>
+          <point_size>4</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+  </widget>
+</display>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-06-06 07:10:27 by star-->
+<display version="2.0.0">
+  <width>400</width>
+  <height>34</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_15</name>
+    <class>IOlabel</class>
+    <text>$(LABEL)</text>
+    <x>10</x>
+    <y>4</y>
+    <width use_class="true">140</width>
+    <height use_class="true">26</height>
+    <font use_class="true">
+      <font name="IO Label 1" family="Noto Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color use_class="true">
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <horizontal_alignment use_class="true">0</horizontal_alignment>
+    <vertical_alignment use_class="true">1</vertical_alignment>
+    <auto_size use_class="true">false</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_4</name>
+    <pv_name>$(PV_RB)</pv_name>
+    <x>161</x>
+    <y>5</y>
+    <width>228</width>
+    <height>24</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+</display>

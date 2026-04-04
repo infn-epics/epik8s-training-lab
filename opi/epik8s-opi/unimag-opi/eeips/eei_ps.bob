@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>EEI Power Supply Control $(R)</name>
+  <macros>
+  </macros>
+  <width>1200</width>
+  <height>1040</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>EEI Power Supply Control $(R)</text>
+    <x>10</x>
+    <y>10</y>
+    <width>600</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="24.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Status Group</name>
+    <x>10</x>
+    <y>60</y>
+    <width>380</width>
+    <widget type="label" version="2.0.0">
+      <name>Status Label</name>
+      <text>Status</text>
+      <x>5</x>
+      <y>5</y>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Standby LED</name>
+      <pv_name>$(P):$(R):STAT_STANDBY</pv_name>
+      <x>10</x>
+      <y>35</y>
+      <width>30</width>
+      <height>30</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Standby Label</name>
+      <text>Standby</text>
+      <x>50</x>
+      <y>40</y>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>PowerOn LED</name>
+      <pv_name>$(P):$(R):STAT_POWER_ON</pv_name>
+      <x>10</x>
+      <y>70</y>
+      <width>30</width>
+      <height>30</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PowerOn Label</name>
+      <text>Power On</text>
+      <x>50</x>
+      <y>75</y>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Faulty LED</name>
+      <pv_name>$(P):$(R):STAT_FAULTY</pv_name>
+      <x>10</x>
+      <y>105</y>
+      <width>30</width>
+      <height>30</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Faulty Label</name>
+      <text>Fault</text>
+      <x>50</x>
+      <y>110</y>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Remote LED</name>
+      <pv_name>$(P):$(R):STAT_REMOTE</pv_name>
+      <x>10</x>
+      <y>140</y>
+      <width>30</width>
+      <height>30</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Remote Label</name>
+      <text>Remote</text>
+      <x>50</x>
+      <y>145</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Polarity Positive</name>
+      <pv_name>$(P):$(R):STAT_POLARITY_POS</pv_name>
+      <x>200</x>
+      <y>40</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Polarity Negative</name>
+      <pv_name>$(P):$(R):STAT_POLARITY_NEG</pv_name>
+      <x>200</x>
+      <y>75</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Control Group</name>
+    <x>400</x>
+    <y>60</y>
+    <width>380</width>
+    <widget type="label" version="2.0.0">
+      <name>Control Label</name>
+      <text>Control</text>
+      <x>5</x>
+      <y>5</y>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Standby Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Set Standby</description>
+          <pv_name>$(P):$(R):CMD_STANDBY</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):CMD_STANDBY</pv_name>
+      <text>Standby</text>
+      <x>10</x>
+      <y>35</y>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>PowerOn Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Power On</description>
+          <pv_name>$(P):$(R):CMD_POWER_ON</pv_name>
+          <value>Power On</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):CMD_POWER_ON</pv_name>
+      <text>Power On</text>
+      <x>120</x>
+      <y>35</y>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>GlobalOff Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Global Off</description>
+          <pv_name>$(P):$(R):CMD_GLOBAL_OFF</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):CMD_GLOBAL_OFF</pv_name>
+      <text>Global Off</text>
+      <x>230</x>
+      <y>35</y>
+      <background_color>
+        <color red="255" green="100" blue="100">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Reset Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset</description>
+          <pv_name>$(P):$(R):CMD_RESET</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):CMD_RESET</pv_name>
+      <text>Reset</text>
+      <x>10</x>
+      <y>75</y>
+      <background_color>
+        <color red="255" green="200" blue="100">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>StartRamp Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>Start Ramp</description>
+          <pv_name>$(P):$(R):CMD_START_RAMP</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):CMD_START_RAMP</pv_name>
+      <text>Start Ramp</text>
+      <x>120</x>
+      <y>75</y>
+      <background_color>
+        <color red="100" green="255" blue="100">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Polarity Control</name>
+      <actions>
+        <action type="write_pv">
+          <description>Open</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>4</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):POLARITY_CTRL</pv_name>
+      <x>120</x>
+      <y>130</y>
+      <background_color>
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>PowerOn Button_1</name>
+      <pv_name>$(P):$(R):CMD_POWER_ON</pv_name>
+      <x>230</x>
+      <y>75</y>
+      <actions>
+        <action type="write_pv">
+          <description>Power On</description>
+          <pv_name>$(P):$(R):CMD_POWER_ON</pv_name>
+          <value>Power On</value>
+        </action>
+      </actions>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Polarity Control_1</name>
+      <actions execute_as_one="true">
+        <action type="write_pv">
+          <description>NEG</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):CMD_POLARITY_NEG_REQ</pv_name>
+      <x>10</x>
+      <y>130</y>
+      <background_color>
+        <color red="0" green="0" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Polarity Control_2</name>
+      <actions execute_as_one="true">
+        <action type="write_pv">
+          <description>POS</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):CMD_POLARITY_POS_REQ</pv_name>
+      <x>230</x>
+      <y>130</y>
+      <background_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Current Group</name>
+    <x>10</x>
+    <y>270</y>
+    <width>770</width>
+    <height>150</height>
+    <widget type="label" version="2.0.0">
+      <name>Current Label</name>
+      <text>Current Control</text>
+      <x>5</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Current Set Label</name>
+      <text>Current Setpoint:</text>
+      <x>10</x>
+      <y>40</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Current Setpoint</name>
+      <pv_name>$(P):$(R):CURRENT_SP</pv_name>
+      <x>170</x>
+      <y>40</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Current Unit</name>
+      <text>A</text>
+      <x>300</x>
+      <y>40</y>
+      <width>30</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Current RB Label</name>
+      <text>Current Readback:</text>
+      <x>10</x>
+      <y>80</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Current Readback</name>
+      <pv_name>$(P):$(R):CURRENT_RB</pv_name>
+      <x>170</x>
+      <y>80</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Current RB Unit</name>
+      <text>A</text>
+      <x>300</x>
+      <y>80</y>
+      <width>30</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Ramp Set Label</name>
+      <text>Ramp Rate Setpoint:</text>
+      <x>400</x>
+      <y>40</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Ramp Setpoint</name>
+      <pv_name>$(P):$(R):RAMP_RATE_SET</pv_name>
+      <x>560</x>
+      <y>40</y>
+      <width>120</width>
+      <height>30</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Ramp Unit</name>
+      <text>A/s</text>
+      <x>690</x>
+      <y>40</y>
+      <width>40</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Ramp RB Label</name>
+      <text>Ramp Rate Readback:</text>
+      <x>400</x>
+      <y>80</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Ramp Readback</name>
+      <pv_name>$(P):$(R):RAMP_RATE_RB</pv_name>
+      <x>560</x>
+      <y>80</y>
+      <width>120</width>
+      <height>30</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Ramp RB Unit</name>
+      <text>A/s</text>
+      <x>690</x>
+      <y>80</y>
+      <width>40</width>
+      <height>25</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Voltage Group</name>
+    <x>10</x>
+    <y>430</y>
+    <width>380</width>
+    <height>100</height>
+    <widget type="label" version="2.0.0">
+      <name>Voltage Label</name>
+      <text>Voltage</text>
+      <x>5</x>
+      <y>5</y>
+      <width>150</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Voltage RB Label</name>
+      <text>Voltage Readback:</text>
+      <x>10</x>
+      <y>40</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Voltage Readback</name>
+      <pv_name>$(P):$(R):VOLT_RB</pv_name>
+      <x>170</x>
+      <y>40</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Voltage Unit</name>
+      <text>V</text>
+      <x>300</x>
+      <y>40</y>
+      <width>30</width>
+      <height>25</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Temperatures Group</name>
+    <x>400</x>
+    <y>430</y>
+    <width>380</width>
+    <height>270</height>
+    <widget type="label" version="2.0.0">
+      <name>Temp Label</name>
+      <text>Temperatures &amp; AC/DC Outputs</text>
+      <x>5</x>
+      <y>5</y>
+      <width>300</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DCDC Temp Label</name>
+      <text>DC/DC Heat Sink:</text>
+      <x>10</x>
+      <y>40</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>DCDC Temp</name>
+      <pv_name>$(P):$(R):DCDC_HEATSINK_TEMP_RB</pv_name>
+      <x>170</x>
+      <y>40</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Temp Unit</name>
+      <text>°C</text>
+      <x>300</x>
+      <y>40</y>
+      <width>40</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ACDC1 Volt Label</name>
+      <text>AC/DC1 Voltage:</text>
+      <x>10</x>
+      <y>80</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>ACDC1 Voltage</name>
+      <pv_name>$(P):$(R):ACDC1_VOLT_OUT_RB</pv_name>
+      <x>170</x>
+      <y>80</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ACDC1 Volt Unit</name>
+      <text>V</text>
+      <x>300</x>
+      <y>80</y>
+      <width>40</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ACDC1 Curr Label</name>
+      <text>AC/DC1 Current:</text>
+      <x>10</x>
+      <y>120</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>ACDC1 Current</name>
+      <pv_name>$(P):$(R):ACDC1_CURR_OUT_RB</pv_name>
+      <x>170</x>
+      <y>120</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ACDC1 Curr Unit</name>
+      <text>A</text>
+      <x>300</x>
+      <y>120</y>
+      <width>40</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ACDC2 Volt Label</name>
+      <text>AC/DC2 Voltage:</text>
+      <x>10</x>
+      <y>160</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>ACDC2 Voltage</name>
+      <pv_name>$(P):$(R):ACDC2_VOLT_OUT_RB</pv_name>
+      <x>170</x>
+      <y>160</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ACDC2 Volt Unit</name>
+      <text>V</text>
+      <x>300</x>
+      <y>160</y>
+      <width>40</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ACDC2 Curr Label</name>
+      <text>AC/DC2 Current:</text>
+      <x>10</x>
+      <y>200</y>
+      <width>150</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>ACDC2 Current</name>
+      <pv_name>$(P):$(R):ACDC2_CURR_OUT_RB</pv_name>
+      <x>170</x>
+      <y>200</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ACDC2 Curr Unit</name>
+      <text>A</text>
+      <x>300</x>
+      <y>200</y>
+      <width>40</width>
+      <height>25</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Faults Group</name>
+    <x>10</x>
+    <y>710</y>
+    <width>770</width>
+    <height>340</height>
+    <widget type="label" version="2.0.0">
+      <name>Faults Label</name>
+      <text>Fault Summary</text>
+      <x>5</x>
+      <y>5</y>
+      <width>200</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault PLC DCDC LED</name>
+      <pv_name>$(P):$(R):FAULT_PLC_DCDC</pv_name>
+      <x>10</x>
+      <y>40</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault PLC DCDC Label</name>
+      <text>PLC DC/DC Conv</text>
+      <x>45</x>
+      <y>42</y>
+      <width>150</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault PLC DCCT LED</name>
+      <pv_name>$(P):$(R):FAULT_PLC_DCCT_PS</pv_name>
+      <x>10</x>
+      <y>70</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault PLC DCCT Label</name>
+      <text>PLC DCCT PS</text>
+      <x>45</x>
+      <y>72</y>
+      <width>150</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault PLC MAG ILK1 LED</name>
+      <pv_name>$(P):$(R):FAULT_PLC_MAG_ILK1</pv_name>
+      <x>10</x>
+      <y>100</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault PLC MAG ILK1 Label</name>
+      <text>PLC Mag ILK #1</text>
+      <x>45</x>
+      <y>102</y>
+      <width>150</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault PLC MAG ILK2 LED</name>
+      <pv_name>$(P):$(R):FAULT_PLC_MAG_ILK2</pv_name>
+      <x>10</x>
+      <y>130</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault PLC MAG ILK2 Label</name>
+      <text>PLC Mag ILK #2</text>
+      <x>45</x>
+      <y>132</y>
+      <width>150</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault PLC Water LED</name>
+      <pv_name>$(P):$(R):FAULT_PLC_WATER_FLOW</pv_name>
+      <x>10</x>
+      <y>160</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault PLC Water Label</name>
+      <text>PLC Water Flow</text>
+      <x>45</x>
+      <y>162</y>
+      <width>150</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault DCDC Overcurr LED</name>
+      <pv_name>$(P):$(R):FAULT_DCDC_OVERCURR</pv_name>
+      <x>260</x>
+      <y>40</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault DCDC Overcurr Label</name>
+      <text>DC/DC Overcurrent</text>
+      <x>295</x>
+      <y>42</y>
+      <width>170</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault DCDC Therm LED</name>
+      <pv_name>$(P):$(R):FAULT_DCDC_THERM_PROT</pv_name>
+      <x>260</x>
+      <y>70</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault DCDC Therm Label</name>
+      <text>DC/DC Thermal Prot</text>
+      <x>295</x>
+      <y>72</y>
+      <width>170</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault DCDC Overtemp LED</name>
+      <pv_name>$(P):$(R):FAULT_DCDC_OVERTEMP</pv_name>
+      <x>260</x>
+      <y>100</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault DCDC Overtemp Label</name>
+      <text>DC/DC Overtemp</text>
+      <x>295</x>
+      <y>102</y>
+      <width>170</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault DCDC DCLink Low LED</name>
+      <pv_name>$(P):$(R):FAULT_DCDC_DCLINK_LOW</pv_name>
+      <x>260</x>
+      <y>130</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault DCDC DCLink Low Label</name>
+      <text>DC/DC DC Link Low</text>
+      <x>295</x>
+      <y>132</y>
+      <width>170</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault DCDC DCLink High LED</name>
+      <pv_name>$(P):$(R):FAULT_DCDC_DCLINK_HIGH</pv_name>
+      <x>260</x>
+      <y>160</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault DCDC DCLink High Label</name>
+      <text>DC/DC DC Link High</text>
+      <x>295</x>
+      <y>162</y>
+      <width>170</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault ACDC1 Overcurr LED</name>
+      <pv_name>$(P):$(R):FAULT_ACDC1_OVERCURR</pv_name>
+      <x>520</x>
+      <y>40</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault ACDC1 Overcurr Label</name>
+      <text>AC/DC1 Overcurrent</text>
+      <x>555</x>
+      <y>42</y>
+      <width>170</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault ACDC1 Water LED</name>
+      <pv_name>$(P):$(R):FAULT_ACDC1_WATER_TEMP</pv_name>
+      <x>520</x>
+      <y>70</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault ACDC1 Water Label</name>
+      <text>AC/DC1 Water Temp</text>
+      <x>555</x>
+      <y>72</y>
+      <width>170</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault ACDC2 Overcurr LED</name>
+      <pv_name>$(P):$(R):FAULT_ACDC2_OVERCURR</pv_name>
+      <x>520</x>
+      <y>100</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault ACDC2 Overcurr Label</name>
+      <text>AC/DC2 Overcurrent</text>
+      <x>555</x>
+      <y>102</y>
+      <width>170</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Fault ACDC2 Water LED</name>
+      <pv_name>$(P):$(R):FAULT_ACDC2_WATER_TEMP</pv_name>
+      <x>520</x>
+      <y>130</y>
+      <width>25</width>
+      <height>25</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault ACDC2 Water Label</name>
+      <text>AC/DC2 Water Temp</text>
+      <x>555</x>
+      <y>132</y>
+      <width>170</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Fault Words Label</name>
+      <text>Detailed Fault Words (Hex):</text>
+      <x>10</x>
+      <y>220</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PLC Fault Word1</name>
+      <pv_name>$(P):$(R):PLC_FAULT_WORD1_RB</pv_name>
+      <x>10</x>
+      <y>250</y>
+      <width>120</width>
+      <height>25</height>
+      <format>4</format>
+      <precision>0</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PLC FW1 Label</name>
+      <text>PLC FW1</text>
+      <x>140</x>
+      <y>250</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>DCDC Fault Word1</name>
+      <pv_name>$(P):$(R):DCDC_FAULT_WORD1_RB</pv_name>
+      <x>260</x>
+      <y>250</y>
+      <width>120</width>
+      <height>25</height>
+      <format>4</format>
+      <precision>0</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DCDC FW1 Label</name>
+      <text>DC/DC FW1</text>
+      <x>390</x>
+      <y>250</y>
+    </widget>
+  </widget>
+</display>

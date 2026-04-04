@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>magnetdisplay</name>
+  <scripts>
+    <script file="../Scripts/YAMLLoadDevicePopulateArray.py" check_connections="false">
+      <pv_name>loc://ZONE_$(DID)</pv_name>
+      <pv_name>loc://FUNC_$(DID)</pv_name>
+      <pv_name>loc://TYPE_$(DID)</pv_name>
+    </script>
+  </scripts>
+  <widget type="embedded" version="2.0.0">
+    <name>element_template</name>
+    <file>$(BOBITEM)</file>
+    <y>610</y>
+    <width>800</width>
+    <height>35</height>
+    <visible>false</visible>
+  </widget>
+</display>

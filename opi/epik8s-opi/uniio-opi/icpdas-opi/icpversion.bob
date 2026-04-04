@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-07-25 20:03:36 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>180</width>
+  <height>120</height>
+  <widget type="group" version="3.0.0">
+    <name>Version</name>
+    <width>180</width>
+    <height>120</height>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>FW</text>
+      <x>12</x>
+      <y>12</y>
+      <width>50</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):FWversion_raw</pv_name>
+      <x>42</x>
+      <y>12</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>OS</text>
+      <x>12</x>
+      <y>34</y>
+      <width>40</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_2</name>
+      <pv_name>$(P):$(R):OSversion_raw</pv_name>
+      <x>42</x>
+      <y>34</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>IO</text>
+      <x>12</x>
+      <y>56</y>
+      <width>40</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_3</name>
+      <pv_name>$(P):$(R):IOversion_raw</pv_name>
+      <x>42</x>
+      <y>56</y>
+    </widget>
+  </widget>
+</display>

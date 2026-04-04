@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-11-25 17:57:22 by Alex-->
+<display version="2.0.0">
+  <name>Display</name>
+  <rules>
+    <rule name="New Rule" prop_id="background_color" out_exp="false">
+      <exp bool_exp="pv0==&quot;NO &quot;">
+        <value>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </value>
+      </exp>
+      <pv_name>$(P):$(R):Alarms</pv_name>
+    </rule>
+  </rules>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(R):CurrentStr</pv_name>
+    <x>138</x>
+    <y>126</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Current_raw</text>
+    <x>20</x>
+    <y>126</y>
+    <width>90</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Voltage_raw</text>
+    <x>20</x>
+    <y>156</y>
+    <width>80</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):$(R):VoltageStr</pv_name>
+    <x>138</x>
+    <y>156</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Status</text>
+    <x>438</x>
+    <y>66</y>
+    <width>70</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Polarity</text>
+    <x>438</x>
+    <y>106</y>
+    <width>130</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>$(P):$(R):Polarity</pv_name>
+    <x>300</x>
+    <y>106</y>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):$(R):STATUS_SP</pv_name>
+        <value>ON</value>
+        <description>Set Operational</description>
+      </action>
+    </actions>
+    <x>540</x>
+    <y>20</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):$(R):STATUS_SP</pv_name>
+        <value>STB</value>
+        <description>Set StandBy</description>
+      </action>
+    </actions>
+    <x>540</x>
+    <y>60</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_5</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <pv_name>$(P):$(R):Start_ramp</pv_name>
+        <value>1</value>
+        <description>Start Ramp</description>
+      </action>
+    </actions>
+    <x>540</x>
+    <y>100</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):$(R):Status</pv_name>
+    <x>300</x>
+    <y>50</y>
+    <width>120</width>
+    <height>41</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>$(P):$(R)</text>
+    <x>190</x>
+    <y>10</y>
+    <width>248</width>
+  </widget>
+  <widget type="choice" version="2.0.0">
+    <name>Choice Button</name>
+    <pv_name>$(P):$(R):SetPolarity</pv_name>
+    <x>155</x>
+    <y>220</y>
+    <width>160</width>
+    <items>
+      <item>POS</item>
+      <item>NEG</item>
+      <item>OPN</item>
+    </items>
+    <items_from_pv>false</items_from_pv>
+  </widget>
+  <widget type="stripchart" version="2.1.0">
+    <name>Strip Chart</name>
+    <x>390</x>
+    <y>220</y>
+    <start>20 minutes</start>
+    <y_axes>
+      <y_axis>
+        <title>Y</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>10.0</maximum>
+        <show_grid>false</show_grid>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <y_pv>$(P):$(R):CURRENT_RB</y_pv>
+        <axis>0</axis>
+        <trace_type>2</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Current</text>
+    <x>20</x>
+    <y>50</y>
+    <width>90</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P):$(R):CURRENT_RB</pv_name>
+    <x>138</x>
+    <y>50</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Alarms</text>
+    <x>438</x>
+    <y>140</y>
+    <width>90</width>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>AlarmLED</name>
+    <pv_name>$(P):$(R):HAS_ALARM</pv_name>
+    <x>300</x>
+    <y>175</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color red="0" green="200" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="255" green="0" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(P):$(R):Alarms</pv_name>
+    <x>330</x>
+    <y>140</y>
+    <width>80</width>
+    <rules>
+      <rule name="New Rule" prop_id="background_color" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>
+            <color name="OK" red="0" green="255" blue="0">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0==1">
+          <value>
+            <color name="ALARM" red="255" green="80" blue="80">
+            </color>
+          </value>
+        </exp>
+        <pv_name>$(P):$(R):HAS_ALARM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_AlarmMask</name>
+    <text>Mask (hex)</text>
+    <x>438</x>
+    <y>175</y>
+    <width>90</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>AlarmMaskDisplay</name>
+    <pv_name>$(P):$(R):ALARM_MASK</pv_name>
+    <x>330</x>
+    <y>175</y>
+    <width>80</width>
+    <format>4</format>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Voltage</text>
+    <x>20</x>
+    <y>80</y>
+    <width>80</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>$(P):$(R):VOLTAGE_RB</pv_name>
+    <x>138</x>
+    <y>80</y>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P):$(R):RESET_ALARMS</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <text>RESET ALARMS</text>
+    <x>540</x>
+    <y>140</y>
+    <height>50</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_2</name>
+    <pv_name>$(P):$(R):SETCURRENT</pv_name>
+    <x>155</x>
+    <y>277</y>
+    <height>24</height>
+    <actions>
+      <action type="execute">
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Ciao Ale'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+
+pname="loc://ampereToSet"
+pvx = PVUtil.createPV(pname,1000)
+ampere_pv= PVUtil.getDouble(pvx)
+
+
+
+#maxload_pv = PVUtil.getDouble(pvs[1])        # SPARC:OCEM:TEST:MaxIset
+
+# Calcolo: (A / MaxLoad) * 65535
+raw_value = int(round((ampere_pv / 280) * 65535))
+print 'ampere'
+print ampere_pv
+print 'Writing'
+print raw_value 
+PVUtil.writePV("SPARC:OCEM:TEST:Current_SP_raw",raw_value,1000)
+print 'Wrote']]></text>
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_34</name>
+    <text>Set Current (A)</text>
+    <x>20</x>
+    <y>277</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_35</name>
+    <text>Set And go Current</text>
+    <x>20</x>
+    <y>320</y>
+    <width>170</width>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_3</name>
+    <pv_name>$(P):$(R):SET_COMPLETE_CURRENT</pv_name>
+    <x>155</x>
+    <y>320</y>
+    <width>150</width>
+    <height>24</height>
+    <actions>
+      <action type="execute">
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Ciao Ale'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+
+pname="loc://ampereToSet"
+pvx = PVUtil.createPV(pname,1000)
+ampere_pv= PVUtil.getDouble(pvx)
+
+
+
+#maxload_pv = PVUtil.getDouble(pvs[1])        # SPARC:OCEM:TEST:MaxIset
+
+# Calcolo: (A / MaxLoad) * 65535
+raw_value = int(round((ampere_pv / 280) * 65535))
+print 'ampere'
+print ampere_pv
+print 'Writing'
+print raw_value 
+PVUtil.writePV("SPARC:OCEM:TEST:Current_SP_raw",raw_value,1000)
+print 'Wrote']]></text>
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_36</name>
+    <text>Set Polarity</text>
+    <x>30</x>
+    <y>230</y>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_6</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <pv_name>$(P):$(R):setRMT</pv_name>
+        <value>1</value>
+        <description>Send RMT (re-init)</description>
+      </action>
+    </actions>
+    <x>670</x>
+    <y>140</y>
+    <height>50</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

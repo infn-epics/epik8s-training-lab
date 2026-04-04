@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Charge Row</name>
+  <width>1380</width>
+  <height>80</height>
+  <background_color>
+    <color name="Text" red="0" green="0" blue="0">
+    </color>
+  </background_color>
+  <widget type="label" version="2.0.0">
+    <name>ChannelLabel</name>
+    <text>CH $(CHANNEL)</text>
+    <x>10</x>
+    <y>25</y>
+    <width>80</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="128">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>MeasValue</name>
+    <pv_name>$(P):MEAS$(CHANNEL):VALUE</pv_name>
+    <x>100</x>
+    <y>25</y>
+    <width>200</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="200" green="255" blue="200">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>1</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Label</name>
+    <pv_name>$(P):LABEL_CH$(CHANNEL)</pv_name>
+    <x>310</x>
+    <y>25</y>
+    <height>30</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <format>6</format>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Coefficient</name>
+    <pv_name>$(P):COEFF_CH$(CHANNEL)</pv_name>
+    <x>420</x>
+    <y>25</y>
+    <width>120</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="11.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="255" blue="200">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>3</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Charge</name>
+    <pv_name>$(P):CHARGE_CH$(CHANNEL)</pv_name>
+    <x>550</x>
+    <y>25</y>
+    <width>180</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="240" blue="200">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>1</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>DailyCharge</name>
+    <pv_name>$(P):CHARGE_DAY_CH$(CHANNEL)</pv_name>
+    <x>740</x>
+    <y>20</y>
+    <width>200</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="128" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="255" green="200" blue="200">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>1</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>ResetButton</name>
+    <actions>
+      <action type="write_pv">
+        <description>Reset Daily Charge</description>
+        <pv_name>$(P):RESET_CHARGE_DAY_CH$(CHANNEL)</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>Reset Daily</text>
+    <x>950</x>
+    <y>25</y>
+    <width>120</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="11.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="255" green="150" blue="150">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>DetailsButton</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Detailed View</description>
+        <file>charge_monitor.bob</file>
+        <macros>
+          <CHANNEL>$(CHANNEL)</CHANNEL>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>📊 Details</text>
+    <x>1080</x>
+    <y>25</y>
+    <width>120</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="11.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="200" green="220" blue="255">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="stripchart" version="2.1.0">
+    <name>MiniChart</name>
+    <x>1210</x>
+    <y>15</y>
+    <width>160</width>
+    <height>50</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+    <show_toolbar>false</show_toolbar>
+    <start>600.0</start>
+    <y_axes>
+      <y_axis>
+        <title></title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <visible>false</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>Daily</name>
+        <y_pv>$(P):CHARGE_DAY_CH$(CHANNEL)</y_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+</display>

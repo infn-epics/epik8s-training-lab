@@ -1,0 +1,1154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Channel $(CHAN) Waveform</name>
+  <width>920</width>
+  <height>780</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Channel $(CHAN) Waveform</text>
+    <x>6</x>
+    <y>6</y>
+    <width>250</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="128">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Title_Label</name>
+    <pv_name>$(P):CH$(CHAN):Label_RBV</pv_name>
+    <x>260</x>
+    <y>8</y>
+    <width>150</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title_Prefix</name>
+    <text>$(P)</text>
+    <x>550</x>
+    <y>10</y>
+    <width>250</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="140" green="140" blue="140">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="checkbox" version="2.0.0">
+    <name>En_CH</name>
+    <pv_name>$(P):CH$(CHAN):Enable</pv_name>
+    <label>Enable</label>
+    <x>820</x>
+    <y>8</y>
+    <width>90</width>
+    <height>24</height>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>Waveform_Plot</name>
+    <x>6</x>
+    <y>40</y>
+    <width>908</width>
+    <height>380</height>
+    <background_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <title>CH$(CHAN) Waveform</title>
+    <title_font>
+      <font family="Liberation Sans" style="BOLD" size="13.0">
+      </font>
+    </title_font>
+    <show_toolbar>true</show_toolbar>
+    <x_axis>
+      <title>Time (s)</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Amplitude (V)</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-1.0</minimum>
+        <maximum>1.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font family="Liberation Sans" style="BOLD" size="11.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>CH$(CHAN)</name>
+        <x_pv>$(P):CH$(CHAN):TimeArray</x_pv>
+        <y_pv>$(P):CH$(CHAN):Waveform</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="200" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>0</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+    <marker>
+      <marker>
+        <color>
+          <color red="0" green="100" blue="255">
+          </color>
+        </color>
+        <pv_name>$(P):CH$(CHAN):MarkerStart</pv_name>
+        <interactive>true</interactive>
+      </marker>
+      <marker>
+        <color>
+          <color red="255" green="50" blue="50">
+          </color>
+        </color>
+        <pv_name>$(P):CH$(CHAN):MarkerEnd</pv_name>
+        <interactive>true</interactive>
+      </marker>
+    </marker>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Data_Window</name>
+    <x>6</x>
+    <y>425</y>
+    <height>150</height>
+    <style>1</style>
+    <background_color>
+      <color red="220" green="235" blue="250">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>DW_Title</name>
+      <text>Data Window (samples)</text>
+      <x>6</x>
+      <y>4</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_DStart</name>
+      <text>Start:</text>
+      <x>6</x>
+      <y>30</y>
+      <width>60</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_DStart</name>
+      <pv_name>$(P):CH$(CHAN):DataStart</pv_name>
+      <x>70</x>
+      <y>28</y>
+      <height>22</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RBV_DStart</name>
+      <pv_name>$(P):CH$(CHAN):DataStart_RBV</pv_name>
+      <x>180</x>
+      <y>30</y>
+      <width>80</width>
+      <height>18</height>
+      <foreground_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_DSize</name>
+      <text>Size:</text>
+      <x>6</x>
+      <y>56</y>
+      <width>60</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_DSize</name>
+      <pv_name>$(P):CH$(CHAN):WindowSize</pv_name>
+      <x>70</x>
+      <y>54</y>
+      <width>180</width>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_NELM</name>
+      <text>Max (NELM):</text>
+      <x>6</x>
+      <y>80</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="11.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_NELM</name>
+      <pv_name>$(P):CH$(CHAN):NELM</pv_name>
+      <x>90</x>
+      <y>80</y>
+      <width>80</width>
+      <height>18</height>
+      <foreground_color>
+        <color red="0" green="0" blue="128">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_pts_nelm</name>
+      <text>pts</text>
+      <x>175</x>
+      <y>80</y>
+      <width>30</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_DWidth</name>
+      <text>Bytes:</text>
+      <x>6</x>
+      <y>106</y>
+      <width>60</width>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Ctrl_DWidth</name>
+      <pv_name>$(P):CH$(CHAN):DataWidth</pv_name>
+      <x>70</x>
+      <y>104</y>
+      <width>130</width>
+      <height>22</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Stats_Window</name>
+    <x>310</x>
+    <y>425</y>
+    <width>340</width>
+    <height>150</height>
+    <style>1</style>
+    <background_color>
+      <color red="230" green="250" blue="230">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>SW_Title</name>
+      <text>Statistics Window (markers)</text>
+      <x>6</x>
+      <y>4</y>
+      <width>260</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Note</name>
+      <text>Drag markers on plot or type sample values</text>
+      <x>6</x>
+      <y>22</y>
+      <width>320</width>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_MStart</name>
+      <text>Start:</text>
+      <x>6</x>
+      <y>42</y>
+      <width>45</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_MStartPt</name>
+      <pv_name>$(P):CH$(CHAN):MarkerStartPt</pv_name>
+      <x>52</x>
+      <y>40</y>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_MStart_pts</name>
+      <text>pts</text>
+      <x>155</x>
+      <y>42</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RBV_MStartTime</name>
+      <pv_name>$(P):CH$(CHAN):MarkerStart_RBV</pv_name>
+      <x>185</x>
+      <y>42</y>
+      <width>120</width>
+      <height>18</height>
+      <foreground_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </foreground_color>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_MStart_s</name>
+      <text>s</text>
+      <x>308</x>
+      <y>42</y>
+      <width>12</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_MEnd</name>
+      <text>End:</text>
+      <x>6</x>
+      <y>68</y>
+      <width>45</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_MEndPt</name>
+      <pv_name>$(P):CH$(CHAN):MarkerEndPt</pv_name>
+      <x>52</x>
+      <y>66</y>
+      <height>22</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_MEnd_pts</name>
+      <text>pts</text>
+      <x>155</x>
+      <y>68</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RBV_MEndTime</name>
+      <pv_name>$(P):CH$(CHAN):MarkerEnd_RBV</pv_name>
+      <x>180</x>
+      <y>68</y>
+      <width>120</width>
+      <height>18</height>
+      <foreground_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </foreground_color>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_MEnd_s</name>
+      <text>s</text>
+      <x>308</x>
+      <y>68</y>
+      <width>12</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_ResetMarkers</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset markers to data window</description>
+          <pv_name>$(P):CH$(CHAN):ResetMarkers</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Reset Markers to Window</text>
+      <x>6</x>
+      <y>96</y>
+      <width>160</width>
+      <height>22</height>
+      <tooltip>Set markers to DataStart..DataStart+WindowSize-1</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_ResetStats</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset Stats</description>
+          <pv_name>$(P):CH$(CHAN):ResetStats</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Reset Stats</text>
+      <x>176</x>
+      <y>96</y>
+      <height>22</height>
+      <tooltip>Reset all statistics for this channel</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_MActual</name>
+      <text>Actual:</text>
+      <x>6</x>
+      <y>124</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_MStartSamp</name>
+      <pv_name>$(P):CH$(CHAN):MarkerStartSample</pv_name>
+      <x>55</x>
+      <y>124</y>
+      <width>70</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_MActualSep</name>
+      <text>..</text>
+      <x>126</x>
+      <y>124</y>
+      <width>12</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_MEndSamp</name>
+      <pv_name>$(P):CH$(CHAN):MarkerEndSample</pv_name>
+      <x>138</x>
+      <y>124</y>
+      <width>70</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_MActualPts</name>
+      <text>pts (resolved)</text>
+      <x>210</x>
+      <y>124</y>
+      <width>90</width>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channel_Config</name>
+    <x>654</x>
+    <y>425</y>
+    <width>260</width>
+    <height>150</height>
+    <style>1</style>
+    <background_color>
+      <color red="245" green="240" blue="230">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>CC_Title</name>
+      <text>Channel Configuration</text>
+      <x>6</x>
+      <y>4</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Scale</name>
+      <text>Scale:</text>
+      <x>6</x>
+      <y>30</y>
+      <width>55</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RBV_Scale</name>
+      <pv_name>$(P):CH$(CHAN):Scale_RBV</pv_name>
+      <x>65</x>
+      <y>30</y>
+      <width>80</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_Vdiv</name>
+      <text>V/div</text>
+      <x>148</x>
+      <y>30</y>
+      <width>35</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Offset</name>
+      <text>Offset:</text>
+      <x>6</x>
+      <y>52</y>
+      <width>55</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RBV_Offset</name>
+      <pv_name>$(P):CH$(CHAN):Offset_RBV</pv_name>
+      <x>65</x>
+      <y>52</y>
+      <width>80</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_V</name>
+      <text>V</text>
+      <x>148</x>
+      <y>52</y>
+      <width>20</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_ScaleNote</name>
+      <text>(read-only from scope)</text>
+      <x>6</x>
+      <y>73</y>
+      <width>160</width>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="8.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="120" green="120" blue="120">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Xinc</name>
+      <text>Xinc:</text>
+      <x>6</x>
+      <y>82</y>
+      <width>55</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Xinc</name>
+      <pv_name>$(P):CH$(CHAN):Xinc</pv_name>
+      <x>65</x>
+      <y>82</y>
+      <width>110</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>6</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_s</name>
+      <text>s</text>
+      <x>178</x>
+      <y>82</y>
+      <width>15</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_NrPt</name>
+      <text>Points:</text>
+      <x>6</x>
+      <y>104</y>
+      <width>55</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_NrPt</name>
+      <pv_name>$(P):CH$(CHAN):NrPt</pv_name>
+      <x>65</x>
+      <y>104</y>
+      <width>80</width>
+      <height>18</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Rate</name>
+      <text>Rate:</text>
+      <x>150</x>
+      <y>104</y>
+      <width>40</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Rate</name>
+      <pv_name>$(P):CH$(CHAN):RefreshRate</pv_name>
+      <x>192</x>
+      <y>104</y>
+      <width>40</width>
+      <height>18</height>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_Hz</name>
+      <text>Hz</text>
+      <x>234</x>
+      <y>104</y>
+      <width>22</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Statistics</name>
+    <x>6</x>
+    <y>580</y>
+    <width>680</width>
+    <height>195</height>
+    <style>1</style>
+    <background_color>
+      <color red="245" green="245" blue="245">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>Stat_Title</name>
+      <text>Statistics (within marker window)</text>
+      <x>6</x>
+      <y>4</y>
+      <width>350</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Mean</name>
+      <text>Mean:</text>
+      <x>6</x>
+      <y>32</y>
+      <width>55</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Mean</name>
+      <pv_name>$(P):CH$(CHAN):Mean</pv_name>
+      <x>65</x>
+      <y>32</y>
+      <width>95</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Min</name>
+      <text>Min:</text>
+      <x>170</x>
+      <y>32</y>
+      <width>40</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Min</name>
+      <pv_name>$(P):CH$(CHAN):Min</pv_name>
+      <x>215</x>
+      <y>32</y>
+      <width>95</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Max</name>
+      <text>Max:</text>
+      <x>320</x>
+      <y>32</y>
+      <width>40</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Max</name>
+      <pv_name>$(P):CH$(CHAN):Max</pv_name>
+      <x>365</x>
+      <y>32</y>
+      <width>95</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_PkPk</name>
+      <text>Pk-Pk:</text>
+      <x>470</x>
+      <y>32</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_PkPk</name>
+      <pv_name>$(P):CH$(CHAN):PeakToPeak</pv_name>
+      <x>525</x>
+      <y>32</y>
+      <width>95</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_RMS</name>
+      <text>RMS:</text>
+      <x>6</x>
+      <y>56</y>
+      <width>55</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_RMS</name>
+      <pv_name>$(P):CH$(CHAN):RMS</pv_name>
+      <x>65</x>
+      <y>56</y>
+      <width>95</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_StdDev</name>
+      <text>StdDev:</text>
+      <x>170</x>
+      <y>56</y>
+      <width>55</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_StdDev</name>
+      <pv_name>$(P):CH$(CHAN):StdDev</pv_name>
+      <x>230</x>
+      <y>56</y>
+      <width>95</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Integral</name>
+      <text>Integral:</text>
+      <x>6</x>
+      <y>80</y>
+      <width>65</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Integral</name>
+      <pv_name>$(P):CH$(CHAN):Integral</pv_name>
+      <x>75</x>
+      <y>80</y>
+      <width>120</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>9</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Units_Integral</name>
+      <text>V*s</text>
+      <x>198</x>
+      <y>80</y>
+      <width>30</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_ChargeCoeff</name>
+      <text>Charge Coeff:</text>
+      <x>6</x>
+      <y>108</y>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Entry_ChargeCoeff</name>
+      <pv_name>$(P):CH$(CHAN):ChargeCoeff</pv_name>
+      <x>110</x>
+      <y>106</y>
+      <width>120</width>
+      <height>22</height>
+      <format>3</format>
+      <precision>6</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Charge</name>
+      <text>Charge:</text>
+      <x>250</x>
+      <y>108</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Charge</name>
+      <pv_name>$(P):CH$(CHAN):Charge</pv_name>
+      <x>315</x>
+      <y>108</y>
+      <width>120</width>
+      <height>18</height>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Ymultinfo</name>
+      <text>Y scaling:</text>
+      <x>6</x>
+      <y>138</y>
+      <width>70</width>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Ymult</name>
+      <text>Ymult:</text>
+      <x>80</x>
+      <y>138</y>
+      <width>40</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Ymult</name>
+      <pv_name>$(P):CH$(CHAN):Ymult</pv_name>
+      <x>122</x>
+      <y>138</y>
+      <width>80</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+      <format>3</format>
+      <precision>6</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Yoff</name>
+      <text>Yoff:</text>
+      <x>210</x>
+      <y>138</y>
+      <width>30</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Yoff</name>
+      <pv_name>$(P):CH$(CHAN):Yoff</pv_name>
+      <x>242</x>
+      <y>138</y>
+      <width>80</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+      <format>3</format>
+      <precision>3</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_Yzero</name>
+      <text>Yzero:</text>
+      <x>330</x>
+      <y>138</y>
+      <width>40</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Val_Yzero</name>
+      <pv_name>$(P):CH$(CHAN):Yzero</pv_name>
+      <x>372</x>
+      <y>138</y>
+      <width>80</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+      <format>3</format>
+      <precision>6</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Lbl_DataReady</name>
+      <text>Ready:</text>
+      <x>470</x>
+      <y>138</y>
+      <width>45</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_Ready</name>
+      <pv_name>$(P):CH$(CHAN):DataReady</pv_name>
+      <x>518</x>
+      <y>136</y>
+      <width>18</width>
+      <height>18</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Quick_Actions</name>
+    <x>690</x>
+    <y>580</y>
+    <width>224</width>
+    <height>195</height>
+    <style>1</style>
+    <background_color>
+      <color red="255" green="255" blue="235">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>QA_Title</name>
+      <text>Quick Actions</text>
+      <x>6</x>
+      <y>4</y>
+      <width>200</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>QA_Note</name>
+      <text>Set Data Window from
+current marker positions</text>
+      <x>6</x>
+      <y>24</y>
+      <width>210</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="ITALIC" size="9.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_MarkersToDataWin</name>
+      <actions>
+        <action type="write_pv">
+          <description>Copy Marker Start Sample to DataStart</description>
+          <pv_name>$(P):CH$(CHAN):CopyMarkerStart</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Marker Start -&gt; DataStart</text>
+      <x>6</x>
+      <y>58</y>
+      <width>210</width>
+      <height>25</height>
+      <tooltip>Copy marker start sample index to DataStart</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_MarkerEndToDataStop</name>
+      <actions>
+        <action type="write_pv">
+          <description>Copy Marker End Sample to DataStop</description>
+          <pv_name>$(P):CH$(CHAN):CopyMarkerEnd</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Marker End -&gt; Size</text>
+      <x>6</x>
+      <y>88</y>
+      <width>210</width>
+      <height>25</height>
+      <tooltip>Compute DataSize from marker end and current start</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_BothMarkersToDataWin</name>
+      <actions>
+        <action type="write_pv">
+          <description>Copy both markers to data window</description>
+          <pv_name>$(P):CH$(CHAN):CopyMarkersToWindow</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Both Markers -&gt; Data Window</text>
+      <x>6</x>
+      <y>120</y>
+      <width>210</width>
+      <height>25</height>
+      <tooltip>Set DataStart and DataSize from marker positions</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Btn_ResetDataWindow</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset Data Window to 1..NELM</description>
+          <pv_name>$(P):CH$(CHAN):ResetDataWindow</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>Reset Data Window (NELM)</text>
+      <x>6</x>
+      <y>152</y>
+      <width>210</width>
+      <height>25</height>
+      <tooltip>Reset DataStart=1, DataStop=NELM</tooltip>
+    </widget>
+  </widget>
+</display>

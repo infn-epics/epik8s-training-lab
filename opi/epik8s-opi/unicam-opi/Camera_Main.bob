@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-22 16:07:58 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Camera Screen Operator GUI</name>
+  <macros>
+    <HCAM>CAM</HCAM>
+    <HDEVICE>FSIA</HDEVICE>
+    <HIMAGE>IMAGE</HIMAGE>
+    <HPROC>PROC</HPROC>
+    <HROI>ROI</HROI>
+    <HSTATS>STATS</HSTATS>
+    <HTRANS>TRANS</HTRANS>
+    <VCAM>CAM</VCAM>
+    <VDEVICE>FSIA</VDEVICE>
+    <VIMAGE>IMAGE</VIMAGE>
+    <VPROC>PROC</VPROC>
+    <VROI>ROI</VROI>
+    <VSTATS>STATS</VSTATS>
+    <VTRANS>TRANS</VTRANS>
+  </macros>
+  <width>1195</width>
+  <height>818</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="embedded" version="2.0.0">
+    <name>CameraImage</name>
+    <file>Camera_ColorImagePanel.bob</file>
+    <x>370</x>
+    <y>85</y>
+    <width>800</width>
+    <height>560</height>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title Banner</name>
+    <text>Camera  $(HW) - $(DEVICE):$(CAM)</text>
+    <width>1195</width>
+    <height>45</height>
+    <font>
+      <font name="STAR-CS" family="sans" style="REGULAR" size="23.762376237623762">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="STAR-CS Beam Diagnostics" red="207" green="151" blue="207">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>CameraControls</name>
+    <file>TabDisplay.bob</file>
+    <x>18</x>
+    <y>133</y>
+    <width>352</width>
+    <height>667</height>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Selection</name>
+    <x>385</x>
+    <y>671</y>
+    <width>275</width>
+    <height>75</height>
+    <background_color>
+      <color red="237" green="236" blue="235">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Visibility Rule" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0 == 0">
+          <value>false</value>
+        </exp>
+        <exp bool_exp="pv1 == 2">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://roiVisible</pv_name>
+        <pv_name>loc://$(DEVICE):$(CAM):ChosenImg</pv_name>
+      </rule>
+    </rules>
+    <widget type="action_button" version="3.0.0">
+      <name>Apply ROI Button</name>
+      <actions>
+        <action type="execute">
+          <description>Execute Script</description>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+camera_widget = ScriptUtil.findWidgetByName(widget, 'CameraImage')
+#label_widget = ScriptUtil.findWidgetByName(widget,"LabelTEST")  # Ottiene il widget con ID
+macro_device = camera_widget.getEffectiveMacros().getValue('DEVICE')
+if macro_device is None:
+        raise Exception("La macro 'DEVICE' non è definita")
+macro_cam=camera_widget.getEffectiveMacros().getValue("CAM")
+if macro_cam is None:
+        raise Exception("La macro 'CAM' non è definita")
+prefis=macro_device+':'+macro_cam+":"
+
+pname=prefis+"SizeX_RBV"
+pvx = PVUtil.createPV(pname,1000)
+X_Img = PVUtil.getDouble(pvx)
+
+pname=prefis+"SizeY_RBV"
+pvy=PVUtil.createPV(pname,1000)
+Y_Img=PVUtil.getDouble(pvy)
+
+p_roi_x=PVUtil.createPV("loc://"+prefis+"roi_x",1000)
+p_roi_y=PVUtil.createPV("loc://"+prefis+"roi_y",1000)
+p_roi_w=PVUtil.createPV("loc://"+prefis+"roi_w",1000)
+p_roi_h=PVUtil.createPV("loc://"+prefis+"roi_h",1000)
+
+roiX=PVUtil.getInt(p_roi_x)
+roiY=PVUtil.getInt(p_roi_y)
+roiW=PVUtil.getInt(p_roi_w)
+roiH=PVUtil.getInt(p_roi_h)
+
+#L'immagine è sempre in percentuale 0 -100
+#Rispetto alle camere, la Y è ribaltata e quindi vale 0 in basso invece che in alto. Per ottenere la locazione corretta, la ribalto
+#realY= (100-roiY)-roiH
+
+
+#xToSet= (roiX*X_Img ) / 100 
+#yToSet= (realY*Y_Img) / 100 
+
+#wToSet : roiW=X_Img : 100
+
+#wToSet=(roiW*X_Img)/100
+#hToSet=(roiH*Y_Img)/100
+
+#label_widget.setPropertyValue("text", str(X_Img)+":"+str(Y_Img)+ "ROI "+ str(roiX)+":"+str(realY)+":"+str(roiW)+":"+str(roiH)) 
+#label_widget.setPropertyValue("text", str(xToSet)+":"+str(yToSet)+" W: "+str(wToSet)+ " H: "+str(hToSet)) 
+
+chosenImg="loc://"+prefis+"ChosenImg"
+pvChosen=PVUtil.createPV(chosenImg,1000)
+chosenValue=PVUtil.getInt(pvChosen)
+chosenOverlay="loc://"+prefis+"ChosenOverlay"
+pvOverlay=PVUtil.createPV(chosenOverlay,1000)
+overlayValue=PVUtil.getInt(pvOverlay) + 1
+
+
+
+#SETTINGS
+if chosenValue == 0 or chosenValue == 1:
+  if chosenValue == 1:
+    prefis+="Roi1:"
+  pname=prefis+"SizeX"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(roiW)
+
+  pname=prefis+"SizeY"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(roiH)
+
+  pname=prefis+"MinX"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(roiX)
+
+  pname=prefis+"MinY"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(roiY)
+elif chosenValue == 3:
+  overlayPrefix=prefis+"Overlay1:%d:" % overlayValue
+
+  pname=prefis+"Overlay1:EnableCallbacks"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(1)
+
+  pname=overlayPrefix+"Use"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(1)
+
+  pname=overlayPrefix+"PositionX"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(roiX)
+
+  pname=overlayPrefix+"PositionY"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(roiY)
+
+  pname=overlayPrefix+"SizeX"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(roiW)
+
+  pname=overlayPrefix+"SizeY"
+  pv = PVUtil.createPV(pname,1000)
+  pv.setValue(roiH)
+  pass
+	
+
+
+
+pname="loc://roiVisible"
+pv = PVUtil.createPV(pname,1000)
+pv.setValue(0)
+
+#widget.setPropertyValue('text', "Done")
+]]></text>
+          </script>
+        </action>
+      </actions>
+      <text>APPLY ROI HW</text>
+      <x>7</x>
+      <y>7</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <rules>
+        <rule name="Visibility Rule" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0 != 2 and pv1 == 1">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pv0 == 2">
+            <value>false</value>
+          </exp>
+          <exp bool_exp="pv0 != 2 and pv1 == 0">
+            <value>false</value>
+          </exp>
+          <pv_name>loc://$(DEVICE):$(CAM):ChosenImg</pv_name>
+          <pv_name>loc://roiVisible</pv_name>
+        </rule>
+        <rule name="label Rule" prop_id="text" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>APPLY ROI HW</value>
+          </exp>
+          <exp bool_exp="pv0 == 1">
+            <value>APPLY ROI SW</value>
+          </exp>
+          <exp bool_exp="pv0 == 3">
+            <value>APPLY OVERLAY</value>
+          </exp>
+          <exp bool_exp="pv0 == 2">
+            <value>DO NOTHING</value>
+          </exp>
+          <pv_name>loc://$(DEVICE):$(CAM):ChosenImg</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Reset ROI Button</name>
+      <actions>
+        <action type="execute">
+          <description>Execute Script</description>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+camera_widget = ScriptUtil.findWidgetByName(widget, 'CameraImage')
+
+macro_device = camera_widget.getEffectiveMacros().getValue('DEVICE')
+if macro_device is None:
+        raise Exception("La macro 'DEVICE' non è definita")
+macro_cam=camera_widget.getEffectiveMacros().getValue("CAM")
+if macro_cam is None:
+        raise Exception("La macro 'CAM' non è definita")
+prefis=macro_device+':'+macro_cam+":"
+
+pname=prefis+"MaxSizeX_RBV"
+pv = PVUtil.createPV(pname,1000)
+MaxX=PVUtil.getInt(pv)
+
+pname=prefis+"MaxSizeY_RBV"
+pv = PVUtil.createPV(pname,1000)
+MaxY=PVUtil.getInt(pv)
+
+
+chosenImg="loc://"+prefis+"ChosenImg"
+pvChosen=PVUtil.createPV(chosenImg,1000)
+chosenValue=PVUtil.getInt(pvChosen)
+chosenOverlay="loc://"+prefis+"ChosenOverlay"
+pvOverlay=PVUtil.createPV(chosenOverlay,1000)
+overlayValue=PVUtil.getInt(pvOverlay) + 1
+
+
+
+
+if chosenValue < 3:
+	if chosenValue == 1 or chosenValue == 2:
+		prefis+="Roi1:"
+	pname=prefis+"MinX"
+	pv = PVUtil.createPV(pname,1000)
+	pv.setValue(0)
+
+	pname=prefis+"MinY"
+	pv = PVUtil.createPV(pname,1000)
+	pv.setValue(0)
+
+	pname=prefis+"SizeX"
+	pv = PVUtil.createPV(pname,1000)
+	pv.setValue(MaxX)
+
+	pname=prefis+"SizeY"
+	pv = PVUtil.createPV(pname,1000)
+	pv.setValue(MaxY)
+elif chosenValue == 3:
+  overlayPrefix=prefis+"Overlay1:%d:" % overlayValue
+  pname=overlayPrefix+"PositionX"
+    pv = PVUtil.createPV(pname,1000)
+    pv.setValue(0)
+
+  pname=overlayPrefix+"PositionY"
+    pv = PVUtil.createPV(pname,1000)
+    pv.setValue(0)
+
+  pname=overlayPrefix+"SizeX"
+    pv = PVUtil.createPV(pname,1000)
+    pv.setValue(MaxX)
+
+  pname=overlayPrefix+"SizeY"
+    pv = PVUtil.createPV(pname,1000)
+    pv.setValue(MaxY)
+else:
+	pass
+
+
+prefis=macro_device+':'+macro_cam+":"
+p_roi_x=PVUtil.createPV("loc://"+prefis+"roi_x",1000)
+p_roi_y=PVUtil.createPV("loc://"+prefis+"roi_y",1000)
+p_roi_w=PVUtil.createPV("loc://"+prefis+"roi_w",1000)
+p_roi_h=PVUtil.createPV("loc://"+prefis+"roi_h",1000)
+
+pname=prefis+"SizeX_RBV"
+pvx = PVUtil.createPV(pname,1000)
+X_Img = PVUtil.getDouble(pvx)
+
+pname=prefis+"SizeY_RBV"
+pvy=PVUtil.createPV(pname,1000)
+Y_Img=PVUtil.getDouble(pvy)
+
+
+
+xV=X_Img / 5
+yV = Y_Img /5
+wV=X_Img/4
+hV=Y_Img/4
+p_roi_x.setValue(xV)
+p_roi_y.setValue(yV)
+p_roi_w.setValue(wV)
+p_roi_h.setValue(hV)]]></text>
+          </script>
+        </action>
+      </actions>
+      <text>Reset ROI</text>
+      <x>127</x>
+      <y>7</y>
+      <rules>
+        <rule name="visibility rule" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==1">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pv0==0">
+            <value>false</value>
+          </exp>
+          <pv_name>loc://roiVisible</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="checkbox" version="2.0.0">
+    <name>CheckBoxROI</name>
+    <pv_name>loc://roiVisible(0)</pv_name>
+    <label>Show Selection</label>
+    <x>385</x>
+    <y>645</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="EmbeddedPy" check_connections="false">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+camera_widget = ScriptUtil.findWidgetByName(widget, 'CameraImage')
+
+macro_device = camera_widget.getEffectiveMacros().getValue('DEVICE')
+if macro_device is None:
+        raise Exception("La macro 'DEVICE' non è definita")
+macro_cam=camera_widget.getEffectiveMacros().getValue("CAM")
+if macro_cam is None:
+        raise Exception("La macro 'CAM' non è definita")
+prefis=macro_device+':'+macro_cam+":"
+
+
+
+
+pname=prefis+"SizeX_RBV"
+pvx = PVUtil.createPV(pname,1000)
+X_Img = PVUtil.getDouble(pvx)
+
+pname=prefis+"SizeY_RBV"
+pvy=PVUtil.createPV(pname,1000)
+Y_Img=PVUtil.getDouble(pvy)
+
+xV=X_Img / 5
+yV = Y_Img /5
+wV=X_Img/4
+hV=Y_Img/4
+
+val= PVUtil.getInt(pvs[0])
+pv2 = pvs[2]
+pv4 = pvs[4]
+if val==1:
+	pvs[1].setValue(xV)
+	if hasattr(pvs[2], 'setValue'):
+   		 pvs[2].setValue(yV)
+	else:
+    		print("pvs[2] non ha il metodo setValue")
+	pvs[3].setValue(wV)
+	if hasattr(pvs[4], 'setValue'):
+   		 pvs[4].setValue(hV)
+	else:
+    		print("pvs[4] non ha il metodo setValue")
+
+
+]]></text>
+        <pv_name>loc://roiVisible</pv_name>
+        <pv_name trigger="false">loc://$(DEVICE):$(CAM):roi_x</pv_name>
+        <pv_name trigger="false">loc://$(DEVICE):$(CAM):roi_y</pv_name>
+        <pv_name trigger="false">loc://$(DEVICE):$(CAM):roi_w</pv_name>
+        <pv_name trigger="false">loc://$(DEVICE):$(CAM):roi_h</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Centroid Stats</name>
+    <x>730</x>
+    <y>655</y>
+    <width>440</width>
+    <height>153</height>
+    <rules>
+      <rule name="Visibility Rule" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0 != 2">
+          <value>false</value>
+        </exp>
+        <exp bool_exp="pv0 ==2">
+          <value>true</value>
+        </exp>
+        <pv_name>loc://$(DEVICE):$(CAM):ChosenImg</pv_name>
+      </rule>
+    </rules>
+    <widget type="label" version="2.0.0">
+      <name>text #289</name>
+      <text>X</text>
+      <x>12</x>
+      <y>7</y>
+      <width>25</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #292</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:Stats1:CentroidX_RBV</pv_name>
+      <x>52</x>
+      <y>7</y>
+      <width>90</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #300</name>
+      <text>Y</text>
+      <x>27</x>
+      <y>33</y>
+      <width>10</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #296</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:Stats1:CentroidY_RBV</pv_name>
+      <x>53</x>
+      <y>33</y>
+      <width>90</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #328</name>
+      <text>Sigma X</text>
+      <x>162</x>
+      <y>7</y>
+      <width>70</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #324</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:Stats1:SigmaX_RBV</pv_name>
+      <x>236</x>
+      <y>8</y>
+      <width>90</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #321</name>
+      <text>Sigma Y</text>
+      <x>169</x>
+      <y>33</y>
+      <width>64</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #317</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:Stats1:SigmaY_RBV</pv_name>
+      <x>236</x>
+      <y>33</y>
+      <width>90</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #381</name>
+      <text>Eccentricity</text>
+      <x>21</x>
+      <y>62</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #377</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:Stats1:Eccentricity_RBV</pv_name>
+      <x>236</x>
+      <y>62</y>
+      <width>90</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #388</name>
+      <text>Orientation</text>
+      <x>27</x>
+      <y>92</y>
+      <width>110</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #384</name>
+      <pv_name>$(DEVICE):$(CAM):Proc1:Stats1:Orientation_RBV</pv_name>
+      <x>237</x>
+      <y>92</y>
+      <width>90</width>
+      <height>18</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Shutter</name>
+    <x>385</x>
+    <y>746</y>
+    <width>335</width>
+    <height>62</height>
+  </widget>
+</display>

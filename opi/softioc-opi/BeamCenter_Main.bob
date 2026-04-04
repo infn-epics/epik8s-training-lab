@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Beam Center Control</name>
+  <macros>
+    <PREFIX>$(PREFIX=LAB:SIM:BEAM_CENTER)</PREFIX>
+    <CAMERA>$(CAMERA=LAB:SIM:CAM01)</CAMERA>
+    <DEVICE>$(DEVICE=LAB:SIM)</DEVICE>
+    <CAM>$(CAM=CAM01)</CAM>
+    <MOTX>$(MOTX=LAB:SIM:HMIR)</MOTX>
+    <MOTX_P>$(MOTX_P=LAB:SIM)</MOTX_P>
+    <MOTX_R>$(MOTX_R=HMIR)</MOTX_R>
+    <MOTY>$(MOTY=LAB:SIM:VMIR)</MOTY>
+    <MOTY_P>$(MOTY_P=LAB:SIM)</MOTY_P>
+    <MOTY_R>$(MOTY_R=VMIR)</MOTY_R>
+  </macros>
+  <width>1540</width>
+  <height>930</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="rectangle" version="2.0.0">
+    <name>header</name>
+    <width>1540</width>
+    <height>52</height>
+    <background_color>
+      <color red="30" green="110" blue="60">
+      </color>
+    </background_color>
+    <line_color>
+      <color red="30" green="110" blue="60">
+      </color>
+    </line_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>title</name>
+    <text>Beam Center Control - $(PREFIX)</text>
+    <x>16</x>
+    <y>10</y>
+    <width>900</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>controls-bg</name>
+    <x>18</x>
+    <y>72</y>
+    <width>380</width>
+    <height>320</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0"><name>controls-title</name><text>Loop Controls</text><x>32</x><y>88</y><width>180</width><height>24</height><font><font family="Liberation Sans" style="BOLD" size="18.0"></font></font></widget>
+  <widget type="label" version="2.0.0"><name>c1</name><text>gain_x</text><x>34</x><y>130</y><width>90</width><height>22</height></widget>
+  <widget type="textentry" version="3.0.0"><name>gainx</name><pv_name>$(PREFIX):gain_x</pv_name><x>150</x><y>126</y><width>110</width><height>26</height><precision>4</precision></widget>
+  <widget type="label" version="2.0.0"><name>c2</name><text>gain_y</text><x>34</x><y>166</y><width>90</width><height>22</height></widget>
+  <widget type="textentry" version="3.0.0"><name>gainy</name><pv_name>$(PREFIX):gain_y</pv_name><x>150</x><y>162</y><width>110</width><height>26</height><precision>4</precision></widget>
+  <widget type="label" version="2.0.0"><name>c3</name><text>tolerance</text><x>34</x><y>202</y><width>90</width><height>22</height></widget>
+  <widget type="textentry" version="3.0.0"><name>tol</name><pv_name>$(PREFIX):tolerance</pv_name><x>150</x><y>198</y><width>110</width><height>26</height><precision>1</precision></widget>
+  <widget type="label" version="2.0.0"><name>c4</name><text>interval</text><x>34</x><y>238</y><width>90</width><height>22</height></widget>
+  <widget type="textentry" version="3.0.0"><name>interval</name><pv_name>$(PREFIX):interval</pv_name><x>150</x><y>234</y><width>110</width><height>26</height><precision>1</precision></widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>start</name>
+    <pv_name>$(PREFIX):start</pv_name>
+    <x>34</x>
+    <y>286</y>
+    <width>132</width>
+    <height>34</height>
+    <on_label>Running</on_label>
+    <off_label>Start</off_label>
+    <on_color><color red="30" green="210" blue="0"></color></on_color>
+    <off_color><color red="77" green="77" blue="77"></color></off_color>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>stop</name>
+    <pv_name>$(PREFIX):stop</pv_name>
+    <x>182</x>
+    <y>286</y>
+    <width>132</width>
+    <height>34</height>
+    <on_label>Stopping</on_label>
+    <off_label>Stop</off_label>
+    <on_color><color red="220" green="60" blue="60"></color></on_color>
+    <off_color><color red="77" green="77" blue="77"></color></off_color>
+  </widget>
+  <widget type="label" version="2.0.0"><name>c5</name><text>Status</text><x>34</x><y>338</y><width>90</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>status</name><pv_name>$(PREFIX):status</pv_name><x>150</x><y>334</y><width>210</width><height>26</height></widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>state-bg</name>
+    <x>18</x>
+    <y>414</y>
+    <width>380</width>
+    <height>490</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0"><name>state-title</name><text>Live State</text><x>32</x><y>430</y><width>180</width><height>24</height><font><font family="Liberation Sans" style="BOLD" size="18.0"></font></font></widget>
+  <widget type="label" version="2.0.0"><name>s1</name><text>errX</text><x>34</x><y>470</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>errx</name><pv_name>$(PREFIX):errX</pv_name><x>150</x><y>466</y><width>100</width><height>26</height><precision>1</precision></widget>
+  <widget type="label" version="2.0.0"><name>s2</name><text>errY</text><x>34</x><y>502</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>erry</name><pv_name>$(PREFIX):errY</pv_name><x>150</x><y>498</y><width>100</width><height>26</height><precision>1</precision></widget>
+  <widget type="label" version="2.0.0"><name>s3</name><text>CentroidX</text><x>34</x><y>534</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>cx</name><pv_name>$(CAMERA):Stats1:CentroidX_RBV</pv_name><x>150</x><y>530</y><width>100</width><height>26</height><precision>1</precision></widget>
+  <widget type="label" version="2.0.0"><name>s4</name><text>CentroidY</text><x>34</x><y>566</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>cy</name><pv_name>$(CAMERA):Stats1:CentroidY_RBV</pv_name><x>150</x><y>562</y><width>100</width><height>26</height><precision>1</precision></widget>
+  <widget type="label" version="2.0.0"><name>s5</name><text>Overlay PosX</text><x>34</x><y>598</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>opx</name><pv_name>$(CAMERA):Overlay1:1:PositionX_RBV</pv_name><x>150</x><y>594</y><width>100</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>s6</name><text>Overlay PosY</text><x>34</x><y>630</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>opy</name><pv_name>$(CAMERA):Overlay1:1:PositionY_RBV</pv_name><x>150</x><y>626</y><width>100</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>s7</name><text>Overlay SizeX</text><x>34</x><y>662</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>osx</name><pv_name>$(CAMERA):Overlay1:1:SizeX_RBV</pv_name><x>150</x><y>658</y><width>100</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>s8</name><text>Overlay SizeY</text><x>34</x><y>694</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>osy</name><pv_name>$(CAMERA):Overlay1:1:SizeY_RBV</pv_name><x>150</x><y>690</y><width>100</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>s9</name><text>HMIR RBV</text><x>34</x><y>748</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>mxrbv</name><pv_name>$(MOTX).RBV</pv_name><x>150</x><y>744</y><width>100</width><height>26</height><precision>4</precision></widget>
+  <widget type="label" version="2.0.0"><name>s10</name><text>VMIR RBV</text><x>34</x><y>780</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>myrbv</name><pv_name>$(MOTY).RBV</pv_name><x>150</x><y>776</y><width>100</width><height>26</height><precision>4</precision></widget>
+  <widget type="label" version="2.0.0"><name>s11</name><text>DMOV X/Y</text><x>34</x><y>812</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>dmovx</name><pv_name>$(MOTX).DMOV</pv_name><x>150</x><y>808</y><width>45</width><height>26</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>dmovy</name><pv_name>$(MOTY).DMOV</pv_name><x>205</x><y>808</y><width>45</width><height>26</height></widget>
+  <widget type="embedded" version="2.0.0">
+    <name>camera-view</name>
+    <file>../epik8s-opi/unicam-opi/Camera_ColorImagePanel.bob</file>
+    <x>420</x>
+    <y>72</y>
+    <width>720</width>
+    <height>610</height>
+    <resize>0</resize>
+    <macros>
+      <DEVICE>$(DEVICE)</DEVICE>
+      <CAM>$(CAM)</CAM>
+      <DID>BEAMCENTER</DID>
+    </macros>
+  </widget>
+  <widget type="rectangle" version="2.0.0"><name>algo-bg</name><x>1160</x><y>72</y><width>360</width><height>832</height><background_color><color red="250" green="250" blue="250"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>algo-title</name><text>Algorithm Visualization</text><x>1178</x><y>88</y><width>260</width><height>24</height><font><font family="Liberation Sans" style="BOLD" size="18.0"></font></font></widget>
+
+  <widget type="rectangle" version="2.0.0"><name>a1b</name><x>1180</x><y>130</y><width>320</width><height>94</height><background_color><color red="238" green="246" blue="255"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>a1t</name><text>1. Read beam centroid</text><x>1194</x><y>142</y><width>200</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="15.0"></font></font></widget>
+  <widget type="label" version="2.0.0"><name>a1l</name><text>CX / CY</text><x>1196</x><y>176</y><width>80</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>a1x</name><pv_name>$(CAMERA):Stats1:CentroidX_RBV</pv_name><x>1288</x><y>172</y><width>84</width><height>26</height><precision>1</precision></widget>
+  <widget type="textupdate" version="2.0.0"><name>a1y</name><pv_name>$(CAMERA):Stats1:CentroidY_RBV</pv_name><x>1380</x><y>172</y><width>84</width><height>26</height><precision>1</precision></widget>
+
+  <widget type="label" version="2.0.0"><name>arrow1</name><text>--&gt;</text><x>1330</x><y>228</y><width>60</width><height>24</height><font><font family="Liberation Sans" style="BOLD" size="18.0"></font></font></widget>
+
+  <widget type="rectangle" version="2.0.0"><name>a2b</name><x>1180</x><y>258</y><width>320</width><height>112</height><background_color><color red="244" green="250" blue="236"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>a2t</name><text>2. Read overlay geometry</text><x>1194</x><y>270</y><width>220</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="15.0"></font></font></widget>
+  <widget type="label" version="2.0.0"><name>a2l1</name><text>PosX / PosY</text><x>1196</x><y>304</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>a2x</name><pv_name>$(CAMERA):Overlay1:1:PositionX_RBV</pv_name><x>1300</x><y>300</y><width>72</width><height>26</height><precision>0</precision></widget>
+  <widget type="textupdate" version="2.0.0"><name>a2y</name><pv_name>$(CAMERA):Overlay1:1:PositionY_RBV</pv_name><x>1380</x><y>300</y><width>72</width><height>26</height><precision>0</precision></widget>
+  <widget type="label" version="2.0.0"><name>a2l2</name><text>SizeX / SizeY</text><x>1196</x><y>336</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>a2sx</name><pv_name>$(CAMERA):Overlay1:1:SizeX_RBV</pv_name><x>1300</x><y>332</y><width>72</width><height>26</height><precision>0</precision></widget>
+  <widget type="textupdate" version="2.0.0"><name>a2sy</name><pv_name>$(CAMERA):Overlay1:1:SizeY_RBV</pv_name><x>1380</x><y>332</y><width>72</width><height>26</height><precision>0</precision></widget>
+
+  <widget type="label" version="2.0.0"><name>arrow2</name><text>--&gt;</text><x>1330</x><y>374</y><width>60</width><height>24</height><font><font family="Liberation Sans" style="BOLD" size="18.0"></font></font></widget>
+
+  <widget type="rectangle" version="2.0.0"><name>a3b</name><x>1180</x><y>404</y><width>320</width><height>94</height><background_color><color red="255" green="244" blue="230"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>a3t</name><text>3. Compute error = target - beam</text><x>1194</x><y>416</y><width>250</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="15.0"></font></font></widget>
+  <widget type="label" version="2.0.0"><name>a3l</name><text>errX / errY</text><x>1196</x><y>450</y><width>90</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>a3x</name><pv_name>$(PREFIX):errX</pv_name><x>1300</x><y>446</y><width>72</width><height>26</height><precision>1</precision></widget>
+  <widget type="textupdate" version="2.0.0"><name>a3y</name><pv_name>$(PREFIX):errY</pv_name><x>1380</x><y>446</y><width>72</width><height>26</height><precision>1</precision></widget>
+
+  <widget type="label" version="2.0.0"><name>arrow3</name><text>--&gt;</text><x>1330</x><y>502</y><width>60</width><height>24</height><font><font family="Liberation Sans" style="BOLD" size="18.0"></font></font></widget>
+
+  <widget type="rectangle" version="2.0.0"><name>a4b</name><x>1180</x><y>532</y><width>320</width><height>94</height><background_color><color red="244" green="236" blue="255"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>a4t</name><text>4. Apply gain and tolerance</text><x>1194</x><y>544</y><width>220</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="15.0"></font></font></widget>
+  <widget type="label" version="2.0.0"><name>a4l</name><text>gainX gainY tol</text><x>1196</x><y>578</y><width>110</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>a4gx</name><pv_name>$(PREFIX):gain_x</pv_name><x>1310</x><y>574</y><width>50</width><height>26</height><precision>4</precision></widget>
+  <widget type="textupdate" version="2.0.0"><name>a4gy</name><pv_name>$(PREFIX):gain_y</pv_name><x>1368</x><y>574</y><width>50</width><height>26</height><precision>4</precision></widget>
+  <widget type="textupdate" version="2.0.0"><name>a4tol</name><pv_name>$(PREFIX):tolerance</pv_name><x>1426</x><y>574</y><width>50</width><height>26</height><precision>1</precision></widget>
+
+  <widget type="label" version="2.0.0"><name>arrow4</name><text>--&gt;</text><x>1330</x><y>630</y><width>60</width><height>24</height><font><font family="Liberation Sans" style="BOLD" size="18.0"></font></font></widget>
+
+  <widget type="rectangle" version="2.0.0"><name>a5b</name><x>1180</x><y>660</y><width>320</width><height>104</height><background_color><color red="236" green="248" blue="248"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>a5t</name><text>5. Move motors and wait DMOV</text><x>1194</x><y>672</y><width>230</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="15.0"></font></font></widget>
+  <widget type="label" version="2.0.0"><name>a5l1</name><text>X RBV / DMOV</text><x>1196</x><y>706</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>a5mx</name><pv_name>$(MOTX).RBV</pv_name><x>1300</x><y>702</y><width>84</width><height>26</height><precision>4</precision></widget>
+  <widget type="textupdate" version="2.0.0"><name>a5dx</name><pv_name>$(MOTX).DMOV</pv_name><x>1392</x><y>702</y><width>42</width><height>26</height></widget>
+  <widget type="label" version="2.0.0"><name>a5l2</name><text>Y RBV / DMOV</text><x>1196</x><y>736</y><width>100</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>a5my</name><pv_name>$(MOTY).RBV</pv_name><x>1300</x><y>732</y><width>84</width><height>26</height><precision>4</precision></widget>
+  <widget type="textupdate" version="2.0.0"><name>a5dy</name><pv_name>$(MOTY).DMOV</pv_name><x>1392</x><y>732</y><width>42</width><height>26</height></widget>
+
+  <widget type="rectangle" version="2.0.0"><name>a6b</name><x>1180</x><y>790</y><width>320</width><height>94</height><background_color><color red="250" green="240" blue="240"></color></background_color></widget>
+  <widget type="label" version="2.0.0"><name>a6t</name><text>6. Stop when converged</text><x>1194</x><y>802</y><width>220</width><height>22</height><font><font family="Liberation Sans" style="BOLD" size="15.0"></font></font></widget>
+  <widget type="label" version="2.0.0"><name>a6l</name><text>Status</text><x>1196</x><y>838</y><width>70</width><height>22</height></widget>
+  <widget type="textupdate" version="2.0.0"><name>a6s</name><pv_name>$(PREFIX):status</pv_name><x>1270</x><y>834</y><width>180</width><height>26</height></widget>
+
+  <widget type="action_button" version="3.0.0">
+    <name>open-camera</name>
+    <text>Open Camera Screen</text>
+    <x>420</x>
+    <y>698</y>
+    <width>180</width>
+    <height>32</height>
+    <actions>
+      <action type="open_display">
+        <description>Open camera</description>
+        <macros>
+          <P>$(DEVICE)</P>
+          <R>$(CAM)</R>
+          <NAME>$(CAM)</NAME>
+          <DEVICE>$(DEVICE)</DEVICE>
+          <CAM>$(CAM)</CAM>
+          <TYPE>camera</TYPE>
+          <ZONE>SIMLAB</ZONE>
+          <HW>camera</HW>
+          <HCAM>$(CAMERA):cam1:</HCAM>
+          <HDEVICE>$(CAMERA):</HDEVICE>
+          <HIMAGE>$(CAMERA):image1:</HIMAGE>
+          <HPROC>$(CAMERA):Proc1:</HPROC>
+          <HROI>$(CAMERA):ROI1:</HROI>
+          <HSTATS>$(CAMERA):Stats1:</HSTATS>
+          <HTRANS>$(CAMERA):Trans1:</HTRANS>
+          <OPI>Camera_Main.bob</OPI>
+        </macros>
+        <file>../epik8s-opi/unicam-opi/Camera_Main.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <background_color><color red="60" green="120" blue="200"></color></background_color>
+    <foreground_color><color red="255" green="255" blue="255"></color></foreground_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>open-motx</name>
+    <text>Open HMIR</text>
+    <x>618</x>
+    <y>698</y>
+    <width>120</width>
+    <height>32</height>
+    <actions>
+      <action type="open_display">
+        <description>Open HMIR</description>
+        <macros>
+          <P>$(MOTX_P)</P>
+          <R>$(MOTX_R)</R>
+        </macros>
+        <file>../epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <background_color><color red="30" green="110" blue="60"></color></background_color>
+    <foreground_color><color red="255" green="255" blue="255"></color></foreground_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>open-moty</name>
+    <text>Open VMIR</text>
+    <x>752</x>
+    <y>698</y>
+    <width>120</width>
+    <height>32</height>
+    <actions>
+      <action type="open_display">
+        <description>Open VMIR</description>
+        <macros>
+          <P>$(MOTY_P)</P>
+          <R>$(MOTY_R)</R>
+        </macros>
+        <file>../epik8s-opi/unimot-opi/motor-asyn/Motor_Main.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <background_color><color red="30" green="110" blue="60"></color></background_color>
+    <foreground_color><color red="255" green="255" blue="255"></color></foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>note</name>
+    <text>Visualization logic: read centroid and overlay geometry, compute errX/errY in the soft IOC, scale with gain_x/gain_y, move HMIR and VMIR, stop when both errors are inside tolerance.</text>
+    <x>420</x>
+    <y>752</y>
+    <width>700</width>
+    <height>64</height>
+    <wrap_words>true</wrap_words>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0"></font>
+    </font>
+  </widget>
+</display>

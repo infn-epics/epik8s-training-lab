@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-03-25 16:57:15 by andreamichelotti-->
+<display version="2.0.0">
+  <name>MagnetChannel</name>
+  <width>660</width>
+  <height>30</height>
+  <widget type="group" version="3.0.0">
+    <name>Readout</name>
+    <x>10</x>
+    <width>350</width>
+    <height>30</height>
+    <style>2</style>
+    <line_color>
+      <color name="Grid" red="128" green="128" blue="128">
+      </color>
+    </line_color>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P):$(R):current_rb</pv_name>
+      <x>115</x>
+      <y>2</y>
+      <width>95</width>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="picture" version="2.0.0">
+      <name>Picture</name>
+      <x>221</x>
+      <y>2</y>
+      <width>40</width>
+      <height>23</height>
+      <rules>
+        <rule name="image" prop_id="file" out_exp="false">
+          <exp bool_exp="pv1==0">
+            <value>icons/icons-2407/off.png</value>
+          </exp>
+          <exp bool_exp="(pv0&lt;0)&amp;&amp;(pv1==1)">
+            <value>icons/icons-2407/neg.png</value>
+          </exp>
+          <exp bool_exp="(pv0&gt;0)&amp;&amp;(pv1==1)">
+            <value>icons/icons-2407/pos.png</value>
+          </exp>
+          <exp bool_exp="(pv0==0)||(pv1==2)">
+            <value>icons/icons-2407/open.png</value>
+          </exp>
+          <pv_name>$(P):$(R):current_rb</pv_name>
+          <pv_name>$(P):$(R):state_rb</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="symbol" version="2.0.0">
+      <name>Mode</name>
+      <pv_name>$(P):$(R):state_rb</pv_name>
+      <symbols>
+        <symbol>icons/icons-2407/off.png</symbol>
+        <symbol>icons/icons-2407/oper.png</symbol>
+        <symbol>icons/icons-2407/stby.png</symbol>
+        <symbol>icons/icons-2407/none.png</symbol>
+        <symbol>icons/icons-2407/bad.png</symbol>
+        <symbol>icons/icons-2407/fault.png</symbol>
+      </symbols>
+      <x>261</x>
+      <y>2</y>
+      <width>40</width>
+      <height>23</height>
+      <tooltip>$(pv_name)
+$(pv_value)
+$(actions)</tooltip>
+      <fallback_symbol>icons/icons-2407/fault.png</fallback_symbol>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_4</name>
+      <pv_name>$(P):$(R):state_rb</pv_name>
+      <x>301</x>
+      <y>2</y>
+      <width>40</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>$(R)</text>
+      <y>2</y>
+      <width>115</width>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>Check Box</name>
+      <pv_name>loc://unimag:selection:$(P):$(R)&lt;VLong&gt;(0)</pv_name>
+      <label></label>
+      <x>84</x>
+      <y>2</y>
+      <width>20</width>
+      <scripts>
+        
+      </scripts>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Settings</name>
+    <x>370</x>
+    <width>280</width>
+    <height>30</height>
+    <style>2</style>
+    <widget type="action_button" version="3.0.0">
+      <name>ON</name>
+      <actions>
+        <action type="write_pv">
+          <description>ON</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>ON</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):state</pv_name>
+      <x>63</x>
+      <y>1</y>
+      <width>46</width>
+      <height>25</height>
+      <rules>
+        <rule name="visibility" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;ON&quot;">
+            <value>false</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;STANDBY&quot;">
+            <value>true</value>
+          </exp>
+          <pv_name>$(P):$(R):state_rb</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>entryCurrent</name>
+      <pv_name>$(P):$(R):current</pv_name>
+      <x>2</x>
+      <y>5</y>
+      <width>61</width>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>ON_1</name>
+      <actions>
+        <action type="write_pv">
+          <description>STBY</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>STANDBY</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):state</pv_name>
+      <x>111</x>
+      <y>1</y>
+      <width>46</width>
+      <height>25</height>
+      <rules>
+        <rule name="New Rule" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;ON&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;STANDBY&quot;">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P):$(R):state_rb</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>CustomControl</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>$(OPI)</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Ctrl</text>
+      <x>209</x>
+      <y>1</y>
+      <width>60</width>
+      <height>25</height>
+      <rules>
+        <rule name="Enable" prop_id="visible" out_exp="false">
+          <exp bool_exp="pvStr0!=&quot;&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;&quot;">
+            <value>false</value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>RESET</name>
+      <actions>
+        <action type="write_pv">
+          <description>RST</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>RESET</value>
+        </action>
+      </actions>
+      <pv_name>$(P):$(R):state</pv_name>
+      <x>157</x>
+      <y>1</y>
+      <width>46</width>
+      <height>25</height>
+    </widget>
+  </widget>
+</display>

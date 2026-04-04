@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-09-07 15:45:04 by andreamichelotti-->
+<display version="2.0.0">
+  <name>IO channel</name>
+  <macros>
+    <READOUTPV>DO_RB</READOUTPV>
+    <SETPOINTPV>DO_SP</SETPOINTPV>
+    <STATUSPV>STATE_RB</STATUSPV>
+    <SETSTATUS>STATE_SP</SETSTATUS>
+  </macros>
+  <width>520</width>
+  <height>30</height>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_5</name>
+    <width>520</width>
+    <height>30</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="Grid" red="128" green="128" blue="128">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>Readout</name>
+    <pv_name>$(P):$(R):$(NAME):$(READOUTPV)</pv_name>
+    <x>160</x>
+    <y>6</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SensorName</name>
+    <text>$(NAME)</text>
+    <y>6</y>
+    <width>80</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>$(ZONE)</text>
+    <x>87</x>
+    <y>6</y>
+    <width>50</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CustomControl</name>
+    <actions>
+      <action type="open_display">
+        <description>Custom Control</description>
+        <file>$(OPI)</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Ctrl</text>
+    <x>390</x>
+    <y>6</y>
+    <width>60</width>
+    <height>20</height>
+    <rules>
+      <rule name="Enable" prop_id="visible" out_exp="false">
+        <exp bool_exp="pvStr0!=&quot;&quot;">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pvStr0==&quot;&quot;">
+          <value>false</value>
+        </exp>
+        <pv_name>$(pv_name)</pv_name>
+      </rule>
+    </rules>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>SetPoint</name>
+    <pv_name>$(P):$(R):$(NAME):$(SETPOINTPV)</pv_name>
+    <x>230</x>
+    <y>6</y>
+    <width>60</width>
+    <height>20</height>
+    <background_color>
+      <color name="Write_Background" red="128" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_confirm_dialog>false</show_confirm_dialog>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Text Update</name>
+    <text>$(TYPE)</text>
+    <x>310</x>
+    <y>6</y>
+    <width>60</width>
+    <background_color>
+      <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+  </widget>
+</display>

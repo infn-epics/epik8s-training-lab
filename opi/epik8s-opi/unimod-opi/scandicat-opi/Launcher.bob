@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Scandinova Scandicat Modulator - Launcher</name>
+  <width>300</width>
+  <height>260</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Scandinova Scandicat Modulators</text>
+    <x>10</x>
+    <y>10</y>
+    <width>280</width>
+    <height>30</height>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="18"/>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>MOD01_Button</name>
+    <actions>
+      <action type="open_display">
+        <description>MOD01 - 1200V</description>
+        <file>ScandinovaRFMod_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MOD:SCAT:MOD01</DEVICE>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>MOD01 (1200V)</text>
+    <x>50</x>
+    <y>50</y>
+    <width>200</width>
+    <height>30</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>MOD02_Button</name>
+    <actions>
+      <action type="open_display">
+        <description>MOD02 - 1200V</description>
+        <file>ScandinovaRFMod_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MOD:SCAT:MOD02</DEVICE>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>MOD02 (1200V)</text>
+    <x>50</x>
+    <y>90</y>
+    <width>200</width>
+    <height>30</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>MOD03_Button</name>
+    <actions>
+      <action type="open_display">
+        <description>MOD03 - 1200V</description>
+        <file>ScandinovaRFMod_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MOD:SCAT:MOD03</DEVICE>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>MOD03 (1200V)</text>
+    <x>50</x>
+    <y>130</y>
+    <width>200</width>
+    <height>30</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>MOD04_Button</name>
+    <actions>
+      <action type="open_display">
+        <description>MOD04 - 1270V</description>
+        <file>ScandinovaRFMod_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MOD:SCAT:MOD04</DEVICE>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>MOD04 (1270V)</text>
+    <x>50</x>
+    <y>170</y>
+    <width>200</width>
+    <height>30</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Footer</name>
+    <text>IOC Prefix: LEL:MOD:SCAT</text>
+    <x>10</x>
+    <y>210</y>
+    <width>280</width>
+    <height>20</height>
+    <font>
+      <font name="Default" family="Liberation Sans" style="REGULAR" size="12"/>
+    </font>
+    <foreground_color>
+      <color name="Text" red="128" green="128" blue="128"/>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Version_Label</name>
+    <text>Version:</text>
+    <x>10</x>
+    <y>230</y>
+    <width>60</width>
+    <height>18</height>
+    <font>
+      <font name="Default" family="Liberation Sans" style="REGULAR" size="11"/>
+    </font>
+    <foreground_color>
+      <color name="Text" red="100" green="100" blue="100"/>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Version_Value</name>
+    <pv_name>LEL:MOD:SCAT:IOC:VERSION</pv_name>
+    <x>70</x>
+    <y>230</y>
+    <width>220</width>
+    <height>18</height>
+    <font>
+      <font name="Default" family="Liberation Sans" style="REGULAR" size="11"/>
+    </font>
+    <foreground_color>
+      <color name="Text" red="100" green="100" blue="100"/>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240"/>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+</display>

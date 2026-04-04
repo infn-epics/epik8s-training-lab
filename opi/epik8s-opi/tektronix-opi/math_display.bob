@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-28 23:38:14 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>670</width>
+  <height>520</height>
+  <widget type="group" version="3.0.0">
+    <name>$(TITLE)</name>
+    <width>670</width>
+    <height>520</height>
+    <widget type="template" version="2.0.0">
+      <name>Template/Instance</name>
+      <file>math_row.bob</file>
+      <instances>
+        <instance>
+          <macros>
+            <CHAN>1</CHAN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <CHAN>2</CHAN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <CHAN>3</CHAN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <CHAN>4</CHAN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <CHAN>5</CHAN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <CHAN>6</CHAN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <CHAN>7</CHAN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <CHAN>8</CHAN>
+          </macros>
+        </instance>
+      </instances>
+      <x>2</x>
+      <y>52</y>
+      <width>624</width>
+      <height>390</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>Chan</text>
+      <x>12</x>
+      <y>22</y>
+      <width>60</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>Label</text>
+      <x>72</x>
+      <y>22</y>
+      <width>60</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>Integral</text>
+      <x>153</x>
+      <y>22</y>
+      <width>60</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_9</name>
+      <text>RMS</text>
+      <x>237</x>
+      <y>22</y>
+      <width>60</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_10</name>
+      <text>AVG</text>
+      <x>315</x>
+      <y>22</y>
+      <width>60</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>MAX</text>
+      <x>393</x>
+      <y>22</y>
+      <width>60</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_12</name>
+      <text>MIN</text>
+      <x>471</x>
+      <y>22</y>
+      <width>60</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_13</name>
+      <text>Sen</text>
+      <x>552</x>
+      <y>22</y>
+      <width>60</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+</display>

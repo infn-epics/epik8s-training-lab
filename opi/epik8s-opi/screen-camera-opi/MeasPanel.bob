@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-08-19 09:30:27 by riccardo-->
+<display version="2.0.0">
+  <name>MeasPanel</name>
+  <width>240</width>
+  <height>280</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Measurement Panel</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>240</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_6</name>
+    <actions>
+      <action type="command">
+        <description>Run Matlab Script</description>
+        <command>matlab -nodesktop -nosplash -r "SaveWorkingPoint(); exit;"</command>
+      </action>
+    </actions>
+    <text>Save Working Point</text>
+    <x>10</x>
+    <y>40</y>
+    <width>220</width>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_7</name>
+    <actions>
+      <action type="command">
+        <description>Run Matlab Script</description>
+        <command>sh ../../matlab-tools/Scripts/uiDevScan.sh</command>
+      </action>
+    </actions>
+    <text>Device Scan</text>
+    <x>10</x>
+    <y>120</y>
+    <width>220</width>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_8</name>
+    <actions>
+      <action type="command">
+        <description>Run Matlab Script</description>
+        <command>sh ../../matlab-tools/Scripts/uiLiveAnalysis.sh</command>
+      </action>
+    </actions>
+    <text>Live Analysis</text>
+    <x>10</x>
+    <y>160</y>
+    <width>220</width>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_9</name>
+    <actions>
+      <action type="command">
+        <description>Run Matlab Script</description>
+        <command>sh ../../matlab-tools/Scripts/uiPlasmaTiming.sh</command>
+      </action>
+    </actions>
+    <text>Plasma Timing</text>
+    <x>10</x>
+    <y>200</y>
+    <width>220</width>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_10</name>
+    <actions>
+      <action type="command">
+        <description>Run Matlab Script</description>
+        <command>sh ../../matlab-tools/Scripts/uiSetFlag.sh</command>
+      </action>
+    </actions>
+    <text>Set Flag</text>
+    <x>10</x>
+    <y>240</y>
+    <width>220</width>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_11</name>
+    <actions>
+      <action type="command">
+        <description>Run Matlab Script</description>
+        <command>matlab -nodesktop -nosplash -r "LoadStatus(); exit;"</command>
+      </action>
+    </actions>
+    <text>Load Working Point</text>
+    <x>10</x>
+    <y>80</y>
+    <width>220</width>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <width>660</width>
+  <height>450</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>SPARC - RF Deflector</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="stripchart" version="2.1.0">
+    <name>Strip Chart</name>
+    <y>31</y>
+    <width>510</width>
+    <height>340</height>
+    <show_grid>true</show_grid>
+    <start>5 minute</start>
+    <y_axes>
+      <y_axis>
+        <title>Power (MW)</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+      <y_axis>
+        <title>Phase (deg)</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <y_pv>loc://rfd_power</y_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <y_pv>loc://rfd_phase</y_pv>
+        <axis>1</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>loc://rfd_power(0)</pv_name>
+    <x>610</x>
+    <y>31</y>
+    <width>50</width>
+    <background_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <precision>1</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+amp_avg=PVUtil.getDouble(pvs[0])
+power_MW=(amp_avg**2/100)/1e6   #MW
+pvs[1].write(power_MW);
+]]></text>
+        <pv_name>SPARC:LLRF1:ad2:ch4:amp_average_s.AVERAGE</pv_name>
+        <pv_name trigger="false">loc://rfd_power</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>loc://rfd_phase(0)</pv_name>
+    <x>610</x>
+    <y>51</y>
+    <width>50</width>
+    <background_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <precision>1</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+amp_avg=PVUtil.getDouble(pvs[0])
+pvs[1].write(amp_avg);
+]]></text>
+        <pv_name>SPARC:LLRF1:ad2:ch4:phase_average_s.AVERAGE</pv_name>
+        <pv_name trigger="false">loc://rfd_phase</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:MSTA.BD</pv_name>
+    <x>102</x>
+    <y>380</y>
+    <width>25</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>LSN</text>
+    <x>130</x>
+    <y>380</y>
+    <width>40</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_1</name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:MSTA.B2</pv_name>
+    <x>170</x>
+    <y>380</y>
+    <width>25</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>LSP</text>
+    <x>198</x>
+    <y>380</y>
+    <width>40</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>RFDATT01</text>
+    <y>380</y>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:RBV</pv_name>
+    <x>419</x>
+    <y>380</y>
+    <width>90</width>
+    <height>30</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="spinner" version="2.0.0">
+    <name>Spinner</name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:VAL_SP</pv_name>
+    <x>309</x>
+    <y>380</y>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <minimum>-1000000.0</minimum>
+    <maximum>1000000.0</maximum>
+    <limits_from_pv>false</limits_from_pv>
+    <increment>1000.0</increment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACT</pv_name>
+        <value>HOME</value>
+      </action>
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACTX_SP</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>HOME</text>
+    <x>593</x>
+    <y>380</y>
+    <width>65</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACT</pv_name>
+        <value>MOVE REL</value>
+      </action>
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACTX_SP</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>MOVE</text>
+    <x>520</x>
+    <y>380</y>
+    <width>65</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_2</name>
+    <pv_name>SPARC:MOT:TML:RFDATT01:MSTA.BA</pv_name>
+    <x>237</x>
+    <y>380</y>
+    <width>25</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>RUN</text>
+    <x>265</x>
+    <y>380</y>
+    <width>40</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDATT01:ACTX_SP</pv_name>
+        <value>0</value>
+      </action>
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACTX_SP</pv_name>
+        <value>0</value>
+      </action>
+    </actions>
+    <text>STOP MOT</text>
+    <x>520</x>
+    <y>320</y>
+    <width>138</width>
+    <height>50</height>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_3</name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:MSTA.BD</pv_name>
+    <x>102</x>
+    <y>416</y>
+    <width>25</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>LSN</text>
+    <x>130</x>
+    <y>416</y>
+    <width>40</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_4</name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:MSTA.B2</pv_name>
+    <x>170</x>
+    <y>416</y>
+    <width>25</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>LSP</text>
+    <x>198</x>
+    <y>416</y>
+    <width>40</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>RFDPHS01</text>
+    <y>416</y>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:RBV</pv_name>
+    <x>419</x>
+    <y>416</y>
+    <width>90</width>
+    <height>30</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="spinner" version="2.0.0">
+    <name>Spinner_1</name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:VAL_SP</pv_name>
+    <x>309</x>
+    <y>416</y>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <minimum>-1000000.0</minimum>
+    <maximum>1000000.0</maximum>
+    <limits_from_pv>false</limits_from_pv>
+    <increment>1000.0</increment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACT</pv_name>
+        <value>HOME</value>
+      </action>
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACTX_SP</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>HOME</text>
+    <x>593</x>
+    <y>416</y>
+    <width>65</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_4</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACT</pv_name>
+        <value>MOVE REL</value>
+      </action>
+      <action type="write_pv">
+        <description>Write PV</description>
+        <pv_name>SPARC:MOT:TML:RFDPHS01:ACTX_SP</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>MOVE</text>
+    <x>520</x>
+    <y>416</y>
+    <width>65</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_5</name>
+    <pv_name>SPARC:MOT:TML:RFDPHS01:MSTA.BA</pv_name>
+    <x>237</x>
+    <y>416</y>
+    <width>25</width>
+    <height>25</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>RUN</text>
+    <x>265</x>
+    <y>416</y>
+    <width>40</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>Power (MW)</text>
+    <x>520</x>
+    <y>31</y>
+    <width>90</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>Phase (deg)</text>
+    <x>520</x>
+    <y>51</y>
+    <width>90</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>NB: movements are relative</text>
+    <x>330</x>
+    <y>10</y>
+    <width>180</width>
+    <font>
+      <font name="Comment" family="Liberation Sans" style="ITALIC" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>SPARC:VAC:PTLVPC:RFDSIP01:PRES_RB</pv_name>
+    <x>520</x>
+    <y>120</y>
+    <width>138</width>
+    <height>40</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <format>2</format>
+    <precision>2</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>RFD SIP (mbar)</text>
+    <x>520</x>
+    <y>90</y>
+    <width>140</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Display</name>
+    <file>RFDswitch.bob</file>
+    <x>520</x>
+    <y>170</y>
+    <width>140</width>
+    <height>140</height>
+  </widget>
+</display>

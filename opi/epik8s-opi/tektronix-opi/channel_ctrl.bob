@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-14 13:18:32 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>310</width>
+  <height>230</height>
+  <widget type="group" version="3.0.0">
+    <name>Control $(CHAN)</name>
+    <width>310</width>
+    <height>230</height>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Label:</text>
+      <x>2</x>
+      <y>12</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Y_Scale_CH7_3</name>
+      <pv_name>$(P):LABEL_CH$(CHAN)</pv_name>
+      <x>92</x>
+      <y>12</y>
+      <width>49</width>
+      <format>1</format>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Max/samples:</text>
+      <x>2</x>
+      <y>32</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_4</name>
+      <pv_name>$(P):MAXSAMPLES_CH$(CHAN)</pv_name>
+      <x>92</x>
+      <y>32</y>
+      <width>49</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Y_Scale_CH8_3</name>
+      <pv_name>$(P):ReadbackPoll_$(CHAN).SCAN</pv_name>
+      <x>92</x>
+      <y>83</y>
+      <width>89</width>
+      <height>19</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>Rate:</text>
+      <x>2</x>
+      <y>83</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>Start/End:</text>
+      <x>2</x>
+      <y>52</y>
+      <width>119</width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Y_Scale_CH7_5</name>
+      <pv_name>$(P):START_SAMPLE_CH$(CHAN)</pv_name>
+      <x>92</x>
+      <y>52</y>
+      <width>50</width>
+      <format>1</format>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Y_Scale_CH7_6</name>
+      <pv_name>$(P):END_SAMPLE_CH$(CHAN)</pv_name>
+      <x>152</x>
+      <y>52</y>
+      <width>50</width>
+      <format>1</format>
+      <show_units>false</show_units>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_7</name>
+      <pv_name>$(P):SAMPLES_CH$(CHAN)</pv_name>
+      <x>152</x>
+      <y>32</y>
+      <width>49</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="write_pv">
+          <description>AcquireWindow</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):AcquireWindow_$(CHAN)</pv_name>
+      <x>152</x>
+      <y>2</y>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="8.0">
+        </font>
+      </font>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>XUnit:</text>
+      <x>2</x>
+      <y>108</y>
+      <width>50</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_10</name>
+      <pv_name>$(P):XUNIT_CH$(CHAN)</pv_name>
+      <x>132</x>
+      <y>108</y>
+      <width>49</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_11</name>
+      <pv_name>$(P):XINC_CH$(CHAN)</pv_name>
+      <x>62</x>
+      <y>108</y>
+      <width>59</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>YUnit:</text>
+      <x>2</x>
+      <y>128</y>
+      <width>50</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_12</name>
+      <pv_name>$(P):YMULT_CH$(CHAN)</pv_name>
+      <x>62</x>
+      <y>128</y>
+      <width>59</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_13</name>
+      <pv_name>$(P):YUNIT_CH$(CHAN)</pv_name>
+      <x>132</x>
+      <y>128</y>
+      <width>49</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_9</name>
+      <pv_name>$(P):MARKER_END_SAMPLE_CH$(CHAN)</pv_name>
+      <x>132</x>
+      <y>150</y>
+      <width>50</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_8</name>
+      <pv_name>$(P):MARKER_START_SAMPLE_CH$(CHAN)</pv_name>
+      <x>62</x>
+      <y>148</y>
+      <width>50</width>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>Marker:</text>
+      <x>2</x>
+      <y>150</y>
+      <width>60</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>MarkVal:</text>
+      <x>2</x>
+      <y>173</y>
+      <width>60</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_14</name>
+      <pv_name>$(P):MARKER_START_VALUE_$(CHAN)</pv_name>
+      <x>62</x>
+      <y>173</y>
+      <width>65</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Y_Scale_CH7_15</name>
+      <pv_name>$(P):MARKER_END_VALUE_$(CHAN)</pv_name>
+      <x>132</x>
+      <y>173</y>
+      <width>65</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <show_units>false</show_units>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_1</name>
+      <actions>
+        <action type="write_pv">
+          <description>ResetAcquire</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):ResetAcquire_$(CHAN)</pv_name>
+      <x>212</x>
+      <y>2</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="8.0">
+        </font>
+      </font>
+      <background_color>
+        <color name="ActiveText" red="255" green="255" blue="0">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+</display>

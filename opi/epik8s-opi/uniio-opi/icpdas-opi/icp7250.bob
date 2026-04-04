@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-09-07 19:38:02 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display-7250</name>
+  <width>770</width>
+  <height>511</height>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle</name>
+    <x>11</x>
+    <y>164</y>
+    <width>429</width>
+    <height>306</height>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Write_Background" red="128" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>ICP7250 $(P):$(R)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <file>icpversion.bob</file>
+    <y>31</y>
+    <width>180</width>
+    <height>120</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Out 1</text>
+    <x>51</x>
+    <y>225</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_1</name>
+    <pv_name>$(P):$(R):DO1_SP</pv_name>
+    <x>181</x>
+    <y>224</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Out 2</text>
+    <x>51</x>
+    <y>275</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_2</name>
+    <pv_name>$(P):$(R):DO2_SP</pv_name>
+    <x>181</x>
+    <y>274</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Out 3</text>
+    <x>51</x>
+    <y>325</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_3</name>
+    <pv_name>$(P):$(R):DO3_SP</pv_name>
+    <x>181</x>
+    <y>324</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Out 4</text>
+    <x>51</x>
+    <y>375</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_4</name>
+    <pv_name>$(P):$(R):DO4_SP</pv_name>
+    <x>181</x>
+    <y>374</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Out 0</text>
+    <x>51</x>
+    <y>175</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_5</name>
+    <pv_name>$(P):$(R):DO0_SP</pv_name>
+    <x>181</x>
+    <y>174</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Out 5</text>
+    <x>51</x>
+    <y>425</y>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_6</name>
+    <pv_name>$(P):$(R):DO5_SP</pv_name>
+    <x>181</x>
+    <y>424</y>
+    <width>140</width>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Inputs</name>
+    <x>510</x>
+    <y>31</y>
+    <width>260</width>
+    <height>480</height>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry</name>
+      <pv_name>$(P):$(R):DI0_CNT_RB</pv_name>
+      <x>72</x>
+      <y>33</y>
+      <height>24</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_1</name>
+      <pv_name>$(P):$(R):DI1_CNT_RB</pv_name>
+      <x>72</x>
+      <y>71</y>
+      <height>24</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED</name>
+      <pv_name>$(P):$(R):DI0_RB</pv_name>
+      <x>12</x>
+      <y>33</y>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_1</name>
+      <pv_name>$(P):$(R):DI1_RB</pv_name>
+      <x>12</x>
+      <y>72</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_2</name>
+      <pv_name>$(P):$(R):DI2_CNT_RB</pv_name>
+      <x>72</x>
+      <y>112</y>
+      <height>24</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_2</name>
+      <pv_name>$(P):$(R):DI2_RB</pv_name>
+      <x>12</x>
+      <y>113</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_3</name>
+      <pv_name>$(P):$(R):DI3_CNT_RB</pv_name>
+      <x>72</x>
+      <y>151</y>
+      <height>24</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_3</name>
+      <pv_name>$(P):$(R):DI3_RB</pv_name>
+      <x>12</x>
+      <y>152</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_4</name>
+      <pv_name>$(P):$(R):DI4_CNT_RB</pv_name>
+      <x>72</x>
+      <y>190</y>
+      <height>24</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_4</name>
+      <pv_name>$(P):$(R):DI4_RB</pv_name>
+      <x>12</x>
+      <y>191</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_5</name>
+      <pv_name>$(P):$(R):DI5_CNT_RB</pv_name>
+      <x>72</x>
+      <y>229</y>
+      <height>24</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_5</name>
+      <pv_name>$(P):$(R):DI5_RB</pv_name>
+      <x>12</x>
+      <y>230</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>INPUTS</text>
+      <y>1</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>COUNTERS</text>
+      <x>92</x>
+      <y>1</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_6</name>
+      <pv_name>$(P):$(R):DI6_RB</pv_name>
+      <x>12</x>
+      <y>269</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_6</name>
+      <pv_name>$(P):$(R):DI6_CNT_RB</pv_name>
+      <x>72</x>
+      <y>268</y>
+      <height>24</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_7</name>
+      <pv_name>$(P):$(R):DI7_RB</pv_name>
+      <x>12</x>
+      <y>306</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_7</name>
+      <pv_name>$(P):$(R):DI7_CNT_RB</pv_name>
+      <x>72</x>
+      <y>305</y>
+      <height>24</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_8</name>
+      <pv_name>$(P):$(R):DI8_RB</pv_name>
+      <x>12</x>
+      <y>342</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_8</name>
+      <pv_name>$(P):$(R):DI8_CNT_RB</pv_name>
+      <x>72</x>
+      <y>341</y>
+      <height>24</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_9</name>
+      <pv_name>$(P):$(R):DI9_RB</pv_name>
+      <x>12</x>
+      <y>378</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_9</name>
+      <pv_name>$(P):$(R):DI9_CNT_RB</pv_name>
+      <x>72</x>
+      <y>377</y>
+      <height>24</height>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_10</name>
+      <pv_name>$(P):$(R):DI10_RB</pv_name>
+      <x>12</x>
+      <y>412</y>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_10</name>
+      <pv_name>$(P):$(R):DI10_CNT_RB</pv_name>
+      <x>72</x>
+      <y>411</y>
+      <height>24</height>
+    </widget>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_11</name>
+    <pv_name>$(P):$(R):DO0_RB</pv_name>
+    <x>380</x>
+    <y>177</y>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_12</name>
+    <pv_name>$(P):$(R):DO1_RB</pv_name>
+    <x>380</x>
+    <y>224</y>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_13</name>
+    <pv_name>$(P):$(R):DO2_RB</pv_name>
+    <x>380</x>
+    <y>274</y>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_14</name>
+    <pv_name>$(P):$(R):DO3_RB</pv_name>
+    <x>380</x>
+    <y>324</y>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_15</name>
+    <pv_name>$(P):$(R):DO4_RB</pv_name>
+    <x>380</x>
+    <y>374</y>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_16</name>
+    <pv_name>$(P):$(R):DO0_RB</pv_name>
+    <x>380</x>
+    <y>424</y>
+  </widget>
+</display>

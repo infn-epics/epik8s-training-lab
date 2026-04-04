@@ -138,7 +138,6 @@ epicsConfiguration:
 
     - name: "overlay-real-rnd"
       devtype: softioc
-      pvaDiscovery: false
       iocprefix: "LAB:REAL:OVERLAY_RND"
       zones: 
         - REALLAB
@@ -151,7 +150,6 @@ epicsConfiguration:
 
     - name: "beam-center-real"
       devtype: softioc
-      pvaDiscovery: false
       iocprefix: "LAB:REAL:BEAM_CENTER"
       zones:
         - REALLAB

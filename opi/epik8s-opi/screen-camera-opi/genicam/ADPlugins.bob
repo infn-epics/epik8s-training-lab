@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>ADPlugins</name>
+  <x>141</x>
+  <y>292</y>
+  <width>350</width>
+  <height>80</height>
+  <background_color>
+    <color red="187" green="187" blue="187">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="label" version="2.0.0">
+    <name>text #6</name>
+    <text></text>
+    <x>122</x>
+    <y>10</y>
+    <width>0</width>
+    <height>34</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="30.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #9</name>
+    <width>350</width>
+    <height>80</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #12</name>
+    <x>122</x>
+    <y>2</y>
+    <width>107</width>
+    <height>21</height>
+    <line_color>
+      <color red="218" green="218" blue="218">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="218" green="218" blue="218">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #15</name>
+    <text>Plugins</text>
+    <x>140</x>
+    <y>3</y>
+    <width>70</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #18</name>
+    <text>File</text>
+    <x>90</x>
+    <y>29</y>
+    <width>26</width>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #21</name>
+    <text>ROI</text>
+    <x>230</x>
+    <y>29</y>
+    <width>29</width>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #24</name>
+    <actions>
+      <action type="open_display">
+        <description>netCDF file #1</description>
+        <file>NDFileNetCDF.opi</file>
+        <macros>
+          <EXT>nc</EXT>
+          <R>netCDF1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>TIFF file #1</description>
+        <file>NDFileTIFF.opi</file>
+        <macros>
+          <EXT>tif</EXT>
+          <R>$(R)TIFF1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>JPEG file #1</description>
+        <file>NDFileJPEG.opi</file>
+        <macros>
+          <EXT>jpg</EXT>
+          <R>JPEG1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>NeXus file #1</description>
+        <file>NDFileNexus.opi</file>
+        <macros>
+          <EXT>h5</EXT>
+          <R>Nexus1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Magick file #1</description>
+        <file>NDFileMagick.opi</file>
+        <macros>
+          <EXT>tif</EXT>
+          <R>Magick1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>HDF5 file #1</description>
+        <file>NDFileHDF5.opi</file>
+        <macros>
+          <EXT>h5</EXT>
+          <R>HDF1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Null file #1</description>
+        <file>NDFileNull.opi</file>
+        <macros>
+          <EXT>null</EXT>
+          <R>Null1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>JRaw file #1</description>
+        <file>NDFileJRaw.opi</file>
+        <macros>
+          <EXT>jraw</EXT>
+          <R>JRaw1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>JRaw file #2</description>
+        <file>NDFileJRaw.opi</file>
+        <macros>
+          <EXT>jraw</EXT>
+          <R>JRaw2:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>135</x>
+    <y>29</y>
+    <width>64</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #35</name>
+    <actions>
+      <action type="open_display">
+        <description>ROI #1</description>
+        <file>NDROI.opi</file>
+        <macros>
+          <R>Roi1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>ROI #2</description>
+        <file>NDROI.opi</file>
+        <macros>
+          <R>Roi2:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>ROI #3</description>
+        <file>NDROI.opi</file>
+        <macros>
+          <R>Roi3:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>ROI #4</description>
+        <file>NDROI.opi</file>
+        <macros>
+          <R>Roi4:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>ROI 1-4 combined</description>
+        <file>NDROI4.opi</file>
+        <macros>
+          <R1>ROI1:</R1>
+          <R2>ROI2:</R2>
+          <R3>ROI3:</R3>
+          <R4>ROI4:</R4>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>265</x>
+    <y>29</y>
+    <width>64</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #42</name>
+    <actions>
+      <action type="open_display">
+        <description>Common plugins</description>
+        <file>commonPlugins.opi</file>
+        <macros>
+          <P>$(P)$(R)</P>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>All</text>
+    <x>10</x>
+    <y>29</y>
+    <width>64</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #45</name>
+    <text>Stats</text>
+    <x>10</x>
+    <y>55</y>
+    <width>37</width>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #48</name>
+    <actions>
+      <action type="open_display">
+        <description>Statistics #1</description>
+        <file>NDStats.opi</file>
+        <macros>
+          <R>$(R)Stats1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Statistics #2</description>
+        <file>NDStats.opi</file>
+        <macros>
+          <R>$(R)Stats2:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Statistics #3</description>
+        <file>NDStats.opi</file>
+        <macros>
+          <R>$(R)Stats3:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Statistics #4</description>
+        <file>NDStats.opi</file>
+        <macros>
+          <R>$(R)Stats4:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Statistics #5</description>
+        <file>NDStats.opi</file>
+        <macros>
+          <R>$(R)Stats5:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Statistics 1-5</description>
+        <file>NDStats5.opi</file>
+        <macros>
+          <R1>$(R)Stats1:</R1>
+          <R2>$(R)Stats2:</R2>
+          <R3>$(R)Stats3:</R3>
+          <R4>$(R)Stats4:</R4>
+          <R5>$(R)Stats5:</R5>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>65</x>
+    <y>55</y>
+    <width>64</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #56</name>
+    <actions>
+      <action type="open_display">
+        <description>Image #1</description>
+        <file>NDStdArrays.opi</file>
+        <macros>
+          <R>$(R)image1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Pva #1</description>
+        <file>NDPva.opi</file>
+        <macros>
+          <R>$(R)Pva1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Process #1</description>
+        <file>NDProcess.opi</file>
+        <macros>
+          <R>$(R)Proc1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Transform #1</description>
+        <file>NDTransform.opi</file>
+        <macros>
+          <R>$(R)Trans1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Color convert #1</description>
+        <file>NDColorConvert.opi</file>
+        <macros>
+          <R>$(R)CC1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Color convert #2</description>
+        <file>NDColorConvert.opi</file>
+        <macros>
+          <R>$(R)CC2:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Overlay #1</description>
+        <file>NDOverlay.opi</file>
+        <macros>
+          <R>$(R)Over1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Overlays 1-8</description>
+        <file>NDOverlay8.opi</file>
+        <macros>
+          <O1>Over1:1:</O1>
+          <O2>Over1:2:</O2>
+          <O3>Over1:3:</O3>
+          <O4>Over1:4:</O4>
+          <O5>Over1:5:</O5>
+          <O6>Over1:6:</O6>
+          <O7>Over1:7:</O7>
+          <O8>Over1:8:</O8>
+          <R>Over1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Circular buffer #1</description>
+        <file>NDCircularBuff.opi</file>
+        <macros>
+          <R>$(R)CB1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>ROI Statistics #1</description>
+        <file>NDROIStat.opi</file>
+        <macros>
+          <R>$(R)ROIStat1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Attribute #1</description>
+        <file>NDPluginAttribute.opi</file>
+        <macros>
+          <R>$(R)Attr1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>FFT #1</description>
+        <file>NDFFT.opi</file>
+        <macros>
+          <R>$(R)FFT1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Scatter #1</description>
+        <file>NDScatter.opi</file>
+        <macros>
+          <R>$(R)Scatter1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Gather #1</description>
+        <file>NDGather8.opi</file>
+        <macros>
+          <R>$(R)Gather1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Codec #1</description>
+        <file>NDCodec.opi</file>
+        <macros>
+          <R>$(R)Codec1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Codec #2</description>
+        <file>NDCodec.opi</file>
+        <macros>
+          <R>$(R)Codec2:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Stream</description>
+        <file>ffmpegStream.bob</file>
+        <macros>
+          <R>$(R)Stream1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>Other #1</text>
+    <x>177</x>
+    <y>55</y>
+    <width>80</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #74</name>
+    <actions>
+      <action type="open_display">
+        <description>Image #2</description>
+        <file>NDStdArrays.opi</file>
+        <macros>
+          <R>$(R)image2:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Scan #1</description>
+        <file>scan_more.opi</file>
+        <macros>
+          <N>1</N>
+          <S>scan1</S>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Acquire Sequence</description>
+        <file>yySseq.opi</file>
+        <macros>
+          <S>AcquireSequence</S>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>devIocStats</description>
+        <file>ioc_stats_soft.opi</file>
+        <macros>
+          <ioc>$(P)</ioc>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Open CV #1</description>
+        <file>ADCompVision.opi</file>
+        <macros>
+          <R>CV1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Edge #1</description>
+        <file>NDPluginEdge.opi</file>
+        <macros>
+          <R>Edge1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>Bad Pixel #1</description>
+        <file>NDBadPixel.opi</file>
+        <macros>
+          <R>BadPix1:</R>
+        </macros>
+        <target>tab</target>
+      </action>
+      <action type="open_display">
+        <description>AS configMenu</description>
+        <file>configMenu.opi</file>
+        <macros>
+          <CONFIG>ADAutoSave</CONFIG>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>Other #2</text>
+    <x>257</x>
+    <y>55</y>
+    <width>87</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

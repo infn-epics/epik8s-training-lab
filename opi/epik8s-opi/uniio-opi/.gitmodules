@@ -1,0 +1,3 @@
+[submodule "icpdas-opi"]
+	path = icpdas-opi
+	url = ../icpdas-opi.git

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-06-06 20:32:44 by andreamichelotti-->
+<display version="2.0.0">
+  <width>1280</width>
+  <height>1024</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2</name>
+    <y>5</y>
+    <width>662</width>
+    <height>540</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle Template</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>2</x>
+      <y>46</y>
+      <width>658</width>
+      <height>492</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="VisibilityRule" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==1">
+            <value>false</value>
+          </exp>
+          <pv_name>$(DEVICE):$(IMAGE):EnableCallbacks</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="image" version="2.0.0">
+      <name>$(orientation) Image</name>
+      <pv_name>$(DEVICE):$(IMAGE):ArrayData</pv_name>
+      <y>44</y>
+      <width>662</width>
+      <height>496</height>
+      <background_color>
+        <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+        </color>
+      </background_color>
+      <foreground_color>
+        <color name="IO InputPV Fg" red="0" green="32" blue="92">
+        </color>
+      </foreground_color>
+      <color_map>
+        <name>GRAY</name>
+      </color_map>
+      <color_bar>
+        <visible>false</visible>
+        <bar_size>40</bar_size>
+        <scale_font>
+          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </scale_font>
+      </color_bar>
+      <x_axis>
+        <visible>false</visible>
+        <title>X Axis</title>
+        <minimum>0.0</minimum>
+        <maximum>1024.0</maximum>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+      </x_axis>
+      <y_axis>
+        <visible>false</visible>
+        <title>Y Axis</title>
+        <minimum>1024.0</minimum>
+        <maximum>0.0</maximum>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+      </y_axis>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="data_width_rule" prop_id="data_width" out_exp="true">
+          <exp bool_exp="true">
+            <expression>pv0</expression>
+          </exp>
+          <pv_name>$(DEVICE):$(CAM):ArraySizeX_RBV</pv_name>
+        </rule>
+        <rule name="data_height_rule" prop_id="data_height" out_exp="true">
+          <exp bool_exp="true">
+            <expression>pv0</expression>
+          </exp>
+          <pv_name>$(DEVICE):$(CAM):ArraySizeY_RBV</pv_name>
+        </rule>
+      </rules>
+      <scripts>
+        <script file="Scripts/FakeColor.js">
+          <pv_name>loc://FakeColor_$(DID)(0)</pv_name>
+        </script>
+        <script file="Scripts/CameraMode.js">
+          <pv_name>$(DEVICE):$(CAM):DataType_RBV</pv_name>
+        </script>
+      </scripts>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <data_width>1024</data_width>
+      <data_height>1024</data_height>
+      <autoscale>false</autoscale>
+      <maximum>256.0</maximum>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button Template_1</name>
+      <pv_name>$(DEVICE):$(IMAGE):EnableCallbacks</pv_name>
+      <x>131</x>
+      <height>40</height>
+      <off_label>OFF</off_label>
+      <off_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </off_color>
+      <on_label>ON</on_label>
+      <on_color>
+        <color red="30" green="210" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template</name>
+      <text>Image Display</text>
+      <x>7</x>
+      <y>10</y>
+      <width>113</width>
+      <height>19</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button Template_1</name>
+      <pv_name>loc://FakeColor_$(DID)(0)</pv_name>
+      <x>555</x>
+      <height>40</height>
+      <off_label>OFF</off_label>
+      <off_color>
+        <color name="IO PV OFF" red="77" green="77" blue="77">
+        </color>
+      </off_color>
+      <on_label>ON</on_label>
+      <on_color>
+        <color red="30" green="210" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label Template_1</name>
+      <text>Color Mapping</text>
+      <x>427</x>
+      <y>10</y>
+      <width>115</width>
+      <height>19</height>
+      <font>
+        <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Background" red="255" green="255" blue="205">
+        </color>
+      </background_color>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+      <border_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+</display>

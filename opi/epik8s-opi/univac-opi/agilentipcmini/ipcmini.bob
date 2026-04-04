@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-05-16 14:31:26 by andreamichelotti-->
+<display version="2.0.0">
+  <name>IPCMini Vacuum Controller - $(P):$(R)</name>
+  <x>481</x>
+  <y>54</y>
+  <height>700</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Title Banner_3</name>
+    <text>IPCMini - $(R)</text>
+    <width>800</width>
+    <height>45</height>
+    <font>
+      <font name="STAR Title Bar" family="Noto Sans" style="REGULAR" size="23.762376237623762">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="STAR Vacuum Title" red="202" green="223" blue="159">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container</name>
+    <macros>
+      <LABEL>V Target</LABEL>
+      <PV_RB>$(P):$(R):VOLTTGT_RB</PV_RB>
+      <PV_SP>$(P):$(R):VOLTTGT_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_spinner.bob</file>
+    <y>309</y>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_1</name>
+    <macros>
+      <LABEL>I Protect</LABEL>
+      <PV_RB>$(P):$(R):PROTCURR_RB</PV_RB>
+      <PV_SP>$(P):$(R):PROTCURR_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_spinner.bob</file>
+    <y>342</y>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_2</name>
+    <macros>
+      <LABEL>Power Max</LABEL>
+      <PV_RB>$(P):$(R):MAXPWR_RB</PV_RB>
+      <PV_SP>$(P):$(R):MAXPWR_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_spinner.bob</file>
+    <y>276</y>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>ENABLE HV</name>
+    <macros>
+      <LABEL>Enable HV</LABEL>
+      <PV_RB>$(P):$(R):STATUS_RB</PV_RB>
+      <PV_SP>$(P):$(R):STATUS_SP</PV_SP>
+    </macros>
+    <file>widget-library/readback_choice.bob</file>
+    <y>45</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_7</name>
+    <macros>
+      <LABEL>Status</LABEL>
+      <PV_RB>$(P):$(R):STAT_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback.bob</file>
+    <x>399</x>
+    <y>45</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_12</name>
+    <macros>
+      <LABEL>Setpoint</LABEL>
+      <PV_RB>$(P):$(R):STPT_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback_engineering.bob</file>
+    <y>375</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Pressure_RB</name>
+    <macros>
+      <LABEL>Pressure</LABEL>
+      <PV_RB>$(P):$(R):PRES_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback_engineering.bob</file>
+    <y>78</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Temp Contr</name>
+    <macros>
+      <LABEL>Temp CTRL</LABEL>
+      <PV_RB>$(P):$(R):TEMPCONTR_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback.bob</file>
+    <y>210</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Temp PWR</name>
+    <macros>
+      <LABEL>Temp PWR</LABEL>
+      <PV_RB>$(P):$(R):TEMPPWR_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback.bob</file>
+    <y>177</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_23</name>
+    <macros>
+      <LABEL>Setpoint STS</LABEL>
+      <PV_RB>$(P):$(R):STPTSTAT_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback.bob</file>
+    <y>408</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Voltage_RB</name>
+    <macros>
+      <LABEL>Voltage</LABEL>
+      <PV_RB>$(P):$(R):VOLT_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback.bob</file>
+    <y>111</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Current RB</name>
+    <macros>
+      <LABEL>Current</LABEL>
+      <PV_RB>$(P):$(R):CURR_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback_engineering.bob</file>
+    <y>144</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ERROR CODE</name>
+    <pv_name>$(P):$(R):ERRCODE_RB</pv_name>
+    <x>412</x>
+    <y>111</y>
+    <width>205</width>
+    <height>232</height>
+    <bitReverse>true</bitReverse>
+    <horizontal>false</horizontal>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="Major" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <font>
+      <font name="IO Normal" family="Noto Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <labels>
+      <text>N/A</text>
+      <text>N/A</text>
+      <text>Over Temperature</text>
+      <text>N/A</text>
+      <text>N/A</text>
+      <text>Interlock cable</text>
+      <text>Short Circuit</text>
+      <text>Protect</text>
+    </labels>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_26</name>
+    <macros>
+      <LABEL>Device Num</LABEL>
+      <PV_RB>$(P):$(R):DEVNUMSTR_RB</PV_RB>
+    </macros>
+    <file>widget-library/readback_big.bob</file>
+    <y>243</y>
+    <height>34</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_32</name>
+    <macros>
+      <LABEL>Mode</LABEL>
+      <PV_RB>$(P):$(R):MODE_RB</PV_RB>
+      <PV_SP>$(P):$(R):MODE_SP</PV_SP>
+    </macros>
+    <file>ipcminiCtrl.opi</file>
+    <y>450</y>
+    <width>800</width>
+    <height>250</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM Label_15</name>
+    <text>ERROR BITS</text>
+    <x>414</x>
+    <y>92</y>
+    <width>99</width>
+    <height>19</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="67" green="63" blue="61">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="Black" red="67" green="63" blue="61">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <description>asynRecord.opi</description>
+        <file>asynRecord/asynRecord.opi</file>
+        <macros>
+          <P>$(P):$(R):</P>
+          <R>ASYNRECORD</R>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>asynRecord</text>
+    <x>690</x>
+    <y>48</y>
+    <width>97</width>
+    <height>27</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+</display>

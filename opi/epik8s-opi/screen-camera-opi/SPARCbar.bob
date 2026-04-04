@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>SPARCbar</name>
+  <height>400</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>SPARC Control Panel</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>RF</name>
+        <children>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>../RF/sparc-rf-opi/main.bob</file>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>RF Panel (Full)</text>
+            <x>58</x>
+            <y>172</y>
+            <width>190</width>
+            <height>50</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_6</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>../RF/sparc-rf-opi/LLRFs_panel.bob</file>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>RF Panel (Compact)</text>
+            <x>58</x>
+            <y>112</y>
+            <width>190</width>
+            <height>50</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Timing</name>
+        <children>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_7</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>../timing/phoebus_mrf_interface/evr/delay-app.bob</file>
+                <macros>
+                  <P>MRF01:evr</P>
+                  <TITLE>Receiver 0</TITLE>
+                  <MASTER>MRF01:evg</MASTER>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>Receiver 0</text>
+            <x>38</x>
+            <y>32</y>
+            <width>170</width>
+            <height>50</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_8</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>../timing/phoebus_mrf_interface/evr/delay-app.bob</file>
+                <macros>
+                  <P>MRF01:evr1</P>
+                  <TITLE>Receiver 1</TITLE>
+                  <MASTER>MRF01:evg</MASTER>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>Receiver 1</text>
+            <x>38</x>
+            <y>92</y>
+            <width>170</width>
+            <height>50</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Diagnostics</name>
+        <children>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_1</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>CameraFull.bob</file>
+                <macros>
+                  <DEVICE>SPARC:CAM</DEVICE>
+                  <CAM>NULL</CAM>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>Camera Panel</text>
+            <x>18</x>
+            <y>22</y>
+            <width>170</width>
+            <height>50</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_3</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>MeasPanel.bob</file>
+                <macros>
+                  <DEVICE>SPARC:CAM</DEVICE>
+                  <CAM>NULL</CAM>
+                </macros>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>MATLAB Routines</text>
+            <x>18</x>
+            <y>202</y>
+            <width>170</width>
+            <height>50</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_4</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>RFDpanel.bob</file>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>RFD Panel</text>
+            <x>18</x>
+            <y>82</y>
+            <width>170</width>
+            <height>50</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_5</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>BCMplot.bob</file>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>BCM Panel</text>
+            <x>18</x>
+            <y>142</y>
+            <width>170</width>
+            <height>50</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Magnets</name>
+        <children>
+        </children>
+      </tab>
+      <tab>
+        <name>Vacuum</name>
+        <children>
+        </children>
+      </tab>
+      <tab>
+        <name>Plasma</name>
+        <children>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_2</name>
+            <actions>
+              <action type="open_display">
+                <description>Open Display</description>
+                <file>HVpanel.bob</file>
+                <target>window</target>
+              </action>
+            </actions>
+            <text>HV Panel</text>
+            <x>38</x>
+            <y>32</y>
+            <width>170</width>
+            <height>50</height>
+            <font>
+              <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Status</name>
+        <children>
+        </children>
+      </tab>
+    </tabs>
+    <y>31</y>
+    <width>790</width>
+    <height>359</height>
+    <active_tab>5</active_tab>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Picture_3</name>
+    <file>img/SPARC_LAB_logo.JPG</file>
+    <x>580</x>
+    <width>210</width>
+    <height>60</height>
+  </widget>
+</display>

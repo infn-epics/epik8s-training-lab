@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-11-13 16:51:42 by francesco-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>1200</width>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_1</name>
+    <x>18</x>
+    <y>379</y>
+    <width>201</width>
+    <height>191</height>
+    <line_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle</name>
+    <x>800</x>
+    <y>40</y>
+    <width>315</width>
+    <height>530</height>
+    <line_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Hazemeyer  IOCaste  : $(R)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>425</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>$(P):$(R):current_rb</pv_name>
+    <x>120</x>
+    <y>60</y>
+    <width>200</width>
+    <format>3</format>
+    <precision>5</precision>
+  </widget>
+  <widget type="stripchart" version="2.1.0">
+    <name>Strip Chart</name>
+    <x>405</x>
+    <y>40</y>
+    <width>370</width>
+    <height>259</height>
+    <show_toolbar>false</show_toolbar>
+    <y_axes>
+      <y_axis>
+        <title>Y</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <y_pv>$(P):$(R):current_rb</y_pv>
+        <axis>0</axis>
+        <trace_type>2</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Current [A]</text>
+    <x>20</x>
+    <y>58</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(P):$(R):voltage_rb</pv_name>
+    <x>120</x>
+    <y>90</y>
+    <width>200</width>
+    <format>3</format>
+    <precision>5</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Voltage [V]</text>
+    <x>20</x>
+    <y>89</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>$(P):$(R):ramp_rb</pv_name>
+    <x>220</x>
+    <y>119</y>
+    <format>3</format>
+    <precision>2</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Ramp</text>
+    <x>18</x>
+    <y>119</y>
+    <height>18</height>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>Byte Monitor</name>
+    <pv_name>$(P):$(R):statusDirect</pv_name>
+    <x>35</x>
+    <y>400</y>
+    <width>21</width>
+    <height>150</height>
+    <numBits>7</numBits>
+    <horizontal>false</horizontal>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>POWER ON</text>
+    <x>67</x>
+    <y>532</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>POWER OFF </text>
+    <x>67</x>
+    <y>510</y>
+    <width>120</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>GLOBAL FAULT</text>
+    <x>67</x>
+    <y>487</y>
+    <width>140</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>READY</text>
+    <x>67</x>
+    <y>465</y>
+    <width>130</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>REMOTE</text>
+    <x>67</x>
+    <y>444</y>
+    <width>140</width>
+    <height>19</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>LOCAL</text>
+    <x>67</x>
+    <y>421</y>
+    <width>120</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>REGULATION OK</text>
+    <x>67</x>
+    <y>401</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P):$(R):powerStatus</pv_name>
+    <x>120</x>
+    <y>148</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Status</text>
+    <x>18</x>
+    <y>147</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>Local/Remote</text>
+    <x>18</x>
+    <y>174</y>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P):$(R):accessMode</pv_name>
+    <x>121</x>
+    <y>175</y>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>$(P):$(R):global_fault</pv_name>
+    <x>127</x>
+    <y>211</y>
+    <on_color>
+      <color name="STOP" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Global FAULT</text>
+    <x>18</x>
+    <y>211</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>Ready</text>
+    <x>18</x>
+    <y>241</y>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_1</name>
+    <pv_name>$(P):$(R):ready</pv_name>
+    <x>127</x>
+    <y>241</y>
+    <on_color>
+      <color name="OK" red="0" green="255" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_2</name>
+    <pv_name>$(P):$(R):regulation_ok</pv_name>
+    <x>127</x>
+    <y>271</y>
+    <on_color>
+      <color name="OK" red="0" green="255" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>Regulation</text>
+    <x>18</x>
+    <y>271</y>
+  </widget>
+  <widget type="stripchart" version="2.1.0">
+    <name>Strip Chart_1</name>
+    <x>405</x>
+    <y>347</y>
+    <width>370</width>
+    <height>258</height>
+    <show_toolbar>false</show_toolbar>
+    <y_axes>
+      <y_axis>
+        <title>Y</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <y_pv>$(P):$(R):voltage_rb</y_pv>
+        <axis>0</axis>
+        <trace_type>2</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_16</name>
+    <text>Current</text>
+    <x>425</x>
+    <y>10</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_17</name>
+    <text>Voltage</text>
+    <x>425</x>
+    <y>299</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_18</name>
+    <text>Current  Set</text>
+    <x>18</x>
+    <y>319</y>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_19</name>
+    <text>Value Set Reg.</text>
+    <x>18</x>
+    <y>344</y>
+    <height>21</height>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(P):$(R):current_set_point_rb</pv_name>
+    <x>119</x>
+    <y>344</y>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>$(P):$(R):current_set</pv_name>
+    <x>119</x>
+    <y>320</y>
+    <precision>2</precision>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_1</name>
+    <pv_name>$(P):$(R):ramp_set</pv_name>
+    <x>118</x>
+    <y>119</y>
+    <width>82</width>
+    <precision>2</precision>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>EDM activeMessageButtonClass</name>
+    <actions>
+      <action type="write_pv">
+        <description>ON</description>
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <pv_name>$(P):$(R):power_on</pv_name>
+    <text>Power ON</text>
+    <x>240</x>
+    <y>319</y>
+    <width>120</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="cyan-31" red="0" green="224" blue="224">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>EDM activeMessageButtonClass_1</name>
+    <actions>
+      <action type="write_pv">
+        <description>ON</description>
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <pv_name>$(P):$(R):power_off</pv_name>
+    <text>Power OFF</text>
+    <x>240</x>
+    <y>343</y>
+    <width>120</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="cyan-31" red="0" green="224" blue="224">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>EDM activeMessageButtonClass_2</name>
+    <actions>
+      <action type="write_pv">
+        <description>ON</description>
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <pv_name>$(P):$(R):reset</pv_name>
+    <text>Reset Faults</text>
+    <x>240</x>
+    <y>367</y>
+    <width>120</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="cyan-31" red="0" green="224" blue="224">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>EDM activeMessageButtonClass_3</name>
+    <actions>
+      <action type="write_pv">
+        <description>ON</description>
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <pv_name>$(P):$(R):ramp_start</pv_name>
+    <text>Ramp start</text>
+    <x>240</x>
+    <y>391</y>
+    <width>120</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="cyan-31" red="0" green="224" blue="224">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>Byte Monitor_1</name>
+    <pv_name>$(P):$(R):faults1</pv_name>
+    <x>820</x>
+    <y>92</y>
+    <width>23</width>
+    <height>359</height>
+    <numBits>15</numBits>
+    <horizontal>false</horizontal>
+    <off_color>
+      <color name="OK" red="0" green="255" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_20</name>
+    <text>Faults I Reg</text>
+    <x>820</x>
+    <y>61</y>
+    <height>23</height>
+    <tooltip>Press "Reset Faults" to operate with PS</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_21</name>
+    <text>Low Water</text>
+    <x>855</x>
+    <y>165</y>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_22</name>
+    <text>Open Door</text>
+    <x>855</x>
+    <y>427</y>
+    <height>23</height>
+    <tooltip>Door fault: occur when the door is open. To perform test the switch can be locked. Close the door to use power supplies.</tooltip>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>Byte Monitor_2</name>
+    <pv_name>$(P):$(R):faults2</pv_name>
+    <x>980</x>
+    <y>91</y>
+    <width>23</width>
+    <height>359</height>
+    <numBits>15</numBits>
+    <horizontal>false</horizontal>
+    <off_color>
+      <color name="OK" red="0" green="255" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_23</name>
+    <text>Faults II Reg</text>
+    <x>980</x>
+    <y>63</y>
+    <height>23</height>
+    <tooltip>Press "Reset Faults" to operate with PS</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_24</name>
+    <text>Phase</text>
+    <x>855</x>
+    <y>403</y>
+    <height>23</height>
+    <tooltip>Phase fault: occur when phases are desynchronized or absents. Check mains input to use power supplies.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_25</name>
+    <text>Temperature</text>
+    <x>855</x>
+    <y>379</y>
+    <height>23</height>
+    <tooltip>Temp fault: occur when transformer and inductances temperature is high. Check fans and the ventilation of the room.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_26</name>
+    <text>Ambient</text>
+    <x>855</x>
+    <y>355</y>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_27</name>
+    <text>Heatsink</text>
+    <x>855</x>
+    <y>331</y>
+    <height>23</height>
+    <tooltip>Heatsink fault: occur when the heatsink temperature is high. Check fans and the ventilation of the room.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_28</name>
+    <text>Fast Fuse</text>
+    <x>855</x>
+    <y>308</y>
+    <height>23</height>
+    <tooltip>Fast fuses fault: occur when fast fuses detect an overcurrent. Check capacitors and change tuses.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_29</name>
+    <text>Not use</text>
+    <x>855</x>
+    <y>284</y>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_30</name>
+    <text>Not use</text>
+    <x>855</x>
+    <y>260</y>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_31</name>
+    <text>External 1</text>
+    <x>855</x>
+    <y>237</y>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_32</name>
+    <text>External 2</text>
+    <x>855</x>
+    <y>212</y>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_33</name>
+    <text>External 3</text>
+    <x>855</x>
+    <y>189</y>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_34</name>
+    <text>Over Voltage</text>
+    <x>1015</x>
+    <y>427</y>
+    <height>23</height>
+    <tooltip>Overvoltage fault: occur when the output voltage is over normal operating range.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_35</name>
+    <text>Over Current</text>
+    <x>1015</x>
+    <y>402</y>
+    <height>23</height>
+    <tooltip>Overcurrent fault: occur when the output current is over normal operating range.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_36</name>
+    <text>IAC</text>
+    <x>1015</x>
+    <y>378</y>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_37</name>
+    <text>Earth</text>
+    <x>1015</x>
+    <y>355</y>
+    <height>23</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_38</name>
+    <text>DCCT</text>
+    <x>1015</x>
+    <y>332</y>
+    <height>23</height>
+    <tooltip>DCCT fault: occur when the DCCT does not work normally. Check the DCCT and change it if necessary.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_39</name>
+    <text>Fan 1</text>
+    <x>1015</x>
+    <y>308</y>
+    <height>23</height>
+    <tooltip>Fan1 faults: occur when fans are broken. Check wiring and change fan.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_40</name>
+    <text>Fan 2</text>
+    <x>1015</x>
+    <y>284</y>
+    <height>23</height>
+    <tooltip>Fan2 faults: occur when fans are broken. Check wiring and change fan.</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P):$(R):SWVER</pv_name>
+    <x>1060</x>
+    <y>580</y>
+    <width>55</width>
+    <height>23</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_42</name>
+    <text>IOC Version:</text>
+    <x>980</x>
+    <y>580</y>
+    <width>83</width>
+    <height>23</height>
+    <tooltip>Press "Reset Faults" to operate with PS</tooltip>
+  </widget>
+</display>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-03-24 14:15:55 by andreamichelotti-->
+<display version="2.0.0">
+  <name>MagnetChannelSet</name>
+  <y>2</y>
+  <width>595</width>
+  <height>30</height>
+  <widget type="group" version="3.0.0">
+    <name>Settings</name>
+    <x>93</x>
+    <width>220</width>
+    <height>30</height>
+    <style>2</style>
+    <widget type="textentry" version="3.0.0">
+      <name>entryCurrent</name>
+      <pv_name>loc://apply:unimag:$(P):$(R):step</pv_name>
+      <x>67</x>
+      <y>2</y>
+      <width>60</width>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>entryCurrent_1</name>
+      <pv_name>$(P):$(R):current_rb</pv_name>
+      <x>1</x>
+      <y>2</y>
+      <width>60</width>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>entryCurrent_2</name>
+      <pv_name>loc://apply:unimag:$(P):$(R):I1</pv_name>
+      <x>152</x>
+      <y>2</y>
+      <width>60</width>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>$(R)</text>
+    <x>10</x>
+    <y>5</y>
+    <width>115</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Settings_1</name>
+    <x>370</x>
+    <width>220</width>
+    <height>30</height>
+    <style>2</style>
+    <widget type="textentry" version="3.0.0">
+      <name>entryCurrent_3</name>
+      <pv_name>loc://apply:unimag:$(P):$(R):current</pv_name>
+      <x>129</x>
+      <y>1</y>
+      <width>60</width>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>entryCurrent_4</name>
+      <pv_name>loc://apply:unimag:$(P):$(R):calcstep</pv_name>
+      <x>1</x>
+      <y>2</y>
+      <width>60</width>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+</display>

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-01-21 12:33:26 by andreamichelotti-->
+<display version="2.0.0">
+  <width>815</width>
+  <height>700</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Title Banner_3</name>
+    <text>Easy Driver - $(DEVICE)</text>
+    <width>815</width>
+    <height>45</height>
+    <font>
+      <font name="ELI-NP Title Bar" family="Noto Sans" style="REGULAR" size="23.762376237623762">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="STAR Vacuum Title" red="202" green="223" blue="159">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_1</name>
+    <macros>
+      <LABEL>Device enable</LABEL>
+      <PV_SP>$(DEVICE):MODENABLE_SP</PV_SP>
+      <PV_RB>$(DEVICE):MODENABLE_RB</PV_RB>
+    </macros>
+    <file>../widgets/readback_onoff.bob</file>
+    <x>6</x>
+    <y>42</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container</name>
+    <macros>
+      <LABEL>Slew rate mode</LABEL>
+      <PV_SP>$(DEVICE):SLEWRATEEN_SP</PV_SP>
+      <PV_RB>$(DEVICE):SLEWRATEEN_RB</PV_RB>
+    </macros>
+    <file>../widgets/readback_choice.bob</file>
+    <x>6</x>
+    <y>207</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_4</name>
+    <macros>
+      <LABEL>Current</LABEL>
+      <PV_RB>$(DEVICE):CURR_RB</PV_RB>
+      <PV_SP>$(DEVICE):SETCURR_SP</PV_SP>
+    </macros>
+    <file>../widgets/readback_setpoint.bob</file>
+    <x>6</x>
+    <y>75</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_5</name>
+    <macros>
+      <LABEL>Bulk voltage</LABEL>
+      <PV_RB>$(DEVICE):BULKVOLT_RB</PV_RB>
+    </macros>
+    <file>../widgets/readback_big.bob</file>
+    <x>6</x>
+    <y>174</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_6</name>
+    <macros>
+      <LABEL>Regulator temp</LABEL>
+      <PV_RB>$(DEVICE):REGTEMP_RB</PV_RB>
+    </macros>
+    <file>../widgets/readback_big.bob</file>
+    <x>6</x>
+    <y>240</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_7</name>
+    <macros>
+      <LABEL>Shunt temp</LABEL>
+      <PV_RB>$(DEVICE):SHUNTTEMP_RB</PV_RB>
+    </macros>
+    <file>../widgets/readback_big.bob</file>
+    <x>6</x>
+    <y>272</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_8</name>
+    <macros>
+      <LABEL>Output voltage</LABEL>
+      <PV_RB>$(DEVICE):OUTVOLT_RB</PV_RB>
+    </macros>
+    <file>../widgets/readback_big.bob</file>
+    <x>6</x>
+    <y>108</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_9</name>
+    <macros>
+      <LABEL>Generic fault</LABEL>
+      <PV_RB>$(DEVICE):GENFAULT_RB</PV_RB>
+    </macros>
+    <file>../widgets/LED_readback.bob</file>
+    <x>6</x>
+    <y>425</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_10</name>
+    <macros>
+      <LABEL>FET overtemperature</LABEL>
+      <PV_RB>$(DEVICE):FETOVERTEMP_RB</PV_RB>
+    </macros>
+    <file>../widgets/LED_readback.bob</file>
+    <x>6</x>
+    <y>458</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_11</name>
+    <macros>
+      <LABEL>Shunt overtemperature</LABEL>
+      <PV_RB>$(DEVICE):SHUNTOVERTEMP_RB</PV_RB>
+    </macros>
+    <file>../widgets/LED_readback.bob</file>
+    <x>6</x>
+    <y>492</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_12</name>
+    <macros>
+      <LABEL>DC undervoltage</LABEL>
+      <PV_RB>$(DEVICE):DCUNDERVOLT_RB</PV_RB>
+    </macros>
+    <file>../widgets/LED_readback.bob</file>
+    <x>6</x>
+    <y>525</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_13</name>
+    <macros>
+      <LABEL>Interlock 1</LABEL>
+      <PV_RB>$(DEVICE):EXTILK1_RB</PV_RB>
+    </macros>
+    <file>../widgets/LED_readback.bob</file>
+    <x>6</x>
+    <y>558</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_17</name>
+    <macros>
+      <LABEL>Version</LABEL>
+      <PV_RB>$(DEVICE):VERSION_RB</PV_RB>
+    </macros>
+    <file>../widgets/readback_big.bob</file>
+    <x>6</x>
+    <y>306</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title Banner_1</name>
+    <text>Status</text>
+    <y>348</y>
+    <width>815</width>
+    <height>35</height>
+    <font>
+      <font name="STAR Header" family="Noto Sans" style="BOLD" size="17.821782178217823">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="STAR Vacuum Title" red="202" green="223" blue="159">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Text Update Template_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>0</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(DEVICE):MODRESET_SP</pv_name>
+    <text>RESET</text>
+    <x>12</x>
+    <y>389</y>
+    <width>110</width>
+    <height>26</height>
+    <font>
+      <font name="IO Output 1" family="Noto Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_32</name>
+    <macros>
+      <LABEL>Output power</LABEL>
+      <PV_RB>$(DEVICE):OUTPWR_CALC</PV_RB>
+    </macros>
+    <file>../widgets/readback_big.bob</file>
+    <x>6</x>
+    <y>141</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_21</name>
+    <macros>
+      <LABEL></LABEL>
+      <PV_SP>$(DEVICE):EXTID_SP</PV_SP>
+      <PV_LOCK>$(DEVICE):MODENABLE_RB</PV_LOCK>
+    </macros>
+    <file>../widgets/setpoint_big_lock.bob</file>
+    <x>415</x>
+    <y>243</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_20</name>
+    <macros>
+      <LABEL>Device ID</LABEL>
+      <PV_RB>$(DEVICE):EXTID_RB</PV_RB>
+    </macros>
+    <file>../widgets/readback_big.bob</file>
+    <x>415</x>
+    <y>210</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_19</name>
+    <macros>
+      <LABEL>Interlock1 active state</LABEL>
+      <PV_SP>$(DEVICE):EXTILK1BEHAVIOR_SP</PV_SP>
+      <PV_RB>$(DEVICE):EXTILK1BEHAVIOR_RB</PV_RB>
+      <PV_LOCK>$(DEVICE):MODENABLE_RB</PV_LOCK>
+    </macros>
+    <file>../widgets/readback_choice_lock.bob</file>
+    <x>415</x>
+    <y>177</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_18</name>
+    <macros>
+      <LABEL>Slew rate</LABEL>
+      <PV_SP>$(DEVICE):SLEWRATE_SP</PV_SP>
+      <PV_RB>$(DEVICE):SLEWRATE_RB</PV_RB>
+      <PV_LOCK>$(DEVICE):MODENABLE_RB</PV_LOCK>
+    </macros>
+    <file>../widgets/readback_setpoint_lock.bob</file>
+    <x>415</x>
+    <y>144</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_16</name>
+    <macros>
+      <LABEL>Kd</LABEL>
+      <PV_SP>$(DEVICE):KD_SP</PV_SP>
+      <PV_RB>$(DEVICE):KD_RB</PV_RB>
+      <PV_LOCK>$(DEVICE):MODENABLE_RB</PV_LOCK>
+    </macros>
+    <file>../widgets/readback_setpoint_lock.bob</file>
+    <x>415</x>
+    <y>111</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_15</name>
+    <macros>
+      <LABEL>Ki</LABEL>
+      <PV_SP>$(DEVICE):KI_SP</PV_SP>
+      <PV_RB>$(DEVICE):KI_RB</PV_RB>
+      <PV_LOCK>$(DEVICE):MODENABLE_RB</PV_LOCK>
+    </macros>
+    <file>../widgets/readback_setpoint_lock.bob</file>
+    <x>415</x>
+    <y>78</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_14</name>
+    <macros>
+      <LABEL>Kp</LABEL>
+      <PV_SP>$(DEVICE):KP_SP</PV_SP>
+      <PV_RB>$(DEVICE):KP_RB</PV_RB>
+      <PV_LOCK>$(DEVICE):MODENABLE_RB</PV_LOCK>
+    </macros>
+    <file>../widgets/readback_setpoint_lock.bob</file>
+    <x>415</x>
+    <y>45</y>
+    <width>398</width>
+    <height>32</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+</display>

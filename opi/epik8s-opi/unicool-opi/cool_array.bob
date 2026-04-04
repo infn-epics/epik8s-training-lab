@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-18 23:43:42 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Cooling Array</name>
+  <width>581</width>
+  <height>590</height>
+  <actions execute_as_one="true">
+  </actions>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>Name</text>
+    <width>70</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>Readout</text>
+    <x>137</x>
+    <width>60</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Status</text>
+    <x>319</x>
+    <width>60</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>Zone</text>
+    <x>78</x>
+    <width>40</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Array_$(LCID)</name>
+    <file>cool_display.bob</file>
+    <y>20</y>
+    <width>520</width>
+    <height>570</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>dumppv</name>
+    <actions>
+      <action type="execute">
+        <description>dumppv</description>
+        <script file="Scripts/dumppv.py">
+        </script>
+      </action>
+    </actions>
+    <text>dumppv</text>
+    <x>521</x>
+    <width>60</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>SetPoint</text>
+    <x>230</x>
+    <width>60</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_16</name>
+    <text>Ctrl</text>
+    <x>460</x>
+    <width>60</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_17</name>
+    <text>StatusSet</text>
+    <x>383</x>
+    <width>65</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+</display>
