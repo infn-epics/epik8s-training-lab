@@ -86,7 +86,7 @@ epicsConfiguration:
     - name: "lasercam"
       template: "adcamera"
       iocprefix: "LAB:REAL"
-      #hostNetwork: true
+      hostNetwork: true
       zones: 
         - LAB
       networks:
