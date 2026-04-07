@@ -74,6 +74,8 @@ epicsConfiguration:
         path: .
         branch: main
         init: true
+      dataVolume:
+        hostPath: notebook_examples
       enable_ingress: true
       usegateway: true
       autosync: false
