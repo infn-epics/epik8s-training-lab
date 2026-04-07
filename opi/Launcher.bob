@@ -134,10 +134,10 @@
                     <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
                     <resize>0</resize>
                     <macros>
-                      <P>LAB:REAL:MOTOR</P>
+                      <P>LAB:REAL</P>
                       <R>HMIR</R>
                       <NAME>HMIR</NAME>
-                      <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                      <DEVICE>LAB:REAL</DEVICE>
                       <CAM>HMIR</CAM>
                       <TYPE>thorlabs</TYPE>
                       <ZONE>LAB</ZONE>
@@ -156,10 +156,10 @@
                       <action type="open_display">
                         <description>Open HMIR</description>
                         <macros>
-                          <P>LAB:REAL:MOTOR</P>
+                          <P>LAB:REAL</P>
                           <R>HMIR</R>
                           <NAME>HMIR</NAME>
-                          <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                          <DEVICE>LAB:REAL</DEVICE>
                           <CAM>HMIR</CAM>
                           <TYPE>thorlabs</TYPE>
                           <ZONE>LAB</ZONE>
@@ -206,10 +206,10 @@
                     <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
                     <resize>0</resize>
                     <macros>
-                      <P>LAB:REAL:MOTOR</P>
+                      <P>LAB:REAL</P>
                       <R>VMIR</R>
                       <NAME>VMIR</NAME>
-                      <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                      <DEVICE>LAB:REAL</DEVICE>
                       <CAM>VMIR</CAM>
                       <TYPE>thorlabs</TYPE>
                       <ZONE>LAB</ZONE>
@@ -228,10 +228,10 @@
                       <action type="open_display">
                         <description>Open VMIR</description>
                         <macros>
-                          <P>LAB:REAL:MOTOR</P>
+                          <P>LAB:REAL</P>
                           <R>VMIR</R>
                           <NAME>VMIR</NAME>
-                          <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                          <DEVICE>LAB:REAL</DEVICE>
                           <CAM>VMIR</CAM>
                           <TYPE>thorlabs</TYPE>
                           <ZONE>LAB</ZONE>
@@ -435,10 +435,10 @@
                     <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
                     <resize>0</resize>
                     <macros>
-                      <P>LAB:REAL:MOTOR</P>
+                      <P>LAB:REAL</P>
                       <R>HMIR</R>
                       <NAME>HMIR</NAME>
-                      <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                      <DEVICE>LAB:REAL</DEVICE>
                       <CAM>HMIR</CAM>
                       <TYPE>thorlabs</TYPE>
                       <ZONE>LAB</ZONE>
@@ -457,10 +457,10 @@
                       <action type="open_display">
                         <description>Open HMIR</description>
                         <macros>
-                          <P>LAB:REAL:MOTOR</P>
+                          <P>LAB:REAL</P>
                           <R>HMIR</R>
                           <NAME>HMIR</NAME>
-                          <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                          <DEVICE>LAB:REAL</DEVICE>
                           <CAM>HMIR</CAM>
                           <TYPE>thorlabs</TYPE>
                           <ZONE>LAB</ZONE>
@@ -507,10 +507,10 @@
                     <file>epik8s-opi/unimot-opi/mot_channel_asyn.bob</file>
                     <resize>0</resize>
                     <macros>
-                      <P>LAB:REAL:MOTOR</P>
+                      <P>LAB:REAL</P>
                       <R>VMIR</R>
                       <NAME>VMIR</NAME>
-                      <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                      <DEVICE>LAB:REAL</DEVICE>
                       <CAM>VMIR</CAM>
                       <TYPE>thorlabs</TYPE>
                       <ZONE>LAB</ZONE>
@@ -529,10 +529,10 @@
                       <action type="open_display">
                         <description>Open VMIR</description>
                         <macros>
-                          <P>LAB:REAL:MOTOR</P>
+                          <P>LAB:REAL</P>
                           <R>VMIR</R>
                           <NAME>VMIR</NAME>
-                          <DEVICE>LAB:REAL:MOTOR</DEVICE>
+                          <DEVICE>LAB:REAL</DEVICE>
                           <CAM>VMIR</CAM>
                           <TYPE>thorlabs</TYPE>
                           <ZONE>LAB</ZONE>
