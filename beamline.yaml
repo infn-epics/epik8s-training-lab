@@ -108,7 +108,7 @@ epicsConfiguration:
       devtype: thorlabs
       motor:
         motorType: kim
-      iocprefix: "LAB:REAL:MOTOR" 
+      iocprefix: "LAB:REAL" 
       
       zones: 
         - LAB

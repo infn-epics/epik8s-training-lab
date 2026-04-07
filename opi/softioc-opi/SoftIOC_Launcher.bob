@@ -2,7 +2,7 @@
 <display version="2.0.0">
   <name>Soft IOC Tools</name>
   <width>760</width>
-  <height>320</height>
+  <height>460</height>
   <background_color>
     <color red="237" green="236" blue="235">
     </color>
@@ -13,14 +13,14 @@
     <name>header</name>
     <width>760</width>
     <height>52</height>
-    <background_color>
-      <color red="30" green="110" blue="60">
-      </color>
-    </background_color>
     <line_color>
       <color red="30" green="110" blue="60">
       </color>
     </line_color>
+    <background_color>
+      <color red="30" green="110" blue="60">
+      </color>
+    </background_color>
   </widget>
   <widget type="label" version="2.0.0">
     <name>title</name>
@@ -74,7 +74,7 @@
   </widget>
   <widget type="label" version="2.0.0">
     <name>overlay-title</name>
-    <text>Overlay Randomizer</text>
+    <text>Overlay Randomizer SIM</text>
     <x>42</x>
     <y>128</y>
     <width>220</width>
@@ -91,15 +91,9 @@
     <y>158</y>
     <width>280</width>
     <height>42</height>
-    <wrap_words>true</wrap_words>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>open-overlay</name>
-    <text>Open Overlay Tool</text>
-    <x>42</x>
-    <y>214</y>
-    <width>180</width>
-    <height>34</height>
     <actions>
       <action type="open_display">
         <description>Open Overlay Tool</description>
@@ -107,18 +101,24 @@
         <target>window</target>
       </action>
     </actions>
-    <background_color>
-      <color red="60" green="120" blue="200">
-      </color>
-    </background_color>
+    <text>Open Overlay Tool</text>
+    <x>42</x>
+    <y>214</y>
+    <width>180</width>
+    <height>34</height>
     <foreground_color>
       <color red="255" green="255" blue="255">
       </color>
     </foreground_color>
+    <background_color>
+      <color red="60" green="120" blue="200">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="label" version="2.0.0">
     <name>beam-title</name>
-    <text>Beam Center Control</text>
+    <text>Beam Center Control SIM</text>
     <x>422</x>
     <y>128</y>
     <width>220</width>
@@ -135,15 +135,9 @@
     <y>158</y>
     <width>280</width>
     <height>42</height>
-    <wrap_words>true</wrap_words>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>open-beam-center</name>
-    <text>Open Beam Center Tool</text>
-    <x>422</x>
-    <y>214</y>
-    <width>200</width>
-    <height>34</height>
     <actions>
       <action type="open_display">
         <description>Open Beam Center Tool</description>
@@ -151,13 +145,145 @@
         <target>window</target>
       </action>
     </actions>
-    <background_color>
-      <color red="30" green="110" blue="60">
-      </color>
-    </background_color>
+    <text>Open Beam Center Tool</text>
+    <x>422</x>
+    <y>214</y>
+    <width>200</width>
+    <height>34</height>
     <foreground_color>
       <color red="255" green="255" blue="255">
       </color>
     </foreground_color>
+    <background_color>
+      <color red="30" green="110" blue="60">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>card1_1</name>
+    <x>22</x>
+    <y>300</y>
+    <width>330</width>
+    <height>160</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>card2_1</name>
+    <x>402</x>
+    <y>300</y>
+    <width>330</width>
+    <height>160</height>
+    <background_color>
+      <color red="250" green="250" blue="250">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>overlay-title_1</name>
+    <text>Overlay Randomizer REAL</text>
+    <x>42</x>
+    <y>318</y>
+    <width>258</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>overlay-desc_1</name>
+    <text>Set jitter limits and send a random target to overlay 1.</text>
+    <x>42</x>
+    <y>348</y>
+    <width>280</width>
+    <height>42</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>open-overlay_1</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Overlay Tool</description>
+        <file>OverlayRnd_Main.bob</file>
+        <macros>
+          <PREFIX>LAB:REAL:OVERLAY_RND</PREFIX>
+          <CAMERA>LAB:REAL:CAM01</CAMERA>
+          <DEVICE>LAB:REAL</DEVICE>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Open Overlay Tool</text>
+    <x>42</x>
+    <y>404</y>
+    <width>180</width>
+    <height>34</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="60" green="120" blue="200">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>beam-title_1</name>
+    <text>Beam Center Control REAL</text>
+    <x>422</x>
+    <y>318</y>
+    <width>268</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>beam-desc_1</name>
+    <text>Start and observe the closed-loop centering algorithm.</text>
+    <x>422</x>
+    <y>348</y>
+    <width>280</width>
+    <height>42</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>open-beam-center_1</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Beam Center Tool</description>
+        <file>BeamCenter_Main.bob</file>
+        <macros>
+          <PREFIX>LAB:REAL:BEAM_CENTER</PREFIX>
+          <CAMERA>LAB:REAL:CAM01</CAMERA>
+          <DEVICE>LAB:REAL</DEVICE>
+          <MOTX>LAB:REAL:HMIR</MOTX>
+          <MOTY>LAB:REAL:VMIR</MOTY>
+          <MOTX_P>LAB:REAL</MOTX_P>
+          <MOTY_P>LAB:REAL</MOTY_P>
+          <MOTX_R>HMIR</MOTX_R>
+          <MOTY_R>VMIR</MOTY_R>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Open Beam Center Tool</text>
+    <x>422</x>
+    <y>404</y>
+    <width>200</width>
+    <height>34</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="30" green="110" blue="60">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
   </widget>
 </display>
